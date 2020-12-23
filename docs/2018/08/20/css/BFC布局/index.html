@@ -11,7 +11,7 @@
     
     <link rel="icon" href="img/favicon.ico" />
      
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/blog/css/style.css">
 
 
     <!-- highlight -->
@@ -82,7 +82,7 @@
         <header class="header">
     <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
         <h3 class="invisibile">
-            <a href="/" class="logo">
+            <a href="/blog/" class="logo">
                 aaaaaAndy
             </a>
         </h3>
@@ -92,7 +92,7 @@
     <button class="ipad-menu menu">menu</button>
 
     <h1 class="title" id="main-title">
-        <a href="/" class="logo">
+        <a href="/blog/" class="logo">
             aaaaaAndy
         </a>
     </h1>
@@ -104,25 +104,25 @@
         <ul id="menu-inner" class="menu-inner">
             
             <li class="menu-inner-item">
-                <a href="/">
+                <a href="/blog/">
                     Home
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/category">
+                <a href="/blog/category">
                     Category
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/tag">
+                <a href="/blog/tag">
                     Tag
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/about">
+                <a href="/blog/about">
                     About
                 </a>
             </li>
@@ -136,7 +136,7 @@
     
     
     <h4 class="post-cat">
-        <a href="/categories/css/">
+        <a href="/blog/categories/css/">
             css
         </a>
     </h4>
@@ -182,7 +182,7 @@
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.block</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">100px</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>效果如下，两个容器外边距都是100px，但是实际上两个容器之间的边距总共只有100px</p>
-<p><img src="//images/bfc-1.png" alt="bfc-1"></p>
+<p><img src="/blog//images/bfc-1.png" alt="bfc-1"></p>
 <ol start="2">
 <li>将每一个 block 放入一个 BFC 容器中，（其实将一个 block 元素放入 BFC 容器中也行）</li>
 </ol>
@@ -191,7 +191,7 @@
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>{</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;       </span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.block</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">100px</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>给 container 添加了 overflow: hidden; 属性之后，该元素就变成了 BFC 容器，其内部的元素将不会影响到外部元素。</p>
-<p><img src="//images/bfc-2.png" alt="bfc-2"></p>
+<p><img src="/blog//images/bfc-2.png" alt="bfc-2"></p>
 <h2 id="2-清除浮动"><a href="#2-清除浮动" class="headerlink" title="2. 清除浮动"></a>2. 清除浮动</h2><ol>
 <li>浮动的元素会脱离普通文档流，也就撑不起来父元素的高度</li>
 </ol>
@@ -199,7 +199,7 @@
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>{</span><br><span class="line">    <span class="attribute">background-color</span>: gainsboro;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid gainsboro;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.block</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>如下，我们给了父元素边框 1px 的宽度，由此可以看到，内部元素添加浮动属性之后，父元素的高度只剩下了上下两个边框的高度。</p>
-<p><img src="//images/bfc-3.png" alt="bfc-3"></p>
+<p><img src="/blog//images/bfc-3.png" alt="bfc-3"></p>
 <ol start="2">
 <li>添加属性使得父元素变为 BFC 容器，解决浮动引起的问题</li>
 </ol>
@@ -207,7 +207,7 @@
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>{</span><br><span class="line">    <span class="attribute">background-color</span>: gainsboro;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid gainsboro;</span><br><span class="line">    overflow: hidden;       // 新增</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.block</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>结果如下：</p>
-<p><img src="//images/bfc-4.png" alt="bfc-4"></p>
+<p><img src="/blog//images/bfc-4.png" alt="bfc-4"></p>
 <h2 id="3-防止元素被浮动元素覆盖"><a href="#3-防止元素被浮动元素覆盖" class="headerlink" title="3. 防止元素被浮动元素覆盖"></a>3. 防止元素被浮动元素覆盖</h2><ol>
 <li>一个浮动元素覆盖了正常文档流元素</li>
 </ol>
@@ -215,7 +215,7 @@
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.float</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.block</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gainsboro;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>效果如下：</p>
-<p><img src="//images/bfc-5.png" alt="bfc-5"></p>
+<p><img src="/blog//images/bfc-5.png" alt="bfc-5"></p>
 <ol start="2">
 <li>变为 BFC 容器</li>
 </ol>
@@ -224,7 +224,7 @@
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.float</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.block</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    overflow: hidden;   // hidden</span><br><span class="line">    <span class="selector-tag">background-color</span>: <span class="selector-tag">gainsboro</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>效果如下：</p>
-<p><img src="//images/bfc-6.png" alt="bfc-6"></p>
+<p><img src="/blog//images/bfc-6.png" alt="bfc-6"></p>
 <p>该方法可用于自适应两栏布局。</p>
 <a id="more"></a>
 </body></html>

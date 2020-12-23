@@ -11,7 +11,7 @@
     
     <link rel="icon" href="img/favicon.ico" />
      
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/blog/css/style.css">
 
 
     <!-- highlight -->
@@ -82,7 +82,7 @@
         <header class="header">
     <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
         <h3 class="invisibile">
-            <a href="/" class="logo">
+            <a href="/blog/" class="logo">
                 aaaaaAndy
             </a>
         </h3>
@@ -92,7 +92,7 @@
     <button class="ipad-menu menu">menu</button>
 
     <h1 class="title" id="main-title">
-        <a href="/" class="logo">
+        <a href="/blog/" class="logo">
             aaaaaAndy
         </a>
     </h1>
@@ -104,25 +104,25 @@
         <ul id="menu-inner" class="menu-inner">
             
             <li class="menu-inner-item">
-                <a href="/">
+                <a href="/blog/">
                     Home
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/category">
+                <a href="/blog/category">
                     Category
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/tag">
+                <a href="/blog/tag">
                     Tag
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/about">
+                <a href="/blog/about">
                     About
                 </a>
             </li>
@@ -136,7 +136,7 @@
     
     
     <h4 class="post-cat">
-        <a href="/categories/react/">
+        <a href="/blog/categories/react/">
             react
         </a>
     </h4>
@@ -159,7 +159,7 @@
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Children = {</span><br><span class="line">  map,</span><br><span class="line">  forEach,</span><br><span class="line">  count,</span><br><span class="line">  toArray,</span><br><span class="line">  only,</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
 <p>其中<code>map</code>, <code>forEach</code>, <code>count</code>和数组的对应方法功能差不多, 只是在内部多了一些对<code>ReactDOM</code>的特殊处理, <code>toArray</code>方法是将类数组的<code>children</code>转为一个真正的数组, <code>only</code>方法是校验<code>children</code>是否是一个<code>ReactElement</code>, 注意, 是一个.</p>
-<h2 id="map流程图"><a href="#map流程图" class="headerlink" title="map流程图"></a>map流程图</h2><p><img src="/images/react-children-map.png" alt="react-children-map"></p>
+<h2 id="map流程图"><a href="#map流程图" class="headerlink" title="map流程图"></a>map流程图</h2><p><img src="/blog/images/react-children-map.png" alt="react-children-map"></p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapChildren</span>(<span class="params">children, func, context</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (children == <span class="literal">null</span>) {</span><br><span class="line">    <span class="keyword">return</span> children</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">const</span> result = []</span><br><span class="line">  mapIntoWithKeyPrefixInternal(children, result, <span class="literal">null</span>, func, context)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapIntoWithKeyPrefixInternal</span>(<span class="params">children, array, prefix, func, context</span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> escapedPrefix = <span class="string">''</span></span><br><span class="line">  <span class="keyword">if</span> (prefix != <span class="literal">null</span>) {</span><br><span class="line">    escapedPrefix = escapeUserProvidedKey(prefix) + <span class="string">'/'</span></span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">const</span> traverseContext = getPooledTraverseContext(</span><br><span class="line">    array,</span><br><span class="line">    escapedPrefix,</span><br><span class="line">    func,</span><br><span class="line">    context,</span><br><span class="line">  )</span><br><span class="line">  traverseAllChildren(children, mapSingleChildIntoContext, traverseContext)</span><br><span class="line">  releaseTraverseContext(traverseContext)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><code>map</code>和<code>forEach</code>的最大区别就是有没有<code>return result</code>。</p>

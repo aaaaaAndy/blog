@@ -11,7 +11,7 @@
     
     <link rel="icon" href="img/favicon.ico" />
      
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/blog/css/style.css">
 
 
     <!-- highlight -->
@@ -82,7 +82,7 @@
         <header class="header">
     <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
         <h3 class="invisibile">
-            <a href="/" class="logo">
+            <a href="/blog/" class="logo">
                 aaaaaAndy
             </a>
         </h3>
@@ -92,7 +92,7 @@
     <button class="ipad-menu menu">menu</button>
 
     <h1 class="title" id="main-title">
-        <a href="/" class="logo">
+        <a href="/blog/" class="logo">
             aaaaaAndy
         </a>
     </h1>
@@ -104,25 +104,25 @@
         <ul id="menu-inner" class="menu-inner">
             
             <li class="menu-inner-item">
-                <a href="/">
+                <a href="/blog/">
                     Home
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/category">
+                <a href="/blog/category">
                     Category
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/tag">
+                <a href="/blog/tag">
                     Tag
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/about">
+                <a href="/blog/about">
                     About
                 </a>
             </li>
@@ -136,7 +136,7 @@
     
     
     <h4 class="post-cat">
-        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+        <a href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
             浏览器
         </a>
     </h4>
@@ -155,7 +155,7 @@
     </ul>
     <div class="post-content">
         <html><head></head><body><p>前端问题多如牛毛，兼容问题更是十占其九，今天我们简单说说Chrome浏览器不支持小于12像素的问题。</p>
-<p><img src="//images/font-12.png" alt="font-12"></p>
+<p><img src="/blog//images/font-12.png" alt="font-12"></p>
 <p>以上图片从左到右分别是chrome，safari和firefox浏览器，当然，没有IE，因为mac上没有IE啊，啊哈哈哈哈哈哈。可以看出来只有在chrome上字体小于12px的没有生效，这是因为chrome认为当字体小于12px就会增加识别难度，所以设置了浏览器最小字体为12px。但是在实际的开发工作中，难免会遇到一些需求是需要实现小于12px的字体的，那么怎么解决这些问题呢？</p>
 <h2 id="1-避免字体小于12px的需求"><a href="#1-避免字体小于12px的需求" class="headerlink" title="1. 避免字体小于12px的需求"></a>1. 避免字体小于12px的需求</h2><p>当然，这一条建议属于瞎比比，但是确实是需要注意的，在UI设计的时候开发人员应该告诉UI设计师，尽量不要使用小于12px的字体，毕竟连chrome都认为字体太小，不容易辨识，我们要紧跟潮流啊。这样你就会避免这一方面的麻烦。</p>
 <h2 id="2-清除chrome的字体自动调整属性"><a href="#2-清除chrome的字体自动调整属性" class="headerlink" title="2. 清除chrome的字体自动调整属性"></a>2. 清除chrome的字体自动调整属性</h2><p>可以给页面的body元素设置 <code>-webkit-text-size-adjust:none;</code>，很不幸的是这种方法在27正式版之后的chrome中已经失效，这里就不展开介绍了，因为介绍了也没啥用啊，啊哈哈哈哈哈!</p>

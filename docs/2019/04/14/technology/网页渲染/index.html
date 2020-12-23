@@ -11,7 +11,7 @@
     
     <link rel="icon" href="img/favicon.ico" />
      
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/blog/css/style.css">
 
 
     <!-- highlight -->
@@ -82,7 +82,7 @@
         <header class="header">
     <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
         <h3 class="invisibile">
-            <a href="/" class="logo">
+            <a href="/blog/" class="logo">
                 aaaaaAndy
             </a>
         </h3>
@@ -92,7 +92,7 @@
     <button class="ipad-menu menu">menu</button>
 
     <h1 class="title" id="main-title">
-        <a href="/" class="logo">
+        <a href="/blog/" class="logo">
             aaaaaAndy
         </a>
     </h1>
@@ -104,25 +104,25 @@
         <ul id="menu-inner" class="menu-inner">
             
             <li class="menu-inner-item">
-                <a href="/">
+                <a href="/blog/">
                     Home
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/category">
+                <a href="/blog/category">
                     Category
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/tag">
+                <a href="/blog/tag">
                     Tag
                 </a>
             </li>
             
             <li class="menu-inner-item">
-                <a href="/about">
+                <a href="/blog/about">
                     About
                 </a>
             </li>
@@ -136,7 +136,7 @@
     
     
     <h4 class="post-cat">
-        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+        <a href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
             浏览器
         </a>
     </h4>
@@ -155,7 +155,7 @@
     </ul>
     <div class="post-content">
         <html><head></head><body><p>渲染引擎：能够将HTML/CSS/JavaScript文本及相应的资源文件转换成图像结果。渲染引擎的主要作用是将资源文件转化为用户可见的结果。在浏览器的发展过程中，不同的厂商开发了不同的渲染引擎，如Tridend(IE)、Gecko(FF)、WebKit(Safari,Chrome,Andriod浏览器)等。WebKit是由苹果2005年发起的一个开源项目，引起了众多公司的重视，几年间被很多公司所采用，在移动端更占据了垄断地位。更有甚者，开发出了基于WebKit的支持HTML5的web操作系统(如：Chrome OS、Web OS)。</p>
-<h1 id="1-网页渲染流程"><a href="#1-网页渲染流程" class="headerlink" title="1. 网页渲染流程"></a>1. 网页渲染流程</h1><p><img src="//images/web-render/css-render.png" alt>;</p>
+<h1 id="1-网页渲染流程"><a href="#1-网页渲染流程" class="headerlink" title="1. 网页渲染流程"></a>1. 网页渲染流程</h1><p><img src="/blog//images/web-render/css-render.png" alt>;</p>
 <p>首先是网页内容，输入到HTML解析器，HTML解析器解析，然后构建DOM树，在这期间如果遇到JavaScript代码则交给JavaScript引擎处理；如果来自CSS解析器的样式信息，构建一个内部绘图模型。该模型由布局模块计算模型内部各个元素的位置和大小信息，最后由绘图模块完成从该模型到图像的绘制。在网页渲染的过程中，大致可分为下面3个阶段。</p>
 <h2 id="1-从输入URL到生成DOM树"><a href="#1-从输入URL到生成DOM树" class="headerlink" title="1. 从输入URL到生成DOM树"></a>1. 从输入URL到生成DOM树</h2><ul>
 <li>地址栏输入URL，WebKit调用资源加载器加载相应资源；</li>
