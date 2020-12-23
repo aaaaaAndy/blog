@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/react/">
+            react
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        基础-ReactAPI
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-09-17
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="ReactAPI"><a href="#ReactAPI" class="headerlink" title="ReactAPI"></a>ReactAPI</h1><p>平时我们都说我们使用三大框架之一的<code>React</code>进行开发, 但其实大部分人都不一定知道<code>React</code>是个什么东西. 这一系列文章将从<code>React</code>底层来剖析它的基础, 思想以及运行机制.</p>
+<p><code>React</code>的核心包括<code>react</code>库和<code>react-dom</code>库,<code>react</code>仅仅1000多行代码，而<code>react-dom</code>却将近2w行. 其实 <code>react</code>库中仅仅是定义了我们的一些基础, 导出一些我们常用的API, 而<code>react-dom</code>库则包含了大部分框架逻辑.</p>
+<p>这一系列文章是在<code>React16+</code>的基础上写的, React16相较于之前的版本是核心上的一次重写，虽然主要的API都没有变化，但是增加了很多能力。并且首次引入了<code>Fiber</code>的概念，之后新的功能都是围绕<code>Fiber</code>进行实现，比如<code>AsyncMode</code>，<code>Profiler</code>等</p>
+<p>下面是<code>React</code>暴露出来的一些API: </p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Children = {</span><br><span class="line">  map,</span><br><span class="line">  forEach,</span><br><span class="line">  count,</span><br><span class="line">  toArray,</span><br><span class="line">  only,</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> {</span><br><span class="line">  Children,</span><br><span class="line">  createRef,</span><br><span class="line">  Component,</span><br><span class="line">  PureComponent,</span><br><span class="line">  createContext,</span><br><span class="line">  forwardRef,</span><br><span class="line">  lazy,</span><br><span class="line">  memo,</span><br><span class="line">  useCallback,</span><br><span class="line">  useContext,</span><br><span class="line">  useEffect,</span><br><span class="line">  useImperativeHandle,</span><br><span class="line">  useDebugValue,</span><br><span class="line">  useLayoutEffect,</span><br><span class="line">  useMemo,</span><br><span class="line">  useReducer,</span><br><span class="line">  useRef,</span><br><span class="line">  useState,</span><br><span class="line">  REACT_FRAGMENT_TYPE <span class="keyword">as</span> Fragment,</span><br><span class="line">  REACT_PROFILER_TYPE <span class="keyword">as</span> Profiler,</span><br><span class="line">  REACT_STRICT_MODE_TYPE <span class="keyword">as</span> StrictMode,</span><br><span class="line">  REACT_SUSPENSE_TYPE <span class="keyword">as</span> Suspense,</span><br><span class="line">  createElement,</span><br><span class="line">  cloneElement,</span><br><span class="line">  isValidElement,</span><br><span class="line">  ReactVersion <span class="keyword">as</span> version,</span><br><span class="line">  ReactSharedInternals <span class="keyword">as</span> __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,</span><br><span class="line">  <span class="comment">// Deprecated behind disableCreateFactory</span></span><br><span class="line">  createFactory,</span><br><span class="line">  <span class="comment">// Concurrent Mode</span></span><br><span class="line">  useTransition,</span><br><span class="line">  useDeferredValue,</span><br><span class="line">  REACT_SUSPENSE_LIST_TYPE <span class="keyword">as</span> SuspenseList,</span><br><span class="line">  withSuspenseConfig <span class="keyword">as</span> unstable_withSuspenseConfig,</span><br><span class="line">  <span class="comment">// enableBlocksAPI</span></span><br><span class="line">  block,</span><br><span class="line">  <span class="comment">// enableDeprecatedFlareAPI</span></span><br><span class="line">  useResponder <span class="keyword">as</span> DEPRECATED_useResponder,</span><br><span class="line">  createResponder <span class="keyword">as</span> DEPRECATED_createResponder,</span><br><span class="line">  <span class="comment">// enableFundamentalAPI</span></span><br><span class="line">  createFundamental <span class="keyword">as</span> unstable_createFundamental,</span><br><span class="line">  <span class="comment">// enableScopeAPI</span></span><br><span class="line">  createScope <span class="keyword">as</span> unstable_createScope,</span><br><span class="line">  <span class="comment">// enableJSXTransformAPI</span></span><br><span class="line">  jsx,</span><br><span class="line">  jsxs,</span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> jsxDEV should not be exposed as a name. We might want to move it to a different entry point.</span></span><br><span class="line">  jsxDEV,</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Children"><a href="#Children" class="headerlink" title="Children"></a>Children</h2><p>这个对象提供了一堆帮你处理<code>props.children</code>的方法，因为<code>children</code>是一个类似数组但是不是数组的数据结构，如果你要对其进行处理可以用<code>React.Children</code>外挂的方法。当你真正了解<code>React.Children</code>中方法的基础原理后, 你会先这是一个很方便很强大的API.</p>
+<h2 id="createRef"><a href="#createRef" class="headerlink" title="createRef"></a>createRef</h2><p><code>React</code>即将抛弃<code><div ref="this.ref" /></code>这种 <code>string ref</code>的写法, 将来只能用下面方式来使用<code>ref</code>:</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. createRef</span></span><br><span class="line"><span class="keyword">this</span>.ref = React.createRef();</span><br><span class="line"></span><br><span class="line"><div ref={<span class="keyword">this</span>.ref} /></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 箭头函数</span></span><br><span class="line"><div ref={(ref) => <span class="keyword">this</span>.ref = ref } /></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. useRef</span></span><br><span class="line"><span class="keyword">const</span> ref = React.useRef();</span><br><span class="line"></span><br><span class="line"><div ref={ref} /></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Component-amp-PureComponent"><a href="#Component-amp-PureComponent" class="headerlink" title="Component & PureComponent"></a>Component & PureComponent</h2><p><code>Component</code>是我们使用<code>React</code>框架的基础, 我们的类都是继承自<code>Componet</code>,而真正看过源码之后才知道,<code>Component</code>其实一个自定义的构造函数, 而<code>PureComponent</code>也是继承自<code>Component</code>, 唯一的区别是<code>PureComponent</code>的原型上多了一个标识:</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对props和state的浅比较</span></span><br><span class="line"><span class="keyword">if</span> (ctor.prototype && ctor.prototype.isPureReactComponent) {</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)</span><br><span class="line">  );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="createContext"><a href="#createContext" class="headerlink" title="createContext"></a>createContext</h2><p><code>createContext</code>是官方定稿的<code>context</code>方案，在这之前我们一直在用的老的<code>context API</code>都是React不推荐的API，现在新的API释出，官方也已经确定在17大版本会把老<code>API</code>去除。</p>
+<h2 id="forwardRef"><a href="#forwardRef" class="headerlink" title="forwardRef"></a>forwardRef</h2><p><code>forwardRef</code>是用来解决HOC组件传递<code>ref</code>的问题的，所谓HOC就是<code>Higher Order Component</code>,<code>forwardRef</code>的使用方法如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newComponent = React.forwardRef(<span class="function">(<span class="params">props, ref</span>) =></span> (</span><br><span class="line">	<WrapperComponent {...props} ref={ref}></span><br><span class="line">))</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h2><p>几个<code>use</code>开头的API是<code>React</code>新提供的针对<code>function component</code>的Hook方法,</p>
+<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>下面四个是<code>React</code>提供的组件, 在<code>React</code>包中,他们只是一个占位符, 真正的处理逻辑在<code>React-dom</code>中,在React实际检测到他们的时候会做一些特殊的处理.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">REACT_FRAGMENT_TYPE <span class="keyword">as</span> Fragment,</span><br><span class="line">REACT_PROFILER_TYPE <span class="keyword">as</span> Profiler,</span><br><span class="line">REACT_STRICT_MODE_TYPE <span class="keyword">as</span> StrictMode,</span><br><span class="line">REACT_SUSPENSE_TYPE <span class="keyword">as</span> Suspense,</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Element操作"><a href="#Element操作" class="headerlink" title="Element操作"></a>Element操作</h2><ul>
+<li><code>createElement</code> : 创建一个<code>Element</code>对象</li>
+<li><code>cloneElement</code> : 克隆一个<code>Element</code>对象</li>
+<li><code>createFactory</code> : 创建专门用来创建某一类<code>ReactElement</code>的工厂的</li>
+<li><code>isValidElement</code> : 验证是否是一个<code>ReactElement</code></li>
+</ul>
+<h2 id="jsx-amp-jsxs-amp-jsxDEV"><a href="#jsx-amp-jsxs-amp-jsxDEV" class="headerlink" title="jsx & jsxs & jsxDEV"></a>jsx & jsxs & jsxDEV</h2><p>与<code>React.createElement</code>类似, 用来创建一个<code>Element</code>对象.</p>
+<a id="more"></a></body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

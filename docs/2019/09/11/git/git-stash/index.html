@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/git/">
+            git
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Git-stash
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-09-11
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="Git-stash"><a href="#Git-stash" class="headerlink" title="Git-stash"></a>Git-stash</h1><p>我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,<code>git stash</code>就是帮我们做这样事情的一个命令 </p>
+<h2 id="1-功能"><a href="#1-功能" class="headerlink" title="1. 功能"></a>1. 功能</h2><p>备份当前工作区的内容到git栈中，并从最近的一次提交中读取相关内容，让工作区保证和上次commit的内容一致</p>
+<h2 id="2-用途"><a href="#2-用途" class="headerlink" title="2. 用途"></a>2. 用途</h2><p>主要用户临时保存当前工作进度，会把暂存区和工作区的改动保存起来。执行完这个命令后，在运行<code>git status</code>命令，就会发现当前是一个干净的工作区，没有任何改动。使用<code>git stash save 'message...'</code>可以添加一些注释</p>
+<h2 id="3-常用命令"><a href="#3-常用命令" class="headerlink" title="3. 常用命令"></a>3. 常用命令</h2><ul>
+<li>保存当前工作区的内容，并切换到上一次commit时的相关内容</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash       <span class="comment"># 保存当前工作内容，但保存message贼长，一般信息未保存线上某个分支到本地某个分支</span></span><br><span class="line">git stash save <span class="string">'xxx'</span>    <span class="comment"># 保存当前工作内容，且该条记录message为xxx</span></span><br><span class="line">git stash push -m <span class="string">'xxx'</span>;    <span class="comment"># 保存当前工作内容，且该条记录message为xxx，与上一条命令相同，只是命令必须带参数-m</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>显示git栈内所有备份，可以利用这个列表来决定从从哪个地方恢复</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果如下</span></span><br><span class="line"><span class="comment"># stash@{0}: On dev_20200320_153058: test33</span></span><br><span class="line"><span class="comment"># stash@{1}: On dev_20200320_153058: test22</span></span><br><span class="line"><span class="comment"># stash@{2}: On dev_20200320_153058: test11</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>显示做了哪些改动</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git show    <span class="comment"># 显示做了哪些改动，默认show第一个存储</span></span><br><span class="line">git show stash@{1}    <span class="comment"># 显示id为1的记录做了哪些改动,</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>从git栈中读取内容</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash pop   <span class="comment"># 将git栈中保存的最新一条修改记录弹出，即恢复之前的工作装填，并删除git栈中对应记录</span></span><br><span class="line">git stash apply     <span class="comment"># 将git栈中保存的最新一条修改记录弹出，但不删除git栈中对应记录</span></span><br><span class="line">git stash apply stash@{1}   <span class="comment"># 将git栈中对应id为stash@{1}的记录应用到工作区，但不删除git栈中的记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>删除git栈中对应记录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash drop stash@{1}    <span class="comment"># 删除对应的记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>清空git栈</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stach clear</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-骚操作"><a href="#4-骚操作" class="headerlink" title="4. 骚操作"></a>4. 骚操作</h2><ul>
+<li>暂存部分文件</li>
+</ul>
+<ol>
+<li>add 那些你不想备份的文件（例如： git add file1.js, file2.js）</li>
+<li>调用 git stash –keep-index。只会备份那些没有被add的文件。</li>
+<li>调用 git reset 取消已经add的文件的备份，继续自己的工作。</li>
+</ol>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

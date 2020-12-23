@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Jsbridge
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-09-23
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="Jsbridge"><a href="#Jsbridge" class="headerlink" title="Jsbridge"></a>Jsbridge</h1><h2 id="1-什么是JSBridge"><a href="#1-什么是JSBridge" class="headerlink" title="1. 什么是JSBridge"></a>1. 什么是JSBridge</h2><p>主要是给JavaScript调用native功能的接口，让H5可以实现调用系统原生功能，如相机，位置，话筒等。但是JSBridge的功能不单单是调用native这么简单，实际上，JSBridge就是JavaScript与native的桥梁，它的核心是构建native与非native之间消息通信的渠道，而且这个渠道是双向的。</p>
+<p>H5与native交互如下图：</p>
+<p><img src="//images/jsbridge.jpeg" alt="在这里插入图片描述"></p>
+<h2 id="2-JSBridge实现原理"><a href="#2-JSBridge实现原理" class="headerlink" title="2. JSBridge实现原理"></a>2. JSBridge实现原理</h2><p>JavaScript是运行在一个单独的JavaScript Context中，由于这些环境与原生环境天生相隔，我们可以将这种情况与 RPC（Remote Procedure Call，远程过程调用）通信进行类比，将 Native 与 JavaScript 的每次互相调用看做一次 RPC 调用。</p>
+<p>在 JSBridge 的设计中，可以把前端看做 RPC 的客户端，把 Native 端看做 RPC 的服务器端，从而 JSBridge 要实现的主要逻辑就出现了：通信调用（Native 与 JS 通信） 和句柄解析调用。</p>
+<h2 id="3-JSBridge的通信原理"><a href="#3-JSBridge的通信原理" class="headerlink" title="3. JSBridge的通信原理"></a>3. JSBridge的通信原理</h2><p>JavaScript调用native主要有两种方式：<strong><em>注入API</em></strong> 和 <strong><em>拦截UrlScheme</em></strong></p>
+<h4 id="1-注入API"><a href="#1-注入API" class="headerlink" title="1. 注入API"></a>1. 注入API</h4><p>实现方式为，通过Webview提供的接口，向JavaScript的Context（window）中注入对象或方法，让JavaScript调用时，直接执行相应的native代码，达到JavaScript调用native的目的。</p>
+<h4 id="2-拦截Url-Scheme"><a href="#2-拦截Url-Scheme" class="headerlink" title="2. 拦截Url Scheme"></a>2. 拦截Url Scheme</h4><p>实现方式为，H5端通过某种方式（例如iframe.src）发送URL Scheme请求，之后native拦截到请求，并根据URL Scheme所携带的参数进行相应的操作。</p>
+<p>这种方式有一定的缺陷：</p>
+<ul>
+<li>使用iframe.src发送请求，会有url长度的隐患</li>
+</ul>
+<blockquote>
+<p>有些方案为了规避 url 长度隐患的缺陷，在 iOS 上采用了使用 Ajax 发送同域请求的方式，并将参数放到 head 或 body 里。这样，虽然规避了 url 长度的隐患，但是 WKWebView 并不支持这样的方式。</p>
+<p>为什么选择 iframe.src 不选择 locaiton.href ？<br>因为如果通过 location.href 连续调用 Native，很容易丢失一些调用。</p>
+</blockquote>
+<ul>
+<li>创建请求，需要一定的耗时，比注入api方式实现同样的功能，耗费时间多一些</li>
+</ul>
+<h2 id="4-接口实现"><a href="#4-接口实现" class="headerlink" title="4. 接口实现"></a>4. 接口实现</h2><p>以下是我自己杜撰的接口，哈哈哈！</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// native注册在window上的方法应该是这样的</span></span><br><span class="line"><span class="built_in">window</span>.JSBridge = {</span><br><span class="line">  callHandler: <span class="function"><span class="keyword">function</span>(<span class="params">bridgeName, params, callback</span>) </span>{</span><br><span class="line">    <span class="comment">// other code...</span></span><br><span class="line">    callback && callback(data);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>一个调用JSBridge的封装：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 底层封装</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setupWebViewJavascriptBridge</span>(<span class="params">callback</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.JSBridge) {</span><br><span class="line">    <span class="keyword">return</span> callback(<span class="built_in">window</span>.JSBridge);</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.WVJBCallbacks) {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.WVJBCallbacks.push(callback);</span><br><span class="line">  }</span><br><span class="line">  <span class="built_in">window</span>.WVJBCallbacks = [callback];</span><br><span class="line">  <span class="keyword">const</span> WVJBIframe = <span class="built_in">window</span>.document.createElement(<span class="string">'iframe'</span>);</span><br><span class="line">  WVJBIframe.style.display = <span class="string">'none'</span>;</span><br><span class="line">  WVJBIframe.src = <span class="string">'wvjbscheme://__BRIDGE_LOADED__'</span>;</span><br><span class="line">  <span class="built_in">window</span>.document.documentElement.appendChild(WVJBIframe);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =></span> {</span><br><span class="line">    <span class="built_in">window</span>.document.documentElement.removeChild(WVJBIframe);</span><br><span class="line">  }, <span class="number">0</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正常调用</span></span><br><span class="line">setupWebViewJavascriptBridge(<span class="function">(<span class="params">bridge</span>) =></span> {</span><br><span class="line">  bridge.callHandler(<span class="string">'getUserInfo'</span>, {}, (data) => {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'userInfo'</span>, data);</span><br><span class="line">  })</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

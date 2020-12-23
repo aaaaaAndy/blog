@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            
+
+<!-- 文章列表 -->
+<section class="posts">
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/12/12/JavaScript/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%87%92%E5%8A%A0%E8%BD%BD/">
+                    滚动加载，懒加载
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    December 12, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>滚动加载，懒加载的实现。
+
+1. scroll计算
+思路：通过滚动条判断是否到内容底部 => 到底部后向后台请求下一页得数据 => 将请求得新数据拼接在老数据上
+
+三个关键点：
+
+ * 1：滚动条距离顶部的距离：document.documentElement.scrollTop||document.body.scrollTop
+ * 2：当前窗口内容的可视区域：document.documentElement.clientHeight || document.body.clientHeigh
+ * 3：滚动条内容的总高度：document.documentElement.scrollHeig</body></html>
+                <a href="/2019/12/12/JavaScript/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%87%92%E5%8A%A0%E8%BD%BD/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/12/10/JavaScript/JS%E8%8E%B7%E5%BE%97%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8/">
+                    JS获得浏览器窗口尺寸
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    December 10, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>有三种方法获得浏览器尺寸
+ * 对于IE, chrome, firefox, opera, safari浏览器
+
+1
+2
+
+
+var wid = window.innerHeight;
+var hei = window.innerWidth;
+
+
+ * 对于IE8, 7, 6, 5浏览器
+
+1
+2
+
+
+var wid = document.documentElement.clientWidth;
+var hei = document.documentElement.clientHeight
+
+
+ * 或者
+
+1
+2
+
+
+var wid = document.body.clientWidth;
+</body></html>
+                <a href="/2019/12/10/JavaScript/JS%E8%8E%B7%E5%BE%97%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/11/23/JavaScript/JavaScript%E9%97%AD%E5%8C%85/">
+                    JavaScript闭包
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    November 23, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>作用域
+作用域决定变量的生命周期及其可见性，当我们创建一个函数，就会生成一个新的作用域。值得一提的是在ES6之前，之后全局作用域和函数作用域，但是在ES6之后，出现的let和const可以实现块级作用域。
+
+什么是闭包
+闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是在一个函数内部创建另一个函数。
+
+由于闭包会携带包含它的函数的作用域，因此会比其他函数占用更多的内存，所以过度使用闭包可能会导致内存占用过多。
+
+闭包几种情况
+Timer
+变量x将一直存活着，直到定时器的回调执行或者被清除。
+
+1
+2
+3
+4
+5
+6
+
+
+(function autorun(){
+  let</body></html>
+                <a href="/2019/11/23/JavaScript/JavaScript%E9%97%AD%E5%8C%85/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/10/01/JavaScript/Promise%E5%AF%B9%E8%B1%A1%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">
+                    Promise对象那些事儿
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    October 1, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>Promise是异步编程的一种解决方案，比传统的解决方案————回调函数和事件————更合理和更强大。所谓promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，promise是一个对象，从它可以获取异步操作的消息。
+
+Promise对象有以下两个特点
+
+ * (1). 对象的状态不受外界的影响。Promise有三种状态：pending(进行中)、fulfilled(已成功)和rejected(已失败)。只有异步操作的结果，可以决定当前是哪一种状态，任何操作都无法改变这种状态
+ * (2). 一旦状态改变，就不会再变，任何时候都可以得到这个</body></html>
+                <a href="/2019/10/01/JavaScript/Promise%E5%AF%B9%E8%B1%A1%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/09/23/JavaScript/JavaScript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/">
+                    JavaScript执行上下文
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    September 23, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>JavaScript执行上下文
+1. 执行上下文
+对于每个执行上下文，都会有三个重要属性：变量对象、作用域链、this。
+
+1. 什么是执行上下文
+执行上下文 是评估和执行JavaScript代码的环境的抽象。可以理解为JavaScript代码是在其对应的执行上下文中执行的。
+
+执行上下文为一个对象，包含 变量对象（VO），作用域链 和 this。
+
+1
+2
+3
+4
+5
+
+
+executionContextObj = {
+  variableObject: {},
+  ScopeChain: {},
+  this: {}
+}
+
+
+2. 执行上下文的类型
+ * 全局执行上下文：这是默认的基础的上</body></html>
+                <a href="/2019/09/23/JavaScript/JavaScript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/09/23/JavaScript/Jsbridge/">
+                    Jsbridge
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    September 23, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+                <div class="post-cover">
+                    <img src="//images/jsbridge.jpeg">
+                </div>
+            
+            <div class="post-content ">
+                <html><head></head><body>Jsbridge
+1. 什么是JSBridge
+主要是给JavaScript调用native功能的接口，让H5可以实现调用系统原生功能，如相机，位置，话筒等。但是JSBridge的功能不单单是调用native这么简单，实际上，JSBridge就是JavaScript与native的桥梁，它的核心是构建native与非native之间消息通信的渠道，而且这个渠道是双向的。
+
+H5与native交互如下图：
+
+
+
+2. JSBridge实现原理
+JavaScript是运行在一个单独的JavaScript Context中，由于这些环境与原生环境天生相隔，我们可以将这种情况与 RPC（Remote </body></html>
+                <a href="/2019/09/23/JavaScript/Jsbridge/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/09/11/git/git-stash/">
+                    Git-stash
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    September 11, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>Git-stash
+我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,git stash就是帮我们做这样事情的一个命令 
+
+1. 功能
+备份当前工作区的内容到git栈中，并从最近的一次提交中读取相关内容，让工作区保证和上次commit的内容一致
+
+2. 用途
+主要用户临时保存当前工作进度，会把暂存区和工作区的改动保存起来。执行完这个命令后，在运行git status命令，就</body></html>
+                <a href="/2019/09/11/git/git-stash/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/09/02/JavaScript/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/">
+                    函数防抖与函数节流
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    September 2, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>此两种函数在平常的开发中不一定会遇到，但确实面试时经常遇到的问题，所以作为一名前端工程师还是需要掌握的。
+
+1. 函数防抖
+在用户注册时验证用户名是否被占用，很多网站为了提升用户体验，不再等待用户点击提交按钮才去校验输入内容，而是输入框有输入内容时就校验。但是这样实现会增加浏览器请求服务器的压力，所以此时函数防抖就派上用场了。函数防抖：顾名思义，就是等一系列输入操作都完成之后，一段时间内没有输入动作，再去请求服务器进行校验。具体实现如下：
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+
+
+var timer = null;   // 此处一定要是全局变量，至少不能在每次调用debou</body></html>
+                <a href="/2019/09/02/JavaScript/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/08/20/JavaScript/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5%EF%BC%88require-import%EF%BC%89/">
+                    动态引入require,import
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    August 20, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+                <div class="post-cover">
+                    <img src="//images/require-context.png">
+                </div>
+            
+            <div class="post-content ">
+                <html><head></head><body>本篇基于图片加载的基础来简单介绍require, require.context和import的区别！
+
+现如今的前端项目用webpack打包已经成为了行业趋势，然而在此模式的前提下，图片的引入是我们不可避免的问题。正常的图片引入是用img标签或者元素背景图的方式，采用这种方式的图片，webpack都能正常打包并显示。但是如果直接在js文件中定义图片路径，并赋给图片元素的话不能正常显示的，这是因为webpack打包后，会将静态资源文件放在dist/static/img下，我们的网站实际上以dist目录作为根目录，并由此加载该目录下的index.html所需的css、js、img等。而当我们在j</body></html>
+                <a href="/2019/08/20/JavaScript/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5%EF%BC%88require-import%EF%BC%89/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/2019/07/11/JavaScript/JavaScript%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5/">
+                    JavaScript同步与异步
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    July 11, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>1. 定义
+JavaScript是一个单线程的语言，就像一条流水线，但也仅仅是一条流水线，不能同时进行多个任务和流程。它之所以是单线程，与它的用途有关，作为浏览器的脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM，这决定了它只能是单线程的，否则会带来很复杂的同步问题。
+
+所谓同步和异步做事情的时候都是只有一条流水线，同步和异步的差别就在于这条流水线上各个流程的执行顺序不同。
+
+所有任务可以分成两种，同步和异步：
+
+ * 同步任务（synchronous）：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。
+ * 异步任务（asynchronous）：不进</body></html>
+                <a href="/2019/07/11/JavaScript/JavaScript%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        
+<div id="paginator" class="paginator">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">&gt;</a>
+</div>
+
+
+</section>
+
+<aside class="aside">
+    <div class="close"></div>
+<!--    <section class="aside-section">-->
+<!--        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
+
+-->
+<!--    </section>-->
+    <section class="aside-section tag">
+        
+    <h1>Tags</h1>
+
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Children/" rel="tag">Children</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Component/" rel="tag">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM%E6%A0%91/" rel="tag">DOM树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventEmitter/" rel="tag">EventEmitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntersectionObserver/" rel="tag">IntersectionObserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PureComponent/" rel="tag">PureComponent</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/add/" rel="tag">add</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/" rel="tag">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apply/" rel="tag">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bind/" rel="tag">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/call/" rel="tag">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/click/" rel="tag">click</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commitizen/" rel="tag">commitizen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commitlint/" rel="tag">commitlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fetch/" rel="tag">fetch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/" rel="tag">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/" rel="tag">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/require/" rel="tag">require</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scroll/" rel="tag">scroll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeout/" rel="tag">setTimeout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stach/" rel="tag">stach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tag/" rel="tag">tag</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/window/" rel="tag">window</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="tag">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/" rel="tag">便函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" rel="tag">全局变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" rel="tag">函数节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/" rel="tag">函数防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B1%85%E4%B8%AD/" rel="tag">居中</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/" rel="tag">布局模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99/" rel="tag">正则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E5%8A%A8/" rel="tag">滚动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/" rel="tag">滚动加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%A4%E9%95%9C/" rel="tag">滤镜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" rel="tag">盒模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E9%A1%B5/" rel="tag">网页</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E7%A8%8B3/" rel="tag">高程3</a><span class="tag-list-count">1</span></li></ul>
+
+
+    </section>
+    <section class="aside-section">
+        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020-01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018-02</a></li></ul>
+
+
+    </section>
+</aside>
+
+
+        </main>
+    </div>
+</body>
+
+</html>

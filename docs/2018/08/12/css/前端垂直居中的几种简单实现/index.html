@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/css/">
+            css
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        前端垂直居中的几种简单实现
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-08-12
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p>在前端开发尤其是web开发中会经常调整元素位置，所以经常会遇到居中问题，对于水平居中我们都知道用简单的text-align:center;就可以实现，但是对于垂直居中却并不是那么简单实现的，往往需要多条代码合作才能实现其效果。</p>
+<p>本文简单介绍几种垂直居中的方式，技术不高，水平有限，仅供参考。</p>
+<h2 id="1-不知道自己高度和父元素高度时，只要使用绝对定位就可以实现"><a href="#1-不知道自己高度和父元素高度时，只要使用绝对定位就可以实现" class="headerlink" title="1. 不知道自己高度和父元素高度时，只要使用绝对定位就可以实现"></a>1. 不知道自己高度和父元素高度时，只要使用绝对定位就可以实现</h2><p>以下代码没有插图的都是实现的效果相同，如图所示：<br><img src="//images/align-center/center.png" alt="alignCenter"></p>
+<p>当一个父元素没有明确限制高度，而只是靠着内部元素的高度撑起来其高度时，我们又要在该父元素中设置一个居中的框框就可以采取这种方式：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// html代码</span><br><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent-element-absolute"</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    enter <span class="tag"><<span class="name">br</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child-element-absolute"</span>></span><span class="tag"></<span class="name">div</span>></span></span><br><span class="line"><span class="tag"></<span class="name">div</span>></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// css代码</span><br><span class="line"><span class="selector-class">.parent-element-absolute</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.child-element-absolute</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">450px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">-o-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-在父元素下只有一个元素，且父元素设置了高度，则只需要使用相对定位即可"><a href="#2-在父元素下只有一个元素，且父元素设置了高度，则只需要使用相对定位即可" class="headerlink" title="2. 在父元素下只有一个元素，且父元素设置了高度，则只需要使用相对定位即可"></a>2. 在父元素下只有一个元素，且父元素设置了高度，则只需要使用相对定位即可</h2><p>该必须条件为该父元素下只有一个子元素。其html代码与上类似。</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// css</span><br><span class="line"><span class="selector-class">.parent-element-relative</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child-element-relative</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">450px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">-o-transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-flex布局设置垂直居中"><a href="#3-flex布局设置垂直居中" class="headerlink" title="3. flex布局设置垂直居中"></a>3. flex布局设置垂直居中</h2><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent-element-flex</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child-element-flex</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">450px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-table-cell设置垂直居中"><a href="#4-table-cell设置垂直居中" class="headerlink" title="4. table-cell设置垂直居中"></a>4. table-cell设置垂直居中</h2><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent-element-table-cell</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child-element-table-cell</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">450px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-webkit-box属性设置垂直居中"><a href="#5-webkit-box属性设置垂直居中" class="headerlink" title="5. -webkit-box属性设置垂直居中"></a>5. -webkit-box属性设置垂直居中</h2><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent-element-webkit-box</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-webkit-box-pack</span>: enter;</span><br><span class="line">    <span class="attribute">-moz-webkit-box-pack</span>: enter;</span><br><span class="line">    <span class="attribute">-ms-webkit-box-pack</span>: enter;</span><br><span class="line">    <span class="attribute">-o-webkit-box-pack</span>: enter;</span><br><span class="line">    <span class="attribute">-khtml-webkit-box-pack</span>: enter;</span><br><span class="line">    <span class="attribute">webkit-box-pack</span>: enter;</span><br><span class="line">    <span class="attribute">-webkit-box-align</span>: center;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.child-element-webkit-box</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">450px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="6-line-height实现文字居中"><a href="#6-line-height实现文字居中" class="headerlink" title="6. line-height实现文字居中"></a>6. line-height实现文字居中</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//html</span><br><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent-element-line-height"</span>></span></span><br><span class="line">    andy</span><br><span class="line"><span class="tag"></<span class="name">div</span>></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//css</span><br><span class="line"><span class="selector-class">.parent-element-line-height</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="7-fixed设置窗口整体居中"><a href="#7-fixed设置窗口整体居中" class="headerlink" title="7. fixed设置窗口整体居中"></a>7. fixed设置窗口整体居中</h2><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent-element-fixed</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightgrey;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

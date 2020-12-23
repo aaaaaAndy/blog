@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">
+            编写可维护的JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        编写可维护的JavaScript-变量函数和运算符
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-08-12
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p>JavaScript编程的本质是编写一个个的函数来完成任务。</p>
+<h1 id="1-变量声明"><a href="#1-变量声明" class="headerlink" title="1. 变量声明"></a>1. 变量声明</h1><p>变量声明都是通过var语句来完成的。JavaScript中允许多次且在任何地方使用var语句，这对开发者来说是很有意思的一件事情，因为不论var语句是否真的会被执行，所有的var语句都提前到包含这段逻辑的函数的顶部执行，比如：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> result = <span class="number">10</span> + value;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这段代码中，变量value在声明之前就参与了运算，这是完全合法的，尽管这会造成result的计算结果是一个特殊值NaN。要想了解其中的原理，就需要清除这段代码被JavaScript理解为如下这样：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> result;</span><br><span class="line">    <span class="keyword">var</span> value;</span><br><span class="line">    result = <span class="number">10</span> + value;</span><br><span class="line">    value = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>两个var语句提前至函数的顶部：初始化逻辑紧跟其后。在进行加法计算的时候value始终是一个特殊值undefined，因此result的值就是NaN（非数字），在那之后value才被赋值为10。</p>
+<p>变量声明提前意味着：在函数内部任意地方定义变量和在函数顶部定义变量是完全一样的。因此，一种流行的风格是将所有变量声明放在函数顶部而不是散落在函数的各个角落。简言之，依照这种风格写出的代码逻辑和JavaScript引擎解析这段代码的习惯是非常相似的。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span> (<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> i, len;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="number">10</span> + value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i < len; i++) {</span><br><span class="line">        foo();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="2-函数声明"><a href="#2-函数声明" class="headerlink" title="2. 函数声明"></a>2. 函数声明</h1><p>和变量声明一样，函数声明也会被JavaScript引擎提前。因此，在代码中函数的调用可以出现在函数声明之前。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不好写法</span></span><br><span class="line">doSomething();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomthing</span> (<span class="params"></span>) </span>{</span><br><span class="line">    alert(<span class="string">'something'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这段代码是可以正常运行的，因为JavaScript引擎会将这段代码解析为：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomthing</span> (<span class="params"></span>) </span>{</span><br><span class="line">    alert(<span class="string">'something'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">doSomething();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于JavaScript引擎的这种行为，所以建议函数应该先声明再使用。另外，对于函数调用部分，在函数名和左括号之间不应该加空格，这样做是为了将它和块语句区分开来。</p>
+<h1 id="3-严格模式"><a href="#3-严格模式" class="headerlink" title="3. 严格模式"></a>3. 严格模式</h1><p>ECMAScript5引入了“严格模式”，希望通过这种方式来谨慎地解析执行JavaScript，以减少错误，通过使用如下指令脚本以严格模式执行。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>es5会将这个字符串识别为一条指令，以严格模式来解析代码，这条指令不仅用于全局，也适用于局部，比如一个函数体内。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//全局的严格模式</span></span><br><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//局部的严格模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span> (<span class="params"></span>) </span>{</span><br><span class="line"><span class="meta">    "use strict"</span></span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="4-相等"><a href="#4-相等" class="headerlink" title="4. 相等"></a>4. 相等</h1><p>由于JavaScript具有强制类型转换机制，JavaScript中的判断相等操作是很微妙的。对于某些运算来说，为了得到成功的结果，强制类型转换会驱使某种类型的变量自动转换成其他不同类型，这种情形往往会造成意想不到的结果。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串会先转成数字，再进行比较</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span> == <span class="string">'5'</span>)    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="literal">true</span>)    <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于JavaScript中强制类型转换机制的存在，所以我们不建议使用==和!=，而建议使用===和!==。用这些运算符不会涉及强制类型转换，因为只要两个值类型不一样，就认为他们不相等。</p>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

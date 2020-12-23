@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/vim/">
+            vim
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        vim基础
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-02-10
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h2 id="vim牛逼"><a href="#vim牛逼" class="headerlink" title="vim牛逼"></a>vim牛逼</h2><h2 id="1-vim的几种模式"><a href="#1-vim的几种模式" class="headerlink" title="1. vim的几种模式"></a>1. vim的几种模式</h2><ul>
+<li>正常模式：也就是常说的命令模式，此时键盘上所有键皆为命令</li>
+<li>插入模式：可以输入文本</li>
+<li>可视化模式：正常模式下按v可进入，用来选择文本，V进入可视行模式，ctrl+v进入可视块模式</li>
+<li>替换模式：正常模式下按R进入</li>
+</ul>
+<h2 id="2-文件操作"><a href="#2-文件操作" class="headerlink" title="2. 文件操作"></a>2. 文件操作</h2><h2 id="3-移动操作"><a href="#3-移动操作" class="headerlink" title="3. 移动操作"></a>3. 移动操作</h2><h4 id="1-上下左右移动"><a href="#1-上下左右移动" class="headerlink" title="1. 上下左右移动"></a>1. 上下左右移动</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h或退格</td>
+<td>将光标向左移动一个字符</td>
+</tr>
+<tr>
+<td>l或空格</td>
+<td>将光标向右移动一个字符</td>
+</tr>
+<tr>
+<td>j</td>
+<td>将光标下移一行</td>
+</tr>
+<tr>
+<td>k</td>
+<td>将光标上移一行</td>
+</tr>
+<tr>
+<td>+或enter</td>
+<td>将光标移动到下一行第一个非空白字符</td>
+</tr>
+<tr>
+<td>-</td>
+<td>将光标移动到上一行第一个非空白字符</td>
+</tr>
+<tr>
+<td>w</td>
+<td>前移一个单词，将光标停在下一个单词的开头</td>
+</tr>
+<tr>
+<td>W</td>
+<td>前移一个单词，但忽略一些标点</td>
+</tr>
+<tr>
+<td>e</td>
+<td>前移一个单词，将光标停在下一个单词的结尾</td>
+</tr>
+<tr>
+<td>E</td>
+<td>前移一个单词到结尾，如果结尾有标点，则移动到标点</td>
+</tr>
+<tr>
+<td>b</td>
+<td>后退一个单词，光标停在上一个单词的开头</td>
+</tr>
+<tr>
+<td>B</td>
+<td>后退一个单词到开头，但忽略一些标点</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>后退一个单词，将光标停在上一个单词结尾</td>
+</tr>
+<tr>
+<td>gE</td>
+<td>后退一个单词到结尾，忽略标点</td>
+</tr>
+</tbody></table>
+<p>以上命令都可以配合n使用，比如上移3行用：3k</p>
+<h4 id="2-大范围移动"><a href="#2-大范围移动" class="headerlink" title="2. 大范围移动"></a>2. 大范围移动</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>移动到行首</td>
+</tr>
+<tr>
+<td>g0</td>
+<td>移动到当前行行首</td>
+</tr>
+<tr>
+<td>^</td>
+<td>移动到行首第一个非空白字符处</td>
+</tr>
+<tr>
+<td>g^</td>
+<td>同^</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>移动到第n行</td>
+</tr>
+<tr>
+<td>:n</td>
+<td>移动到第n行</td>
+</tr>
+<tr>
+<td>$</td>
+<td>移动到行尾</td>
+</tr>
+<tr>
+<td>H</td>
+<td>移动到当前屏幕最顶一行</td>
+</tr>
+<tr>
+<td>M</td>
+<td>移动到当前屏幕中间一行</td>
+</tr>
+<tr>
+<td>L</td>
+<td>移动到当前屏幕最低一行</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到文件头部</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到文件尾部</td>
+</tr>
+</tbody></table>
+<h4 id="3-屏幕滚动"><a href="#3-屏幕滚动" class="headerlink" title="3. 屏幕滚动"></a>3. 屏幕滚动</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ctrl + y</td>
+<td>向上移动一行</td>
+</tr>
+<tr>
+<td>ctrl + e</td>
+<td>向下移动一行</td>
+</tr>
+<tr>
+<td>ctrl + u</td>
+<td>向上移动半屏</td>
+</tr>
+<tr>
+<td>ctrl + d</td>
+<td>向下移动半屏</td>
+</tr>
+<tr>
+<td>ctrl + b</td>
+<td>向上移动一屏</td>
+</tr>
+<tr>
+<td>ctrl + f</td>
+<td>向下移动一屏</td>
+</tr>
+<tr>
+<td>n%</td>
+<td>移动到文件n%位置</td>
+</tr>
+<tr>
+<td>zz</td>
+<td>将当前行移动到屏幕中央</td>
+</tr>
+<tr>
+<td>zt</td>
+<td>将当前行移动到屏幕顶端</td>
+</tr>
+<tr>
+<td>Zb</td>
+<td>将当前行移动到屏幕底端</td>
+</tr>
+</tbody></table>
+<h2 id="4-插入文本"><a href="#4-插入文本" class="headerlink" title="4. 插入文本"></a>4. 插入文本</h2><h4 id="1-基本插入"><a href="#1-基本插入" class="headerlink" title="1. 基本插入"></a>1. 基本插入</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>在光标前插入；<br>一个小技巧：按8，再按i，进入插入模式，输入=， 按esc进入命令模式，就会出现8个=。 这在插入分割线时非常有用，如30i+<esc>就插入了36个+组成的分割线</esc></td>
+</tr>
+<tr>
+<td>I</td>
+<td>在当前行第一个非空字符前插入</td>
+</tr>
+<tr>
+<td>gI</td>
+<td>在当前行第一列插入</td>
+</tr>
+<tr>
+<td>a</td>
+<td>在光标后插入</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在当前行最后插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在下面新建一行插入</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在上面新建一行插入</td>
+</tr>
+<tr>
+<td>:r    filename</td>
+<td>在当前位置插入另一个文件的内容</td>
+</tr>
+<tr>
+<td>:[n]r filename</td>
+<td>在第n行插入另一个文件的内容</td>
+</tr>
+<tr>
+<td>:r !date</td>
+<td>在光标处插入当前日期与时间（或者是normal模式下输入!!date）</td>
+</tr>
+</tbody></table>
+<h4 id="2-改写插入"><a href="#2-改写插入" class="headerlink" title="2. 改写插入"></a>2. 改写插入</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c[n]w</td>
+<td>改写光标后1(n)个词</td>
+</tr>
+<tr>
+<td>c[n]l</td>
+<td>改写光标后n个字母</td>
+</tr>
+<tr>
+<td>c[n]h</td>
+<td>改写光标前n个字母</td>
+</tr>
+<tr>
+<td>[n]cc</td>
+<td>修改当前[n]行</td>
+</tr>
+<tr>
+<td>[n]s</td>
+<td>以输入的文本替代光标之后1(n)个字符，相当于c[n]l</td>
+</tr>
+<tr>
+<td>[n]S</td>
+<td>删除指定数目的行，并以所输入文本代替之</td>
+</tr>
+</tbody></table>
+<h2 id="5-剪切复制"><a href="#5-剪切复制" class="headerlink" title="5. 剪切复制"></a>5. 剪切复制</h2><a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

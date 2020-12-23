@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            
+<div id="tag" class="tag-container">
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/JavaScript/">
+            JavaScript
+        </a>
+        <small class="tag-content-length">[30]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/apply/">
+            apply
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/call/">
+            call
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/bind/">
+            bind
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/Vue/">
+            Vue
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/IntersectionObserver/">
+            IntersectionObserver
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%BB%9A%E5%8A%A8/">
+            滚动
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/scroll/">
+            scroll
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E9%97%AD%E5%8C%85/">
+            闭包
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/Object/">
+            Object
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/window/">
+            window
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/setTimeout/">
+            setTimeout
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/click/">
+            click
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/">
+            便函数
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/">
+            柯里化
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/">
+            函数防抖
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/">
+            函数节流
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/require/">
+            require
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/import/">
+            import
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/EventEmitter/">
+            EventEmitter
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E7%BB%A7%E6%89%BF/">
+            继承
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/">
+            滚动加载
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/css/">
+            css
+        </a>
+        <small class="tag-content-length">[6]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/BFC/">
+            BFC
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/">
+            布局模型
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%B1%85%E4%B8%AD/">
+            居中
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/">
+            盒模型
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%BB%A4%E9%95%9C/">
+            滤镜
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/flex/">
+            flex
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%B8%83%E5%B1%80/">
+            布局
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/git/">
+            git
+        </a>
+        <small class="tag-content-length">[8]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/log/">
+            log
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/fetch/">
+            fetch
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/add/">
+            add
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/stach/">
+            stach
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/commitizen/">
+            commitizen
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/commitlint/">
+            commitlint
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/tag/">
+            tag
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/nginx/">
+            nginx
+        </a>
+        <small class="tag-content-length">[3]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/math/">
+            math
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/react/">
+            react
+        </a>
+        <small class="tag-content-length">[3]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/Component/">
+            Component
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/PureComponent/">
+            PureComponent
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/Children/">
+            Children
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+            浏览器
+        </a>
+        <small class="tag-content-length">[3]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%B7%A5%E5%85%B7/">
+            工具
+        </a>
+        <small class="tag-content-length">[2]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/URL/">
+            URL
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E7%BD%91%E9%A1%B5/">
+            网页
+        </a>
+        <small class="tag-content-length">[2]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%AE%89%E5%85%A8/">
+            安全
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%B8%B2%E6%9F%93/">
+            渲染
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/DOM%E6%A0%91/">
+            DOM树
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/api/">
+            api
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/vim/">
+            vim
+        </a>
+        <small class="tag-content-length">[2]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%AD%A3%E5%88%99/">
+            正则
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/webpack/">
+            webpack
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E6%89%93%E5%8C%85/">
+            打包
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/npm/">
+            npm
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/">
+            上下文
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/Promise/">
+            Promise
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+            面向对象
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%89%8D%E7%AB%AF/">
+            前端
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E8%B7%A8%E5%9F%9F/">
+            跨域
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/http/">
+            http
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/https/">
+            https
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%8F%98%E9%87%8F/">
+            变量
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%87%BD%E6%95%B0/">
+            函数
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/">
+            运算符
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/">
+            全局变量
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E4%BA%8B%E4%BB%B6/">
+            事件
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/DOM/">
+            DOM
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/tags/%E9%AB%98%E7%A8%8B3/">
+            高程3
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+</div>
+
+
+
+
+        </main>
+    </div>
+</body>
+
+</html>

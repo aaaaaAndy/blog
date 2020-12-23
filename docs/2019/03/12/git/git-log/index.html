@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/git/">
+            git
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Git-log
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-03-12
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="Git-log"><a href="#Git-log" class="headerlink" title="Git-log"></a>Git-log</h1><h2 id="1-基础命令"><a href="#1-基础命令" class="headerlink" title="1. 基础命令"></a>1. 基础命令</h2><ul>
+<li>查看所有提交记录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看最近n次提交</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -3      <span class="comment"># 查看最近3次提交</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看指定文件名的提交记录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> readme.txt</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看指定目录下所有文件的提交记录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> dir/      <span class="comment"># 查看dir目录下所有文件的提交鸡柳</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看指定分支下的提交记录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> dev     <span class="comment"># 查看dev分支下所有提交记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看指定tag下的提交记录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> v2.0      <span class="comment"># 查看v2.0tag下所有提交历史记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看某次提交之前的历史提交记录（包括commit自身）</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> eb1aab29a     <span class="comment"># 查看commit id为eb1aab29a之前的历史提交记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看某两次提交之间的历史记录（包括两者）</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> eb1aab29a 335a360       <span class="comment"># 查看两次提交之间的历史记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>查看某两次提交之间的历史记录（不包括第一个commit）</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eit <span class="built_in">log</span> eb1aab29a..335a360       <span class="comment"># 查看两次提交之间的历史记录(不包括eb1aab29a提交)</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-–pretty-参数"><a href="#2-–pretty-参数" class="headerlink" title="2. –pretty 参数"></a>2. –pretty 参数</h2><p>通过不同的参数以不同的格式显示提交历史记录</p>
+<p>（1）.oneline<br>（2）.short<br>（3）.medium（默认值）<br>（4）.full<br>（5）.fuller<br>（6）.email<br>（7）.raw<br>（8）.format（此参数比较复杂后面会单独介绍）</p>
+<ul>
+<li>oneline 在日志显示在一行</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>format 格式化显示</li>
+</ul>
+<p>（1）.%H：提交对象（commit）的完整哈希字串<br>（2）.%h：提交对象的简短哈希字串<br>（3）.%T：树对象（tree）的完整哈希字串<br>（4）.%t：树对象的简短哈希字串<br>（5）.%P：父对象（parent）的完整哈希字串<br>（6）.%p：父对象的简短哈希字串<br>（7）.%an：作者（author）的名字<br>（8）.%ae：作者的电子邮件地址<br>（9）.%ad：作者修订日期（可以用 -date= 选项定制格式）<br>（10）.%ar：作者修订日期，按多久以前的方式显示<br>（11）.%cn：提交者(committer)的名字<br>（12）.%ce：提交者的电子邮件地址<br>（13）.%cd：提交日期<br>（14）.%cr：提交日期，按多久以前的方式显示<br>（15）.%s：提交说明</p>
+<p>只显示历史记录的作者名字和电子邮件地址</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">"%an %ae"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-–after-参数"><a href="#3-–after-参数" class="headerlink" title="3. –after 参数"></a>3. –after 参数</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --after=<span class="string">'2020-2-2'</span>      <span class="comment"># 查询2020年2月2号之后的提交记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="4-–before-参数"><a href="#4-–before-参数" class="headerlink" title="4. –before 参数"></a>4. –before 参数</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --before=<span class="string">'2020-2-2'</span>     <span class="comment"># 查看2020年2月2号之前的提交记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-–author-参数"><a href="#5-–author-参数" class="headerlink" title="5. –author 参数"></a>5. –author 参数</h3><p>author参数不仅可以搜索作者，还可以搜索邮箱</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --author=<span class="string">'andy'</span>       <span class="comment"># 查询坐着为andy的提交记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="6-–grep-匹配提交信息"><a href="#6-–grep-匹配提交信息" class="headerlink" title="6. –grep 匹配提交信息"></a>6. –grep 匹配提交信息</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --grep <span class="string">'add'</span>      <span class="comment"># 查询提交message中包含add字符串的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> --grep=<span class="string">'add'</span>      <span class="comment"># 查询提交message中包含add字符串的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> --grep=<span class="string">'add'</span> -i     <span class="comment"># 忽略大小写，（默认是区分大小写的）</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline --grep=<span class="string">'add'</span>       <span class="comment"># 只在一行展示</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="7-S-参数"><a href="#7-S-参数" class="headerlink" title="7. -S 参数"></a>7. -S 参数</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -S <span class="string">'add'</span>      <span class="comment"># 查询筛选内容中包含add文件的提交记录</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="8-其他参数"><a href="#8-其他参数" class="headerlink" title="8. 其他参数"></a>8. 其他参数</h3><p>（1）.-p ：查看提交时的补丁信息<br>（2）.–stat ：列出文件的修改行数<br>（3）.–sortstat：只显示–stat中最后行数修改添加移除的统计<br>（4）.–graph：以简单的图形方式列出提交记录<br>（5）.–abbrev-commit：仅显示 SHA-1 的前几个字符，而非所有的 40 个字符<br>（6）.–relative-date：使用较短的相对时间显示（”1 weeks ago”）<br>（7）.–name-only：仅在提交信息后显示已修改的文件清单<br>（8）.–name-status：显示新增、修改、删除的文件清单</p>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

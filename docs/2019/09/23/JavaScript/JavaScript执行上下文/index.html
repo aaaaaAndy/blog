@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        JavaScript执行上下文
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-09-23
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="JavaScript执行上下文"><a href="#JavaScript执行上下文" class="headerlink" title="JavaScript执行上下文"></a>JavaScript执行上下文</h1><h2 id="1-执行上下文"><a href="#1-执行上下文" class="headerlink" title="1. 执行上下文"></a>1. 执行上下文</h2><p>对于每个执行上下文，都会有三个重要属性：变量对象、作用域链、this。</p>
+<h4 id="1-什么是执行上下文"><a href="#1-什么是执行上下文" class="headerlink" title="1. 什么是执行上下文"></a>1. 什么是执行上下文</h4><p><strong><em>执行上下文</em></strong> 是评估和执行JavaScript代码的环境的抽象。可以理解为JavaScript代码是在其对应的执行上下文中执行的。</p>
+<p>执行上下文为一个对象，包含 <strong><em>变量对象（VO）</em></strong>，<strong><em>作用域链</em></strong> 和 <strong><em>this</em></strong>。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">executionContextObj = {</span><br><span class="line">  variableObject: {},</span><br><span class="line">  ScopeChain: {},</span><br><span class="line">  <span class="keyword">this</span>: {}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<h4 id="2-执行上下文的类型"><a href="#2-执行上下文的类型" class="headerlink" title="2. 执行上下文的类型"></a>2. 执行上下文的类型</h4><ul>
+<li><p><strong><em>全局执行上下文</em></strong>：这是默认的基础的上下文，任何不在函数内部的代码都是在全局执行上下文中，一个程序只会有一个全局执行上下文。它会做两件事，一是创建一个全局的window对象（浏览器环境），二是设置this等于这个全局环境。</p>
+</li>
+<li><p><strong><em>函数执行上下文</em></strong>：每个函数都有它自己的执行上下文，当函数被调用时会创建其执行上下文，当函数调用完成时销毁，可以有任意多个函数执行上下文。</p>
+</li>
+<li><p><strong><em>Eval函数执行上下文</em></strong>：eval函数内部的代码有它自己的执行上下文。</p>
+</li>
+</ul>
+<h4 id="3-执行栈"><a href="#3-执行栈" class="headerlink" title="3. 执行栈"></a>3. 执行栈</h4><p>栈是一种后进先出的数据结构，执行栈也是如此。当JavaScript代码第一次执行的时候会创建一个全局执行上下文并压入栈中，每当遇到一个函数调用就会创建一个该函数的函数执行上下文并压入栈中。引擎会执行那些位于栈顶的执行上下文，每执行完一个，就弹出一个，将控制流程转交到下一个栈顶的执行上下文中，当所有的代码执行完毕，执行栈中的执行上下文也会全部弹出。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">"local scope"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> scope;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> f();</span><br><span class="line">}</span><br><span class="line">checkscope();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其上下文入栈出栈顺序为</span></span><br><span class="line">push(<span class="xml"><span class="tag"><<span class="name">checkscope</span>></span> functionContext);</span></span><br><span class="line">push(<f> functionContext);</span><br><span class="line">pop();</span><br><span class="line">pop();</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">"local scope"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> scope;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">}</span><br><span class="line">checkscope()();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其入栈出栈顺序为</span></span><br><span class="line">push(<span class="xml"><span class="tag"><<span class="name">checkscope</span>></span> functionContext);</span></span><br><span class="line"><span class="xml">pop();</span></span><br><span class="line">push(<f> functionContext);</span><br><span class="line">pop();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="4-怎么创建执行上下文"><a href="#4-怎么创建执行上下文" class="headerlink" title="4. 怎么创建执行上下文"></a>4. 怎么创建执行上下文</h4><p>创建执行上下文有两个阶段：<strong><em>创建阶段</em></strong> 和 <strong><em>执行阶段</em></strong> 。</p>
+<h5 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h5><p>创建阶段会发生三件事</p>
+<ul>
+<li><p>this的绑定：this的值取决于该函数如何被调用</p>
+</li>
+<li><p>创建此法环境组件</p>
+</li>
+<li><p>创建变量环境组件</p>
+</li>
+</ul>
+<p>表示如下:</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ExecutionContext = {</span><br><span class="line">  ThisBinding: <span class="xml"><span class="tag"><<span class="name">this</span> <span class="attr">value</span>></span>,</span></span><br><span class="line"><span class="xml">  LexicalEnvironment: {...},</span></span><br><span class="line"><span class="xml">  VariableEnvironment: {...}</span></span><br><span class="line"><span class="xml">}</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="执行阶段"><a href="#执行阶段" class="headerlink" title="执行阶段"></a>执行阶段</h5><p>在此阶段，完成对所有这些变量的分配并执行</p>
+<h5 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h5><ol>
+<li><p>找到当前上下文调用函数的代码；</p>
+</li>
+<li><p>执行代码之前，先创建执行上下文；</p>
+</li>
+<li><p>创建阶段；</p>
+<ol>
+<li><p>创建变量对象（VO）；</p>
+<ol>
+<li><p>创建arguments对象，检查当前上下文参数，建立该对象下的属性和属性值；</p>
+</li>
+<li><p>扫描上下文的函数声明；</p>
+<ol>
+<li>每扫描到一个函数，就会在变量对象（VO）里面用函数名创建一个属性，为一个指针，指向该函数在内存中的地址；</li>
+<li>如果函数名在VO中已经存在，对应的属性值会被新的引用覆盖。</li>
+</ol>
+</li>
+<li><p>扫描上下文的变量声明。</p>
+<ol>
+<li>每扫描到一个变量会用变量名作为属性名，起初始值为undefined；</li>
+<li>如果变量名在VO中已经存在，则跳过继续扫描。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>初始化作用域链；</p>
+</li>
+<li><p>确定this的指向。</p>
+</li>
+</ol>
+</li>
+<li><p>执行阶段。</p>
+</li>
+</ol>
+<h2 id="2-变量对象"><a href="#2-变量对象" class="headerlink" title="2. 变量对象"></a>2. 变量对象</h2><p>变量对象是执行上下文相关的数据作用域，存储了在上下文中定义的变量和函数声明。根据上下文的不同可以分为全局上下文的变量对象和函数上下文的变量对象。</p>
+<h5 id="全局上下文变量对象"><a href="#全局上下文变量对象" class="headerlink" title="全局上下文变量对象"></a>全局上下文变量对象</h5><blockquote>
+<p>在顶层JavaScript代码中，可以用关键字this引用全局对象。因为全局对象是作用域链的头，这意味着所有非限定性的变量和函数名都会作为该对象的属性来查询。</p>
+</blockquote>
+<p>在客户端JavaScript中，全局对象就是window对象。</p>
+<h5 id="函数上下文变量对象"><a href="#函数上下文变量对象" class="headerlink" title="函数上下文变量对象"></a>函数上下文变量对象</h5><p>在函数上下文中，我们用活动对象(activation object, AO)来表示变量对象。</p>
+<p>活动对象是进入函数上下文时被创建，它通过函数的arguments属性初始化。</p>
+<p>当进入一个函数执行上下文中时，变量对象会包括</p>
+<ul>
+<li>函数的所有形参<ul>
+<li>由名称和对应值组成的一个变量对象的属性被创建</li>
+<li><strong><em>没有实参，属性值设为 undefined</em></strong></li>
+</ul>
+</li>
+<li>函数声明<ul>
+<li>由名称和对应值（函数对象(function-object)）组成一个变量对象的属性被创建</li>
+<li><strong><em>如果变量对象已经存在相同名称的属性，则完全替换这个属性</em></strong></li>
+</ul>
+</li>
+<li>变量声明<ul>
+<li>由名称和对应值（undefined）组成一个变量对象的属性被创建；</li>
+<li><strong><em>如果变量名称跟已经声明的形式参数或函数相同，则变量声明不会干扰已经存在的这类属性</em></strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>{}</span><br><span class="line">  <span class="keyword">var</span> d = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line"></span><br><span class="line">  b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在进入执行上下文后，此时的AO是</span></span><br><span class="line">AO = {</span><br><span class="line">    <span class="built_in">arguments</span>: {</span><br><span class="line">        <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">        length: <span class="number">1</span></span><br><span class="line">    },</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="literal">undefined</span>,</span><br><span class="line">    c: reference to <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>{},</span><br><span class="line">    d: <span class="literal">undefined</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在代码开始执行时，会修改对应变量对象的值</span></span><br><span class="line">AO = {</span><br><span class="line">    <span class="built_in">arguments</span>: {</span><br><span class="line">        <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">        length: <span class="number">1</span></span><br><span class="line">    },</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">3</span>,</span><br><span class="line">    c: reference to <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>{},</span><br><span class="line">    d: reference to FunctionExpression <span class="string">"d"</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 稍微修改上述代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">  <span class="built_in">console</span>.log(b);</span><br><span class="line">  <span class="built_in">console</span>.log(c);</span><br><span class="line">  <span class="built_in">console</span>.log(d);</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>) </span>{}</span><br><span class="line">  <span class="keyword">var</span> d = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line"></span><br><span class="line">  b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果为</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// f c() {}</span></span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>思考题：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    a = <span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo();</span><br><span class="line"><span class="comment">// 此段代码执行会报错，因为a关键字并没有通过关键字var声明，所以不会有变量提升，执行的时候找不到a变量</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(foo);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"foo"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果会打印"foo"， 这是因为进入函数执行上下文时，已经有了函数声明foo，此时变量声明foo不会再去覆盖原来的生命</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-作用域链"><a href="#3-作用域链" class="headerlink" title="3. 作用域链"></a>3. 作用域链</h2><p>JavaScript中没有块级作用域，取而代之的是函数作用域。变量在声明它们的函数体以及这个函数体嵌套的任意函数体内都是有定义的。</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>指的是程序源代码中定义变量的区域。它规定了如何查找变量，也就是确定了当前执行代码对变量的访问权限。</p>
+<h4 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h4><p>JavaScript采用的是词法作用域，也就是静态作用域，由此，函数的作用域在函数定义的时候就决定了。</p>
+<h4 id="scope"><a href="#scope" class="headerlink" title="[[scope]]"></a>[[scope]]</h4><p>函数内部有一个[[scope]]属性，在函数创建的时候就会保存所有父变量对象到其中。</p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。</p>
+<h2 id="4-this"><a href="#4-this" class="headerlink" title="4. this"></a>4. this</h2><p>this并不是在编写时绑定的，而是在运行时绑定的。它的上下文取决于函数调用时的各种条件。this一旦被确定，就不可更改了。</p>
+<p>箭头函数没有自己的this，都指向外层，MDN中对于箭头函数的描述是这样的：</p>
+<blockquote>
+<p>箭头函数会捕获其所在上下文的this值，作为自己的this值</p>
+</blockquote>
+<p>this的绑定规则有以下四种：</p>
+<h4 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h4><p>不加修饰符，直接调用this</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非严格模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 此时this指向window</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">foo();</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 严格模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fn(); <span class="comment">// undefined，fn是调用者，独立调用</span></span><br><span class="line"><span class="built_in">window</span>.fn(); <span class="comment">// 指向window，fn是调用者，被window所拥有</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h4><p>这种情况发生在调用位置存在上下文对象的情况。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = {</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  foo,</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj2 = {</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  foo,</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">obj1.foo();   <span class="comment">// 输出 1</span></span><br><span class="line">obj2.foo();   <span class="comment">// 输出 2</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">  a: <span class="number">10</span>,</span><br><span class="line">  c: <span class="keyword">this</span>.a + <span class="number">20</span>, <span class="comment">// 此时this指向全局</span></span><br><span class="line">  fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a;</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.c); <span class="comment">// 40</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.fn()); <span class="comment">// 10</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h4><p>这种就是使用 <code>Function.prototype</code> 中的三个方法 <code>call()</code>, <code>apply()</code>, <code>bind()</code> 了</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">call(<span class="keyword">this</span>, arg1, arg2, ...)</span><br><span class="line">apply(<span class="keyword">this</span>, [arg1, arg2, ...])</span><br><span class="line">bind(<span class="keyword">this</span>, arg1, arg2, ...)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h4><p>new操作符执行过程如下。</p>
+<ol>
+<li>创建一个全新的对象。</li>
+<li>这个新对象会被执行 [[Prototype]] 连接。</li>
+<li>这个新对象会绑定到函数调用的 this。</li>
+<li>如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。</li>
+</ol>
+<h4 id="DOM事件处理函数"><a href="#DOM事件处理函数" class="headerlink" title="DOM事件处理函数"></a>DOM事件处理函数</h4><p>this指向触发事件的元素，也就是事件处理程序所绑定到的DOM节点。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">'id'</span>);</span><br><span class="line">ele.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span> === e.target); <span class="comment">// true</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>如果要判断一个函数的this绑定，就需要找到这个函数的的直接调用位置，然后可以按照下面四条来判断this的绑定对象：</p>
+<ol>
+<li>由 <code>new</code>调用：绑定到新创建的对象；</li>
+<li>由<code>call</code>或<code>apply</code>,<code>bind</code>调用：绑定到指定的对象；</li>
+<li>由上下文对象调用：绑定到上下文对象；</li>
+<li>默认：全局对象。</li>
+</ol>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

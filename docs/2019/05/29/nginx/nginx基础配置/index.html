@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/nginx/">
+            nginx
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        nginx了解
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-05-29
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h2 id="1-nginx-默认配置文件"><a href="#1-nginx-默认配置文件" class="headerlink" title="1. nginx 默认配置文件"></a>1. nginx 默认配置文件</h2><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">...              #全局块</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> {         <span class="comment">#events块</span></span><br><span class="line">   ...</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="attribute">http</span>      <span class="comment">#http块</span></span><br><span class="line">{</span><br><span class="line">    ...   #http全局块</span><br><span class="line">    <span class="attribute">server</span>        <span class="comment">#server块</span></span><br><span class="line">    { </span><br><span class="line">        ...       #server全局块</span><br><span class="line">        <span class="attribute">location</span> [PATTERN]   <span class="comment">#location块</span></span><br><span class="line">        {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">        <span class="attribute">location</span> [PATTERN] </span><br><span class="line">        {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    server</span><br><span class="line">    {</span><br><span class="line">      ...</span><br><span class="line">    }</span><br><span class="line">    ...     #http全局块</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ol>
+<li>全局块：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</li>
+<li>events块：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</li>
+<li>http块：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</li>
+<li>server块：配置虚拟主机的相关参数，一个http中可以有多个server。</li>
+<li>location块：配置请求的路由，以及各种页面的处理情况。</li>
+</ol>
+<h2 id="2-示例配置"><a href="#2-示例配置" class="headerlink" title="2. 示例配置"></a>2. 示例配置</h2><figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########### 每个指令必须有分号结束。#################</span></span><br><span class="line"><span class="comment">#user administrator administrators;  #配置用户或者组，默认为nobody nobody。</span></span><br><span class="line"><span class="comment">#worker_processes 2;  #允许生成的进程数，默认为1</span></span><br><span class="line"><span class="comment">#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址</span></span><br><span class="line"><span class="attribute">error_log</span> log/error.log <span class="literal">debug</span>;  <span class="comment">#制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</span></span><br><span class="line"><span class="section">events</span> {</span><br><span class="line">    <span class="attribute">accept_mutex</span> <span class="literal">on</span>;   <span class="comment">#设置网路连接序列化，防止惊群现象发生，默认为on</span></span><br><span class="line">    <span class="attribute">multi_accept</span> <span class="literal">on</span>;  <span class="comment">#设置一个进程是否同时接受多个网络连接，默认为off</span></span><br><span class="line">    <span class="comment">#use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport</span></span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;    <span class="comment">#最大连接数，默认为512</span></span><br><span class="line">}</span><br><span class="line"><span class="section">http</span> {</span><br><span class="line">    <span class="attribute">include</span>       mime.types;   <span class="comment">#文件扩展名与文件类型映射表</span></span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream; <span class="comment">#默认文件类型，默认为text/plain</span></span><br><span class="line">    <span class="comment">#access_log off; #取消服务日志    </span></span><br><span class="line">    <span class="attribute">log_format</span> myFormat <span class="string">'<span class="variable">$remote_addr</span>–<span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] <span class="variable">$request</span> <span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> <span class="variable">$http_referer</span> <span class="variable">$http_user_agent</span> <span class="variable">$http_x_forwarded_for</span>'</span>; <span class="comment">#自定义格式</span></span><br><span class="line">    <span class="attribute">access_log</span> log/access.log myFormat;  <span class="comment">#combined为日志格式的默认值</span></span><br><span class="line">    <span class="attribute">sendfile</span> <span class="literal">on</span>;   <span class="comment">#允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span></span><br><span class="line">    <span class="attribute">sendfile_max_chunk</span> <span class="number">100k</span>;  <span class="comment">#每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span></span><br><span class="line">    <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;  <span class="comment">#连接超时时间，默认为75s，可以在http，server，location块。</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">upstream</span> mysvr {   </span><br><span class="line">      <span class="attribute">server</span> <span class="number">127.0.0.1:7878</span>;</span><br><span class="line">      <span class="attribute">server</span> <span class="number">192.168.10.121:3333</span> backup;  <span class="comment">#热备</span></span><br><span class="line">    }</span><br><span class="line">    <span class="attribute">error_page</span> <span class="number">404</span> https://www.baidu.com; <span class="comment">#错误页</span></span><br><span class="line">    <span class="section">server</span> {</span><br><span class="line">        <span class="attribute">keepalive_requests</span> <span class="number">120</span>; <span class="comment">#单连接请求上限次数。</span></span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">4545</span>;   <span class="comment">#监听端口</span></span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">127.0.0.1</span>;   <span class="comment">#监听地址       </span></span><br><span class="line">        <span class="attribute">location</span>  ~*^.+$ {       <span class="comment">#请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</span></span><br><span class="line">           <span class="comment">#root path;  #根目录</span></span><br><span class="line">           <span class="comment">#index vv.txt;  #设置默认页</span></span><br><span class="line">           <span class="attribute">proxy_pass</span>  http://mysvr;  <span class="comment">#请求转向mysvr 定义的服务器列表</span></span><br><span class="line">           <span class="attribute">deny</span> <span class="number">127.0.0.1</span>;  <span class="comment">#拒绝的ip</span></span><br><span class="line">           <span class="attribute">allow</span> <span class="number">172.18.5.54</span>; <span class="comment">#允许的ip           </span></span><br><span class="line">        } </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>常量功能：</p>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$remote_addr<br>$http_x_forwarded_for</td>
+<td>记录客户端的ip地址</td>
+</tr>
+<tr>
+<td>$remote_user</td>
+<td>记录客户端用户名称</td>
+</tr>
+<tr>
+<td>$time_local</td>
+<td>记录访问时间与时区</td>
+</tr>
+<tr>
+<td>$request</td>
+<td>记录请求的url与http协议；</td>
+</tr>
+<tr>
+<td>$status</td>
+<td>记录请求状态；成功是200，</td>
+</tr>
+<tr>
+<td>$body_bytes_s ent</td>
+<td>记录发送给客户端文件主体内容大小</td>
+</tr>
+<tr>
+<td>$http_referer</td>
+<td>记录从那个页面链接访问过来</td>
+</tr>
+<tr>
+<td>$http_user_agent</td>
+<td>记录客户端浏览器的相关信息</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

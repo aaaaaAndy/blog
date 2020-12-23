@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/git/">
+            git
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        git-fetch-pull
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-08-08
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="Git-fetch-pull"><a href="#Git-fetch-pull" class="headerlink" title="Git-fetch-pull"></a>Git-fetch-pull</h1><p>与<code>git fetch</code>经常做对比的就是<code>git pull</code>了.</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
+<p><code>git fetch</code>：Download objects and refs from another repository<br> <code>git pull</code> ：Fetch from and integrate with another repository or a local branch</p>
+</blockquote>
+<p><code>git fetch</code>从远程分支获取最新版本到本地,并不会自动<code>merge</code>.</p>
+<p><code>git pull</code>从远程分支获取最新版本到本地,并且<code>merge</code>,所以实际上<code>git pull</code>执行了两个步骤: </p>
+<ol>
+<li><code>git fetch</code>将<code>FETCH_HEAD</code>的内容取下来</li>
+<li><code>git merge FETCH_HEAD</code></li>
+</ol>
+<p>所以我们常说<code>git pull</code> = <code>git fetch</code> + <code>git merge</code></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h3><p>只有<code>git fetch</code>真正读区远程的分支,然后再本地创建远程分支的一个拷贝.这个拷贝的名字叫<code>origin/xxx</code></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 获取远程所有的更新到本地</span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line">// 获取特定分支</span><br><span class="line">git fetch origin master</span><br><span class="line"></span><br><span class="line">// 获取特定分支并在本地创建一个新分支</span><br><span class="line">git fetch origin master:temp</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="对比远程分支的拷贝"><a href="#对比远程分支的拷贝" class="headerlink" title="对比远程分支的拷贝"></a>对比远程分支的拷贝</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff origin/xxx</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="合并远程分支的拷贝"><a href="#合并远程分支的拷贝" class="headerlink" title="合并远程分支的拷贝"></a>合并远程分支的拷贝</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge origin/xxx</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<a id="more"></a></body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

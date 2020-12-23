@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/css/">
+            css
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        css滤镜
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-08-28
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p><img src="//images/css-filter.png" alt="css-filter"></p>
+<p>css滤镜（filter）定义了元素的可视效果，如：模糊和饱和度。</p>
+<p><a href="https://www.npmjs.com/package/cssgram" target="_blank" rel="noopener">npm滤镜库</a></p>
+<h2 id="1-基本用法"><a href="#1-基本用法" class="headerlink" title="1. 基本用法"></a>1. 基本用法</h2><p>修改所有的图片为黑白（灰度100%）</p>
+<p>css语法</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> {</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>);</span><br><span class="line">  <span class="attribute">-webkit-filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>JavaScript语法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'grayImg'</span>).style.WebkitFilter = <span class="string">"grayscale(100%)"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-常用参数"><a href="#2-常用参数" class="headerlink" title="2. 常用参数"></a>2. 常用参数</h2><table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>默认值，没有效果</td>
+</tr>
+<tr>
+<td>blur(%)</td>
+<td>高斯模糊。”radius”一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起， 所以值越大越模糊。如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。</td>
+</tr>
+<tr>
+<td>brightness(%)</td>
+<td>给图片应用一种线性乘法，使其看起来更亮或更暗。如果值是0%，图像会全黑。值是100%，则图像无变化。其他的值对应线性乘数效果。值超过100%也是可以的，图像会比原来更亮。如果没有设定值，默认是1</td>
+</tr>
+<tr>
+<td>contrast(%)</td>
+<td>调整图像的对比度。值是0%的话，图像会全黑。值是100%，图像不变。值可以超过100%，意味着会运用更低的对比。若没有设置值，默认是1。</td>
+</tr>
+<tr>
+<td>drop-shadow(<em>h-shadow v-shadow blur spread color</em>)</td>
+<td>给图像设置一个阴影效果。阴影是合成在图像下面，可以有模糊度的，可以以特定颜色画出的遮罩图的偏移版本。</td>
+</tr>
+<tr>
+<td>grayscale</td>
+<td>将图像转换为灰度图像。值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</td>
+</tr>
+<tr>
+<td>hue-rotate(<em>deg</em>)</td>
+<td>给图像应用色相旋转。”angle”一值设定图像会被调整的色环角度值。值为0deg，则图像无变化。若值未设置，默认值是0deg。该值虽然没有最大值，超过360deg的值相当于又绕一圈。</td>
+</tr>
+<tr>
+<td>invert(<em>%</em>)</td>
+<td>反转输入图像。值定义转换的比例。100%的价值是完全反转。值为0%则图像无变化。值在0%和100%之间，则是效果的线性乘子。 若值未设置，值默认是0。</td>
+</tr>
+<tr>
+<td>opacity(<em>%</em>)</td>
+<td>转化图像的透明程度。值定义转换的比例。值为0%则是完全透明，值为100%则图像无变化。值在0%和100%之间，则是效果的线性乘子，也相当于图像样本乘以数量。 若值未设置，值默认是1。该函数与已有的opacity属性很相似，不同之处在于通过filter，一些浏览器为了提升性能会提供硬件加速。</td>
+</tr>
+<tr>
+<td>saturate(<em>%</em>)</td>
+<td>转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。</td>
+</tr>
+<tr>
+<td>sepia(<em>%</em>)</td>
+<td>将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</td>
+</tr>
+<tr>
+<td>url()</td>
+<td>URL函数接受一个XML文件，该文件设置了 一个SVG滤镜，且可以包含一个锚点来指定一个具体的滤镜元素。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>从父元素继承该属性</td>
+</tr>
+</tbody></table>
+<h2 id="3-应用"><a href="#3-应用" class="headerlink" title="3. 应用"></a>3. 应用</h2><h4 id="1-特殊日期给网站设置灰色主题（20200404）"><a href="#1-特殊日期给网站设置灰色主题（20200404）" class="headerlink" title="1. 特殊日期给网站设置灰色主题（20200404）"></a>1. 特殊日期给网站设置灰色主题（20200404）</h4><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> {</span><br><span class="line">	<span class="attribute">-webkit-filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>); <span class="comment">/* webkit */</span></span><br><span class="line">	<span class="attribute">-moz-filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>); <span class="comment">/*firefox*/</span></span><br><span class="line">	<span class="attribute">-ms-filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>); <span class="comment">/*ie9*/</span></span><br><span class="line">	<span class="attribute">-o-filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>); <span class="comment">/*opera*/</span></span><br><span class="line">	<span class="attribute">filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>);</span><br><span class="line">	<span class="attribute">filter</span>:progid:DXImageTransform.Microsoft.<span class="built_in">BasicImage</span>(grayscale=<span class="number">1</span>); </span><br><span class="line">	<span class="attribute">filter</span>:gray; <span class="comment">/*ie9- */</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="2-drop-shadow设置更真实的阴影"><a href="#2-drop-shadow设置更真实的阴影" class="headerlink" title="2. drop-shadow设置更真实的阴影"></a>2. drop-shadow设置更真实的阴影</h4><figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> {</span><br><span class="line">  <span class="attribute">-webkit-filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0px</span> <span class="number">0px</span> <span class="number">4px</span> gray); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">   <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0px</span> <span class="number">0px</span> <span class="number">4px</span> gray);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>drop-shadow更像自然界的真实阴影，可以理解为立体阴影，它只有外阴影，且不能叠加；box-shadow，可理解为单边阴影，若想实现四周阴影需要用叠加方式处理。</p>
+<a id="more"></a>
+
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

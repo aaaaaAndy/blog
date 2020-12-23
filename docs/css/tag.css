@@ -1,0 +1,25 @@
+.tag-container {
+  width: 100%;
+}
+.tag-container .tag-content {
+  display: inline-block;
+  color: #f78769;
+  text-decoration: none;
+  font: 14px Lato;
+  transition: 0.3s;
+  margin: 0 10px 8px 0;
+  border: 1px dashed #ddd;
+  padding: 2px 6px;
+}
+.tag-container .tag-content:hover {
+  color: #ddd;
+}
+.tag-content-name {
+  color: #f78769;
+  text-decoration: none;
+  font: 14px Lato;
+  transition: 0.3s;
+}
+.tag-content-name:hover {
+  color: #ddd;
+}

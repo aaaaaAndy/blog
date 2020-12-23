@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        动态引入require,import
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-08-20
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p>本篇基于图片加载的基础来简单介绍require, require.context和import的区别！</p>
+<p>现如今的前端项目用webpack打包已经成为了行业趋势，然而在此模式的前提下，图片的引入是我们不可避免的问题。正常的图片引入是用img标签或者元素背景图的方式，采用这种方式的图片，webpack都能正常打包并显示。但是如果直接在js文件中定义图片路径，并赋给图片元素的话不能正常显示的，这是因为webpack打包后，会将静态资源文件放在dist/static/img下，我们的网站实际上以dist目录作为根目录，并由此加载该目录下的index.html所需的css、js、img等。而当我们在js文件中动态引入图片时url-loader是无法探测到图片路径的。我们build后发现，图片根本不会打包输出到dist目录（webpack是按需打包的）。</p>
+<p>此处介绍了三种动态引入图片的方式：</p>
+<h2 id="1-require"><a href="#1-require" class="headerlink" title="1. require"></a>1. require</h2><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// html</span><br><span class="line"><span class="tag"><<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imgList[0]"</span> /></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将图片动态引入，可选择渲染，亦可循环渲染</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// xxx.js</span></span><br><span class="line"><span class="keyword">let</span> imgList = [</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'../images/a.png'</span>),</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'../images/b.jpg'</span>)</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>官方文档：如果你的 request 含有表达式(expressions)，会创建一个上下文(context)，因为在编译时(compile time)并不清楚具体是哪一个模块被导入。</p>
+</blockquote>
+<p>原因：</p>
+<ul>
+<li>webpack本身是一个预编译路径 不能require纯变量的打包工具，无法预测未知变量路径</li>
+<li>require(path) ,path 至少要有三部分组成, 目录,文件名和后缀</li>
+<li>目录：webpack 才知道从哪里开始查找</li>
+<li>后缀 文件后缀，必须要加上，不然会报错</li>
+<li>文件名：可用变量表示</li>
+</ul>
+<h3 id="1-错误引用"><a href="#1-错误引用" class="headerlink" title="1. 错误引用"></a>1. 错误引用</h3><p>上述意思即是不能通过以下这种方式加载图片，这种方式下，webpack找不到具体是哪个模块（图片）被引入，故而无法将图片hash并输出到dist文件下。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgUrlStr = <span class="string">'../images/a.png'</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> imgUrl = <span class="built_in">require</span>(imgUrlStr);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-正确引用"><a href="#2-正确引用" class="headerlink" title="2. 正确引用"></a>2. 正确引用</h3><p>鉴于require在纯变量的情况下找不到模块，所以我们至少要在require参数中写明一个目录（如下边代码中的example 2和example 3），这样的话，虽然不知道具体的模块，但是webpack也会为我们做些分析工作：</p>
+<ul>
+<li><ol>
+<li>分析目录： ‘../images’</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>提取正则表达式 : ‘/^.*.png$/‘</li>
+</ol>
+</li>
+</ul>
+<p>但是此种情况下，webpack生成的上下文模块（context module）。它包含目录下的所有模块的引用，是通过一个 request 解析出来的正则表达式，去匹配目录下所有符合的模块，然后都 require 进来。此 context module 包含一个 map 对象，会把 request 中所有模块翻译成对应的模块 id。这意味着 webpack 能够支持动态地 require，但会导致所有可能用到的模块都包含在 bundle 中。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgName = <span class="string">'a'</span>; </span><br><span class="line"><span class="keyword">let</span> imgAllName = <span class="string">'a.png'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// example 1</span></span><br><span class="line"><span class="keyword">let</span> imgUrl = <span class="built_in">require</span>(<span class="string">'../images/a.png'</span>);                <span class="comment">// 纯字符串</span></span><br><span class="line"><span class="comment">// example 2</span></span><br><span class="line"><span class="keyword">let</span> imgUrl = <span class="built_in">require</span>(<span class="string">'../images/'</span> + imgAllName);        <span class="comment">// 目录 + 文件全名</span></span><br><span class="line"><span class="comment">// example 3</span></span><br><span class="line"><span class="keyword">let</span> imgUrl = <span class="built_in">require</span>(<span class="string">'../images/'</span> + imgName + <span class="string">'.png'</span>);  <span class="comment">// 目录 + 文件名 + 后缀</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-require-context"><a href="#2-require-context" class="headerlink" title="2. require.context"></a>2. require.context</h2><p>此方法可理解为require方法的详细实现，用require.context() 函数来创建自己的 context。可以给这个函数传入三个参数：一个要搜索的目录，一个标记表示是否还搜索其子目录， 以及一个匹配文件的正则表达式。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="built_in">require</span>.context(directory, useSubdirectories = <span class="literal">false</span>, regExp = <span class="regexp">/^\.\//</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// example</span></span><br><span class="line"><span class="comment">// 创建出一个 context，其中所有文件都来自父文件夹及其所有子级文件夹，request 以 `.png` 结尾。</span></span><br><span class="line"><span class="built_in">require</span>.context(<span class="string">'../images'</span>, <span class="literal">true</span>, /\.png$/);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="1-require-context返回值"><a href="#1-require-context返回值" class="headerlink" title="1. require.context返回值"></a>1. require.context返回值</h3><p>一个 context module 会导出一个（require）函数，此函数可以接收一个参数：request。<br>此导出函数有三个属性：resolve, keys, id。</p>
+<ul>
+<li>resolve 是一个函数，它返回 request 被解析后得到的模块 id。</li>
+<li>keys 也是一个函数，它返回一个数组，由所有可能被此 context module 处理的请求（译者注：参考下面第二段代码中的 key）组成。</li>
+<li>id 是 context module 里面所包含的模块 id. 它可能在你使用 module.hot.accept 时会用到。</li>
+</ul>
+<p><img src="//images/require-context.png" alt="require-context"></p>
+<h3 id="2-图片预加载"><a href="#2-图片预加载" class="headerlink" title="2. 图片预加载"></a>2. 图片预加载</h3><p>动态加载文件夹下所有图片实例：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example </span></span><br><span class="line"><span class="comment">// 图片预加载, </span></span><br><span class="line">preloadAllImages () {</span><br><span class="line">    <span class="keyword">let</span> imgCounts = <span class="number">0</span>;      <span class="comment">// 已加载图片计数，可实现真实进度条 </span></span><br><span class="line">    <span class="keyword">let</span> imgsFun = <span class="built_in">require</span>.context(<span class="string">'../images'</span>, <span class="literal">true</span>, /\.(png|jpg)$/);</span><br><span class="line">    <span class="keyword">let</span> imgKeys = imgsFun.keys();</span><br><span class="line"></span><br><span class="line">    imgKeys.forEach(<span class="function"><span class="params">item</span> =></span> {</span><br><span class="line">        <span class="keyword">let</span> Img = <span class="keyword">new</span> Image();</span><br><span class="line">        Img.src = imgsFun(item);</span><br><span class="line">        Img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            imgCounts++;</span><br><span class="line">        }</span><br><span class="line">        Img.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            imgCounts++;</span><br><span class="line">        };</span><br><span class="line">    });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-import"><a href="#3-import" class="headerlink" title="3. import"></a>3. import</h2><p>require是运行时加载模块，但import命令会被javascript引擎静态分析，先于模块内其他模块执行，做不到运行时加载，因此为了实现类似于require的动态加载，就提出了实现一个import()函数方法，</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(specifier);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，import函数的参数specifier，指定所要加载的模块的位置。import命令能够接受什么参数，import()函数就能接受什么参数，两者区别主要是后者为动态加载。</p>
+<p>import()函数可以用在任何地方，不仅仅是模块，非模块的脚本也可以使用。它是运行时执行，也就是说，什么时候运行到这一句，也会加载指定的模块。另外，import()函数与所加载的模块没有静态连接关系，这点也是与import语句不相同。</p>
+<blockquote>
+<p>import() 特性依赖于内置的 Promise。如果想在低版本浏览器使用 import()，记得使用像 es6-promise 或者 promise-polyfill 这样 polyfill 库，来预先填充(shim) Promise 环境。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example</span></span><br><span class="line"><span class="keyword">let</span> imgUrl = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与require参数类似，不能通过纯参数的方式引入模块。正确的引入方式可查看以上require的引入方式</span></span><br><span class="line"><span class="keyword">import</span>(<span class="string">'/images/tree/tree.png'</span>).then(<span class="function"><span class="params">res</span> =></span> {</span><br><span class="line">    imgUrl = res;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

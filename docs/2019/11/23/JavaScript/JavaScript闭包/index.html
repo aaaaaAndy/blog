@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        JavaScript闭包
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-11-23
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域决定变量的生命周期及其可见性，当我们创建一个函数，就会生成一个新的作用域。值得一提的是在ES6之前，之后全局作用域和函数作用域，但是在ES6之后，出现的let和const可以实现块级作用域。</p>
+<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是<strong><em>在一个函数内部创建另一个函数</em></strong>。</p>
+<p>由于闭包会携带包含它的函数的作用域，因此会比其他函数占用更多的内存，所以过度使用闭包可能会导致内存占用过多。</p>
+<h2 id="闭包几种情况"><a href="#闭包几种情况" class="headerlink" title="闭包几种情况"></a>闭包几种情况</h2><h3 id="Timer"><a href="#Timer" class="headerlink" title="Timer"></a>Timer</h3><p>变量<code>x</code>将一直存活着，直到定时器的回调执行或者被清除。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">autorun</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">  }, <span class="number">1000</span>);</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h3><p>当变量 <code>x</code> 在事件处理函数中被使用时，它将一直存活直到该事件处理函数被移除。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">autorun</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line">  $(<span class="string">'#btn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">  })</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><p>变量 <code>x</code> 将一直存活到接收到后端返回结果，回调函数被执行。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">autorun</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line">  fetch(<span class="string">'/...'</span>).then(<span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">  })</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="闭包与循环"><a href="#闭包与循环" class="headerlink" title="闭包与循环"></a>闭包与循环</h3><p>闭包只存储外部变量的引用，而不会拷贝这些外部变量的值。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回一个函数数组，且每个函数的返回值都是10，因为它值存储了i的引用。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i > <span class="number">10</span>; i++) {</span><br><span class="line">      result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">      }</span><br><span class="line">  } </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>闭包只能取得包含函数中任何变量的最后一个值，所以在使用闭包时要注意取值的情况。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回一个函数数组，每个函数都能返回正确的i值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i > <span class="number">10</span>; i++) {</span><br><span class="line">      result[i] = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>{   <span class="comment">// 用立即执行函数给每个result元素创造一个独立的作用域</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">          <span class="keyword">return</span> num;</span><br><span class="line">        }</span><br><span class="line">      }(i);</span><br><span class="line">  } </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">}, <span class="number">2000</span>, <span class="number">111</span>);</span><br><span class="line"></span><br><span class="line">clearTimeout(timer);</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+
+
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        滚动加载，懒加载
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-12-12
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p>滚动加载，懒加载的实现。</p>
+<h2 id="1-scroll计算"><a href="#1-scroll计算" class="headerlink" title="1. scroll计算"></a>1. scroll计算</h2><p>思路：通过滚动条判断是否到内容底部  =>  到底部后向后台请求下一页得数据  =>  将请求得新数据拼接在老数据上</p>
+<p>三个关键点：</p>
+<ul>
+<li>1：滚动条距离顶部的距离：document.documentElement.scrollTop||document.body.scrollTop</li>
+<li>2：当前窗口内容的可视区域：document.documentElement.clientHeight || document.body.clientHeigh</li>
+<li>3：滚动条内容的总高度：document.documentElement.scrollHeight||document.body.scrollHeight</li>
+</ul>
+<p>需要注意的是，实际上，在js代码里，滚动条是被抽象为一个“点”来对待的。scrollHeight其实不是“滚动条的高度”，而是表示滚动条需要滚动的高度，即内部所有li的高度。而scrollTop表示滚动条（一个点）当前的位置在素有li高度里占了多少</p>
+<p><em>项目实例</em></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dataListDOM = <span class="built_in">document</span>.getElementById(<span class="string">'listUlContainer'</span>);       <span class="comment">//  获取滚动内容父级元素，即容器DOM</span></span><br><span class="line">dataListDOM.addEventListener(<span class="string">'scroll'</span>, () => {</span><br><span class="line">    <span class="keyword">let</span> clientHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = dataListDOM.scrollTop;</span><br><span class="line">    <span class="keyword">let</span> scrollHeight = dataListDOM.scrollHeight;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((clientHeight + scrollTop) >= scrollHeight) {</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =></span> {</span><br><span class="line">            loadMoreData();</span><br><span class="line">        }, <span class="number">200</span>);</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-IntersectionObserver"><a href="#2-IntersectionObserver" class="headerlink" title="2. IntersectionObserver"></a>2. IntersectionObserver</h2><p>在IntersectionObserver出世之前，要实现一个懒加载一般都需要大量计算scroll，这会引发性能问题，于是在2016年初，chrome51率先提供了一个新的API，即IntersectionObserver，它可以用来监听元素是否进入了设备的可视区域之内，而不需要频繁的计算来做这个判断。但是这毕竟是一个新兴API，所以各个浏览器<br>对其支持不太友好。<a href="https://caniuse.com/#search=IntersectionObserver" target="_blank" rel="noopener">点此查看各个浏览器对intersectionObserver的支持情况</a></p>
+<p>正因为浏览器对该方法支持不太好，所以要想试用此方法最好加一个垫片，<a href="https://github.com/w3c/IntersectionObserver/blob/master/polyfill/intersection-observer.js" target="_blank" rel="noopener">地址在此</a></p>
+<p>有一点要记住：IntersectionObserver 不是完美精确到像素级别，也不是低延时性的，它是异步的。 使用它实现类似依赖滚动效果的动画注定会失败，因为回调函数被调用的时候那些数据——严格来说——已经过期了。</p>
+<p>调用：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> IntersectionObserver(callback, options);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>callback: 当被监听元素的可见性变化时，触发的回调函数</li>
+<li>options: 配置参数，可传可不传，有默认属性值</li>
+</ul>
+<p>下面先来看一个官方示例代码：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化一个实例</span></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function"><span class="params">entries</span> =></span> {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> entrie <span class="keyword">of</span> entries) {</span><br><span class="line">        <span class="built_in">console</span>.log(entrie.target);                 <span class="comment">// 被观察的目标元素，是一个 DOM 节点对象</span></span><br><span class="line">        <span class="built_in">console</span>.log(entrie.intersectionRatio);      <span class="comment">// 目标元素的可见比例，完全可见时为1，完全不可见时小于等于0</span></span><br><span class="line">        <span class="built_in">console</span>.log(entrie.time);                   <span class="comment">// 当可视状态变化时，状态发送改变的时间戳</span></span><br><span class="line">        <span class="built_in">console</span>.log(entrie.rootBounds);             <span class="comment">// 根元素的矩形区域信息，即为getBoundingClientRect方法返回的值</span></span><br><span class="line">        <span class="built_in">console</span>.log(entrie.boundingClientRect);     <span class="comment">// 目标元素的矩形区域的信息</span></span><br><span class="line">        <span class="built_in">console</span>.log(entrie.intersectionRect);       <span class="comment">// 目标元素与视口（或根元素）的交叉区域的信息</span></span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}, {options});</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对元素target添加监听，当target元素变化时，就会触发上述的回调</span></span><br><span class="line">observer.observe(target);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除一个监听，移除之后，target元素的可视区域变化，将不再触发前面的回调函数</span></span><br><span class="line">observer.unobserve(target);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止所有的监听</span></span><br><span class="line">observer.disconnect();</span><br><span class="line"></span><br><span class="line">options.root;       <span class="comment">// 所监听对象的具体祖先元素(element)。如果未传入任何值或值为null，则默认使用viewport。</span></span><br><span class="line">options.rootMargin; <span class="comment">// 计算交叉时添加到根(root)边界盒bounding box的矩形偏移量， 可以有效的缩小或扩大根的判定范围从而满足计算需要。默认值为"0px 0px 0px 0px"。</span></span><br><span class="line">options.thresholds  <span class="comment">// 一个包含阈值的list, 升序排列, list中的每个阈值都是监听对象的交叉区域与边界区域的比率。当监听对象的任何阈值被越过时，都会生成一个通知(Notification)。如果构造器未传入值, 则默认值为0.</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="滚动加载示例"><a href="#滚动加载示例" class="headerlink" title="滚动加载示例"></a>滚动加载示例</h3><p>当实现列表滚动加载时，可在列表最后拼接一个元素（假设id为observer-dom），然后监听该元素，当离开页面或者不再需要滚动加载时可移除监听。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observe = <span class="keyword">new</span> IntersectionObserver(<span class="function"><span class="keyword">function</span> (<span class="params">entries</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (entries[<span class="number">0</span>].intersectionRatio > <span class="number">0</span>) {</span><br><span class="line">        <span class="comment">// 可视区域出现，可加载下一屏数据</span></span><br><span class="line">        loadMoreData();</span><br><span class="line">    }</span><br><span class="line">}, {});</span><br><span class="line">observe.observe(<span class="built_in">document</span>.getElementById(<span class="string">'observer-dom'</span>));</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

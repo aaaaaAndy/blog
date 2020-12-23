@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/npm/">
+            npm
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        npm
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-05-10
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h2 id="1-什么是npm"><a href="#1-什么是npm" class="headerlink" title="1. 什么是npm"></a>1. 什么是npm</h2><blockquote>
+<p>npm 为你和你的团队打开了连接整个 JavaScript 天才世界的一扇大门。它是世界上最大的软件注册表，每星期大约有 30 亿次的下载量，包含超过 600000 个 <em>包（package）</em> （即，代码模块）。</p>
+<p>npm 由三个独立的部分组成：</p>
+<ul>
+<li>网站: 是开发者查找包（package）、设置参数以及管理 npm 使用体验的主要途径.</li>
+<li>注册表（registry）: 是一个巨大的数据库，保存了每个包（package）的信息。</li>
+<li>命令行工具 (CLI) : 通过命令行或终端运行。开发者通过 CLI 与 npm 打交道。</li>
+</ul>
+</blockquote>
+<h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h2><h4 id="安装-卸载一个npm包"><a href="#安装-卸载一个npm包" class="headerlink" title="安装/卸载一个npm包"></a>安装/卸载一个<code>npm</code>包</h4><p>安装命令为 <code>install</code>, 卸载命令为 <code>uninstall</code>, 两者除了这个关键字,其他参数相同.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install <package_name></span><br><span class="line">npm install <package_name> --save  <span class="comment"># 生产环境依赖性</span></span><br><span class="line">npm install <package_name> --save-dev  <span class="comment"># 开发环境依赖</span></span><br><span class="line">npm install <package_name> -g  <span class="comment"># 全局安装</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="更新一个本地包"><a href="#更新一个本地包" class="headerlink" title="更新一个本地包"></a>更新一个本地包</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找当前项目下所有非最新版的包,如果所有包都是最新版,则不提示下面格式的内容</span></span><br><span class="line"><span class="comment"># Package  Current  Wanted  Latest  Location</span></span><br><span class="line"><span class="comment"># chalk      3.0.0   3.0.0   4.1.0  ytian-cli-demo</span></span><br><span class="line">npm outdated</span><br><span class="line">npm outdated -g --depth=0  <span class="comment"># 查找全局需要更新的包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在遵从版本语义化规则的前提下更新某个包</span></span><br><span class="line">npm update <package_name></span><br><span class="line">npm update -g  <span class="comment"># 全局更新</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="切换npm源"><a href="#切换npm源" class="headerlink" title="切换npm源"></a>切换<code>npm</code>源</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看npm源地址</span></span><br><span class="line">npm config get registry</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换为官方源地址 https://registry.npmjs.org/</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="查看安装目录"><a href="#查看安装目录" class="headerlink" title="查看安装目录"></a>查看安装目录</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本地安装的目录</span></span><br><span class="line">npm root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看全局安装目录</span></span><br><span class="line">npm root -g</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="查看当前安装模块"><a href="#查看当前安装模块" class="headerlink" title="查看当前安装模块"></a>查看当前安装模块</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm ls</span><br><span class="line">npm list</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="查看模块-包-信息"><a href="#查看模块-包-信息" class="headerlink" title="查看模块(包)信息"></a>查看模块(包)信息</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm info <package_name></span><br><span class="line">npm view <package_name></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="3-package-json"><a href="#3-package-json" class="headerlink" title="3. package.json"></a>3. package.json</h2><p><code>npm</code>通过<code>package.json</code>来管理本地安装的<code>npm</code>包:</p>
+<ul>
+<li>列出项目中依赖的包</li>
+<li>允许你使用版本语义化来管理每个依赖包的版本</li>
+<li>使的每次<code>build</code>都是可复制的, 并且更方便与人协作.</li>
+</ul>
+<h4 id="必需项"><a href="#必需项" class="headerlink" title="必需项"></a>必需项</h4><p>一个<code>package.json</code>中必须的两个配置字段为:</p>
+<ul>
+<li><code>name</code></li>
+<li><code>version</code></li>
+</ul>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"andy"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="创建一个package-json"><a href="#创建一个package-json" class="headerlink" title="创建一个package.json"></a>创建一个<code>package.json</code></h4><h5 id="1-通过命令行交互式创建"><a href="#1-通过命令行交互式创建" class="headerlink" title="1. 通过命令行交互式创建"></a>1. 通过命令行交互式创建</h5><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="2-创建一个默认的package-json"><a href="#2-创建一个默认的package-json" class="headerlink" title="2. 创建一个默认的package.json"></a>2. 创建一个默认的package.json</h5><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init --yes</span><br><span class="line">npm init -y</span><br></pre></td></tr></tbody></table></figure>
+
+<p>该命令将会根据当前目录现存信息生成一个默认的 <code>package.json</code>, 一个很大的特点是它会遍历<code>node_modules</code> 去找出当前已经安装的依赖包.</p>
+<ul>
+<li><code>name</code>: the current directory name</li>
+<li><code>version</code>: always <code>1.0.0</code></li>
+<li><code>description</code>: info from the readme, or an empty string <code>""</code></li>
+<li><code>main</code>: always <code>index.js</code></li>
+<li><code>scripts</code>: by default creates an empty <code>test</code> script</li>
+<li><code>keywords</code>: empty</li>
+<li><code>author</code>: empty</li>
+<li><code>license</code>: <a href="https://opensource.org/licenses/ISC" target="_blank" rel="noopener"><code>ISC</code></a></li>
+<li><code>bugs</code>: info from the current directory, if present</li>
+<li><code>homepage</code>: info from the current directory, if present</li>
+</ul>
+<h2 id="4-registry"><a href="#4-registry" class="headerlink" title="4. registry"></a>4. <code>registry</code></h2><p><code>registry</code>注册表是npm提供的一个查询服务, 官方的查询地址是<a href="https://registry.npmjs.org/" target="_blank" rel="noopener">https://registry.npmjs.org/</a>, 这个网址后面跟上模块名就能得到一个<code>json</code>对象, 里边是该模块所有版本的信息, 比如可以尝试点击 <a href="https://registry.npmjs.org/react" target="_blank" rel="noopener">https://registry.npmjs.org/react</a>.就能看到react所有版本的信息, 它跟下面的命令效果相似:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm view react;</span><br><span class="line">npm show react;</span><br><span class="line">npm info react;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>返回的<code>json</code>对象里,有一个<code>dist.tarball</code>属性, 是该版本压缩包的地址:</p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"dist": {</span><br><span class="line">  "shasum": '2a57c2cf8747b483759ad8de0fa47fb0c5cf5c6a',</span><br><span class="line">  "tarball": 'http://registry.npmjs.org/react/-/react-0.14.6.tgz' </span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>到这个网址下载压缩包，在本地解压，就得到了模块的源码。<code>npm install</code>和<code>npm update</code>命令，都是通过这种方式安装模块的。</p>
+<h2 id="5-模块的安装过程"><a href="#5-模块的安装过程" class="headerlink" title="5. 模块的安装过程"></a>5. 模块的安装过程</h2><ol>
+<li><p>发出<code>npm install</code>命令</p>
+</li>
+<li><p><code>npm</code> 向 <code>registry</code> 查询模块压缩包的网址</p>
+</li>
+<li><p>下载压缩包,存放在<code>~/.npm</code>下</p>
+</li>
+<li><p>解压压缩包到当前 <code>node_modules</code> 目录</p>
+</li>
+</ol>
+<p>注意，一个模块安装以后，本地其实保存了两份。一份是<code>~/.npm</code>目录下的压缩包，另一份是<code>node_modules</code>目录下解压后的代码。但是，运行<code>npm install</code>的时候，只会检查<code>node_modules</code>目录，而不会检查<code>~/.npm</code>目录。也就是说，如果一个模块在<code>～/.npm</code>下有压缩包，但是没有安装在<code>node_modules</code>目录中，npm 依然会从远程仓库下载一次新的压缩包。</p>
+<h2 id="6-版本语义化-semantic-versioning"><a href="#6-版本语义化-semantic-versioning" class="headerlink" title="6. 版本语义化 semantic versioning"></a>6. 版本语义化 <code>semantic versioning</code></h2><p><code>package.json</code>中的版本号一共有四个部分</p>
+<ul>
+<li>主版本号：一般为 <strong><em>不兼容上个版本的大修改</em></strong></li>
+<li>次版本号：一般为 <strong><em>增加了新功能，并且可以向后兼容</em></strong></li>
+<li>修订版本号：一般为 <strong><em>有bug修复，并且可以向后兼容</em></strong></li>
+<li>日期版本号加希腊字母版本号：希腊字母一共有五个[<code>base</code>, <code>alpha</code>, <code>beta</code>, <code>RC</code>, <code>release</code>]</li>
+</ul>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"dependencies"</span>: {</span><br><span class="line">        <span class="attr">"aaa"</span>: <span class="string">">=1.0.2 <2.1.2"</span>,	<span class="comment">// 必须大于等于1.0.2版本且小于2.1.2版本</span></span><br><span class="line">        <span class="attr">"bbb"</span>: <span class="string">"2.3.1"</span>,	<span class="comment">// 必须匹配这个版本</span></span><br><span class="line">        <span class="attr">"ddd"</span>: <span class="string">"~2.3.1"</span>,	<span class="comment">// 约等于2.3.1，只更新最小版本，相当于2.3.X，即>=2.3.1 <2.4.0</span></span><br><span class="line">        <span class="attr">"ddd"</span>: <span class="string">"^2.3.1"</span>,	<span class="comment">// 与2.3.1版本兼容，相当于2.X.X, 即>=2.3.1 < 3.0.0,不改变大版本号。</span></span><br><span class="line">        <span class="attr">"eee"</span>: <span class="string">"<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0"</span>, <span class="comment">// 多种混合</span></span><br><span class="line">        <span class="attr">"fff"</span>: <span class="string">"http://asdf.com/asdf.tar.gz"</span>,   <span class="comment">// 在版本上指定一个压缩包的url，当执行npm install 时这个压缩包会被下载并安装到本地。</span></span><br><span class="line">        <span class="attr">"ggg"</span>: <span class="string">"latest"</span>,	<span class="comment">// 安装最新版本</span></span><br><span class="line">        <span class="attr">"hhh"</span>: <span class="string">"file:../dyl"</span>,	<span class="comment">// 使用本地路径</span></span><br><span class="line">        <span class="attr">"iii"</span>: <span class="string">"git://github.com/user/project.git#commit-ish"</span>	<span class="comment">// 使用git URL加commit-ish</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

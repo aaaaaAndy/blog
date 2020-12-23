@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/git/">
+            git
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        git-tag
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-08-08
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="git-tag"><a href="#git-tag" class="headerlink" title="git-tag"></a>git-tag</h1><blockquote>
+<p>像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ <code>v1.0</code> 、 <code>v2.0</code> 等等）。</p>
+</blockquote>
+<h2 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h2><p><code>Git</code>支持两种标签: 轻量标签(<code>lightweight</code>)和附注标签(<code>annotated</code>).</p>
+<h3 id="轻量标签"><a href="#轻量标签" class="headerlink" title="轻量标签"></a>轻量标签</h3><p><strong><em>轻量标签</em></strong>很像一个不会改变的分支——它只是某个特定提交的饮用.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个轻量标签</span><br><span class="line">git tag xxx</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="附注标签"><a href="#附注标签" class="headerlink" title="附注标签"></a>附注标签</h3><p><strong><em>附注标签</em></strong>是存储在<code>Git</code>数据库中的一个完整对象,他们是可以被校验的,其中包含打标签者的名字,电子邮件地址,日期时间,此外还有一个标签信息.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个附注标签</span><br><span class="line">git tag -a xxx -m xxxxxx</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><h3 id="新建标签"><a href="#新建标签" class="headerlink" title="新建标签"></a>新建标签</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 新建一个默认关联到当前最新提交commit的标签</span><br><span class="line">git tag xxx		</span><br><span class="line"></span><br><span class="line">// 新建一个名字是xxx,描述是xxxxxx的标签</span><br><span class="line">git tag -a xxx -m xxxxxx	</span><br><span class="line"></span><br><span class="line">// 新建一个关联到commitID是88d434的标签</span><br><span class="line">git tag xxx 88d434	</span><br><span class="line"></span><br><span class="line">// 新建一个关联到commitID是88d434的标签,该标签名字是xxx,描述是xxxxxx</span><br><span class="line">git tag -a xxx -m xxxxxx 88d434</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 删除本地标签xxx</span><br><span class="line">git tag -d xxx</span><br><span class="line"></span><br><span class="line">// 将冒号前面的空值推送到远程标签名,从而高效的删除它</span><br><span class="line">git push origin :refs/tags/xxx 			</span><br><span class="line"></span><br><span class="line">// 另一种方式删除远程标签</span><br><span class="line">git push opigin --delete xxx</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="推送标签"><a href="#推送标签" class="headerlink" title="推送标签"></a>推送标签</h3><p>标签和<code>commit</code>一样都只存储在本地,不会自动推送到远程,所以需要手动<code>push</code>到远程分支的.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 将标签xxx推送到远程仓库</span><br><span class="line">git push origin xxx		</span><br><span class="line"></span><br><span class="line">// 将本地所有标签推送到远程仓库</span><br><span class="line">git push origin --tags</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 查看所有标签</span><br><span class="line">git tag			</span><br><span class="line"></span><br><span class="line">// 过滤展示以v1开头的标签</span><br><span class="line">git tag -l <span class="string">"v1*"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="检出标签"><a href="#检出标签" class="headerlink" title="检出标签"></a>检出标签</h3><p>如果你想要查看某个标签所指向的文件本班,就可以使用<code>git checkout</code>命令, 这个命令有些不好的副作用.在此状态下入锅你做了某些更改并且提交他们,你的新提交将不属于任何分支,并且将无法访问.因此, 如果你要修复旧版本中的错误, 那么通常需要创建一个新分支.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 检出标签xxx</span><br><span class="line">git checkout xxx</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a></body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

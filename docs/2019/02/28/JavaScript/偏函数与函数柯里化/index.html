@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        偏函数与函数柯里化
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-02-28
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="偏函数与函数柯里化"><a href="#偏函数与函数柯里化" class="headerlink" title="偏函数与函数柯里化"></a>偏函数与函数柯里化</h1><h2 id="1-偏函数"><a href="#1-偏函数" class="headerlink" title="1. 偏函数"></a>1. 偏函数</h2><p>所谓偏函数，就是固定一个函数的一个或者多个参数，返回一个新的函数，这个函数用于接受剩余的参数。</p>
+<h3 id="1-工厂方法"><a href="#1-工厂方法" class="headerlink" title="1. 工厂方法"></a>1. 工厂方法</h3><p>首先来看一个简单的例子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params">a, b</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">add(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">add(<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line">add(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">add(<span class="number">1</span>, <span class="number">6</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们发现，调用 add 方法时，第一个参数相同，但是我们写了5遍，鉴于此种情况，我们可以将 add 方法封装成偏函数的形式来实现更加简洁的代码。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 入参函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产偏函数的工厂</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partial</span>(<span class="params">fn, a</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>{</span><br><span class="line">      <span class="keyword">return</span> fn(a, b);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 得到偏函数</span></span><br><span class="line"><span class="keyword">var</span> parAdd = partial(add, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">parAdd(<span class="number">2</span>);</span><br><span class="line">parAdd(<span class="number">3</span>);</span><br><span class="line">parAdd(<span class="number">4</span>);</span><br><span class="line">parAdd(<span class="number">5</span>);</span><br><span class="line">parAdd(<span class="number">6</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由上边我们可以看到，偏函数也利用了闭包的原理。</p>
+<h4 id="2-bind-方法"><a href="#2-bind-方法" class="headerlink" title="2. bind 方法"></a>2. bind 方法</h4><p>由于 bind 函数会返回一个未执行的新函数，且新函数与被调函数具有相同的函数体，所以我们也可以使用 bind 方法来实现偏函数</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> parAdd = add.bind(<span class="literal">null</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">parAdd(<span class="number">2</span>);</span><br><span class="line">parAdd(<span class="number">3</span>);</span><br><span class="line">parAdd(<span class="number">4</span>);</span><br><span class="line">parAdd(<span class="number">5</span>);</span><br><span class="line">parAdd(<span class="number">6</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-函数柯里化"><a href="#2-函数柯里化" class="headerlink" title="2. 函数柯里化"></a>2. 函数柯里化</h2><p>柯里化是另一个有趣的处理函数技术。</p>
+<p>柯里化（Currying）：转换一个调用函数f(a,b,c)为f(a)(b)(c)方式调用。</p>
+<p>下面实现了一个柯里化函数，执行一个两元参数函数，即转换f(a,b)至f(a)(b):</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>{</span><br><span class="line">      <span class="keyword">return</span> fn(a, b);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> carriedSum = curry(add);</span><br><span class="line"></span><br><span class="line">carriedSum(<span class="number">1</span>)(<span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>curry(func)的结果是function(a)的一个包装器。</li>
+<li>当调用sum(1)是，参数被保存在词法环境中，然后返回新的包装器function(b)</li>
+<li>然后sum(1)(2)提供2并最终调用function(b)，然后传递调用给原始多参数函数sum。</li>
+</ul>
+<h3 id="1-无限加参"><a href="#1-无限加参" class="headerlink" title="1. 无限加参"></a>1. 无限加参</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...args</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (args.length > <span class="number">0</span>) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i < args.length; i++) {</span><br><span class="line">            result += args[i];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn, ...args</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> all = args || [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...rest</span>) </span>{</span><br><span class="line">        all.push(...rest);</span><br><span class="line">        <span class="keyword">if</span> (rest.length == <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, all);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">return</span> curry.call(<span class="literal">null</span>, fn, ...all);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> add2 = curry(add);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cc = add2(<span class="number">1</span>)(<span class="number">3</span>)();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cc);</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

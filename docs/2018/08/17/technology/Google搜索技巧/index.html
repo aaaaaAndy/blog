@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/Google/">
+            Google
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Google搜索技巧
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-08-17
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h2 id="1-双引号"><a href="#1-双引号" class="headerlink" title="1. 双引号"></a>1. 双引号</h2><p>把搜索词放在双引号中，代表完全匹配搜索，也就是说搜索结果返回的页面包含双引号中出现的所有的词，连顺序也必须完全匹配。baidu和 Google 都支持这个指令。例如搜索: “中国 上海”</p>
+<h2 id="2-减号"><a href="#2-减号" class="headerlink" title="2. 减号"></a>2. 减号</h2><p>减号代表搜索结果不包含减号后边的词，相当于集合中的差。需要注意的是减号前边必须有一个空格，后边可以不跟。baidu和 Google 都支持这个指令。例如搜索：中国 -上海</p>
+<h2 id="3-号"><a href="#3-号" class="headerlink" title="3. *号"></a>3. *号</h2><p>*号通常作通配符使用，也可以用在Google搜索中，但是百度不支持使用 * 号。其含义为包含任何文字。例如搜索：中国 * 上海</p>
+<h2 id="4-inurl"><a href="#4-inurl" class="headerlink" title="4. inurl"></a>4. inurl</h2><p>用于搜索查询词在url中出现的页面，百度和Google都支持该指令。由于关键词出现在url中会对排名有一定的影响，所以使用该指令可以更精准得找到竞争对手。例如搜索：inurl:中国上海</p>
+<h2 id="5-inanchor"><a href="#5-inanchor" class="headerlink" title="5. inanchor"></a>5. inanchor</h2><p>指令返回的结果是导入链接锚文字中包含搜索词的页面，百度不支持该指令。例如搜索：inanchor:中国上海。<br>返回的结果中不一定包含搜索文字，但是可以用来找到某个关键词的竞争对手，而且这些竞争对手往往是做过seo的。研究竞争对手有哪些外部链接，就可以找到很多链接资源。</p>
+<h2 id="6-intitle"><a href="#6-intitle" class="headerlink" title="6. intitle"></a>6. intitle</h2><p>指令返回的是页面title中包含关键词的页面，Google和百度都支持该指令，例如搜索：intitle:中国上海</p>
+<h2 id="7-allintitle"><a href="#7-allintitle" class="headerlink" title="7. allintitle"></a>7. allintitle</h2><p>intitle的升级版，可以组合多个关键词，例如搜索： allintitle:中国 上海 杭州</p>
+<h2 id="8-allinurl"><a href="#8-allinurl" class="headerlink" title="8. allinurl"></a>8. allinurl</h2><p>inurl的升级版，可以组合多个关键词，例如搜索： allinurl:中国 上海 杭州</p>
+<h2 id="9-filetype"><a href="#9-filetype" class="headerlink" title="9. filetype"></a>9. filetype</h2><p>用于搜索特定格式文件，Google和baidu都支持这个指令。例如搜索：filetype:pdf 中国上海</p>
+<h2 id="10-site"><a href="#10-site" class="headerlink" title="10. site"></a>10. site</h2><p>site是seo最熟悉的高级搜索指令，用来搜索某个域名下的所有文件。</p>
+<h2 id="11-related"><a href="#11-related" class="headerlink" title="11. related"></a>11. related</h2><p>该指令只适用于Google，返回的结果是与某网站有关联的页面</p>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

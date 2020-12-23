@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        前端中的安全攻防
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-05-26
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="1-sql-脚本注入"><a href="#1-sql-脚本注入" class="headerlink" title="1. sql 脚本注入"></a>1. sql 脚本注入</h1><p>所谓SQL注入式攻击，就是攻击者把SQL命令插入到Web表单的输入域或页面请求的查询字符串，欺骗服务器执行恶意的SQL命令。攻击者通过在应用程序预先定义好的SQL语句结尾加上额外的SQL语句元素，欺骗数据库服务器执行非授权的查询,篡改命令。</p>
+<h2 id="1-URL地址防注入"><a href="#1-URL地址防注入" class="headerlink" title="1. URL地址防注入"></a>1. URL地址防注入</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过滤URL非法SQL字符</span></span><br><span class="line"><span class="keyword">var</span> sUrl=location.search.toLowerCase();</span><br><span class="line"><span class="keyword">var</span> sQuery=sUrl.substring(sUrl.indexOf(<span class="string">"="</span>)+<span class="number">1</span>);</span><br><span class="line">re=<span class="regexp">/select|update|delete|truncate|join|union|exec|insert|drop|count|'|"|;|>|<|%/i</span>;</span><br><span class="line"><span class="keyword">if</span>(re.test(sQuery))</span><br><span class="line">{</span><br><span class="line">    alert(<span class="string">"请勿输入非法字符"</span>);</span><br><span class="line">    location.href=sUrl.replace(sQuery,<span class="string">""</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-输入文本框防注入"><a href="#2-输入文本框防注入" class="headerlink" title="2. 输入文本框防注入"></a>2. 输入文本框防注入</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//防止SQL注入</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AntiSqlValid</span>(<span class="params">oField </span>)</span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    re= <span class="regexp">/select|update|delete|exec|count|'|"|=|;|>|<|%/i</span>;</span><br><span class="line">    <span class="keyword">if</span> ( re.test(oField.value) )</span><br><span class="line">    {</span><br><span class="line">    alert(<span class="string">"请您不要在参数中输入特殊字符和SQL关键字！"</span>);</span><br><span class="line">    oField.value = <span class="string">";</span></span><br><span class="line"><span class="string">    oField.className="</span>errInfo<span class="string">";</span></span><br><span class="line"><span class="string">    oField.focus();</span></span><br><span class="line"><span class="string">    return false;</span></span><br><span class="line"><span class="string">}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-参数化查询"><a href="#3-参数化查询" class="headerlink" title="3. 参数化查询"></a>3. 参数化查询</h2><p>所谓的参数化查询是指在设计与数据库链接并访问数据时，在需要填入数值或数据的地方，使用参数来给值。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM myTable WHERE myID = @myID</span><br><span class="line"></span><br><span class="line">INSERT INTO myTable (c1, c2, c3, c4) VALUES (@c1, @c2, @c3, @c4)</span><br><span class="line"></span><br><span class="line">INSERT INTO myTable (c1, c2, c3, c4) VALUES(?,?,?,?)</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="2-xss-跨站脚本攻击"><a href="#2-xss-跨站脚本攻击" class="headerlink" title="2. xss 跨站脚本攻击"></a>2. xss 跨站脚本攻击</h1><p>XSS 全称(Cross Site Scripting) 跨站脚本攻击，是Web程序中最常见的漏洞。指攻击者在网页中嵌入客户端脚本(例如JavaScript), 当用户浏览此网页时，脚本就会在用户的浏览器上执行，从而达到攻击者的目的. 比如获取用户的Cookie，导航到恶意网站,携带木马等。</p>
+<ul>
+<li>反射型XSS</li>
+</ul>
+<p>又称非持久型XSS。之所以称为反射型XSS，则是因为这种攻击方式的注入代码是从目标服务器通过错误信息、搜索结果等等方式“反射”回来的。而称为非持久型XSS，则是因为这种攻击方式具有一次性。攻击者通过电子邮件等方式将包含注入脚本的恶意链接发送给受害者，当受害者点击该链接时，注入脚本被传输到目标服务器上，然后服务器将注入脚本“反射”到受害者的浏览器上，从而在该浏览器上执行了这段脚本。</p>
+<ul>
+<li>存储型XSS</li>
+</ul>
+<p>存储型XSS，又称持久型XSS，他和反射型XSS最大的不同就是，攻击脚本将被永久地存放在目标服务器的数据库和文件中。这种攻击多见于论坛，攻击者在发帖的过程中，将恶意脚本连同正常信息一起注入到帖子的内容之中。随着帖子被论坛服务器存储下来，恶意脚本也永久地被存放在论坛服务器的后端存储器中。当其它用户浏览这个被注入了恶意脚本的帖子的时候，恶意脚本则会在他们的浏览器中得到执行，从而受到了攻击。</p>
+<ul>
+<li>DOM 型 XSS</li>
+</ul>
+<p>DOM型XSS纯靠前端执行，与服务端并不交互。攻击者构造出特殊的 URL，其中包含恶意代码，用户打开带有恶意代码的 URL，用户浏览器接收到响应后解析执行，前端 JavaScript 取出 URL 中的恶意代码并执行，恶意代码窃取用户数据并发送到攻击者的网站，或者冒充用户的行为，调用目标网站接口执行攻击者指定的操作。</p>
+<p>XSS 攻击的目的：</p>
+<ul>
+<li>获取用户cookie</li>
+<li>钓鱼攻击（构建一个钓鱼页面，获得用户输入的账号密码）</li>
+</ul>
+<p>预防 XSS 攻击方案：</p>
+<h2 id="1-输入过滤"><a href="#1-输入过滤" class="headerlink" title="1. 输入过滤"></a>1. 输入过滤</h2><p>对于明确的输入类型，例如数字、URL、电话号码、邮件地址等等内容，只允许输入规定的字符，其他特殊的字符都过滤掉。当然攻击者完全可以通过接口直接发数据给服务端，所以服务端在存储到数据库之前最后也进行特殊字符的检测过滤。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">htmlEncodeByRegExp:<span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>{  </span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(str.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    s = str.replace(<span class="regexp">/&/g</span>,<span class="string">"&amp;"</span>);</span><br><span class="line">    s = s.replace(<span class="regexp">/</g</span>,<span class="string">"&lt;"</span>);</span><br><span class="line">    s = s.replace(<span class="regexp">/>/g</span>,<span class="string">"&gt;"</span>);</span><br><span class="line">    s = s.replace(<span class="regexp">/ /g</span>,<span class="string">"&nbsp;"</span>);</span><br><span class="line">    s = s.replace(<span class="regexp">/\'/g</span>,<span class="string">"&#39;"</span>);</span><br><span class="line">    s = s.replace(<span class="regexp">/\"/g</span>,<span class="string">"&quot;"</span>);</span><br><span class="line">    <span class="keyword">return</span> s;  </span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-设置cookie只读"><a href="#2-设置cookie只读" class="headerlink" title="2. 设置cookie只读"></a>2. 设置cookie只读</h2><p>HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。</p>
+<h2 id="3-纯前端渲染"><a href="#3-纯前端渲染" class="headerlink" title="3. 纯前端渲染"></a>3. 纯前端渲染</h2><ol>
+<li>浏览器先加载一个静态 HTML，此 HTML 中不包含任何跟业务相关的数据。</li>
+<li>然后浏览器执行 HTML 中的 JavaScript。</li>
+<li>JavaScript 通过 Ajax 加载业务数据，调用 DOM API 更新到页面上。</li>
+</ol>
+<p>在纯前端渲染中，我们会明确的告诉浏览器：下面要设置的内容是文本（.innerText），还是属性（.setAttribute），还是样式（.style）等等。浏览器不会被轻易的被欺骗，执行预期外的代码了。</p>
+<h2 id="4-谨慎使用innerHtml"><a href="#4-谨慎使用innerHtml" class="headerlink" title="4. 谨慎使用innerHtml"></a>4. 谨慎使用innerHtml</h2><p>在使用 .innerHTML、.outerHTML、document.write() 时要特别小心，不要把不可信的数据作为 HTML 插到页面上，而应尽量使用 .textContent、.setAttribute() 等。</p>
+<p>如果用 Vue/React 技术栈，并且不使用 v-html/dangerouslySetInnerHTML 功能，就在前端 render 阶段避免 innerHTML、outerHTML 的 XSS 隐患。</p>
+<h2 id="5-验证码"><a href="#5-验证码" class="headerlink" title="5. 验证码"></a>5. 验证码</h2><p>验证码：防止脚本冒充用户提交危险操作。</p>
+<h1 id="3-CSRF-跨站脚本伪造"><a href="#3-CSRF-跨站脚本伪造" class="headerlink" title="3. CSRF 跨站脚本伪造"></a>3. CSRF 跨站脚本伪造</h1><p>要完成一次CSRF攻击，受害者必须依次完成两个步骤：</p>
+<ol>
+<li>登录受信任网站A，并在本地生成Cookie。</li>
+<li>在不登出A的情况下，访问危险网站B。</li>
+</ol>
+<p>CSRF的防御可以从服务端和客户端两方面着手，防御效果是从服务端着手效果比较好，现在一般的CSRF防御也都在服务端进行。服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。</p>
+<h2 id="1-表单添加hash值"><a href="#1-表单添加hash值" class="headerlink" title="1. 表单添加hash值"></a>1. 表单添加hash值</h2><p>在表单里增加Hash值，然后在服务器端进行Hash值验证，以认证这确实是用户发送的请求。</p>
+<h2 id="2-验证码"><a href="#2-验证码" class="headerlink" title="2. 验证码"></a>2. 验证码</h2><p>每次的用户提交都需要用户在表单中填写一个图片上的随机字符串</p>
+<h2 id="3-token"><a href="#3-token" class="headerlink" title="3. token"></a>3. token</h2><p>CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请求，该请求中所有的用户验证信息都是存在于 cookie 中，因此黑客可以在不知道这些验证信息的情况下直接利用用户自己的 cookie 来通过安全验证。要抵御 CSRF，关键在于在请求中放入黑客所不能伪造的信息，并且该信息不存在于 cookie 之中。可以在 HTTP 请求中以参数的形式加入一个随机产生的 token，并在服务器端建立一个拦截器来验证这个 token，如果请求中没有 token 或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。这种方法要比检查 Referer 要安全一些，token 可以在用户登陆后产生并放于 session 之中，然后在每次请求时把 token 从 session 中拿出，与请求中的 token 进行比对。</p>
+<h2 id="4-验证HTTP-Referer字段"><a href="#4-验证HTTP-Referer字段" class="headerlink" title="4. 验证HTTP Referer字段"></a>4. 验证HTTP Referer字段</h2><p>根据 HTTP 协议，在 HTTP 头中有一个字段叫 Referer，它记录了该 HTTP 请求的来源地址。在通常情况下，访问一个安全受限页面的请求来自于同一个网站，比如上文中用户User想要在网站WebA中进行转账操作，那么用户User必须先登录WabA，然后再通过点击页面上的按钮出发转账事件。这时该转帐请求的 Referer 值就会是转账按钮所在的页面的URL，而如果黑客要对银行网站实施 CSRF攻击，他只能在他自己的网站构造请求，当用户User通过黑客的网站发送请求到WebA时，该请求的 Referer 是指向黑客自己的网站。</p>
+<h2 id="5-只使用json-api"><a href="#5-只使用json-api" class="headerlink" title="5. 只使用json api"></a>5. 只使用json api</h2><p>使用JavaScript发起AJAX请求是限制跨域的，并不能通过简单的form表单来发送JSON，所以，通过只接收JSON可以很大可能避免CSRF攻击。</p>
+<a id="more"></a>
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

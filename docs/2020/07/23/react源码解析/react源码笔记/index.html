@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title><meta name="robots" content="noindex">
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/react/">
+            react
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        react源码笔记
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-07-23
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p>ReactDOM</p>
+<ol>
+<li>创建ReactRoot</li>
+<li>创建FiberRoot和RootFiber</li>
+<li>创建更新</li>
+</ol>
+<p>FiberRoot</p>
+<ol>
+<li>整个应用的起点</li>
+<li>包含应用挂载的目标节点</li>
+<li>记录整个应用更新过程中的各种信息</li>
+</ol>
+<p>什么是Fiber</p>
+<ol>
+<li>每一个ReactElement对应一个Fiber对象</li>
+<li>记录节点的各种状态</li>
+<li>串联整个应用形成树结构</li>
+</ol>
+<p>Class component中的state和props都是保存在fiber上的, 这就为实现hooks提供了基础条件,function组件里没有this,而我们的state, props没有挂载在class的this上,而是fiber上,所以function组件更新的时候也能拿到state, props.</p>
+<p>RootFiber对象的child只会存它的第一个子节点, 然后子节点通过sibling指向其兄弟节点.</p>
+<p>什么事update</p>
+<ol>
+<li>用于记录组件状态的改变</li>
+<li>存放于UpdateQueue中</li>
+</ol>
+<p>expirationTime种类</p>
+<ol>
+<li>Sync模式</li>
+<li>异步模式</li>
+<li>指定context</li>
+</ol>
+<p>在React中只有ReactDOM.render, setState, forceUpdate和hooks是合法的更新</p>
+<p>setState 和 forceUpdate</p>
+<ol>
+<li>给节点的Fiber创建更新</li>
+</ol>
+<p>React16重写了react-reconciler, 又叫fiber-reconciler</p>
+<p>scheduleWork核心知识点</p>
+<ol>
+<li>找到更新对应的FiberRoot节点</li>
+<li>如果符合条件重置stack</li>
+<li>如果符合条件就请求工作调度</li>
+</ol>
+<p>每次的更新都是把RootFiber加入到调度队列里</p>
+<p>总体流程概览</p>
+<p>react16之前, 一次setState必须把所有的更新流程走完才会执行其他的js代码</p>
+<p>react16重写了react的核心源码,加入了fiber的思想,将更新任务切分为不同优先级的小任务,再调度更新</p>
+<p>Scheduler的整体流程概览</p>
+<p>调度过程中的各种全局变量一览</p>
+<p>构建任务调度的概念</p>
+<p>scheduleWork</p>
+<p>找到更新对应的FiberRoot节点</p>
+<p>如果符合条件重置stack</p>
+<p>如果符合条件就请求工作调度</p>
+<p>requestWork</p>
+<p>加入到root调度队列</p>
+<p>判断是否批量更新</p>
+<p>根据expirationTime判断调度类型</p>
+<p>batchedUpdates(批量更新)</p>
+<p>this.setState()本身的方法调用时同步的,但是它调用之后并不是马上就能执行更新,这个更新是要根据当前react执行的上下文来判断的,如果处于批量更新的情况下,所有有关的setState都会在最后一起更新掉,对我们的效果就是我们以为是异步的,如果他不处于批量更新的状态,那它就有可能是同步更新, (如果处于异步更新模式的话,它会有一个异步的过程)</p>
+<p>reac† scheduler</p>
+<p>维护时间片</p>
+<p>模拟requestIdleCallback: 等浏览器把其他任务执行完了之后再来执行这个回调, </p>
+<p>调度列表和超时判断</p>
+<p>浏览器如果想留长的话要求每秒钟至少渲染30帧以上,即平均每33ms刷新一帧</p>
+<p>react-scheduler用来控制react的更新在每33ms内是合理的,不至于超出时间造成卡顿</p>
+<p>performWork</p>
+<ol>
+<li>是否有deadline的区分</li>
+<li>循环渲染root的条件</li>
+</ol>
+<p>renderRoot</p>
+<ol>
+<li>调用workLoop进行循环单元更新</li>
+<li>捕获错误并进行处理</li>
+<li>走完流程之后进行善后</li>
+</ol>
+<p>currentTime</p>
+<p>​    在一次渲染中产生的更新需要使用相同的时间</p>
+<p>​    一次批处理的更新应该得到相同的时间</p>
+<p>​    挂起任务用于记录的时候应该相同</p>
+<p>第五章</p>
+<p>入口和优化</p>
+<p>reconcileChildren</p>
+<p>根据props.children生成fiber子树</p>
+<p>判断fiber对象是否可以重复使用</p>
+<p>列表根据key优化</p>
+<p>数组调和</p>
+<pre><code>1. key的作用
+ 2. 对比数组children是否可复用
+ 3. generator和Array的区别</code></pre><p>forwardRef</p>
+<p>mode</p>
+<p>conCurrentMode</p>
+<p>strictMode</p>
+<p>CompleteUnitWork</p>
+<ol>
+<li>根据是否中断调用不同的处理方法</li>
+<li>根据是否有兄弟节点来执行不同的操作</li>
+<li>完成节点之后赋值effect链</li>
+</ol>
+<p>重置childExpirationTime</p>
+<p>completeWork</p>
+<ol>
+<li>pop各种context相关的内容</li>
+<li>对于HostComponent执行初始化</li>
+<li>初始化监听事件</li>
+</ol>
+<p>UpdateHostComponent</p>
+<ol>
+<li>diffProperties计算需要更新的内容</li>
+<li>不同的dom property处理方式不同</li>
+</ol>
+<p>renderRoot</p>
+<ol>
+<li>给报错的节点增加inComplete作用</li>
+<li>给父链上具有error boundaty的节点增加副作用</li>
+<li>创建错误相关的更新</li>
+</ol>
+<p>unWindwork</p>
+<ol>
+<li>类似completeWork对不同类型组件进行处理</li>
+<li>对于ShouldCapture组件设置DidCapture副作用</li>
+</ol>
+<p>Ref</p>
+<ol>
+<li>创建Fiber的时候处理ref</li>
+</ol>
+<p>legacyContext</p>
+<ol>
+<li>会影响整个子树</li>
+<li>嵌套的context提供者需要进行合</li>
+<li>对性能影响大</li>
+</ol>
+<p>stack</p>
+<ol>
+<li>更新节点时相关信息入栈</li>
+<li>完成节点时相关信息出栈</li>
+</ol>
+<p>新context</p>
+<ol>
+<li>组件化的使用方式</li>
+<li>context的提供方和订阅方都是独立的</li>
+<li>没有什么附带的性能影响</li>
+</ol>
+<a id="more"></a>
+
+<!-- flag of hidden posts --></body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

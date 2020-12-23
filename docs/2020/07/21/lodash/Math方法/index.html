@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Math方法
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-07-21
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="Math方法"><a href="#Math方法" class="headerlink" title="Math方法"></a>Math方法</h1><h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2><h3 id="运算规则"><a href="#运算规则" class="headerlink" title="运算规则"></a>运算规则</h3><ol>
+<li>加法运算符只能用于原始数据类型, 对于对象类型的值,需要进行数据转换；</li>
+<li>在转换后,如果其中一个运算元出现原始数据类型是“字符串”类型值时， 则另一个运算元强制转换为字符串,然后做字符串的连接运算；</li>
+<li>在其他情况时，所有运算元都会转换为原始数据类型的“数字”类型值,然后作数字的相加。</li>
+</ol>
+<h3 id="Number-转换规则"><a href="#Number-转换规则" class="headerlink" title="Number()转换规则"></a>Number()转换规则</h3><ol>
+<li>如果是<code>Boolean</code>值,<code>true</code>和<code>false</code>将分别转换为1和0;</li>
+<li>如果是数字值,只是简单的传入和返回;</li>
+<li>如果是<code>null</code>值,返回0;</li>
+<li>如果是<code>undefined</code>,返回<code>NaN;</code></li>
+<li>如果是字符串,遵循一下规则:<ol>
+<li>如果字符串截去开头和结尾的空白字符后,不是纯数字字符串,那么最终结果返回结果为<code>NaN</code>;</li>
+<li>如果是字符串中只包含数字(包括前面带正号或负号的情况,则将其转换为十进制数值, 即<code>1</code>变成<code>1</code>，<code>123</code>会变成<code>123</code>，而<code>011</code>会变成<code>11</code>（前导的零被忽略了);</li>
+<li>如果字符串中包含有效的浮点格式，如<code>1.1</code>，则将其转换为对应的浮点数值（同样也会忽略前导零）； </li>
+<li>如果字符串中包含有效的十六进制,例如<code>0xf</code>, 则将其转换为相同大小的十进制整数数值;</li>
+<li>如果字符串是空的(不包含任何字符), 则将其转换为<code>0</code>;</li>
+<li>如果字符串中包含上述格式之外的字符, 则将其转换为<code>NaN</code>.</li>
+</ol>
+</li>
+<li>如果是对象, 则调用对象的<code>valueOf()</code>方法,然后依照前面的规则转换返回的值.如果转换的结果是<code>NaN</code>, 则调用对象的<code>toString()</code>方法,然后再次依照前面的规则转换返回的字符串值.</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">undefined</span>)) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">null</span>)) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="literal">NaN</span>)) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">''</span>)) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>({})) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>({<span class="attr">a</span>:<span class="number">1</span>})) <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>([])) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>([<span class="number">1</span>])) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>([<span class="number">1</span>,<span class="number">2</span>])) <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">undefined</span>)) <span class="comment">// 'undefined'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">null</span>)) <span class="comment">// 'null'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(<span class="literal">NaN</span>)) <span class="comment">// 'NaN'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>({})) <span class="comment">// '[object Object]'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>({<span class="attr">a</span>:<span class="number">1</span>})) <span class="comment">// '[object Object]'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>([])) <span class="comment">// ''</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>([<span class="number">1</span>])) <span class="comment">// '1'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>([<span class="number">1</span>,<span class="number">2</span>])) <span class="comment">// '1,2'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

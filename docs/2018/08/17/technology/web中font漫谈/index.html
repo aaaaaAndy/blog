@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+            浏览器
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        web中font漫谈
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-08-17
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><p>日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！</p>
+<h1 id="1-系统默认字体如何使用"><a href="#1-系统默认字体如何使用" class="headerlink" title="1. 系统默认字体如何使用"></a>1. 系统默认字体如何使用</h1><ol>
+<li>web-safe字体<br>不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：</li>
+</ol>
+<p><img src="//images/sys-font.png" alt="sys-font"></p>
+<p>web安全字体有20种左右，网上到处都是这类总结，点击此处查看web安全字体。</p>
+<ol start="2">
+<li>前端字体兼容写法<br>原文链接：<a href="http://caibaojian.com/css-font.html" target="_blank" rel="noopener">http://caibaojian.com/css-font.html</a></li>
+</ol>
+<p>字体的分类有很多种，可以参考这个 WikiTypeface·</p>
+<p>不过计算机上其实并没有把种类分得那么细致，在 CSS 中有5个基本款</p>
+<ul>
+<li><p>serif, sans-serif, monospace, cursive, fantasy.</p>
+</li>
+<li><p>serif 衬线字体，如 Big Caslon, 宋体</p>
+</li>
+<li><p>sans-serif 非衬线字体，如 Helvetica, 黑体</p>
+</li>
+<li><p>monospace 等宽字体，如 Menlo</p>
+</li>
+<li><p>cursive 手写体，如 Comic Sans MS</p>
+</li>
+<li><p>fantasy 幻想体，如 Bodoni Ornaments</p>
+</li>
+</ul>
+<p>接下来我们来看一看 CSS 中字体的 Fallback 机制：</p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这段 CSS 代码中的字体的 Fallback 可以看下图。</p>
+<p><img src="//images/font-comp.png" alt="font-comp"></p>
+<p>这个 fallback 的规则可以总结为：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(hasFont && isInUnicodeTable) ? <span class="string">'Current Font'</span> : <span class="string">'Next Font'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>就这样一直找匹配的字体，直到系统默认，所以一般都把系统默认的5类字体放到 font-family 定义的最后来写。</p>
+<p>那么一个国际化的站点应该如何设置多语种的字体呢？其先后顺序如何设定？这里强烈推荐 Airbnb 作为参考</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[lang^=<span class="string">"zh"</span>]</span> <span class="selector-tag">body</span>{<span class="attribute">font-family</span>:<span class="string">"Hiragino Sans GB”,"</span>华文细黑<span class="string">","</span>STHeiti<span class="string">","</span>微软雅黑<span class="string">", "</span>Microsoft YaHei<span class="string">",SimHei,"</span>Helvetica Neue”,Helvetica,Arial, sans-serif <span class="meta">!important</span>}</span><br></pre></td></tr></tbody></table></figure>
+<p>作为一个 web 开发者，你理应对 Windows, Mac OS, Linux 家族等常用操作系统里的系统字体有足够的了解，特别是中文。在这里，我们假设目标网站要同时给予 windows 用户和 mac 用户最好的字体体验，于是我们可以这样声明：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Font-family</span>: <span class="selector-tag">Helvetica</span>, <span class="selector-tag">Tahoma</span>, <span class="selector-tag">Arial</span>, <span class="selector-tag">STXihei</span>, “华文细黑”, “<span class="selector-tag">Microsoft</span> <span class="selector-tag">YaHei</span>”, “微软雅黑”, <span class="selector-tag">sans-serif</span></span><br></pre></td></tr></tbody></table></figure>
+<p>这句声明都做到哪些事情呢？让我们一一说明（括号内代表其对应的目标操作系统）：·</p>
+<p>对于英文字符，首先查找Helvetica(Mac)，然后查找Tahoma(Win)，都找不到就用Arial(Mac&Win)；若是以上三者都缺失，则使用当前默认的sans-serif字体(操作系统或浏览器指定)；</p>
+<p>对于中文字体，我们已经了解其规则了。华文细黑(Mac)，微软雅黑(Win)是这两个平台的默认中文字体。</p>
+<h1 id="2-第三方字体如何引入"><a href="#2-第三方字体如何引入" class="headerlink" title="2. 第三方字体如何引入"></a>2. 第三方字体如何引入</h1><p>@font-face用来引入设计师喜欢的任意字体，引入字体后字体文件存放在web服务器上，它会在需要时被自动下载到用户的计算机上。</p>
+<p>语法：</p>
+<p><img src="//images/font-import.png" alt="font-import"></p>
+<p>font-face<br>由于各个浏览器对‘@font-face’规则支持的字体格式不同，所以需要考虑其兼容性。各个浏览器支持的字体格式如下：</p>
+<ul>
+<li>Webkit/Safari(3.2+) </li>
+</ul>
+<p>TrueType/OpenType TT (.ttf) 、OpenType PS (.otf)；</p>
+<ul>
+<li>Opera (10+) </li>
+</ul>
+<p>TrueType/OpenType TT (.ttf) 、 OpenType PS (.otf) 、 SVG (.svg)；</p>
+<ul>
+<li>Internet Explorer </li>
+</ul>
+<p>自ie4开始，支持EOT格式的字体文件；ie9支持WOFF；</p>
+<ul>
+<li>Firefox(3.5+) </li>
+</ul>
+<p>TrueType/OpenType TT (.ttf)、 OpenType PS (.otf)、 WOFF (since Firefox 3.6)</p>
+<ul>
+<li>Google Chrome </li>
+</ul>
+<p>TrueType/OpenType TT (.ttf)、OpenType PS (.otf)、WOFF since version 6</p>
+<p>由上面可以得出：.eot + .ttf /.otf + svg + woff = 所有浏览器的完美支持</p>
+<p>兼容性写法如下：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 声明webfont</span><br><span class="line"><span class="keyword">@font-face</span> {</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'pinghei'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../font/pinghei.eot'</span>);</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../font/pinghei.eot?#iefix"</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'../font/pinghei.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">"../font/pinghei.ttf"</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">"../font/pinghei.svg"</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// 使用指定字体</span><br><span class="line"><span class="selector-class">.test</span>{</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'pinghei'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<a id="more"></a>
+
+
+</body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>
