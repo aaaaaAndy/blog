@@ -156,7 +156,7 @@
     <div class="post-content">
         <html><head></head><body><h1 id="Jsbridge"><a href="#Jsbridge" class="headerlink" title="Jsbridge"></a>Jsbridge</h1><h2 id="1-什么是JSBridge"><a href="#1-什么是JSBridge" class="headerlink" title="1. 什么是JSBridge"></a>1. 什么是JSBridge</h2><p>主要是给JavaScript调用native功能的接口，让H5可以实现调用系统原生功能，如相机，位置，话筒等。但是JSBridge的功能不单单是调用native这么简单，实际上，JSBridge就是JavaScript与native的桥梁，它的核心是构建native与非native之间消息通信的渠道，而且这个渠道是双向的。</p>
 <p>H5与native交互如下图：</p>
-<p><img src="/blog//images/jsbridge.jpeg" alt="在这里插入图片描述"></p>
+<p><img src="/blog/images/jsbridge.jpeg" alt="在这里插入图片描述"></p>
 <h2 id="2-JSBridge实现原理"><a href="#2-JSBridge实现原理" class="headerlink" title="2. JSBridge实现原理"></a>2. JSBridge实现原理</h2><p>JavaScript是运行在一个单独的JavaScript Context中，由于这些环境与原生环境天生相隔，我们可以将这种情况与 RPC（Remote Procedure Call，远程过程调用）通信进行类比，将 Native 与 JavaScript 的每次互相调用看做一次 RPC 调用。</p>
 <p>在 JSBridge 的设计中，可以把前端看做 RPC 的客户端，把 Native 端看做 RPC 的服务器端，从而 JSBridge 要实现的主要逻辑就出现了：通信调用（Native 与 JS 通信） 和句柄解析调用。</p>
 <h2 id="3-JSBridge的通信原理"><a href="#3-JSBridge的通信原理" class="headerlink" title="3. JSBridge的通信原理"></a>3. JSBridge的通信原理</h2><p>JavaScript调用native主要有两种方式：<strong><em>注入API</em></strong> 和 <strong><em>拦截UrlScheme</em></strong></p>

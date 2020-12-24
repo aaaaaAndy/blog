@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/blog/" class="logo">
+                aaaaaAndy
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/blog/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/blog/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/blog/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/blog/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/blog/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/blog/categories/JavaScript/">
+            JavaScript
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        JS获得浏览器窗口尺寸
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-12-10
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <html><head></head><body><h1 id="JavaScript各种宽高属性"><a href="#JavaScript各种宽高属性" class="headerlink" title="JavaScript各种宽高属性"></a>JavaScript各种宽高属性</h1><p>在<code>JavaScript</code>中存在各种宽高属性，如<code>height</code>, <code>clientHeight</code>, <code>innerHeight</code>,<code>outerHeight</code>等等，那么它们究竟有什么区别呢？</p>
+<p>在了解这些属性的区别之前，我们需要先来了解<code>window</code>和<code>document</code>的区别：</p>
+<h2 id="1-window和document"><a href="#1-window和document" class="headerlink" title="1. window和document"></a>1. <code>window</code>和<code>document</code></h2><ul>
+<li><code>Window</code>对象表示浏览器打开的窗口，调用<code>window</code>对象上的方法可以省略<code>window</code>，如<code>console.log()</code>, <code>alert</code>等；</li>
+<li><code>Document</code>对象是<code>Window</code>对象的一部分，浏览器的<code>HTML</code>文档成为<code>Document</code>对象。</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location === <span class="built_in">document</span>.location;  <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="2-window上的宽高"><a href="#2-window上的宽高" class="headerlink" title="2. window上的宽高"></a>2. <code>window</code>上的宽高</h2><h2 id="3-window-screen上的宽高"><a href="#3-window-screen上的宽高" class="headerlink" title="3. window.screen上的宽高"></a>3. <code>window.screen</code>上的宽高</h2><h2 id="4-document上的宽高"><a href="#4-document上的宽高" class="headerlink" title="4. document上的宽高"></a>4. <code>document</code>上的宽高</h2><h3 id="4-1-document-client"><a href="#4-1-document-client" class="headerlink" title="4.1 document.client"></a>4.1 <code>document.client</code></h3><h3 id="4-2-document-offset"><a href="#4-2-document-offset" class="headerlink" title="4.2 document.offset"></a>4.2 <code>document.offset</code></h3><h3 id="4-3-document-scroll"><a href="#4-3-document-scroll" class="headerlink" title="4.3. document.scroll"></a>4.3. <code>document.scroll</code></h3><h2 id="5-常用方法"><a href="#5-常用方法" class="headerlink" title="5. 常用方法"></a>5. 常用方法</h2><p>有三种方法获得浏览器尺寸</p>
+<ul>
+<li>对于IE, chrome, firefox, opera, safari浏览器</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">window</span>.innerHeight;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">window</span>.innerWidth;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>对于IE8, 7, 6, 5浏览器</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">document</span>.documentElement.clientWidth;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">document</span>.documentElement.clientHeight</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>或者</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在程序中，可以用或连接符把不同情况的处理方式连接起来。</p>
+<a id="more"></a></body></html>
+    </div>
+</article>
+        </main>
+    </div>
+</body>
+
+</html>

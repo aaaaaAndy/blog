@@ -139,6 +139,49 @@
     
         <article class="post">
             <h1 class="post-title">
+                <a href="/blog/2018/12/23/JavaScript/Object%E7%9A%84%E9%82%A3%E4%BA%9B%E5%87%BD%E6%95%B0/">
+                    Object的那些函数
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    December 23, 2018
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+                <div class="post-cover">
+                    <img src="/blog/images/object-prototype.png">
+                </div>
+            
+            <div class="post-content ">
+                <html><head></head><body>在JavaScript中，万物皆对象!
+
+1. 原型方法
+
+
+其中，constructor, toString, toLocalString, valueOf方法是Object原型的原始方法，鉴于万物皆对象的原则，所以在JavaScript中的其他类型都会存在着几种属性。
+
+1. constructor
+原型对象有一个constructor属性，指向该原型对象对应的构造函数。
+
+1
+
+
+Object.prototype.constructor === Object;    // true
+
+
+1. toString()
+toString() 用来返回对象的字符串表示，如果此方法在自定义对象中未</body></html>
+                <a href="/blog/2018/12/23/JavaScript/Object%E7%9A%84%E9%82%A3%E4%BA%9B%E5%87%BD%E6%95%B0/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
                 <a href="/blog/2018/11/13/technology/%E6%AD%A3%E5%88%99%E5%B7%B4%E5%95%A6%E5%95%A6/">
                     正则巴啦啦
                 </a>
@@ -503,45 +546,6 @@ person.sayName = function () {
             </div>
         </article>
     
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/">
-                    web中font漫谈
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 17, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-                <div class="post-cover">
-                    <img src="/blog//images/sys-font.png">
-                </div>
-            
-            <div class="post-content ">
-                <html><head></head><body>日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！
-
-1. 系统默认字体如何使用
- 1. web-safe字体
-    不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：
-
-
-
-web安全字体有20种左右，网上到处都是这类总结，点击此处查看web安全字体。
-
- 2. 前端字体兼容写法
-    原文链接：http://caibaojian.com/css-font.html
-
-字体的分类有很多种，可以参考这个 Wiki</body></html>
-                <a href="/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
         
 <div id="paginator" class="paginator">
     <a class="extend prev" rel="prev" href="/blog/page/4/">&lt;</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/">6</a><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/6/">&gt;</a>
@@ -556,7 +560,7 @@ web安全字体有20种左右，网上到处都是这类总结，点击此处查
 <!--        
     <h1>Categories</h1>
 
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ES/">ES</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
 
 -->
 <!--    </section>-->

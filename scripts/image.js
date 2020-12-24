@@ -17,7 +17,6 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 		$('img').each(function () {
 			var src = $(this).attr('src');
-			debugger;
 			if (src) {
 				var srcSplits = src.split('./');
 				var appendSrc = srcSplits.pop();

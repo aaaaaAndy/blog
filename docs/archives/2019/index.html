@@ -170,7 +170,7 @@
     
         <article class="post">
             <h1 class="post-title">
-                <a href="/blog/2019/12/10/JavaScript/JS%E8%8E%B7%E5%BE%97%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8/">
+                <a href="/blog/2019/12/10/JavaScript/JavaScript%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E5%B1%9E%E6%80%A7/">
                     JS获得浏览器窗口尺寸
                 </a>
             </h1>
@@ -185,36 +185,20 @@
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>有三种方法获得浏览器尺寸
- * 对于IE, chrome, firefox, opera, safari浏览器
+                <html><head></head><body>JavaScript各种宽高属性
+在JavaScript中存在各种宽高属性，如height, clientHeight, innerHeight,outerHeight等等，那么它们究竟有什么区别呢？
+
+在了解这些属性的区别之前，我们需要先来了解window和document的区别：
+
+1. window和document
+ * Window对象表示浏览器打开的窗口，调用window对象上的方法可以省略window，如console.log(), alert等；
+ * Document对象是Window对象的一部分，浏览器的HTML文档成为Document对象。
 
 1
-2
 
 
-var wid = window.innerHeight;
-var hei = window.innerWidth;
-
-
- * 对于IE8, 7, 6, 5浏览器
-
-1
-2
-
-
-var wid = document.documentElement.clientWidth;
-var hei = document.documentElement.clientHeight
-
-
- * 或者
-
-1
-2
-
-
-var wid = document.body.clientWidth;
-</body></html>
-                <a href="/blog/2019/12/10/JavaScript/JS%E8%8E%B7%E5%BE%97%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8/" class="more-link">Continue reading</a>
+window.loc</body></html>
+                <a href="/blog/2019/12/10/JavaScript/JavaScript%E5%90%84%E7%A7%8D%E5%AE%BD%E9%AB%98%E5%B1%9E%E6%80%A7/" class="more-link">Continue reading</a>
             </div>
         </article>
     
@@ -305,7 +289,7 @@ Promise对象有以下两个特点
             </ul>
             
                 <div class="post-cover">
-                    <img src="/blog//images/jsbridge.jpeg">
+                    <img src="/blog/images/jsbridge.jpeg">
                 </div>
             
             <div class="post-content ">
@@ -511,7 +495,7 @@ JavaScript是一个单线程的语言，就像一条流水线，但也仅仅是�
 <!--        
     <h1>Categories</h1>
 
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ES/">ES</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
 
 -->
 <!--    </section>-->

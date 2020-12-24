@@ -17,7 +17,7 @@ date: 2019-09-23 20:02:06
 
 H5与native交互如下图：
 
-![在这里插入图片描述](/images/jsbridge.jpeg)
+![在这里插入图片描述](../../images/jsbridge.jpeg)
 
 
 
