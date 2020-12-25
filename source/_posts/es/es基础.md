@@ -1,11 +1,11 @@
 ---
 title: 基础
 date: 2020-12-24 10:17:12
-tags:
+tags: [ES, JavaScript]
 categories: ES
 ---
 
-# ES6总结
+# ES基础
 
 ## 1. 名词解释
 
@@ -13,7 +13,7 @@ categories: ES
 
 -   **`ECMAScript`**:  ECMAScript 是标准化组织 ECMA`（Ecma International - European association for standardizing information and communication systems）`发布的脚本语言规范。
 
--   `**ECMA`第39号技术委员会 `(TC39)`**: 负责制定和审核ECMA-262标准，成员由业内的大公司派出的工程师组成，目前共25个人。该委员会定期开会，所有的邮件讨论和会议记录，都是公开的。
+-   `**ECMA`第39号技术委员会 `(TC39)`**: 负责制定和审核`ECMA-262`标准，成员由业内的大公司派出的工程师组成，目前共25个人。该委员会定期开会，所有的邮件讨论和会议记录，都是公开的。
 
 `ECMAScript`和`JavaScript`的关系是，前者是后者的规格，后者是前者的一种实现。日常场合，这两个词可以互换。
 

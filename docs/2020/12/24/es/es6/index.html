@@ -6,7 +6,7 @@
     <meta name="keywords" content="hexo, andy" />
     <title>
         aaaaaAndy
-    </title><meta name="robots" content="noindex">
+    </title>
     <!-- favicon -->
     
     <link rel="icon" href="img/favicon.ico" />
@@ -154,9 +154,78 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><a id="more"></a>
+        <html><head></head><body><h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="1-let和const"><a href="#1-let和const" class="headerlink" title="1. let和const"></a>1. <code>let</code>和<code>const</code></h2><p><code>var</code>是传统上的函数作用域。ES6<code>推荐使用</code>let<code>声明局部变量，</code>const`声明常量，两者都为块级作用域。</p>
+<ol>
+<li><p><code>let</code>用法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'andy'</span>;</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line">  <span class="comment">// let声明局部变量</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">'qiqi'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(name);  <span class="comment">// qiqi</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name);  <span class="comment">// andy</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>const</code>用法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'andy'</span>;</span><br><span class="line">name = <span class="string">'qiqi'</span>;  <span class="comment">// 报错，不可被修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = { <span class="attr">name</span>: <span class="string">'andy'</span> };</span><br><span class="line">person.name = <span class="string">'qiqi'</span>;  <span class="comment">// 可以被修改</span></span><br></pre></td></tr></tbody></table></figure>
 
-<!-- flag of hidden posts --></body></html>
+</li>
+</ol>
+<p>由<code>const</code>声明的变量都会被认为是常量，即它的值被设置完成后就不能再修改了，但是如果<code>const</code>是一个对象，对象所包含的值是可以被修改的。抽象点说，就是对象所指向的地址没有变。</p>
+<p>以下几点需要注意：</p>
+<ul>
+<li><code>let</code>关键字声明的变量不具备变量提升特性；</li>
+<li><code>let</code>和<code>const</code>声明只在最靠近的一个块中有效；</li>
+<li><code>const</code>在声明时必须被赋值</li>
+</ul>
+<h2 id="2-函数相关"><a href="#2-函数相关" class="headerlink" title="2. 函数相关"></a>2. 函数相关</h2><h3 id="2-1-箭头函数"><a href="#2-1-箭头函数" class="headerlink" title="2.1 箭头函数"></a>2.1 箭头函数</h3><blockquote>
+<p>  ES6中，箭头函数是函数的一种简写形式。使用括号包裹参数，跟随一个 =>，紧接着是函数体；</p>
+</blockquote>
+<p>箭头函数的三个特点：</p>
+<ul>
+<li>不需要<code>function</code>关键字来创建函数</li>
+<li>可以省略<code>return</code>关键字</li>
+<li>没有自己的<code>this</code>，继承当前上下文的<code>this</code></li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="params">x</span> =></span> x + <span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-2-函数默认值"><a href="#2-2-函数默认值" class="headerlink" title="2.2 函数默认值"></a>2.2 函数默认值</h3><p>在参数括号内直接设置默认值</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name = <span class="string">'andy'</span>, age = <span class="number">12</span></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-3-Spread-Rest操作符"><a href="#2-3-Spread-Rest操作符" class="headerlink" title="2.3 Spread/Rest操作符"></a>2.3 <code>Spread/Rest</code>操作符</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// restParams代表剩下所有的参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">a, b, ...restParams</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(restParams);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">print(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>); <span class="comment">// [3, 4]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-模板字符串"><a href="#3-模板字符串" class="headerlink" title="3. 模板字符串"></a>3. 模板字符串</h2><p>在<code>ES6</code>之前我们用<code>+</code>来拼接字符串，但是在<code>ES6</code>中，可以使用``反引号来使用模板字符串</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'andy'</span>;</span><br><span class="line"><span class="keyword">var</span> age = <span class="string">'12'</span></span><br><span class="line"><span class="keyword">var</span> person = <span class="string">'我是'</span> + name + <span class="string">'我今年'</span> + age + <span class="string">'岁了'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">'andy'</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="string">'12'</span>;</span><br><span class="line"><span class="keyword">const</span> person = <span class="string">`我是<span class="subst">${name}</span>我今年<span class="subst">${age}</span>岁了`</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="4-对象和数组的解构"><a href="#4-对象和数组的解构" class="headerlink" title="4. 对象和数组的解构"></a>4. 对象和数组的解构</h2><ol>
+<li><p>对象解构</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = {</span><br><span class="line">  name: <span class="string">'andy'</span>,</span><br><span class="line">  age: <span class="number">11</span>,</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> { name, age } = person;</span><br><span class="line"><span class="built_in">console</span>.log(name);  <span class="comment">// andy;</span></span><br><span class="line"><span class="built_in">console</span>.log(age):  <span class="comment">// 12;</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>数组解构</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> persons = [<span class="string">'andy'</span>, <span class="string">'qiqi'</span>];</span><br><span class="line"><span class="keyword">const</span> [boy, girl] = persons;</span><br><span class="line"><span class="built_in">console</span>.log(boy);  <span class="comment">// andy;</span></span><br><span class="line"><span class="built_in">console</span>.log(girl);  <span class="comment">// qiqi;</span></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="5-for-in和for-of"><a href="#5-for-in和for-of" class="headerlink" title="5. for...in和for...of"></a>5. <code>for...in</code>和<code>for...of</code></h2><ol>
+<li><p><code>for...in</code>：用来遍历对象中的属性</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象的遍历</span></span><br><span class="line"><span class="keyword">const</span> person = {</span><br><span class="line">  name: <span class="string">'andy'</span>,</span><br><span class="line">  age: <span class="number">12</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> person) {</span><br><span class="line">  <span class="built_in">console</span>.log(key);  <span class="comment">// name, age</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的遍历</span></span><br><span class="line"><span class="keyword">const</span> ages = [<span class="number">12</span>, <span class="number">13</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> ages) {</span><br><span class="line">  <span class="built_in">console</span>.log(key);  <span class="comment">// 0, 1</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><code>for...of</code>：用来遍历一个迭代器</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数组的遍历</span></span><br><span class="line"><span class="keyword">const</span> ages = [<span class="number">12</span>, <span class="number">13</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">of</span> ages) {</span><br><span class="line">  <span class="built_in">console</span>.log(key);  <span class="comment">// 12, 13</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>for...of</code>不能用来遍历对象，这是因为<code>ES6</code>中引入了<code>Iterator</code>，只有提供了<code>Iterator</code>接口的数据类型才可以使用<code>for...of</code>来循环遍历，而<code>Array</code>, <code>Set</code>, <code>Map</code>，某些类数组默认都提供了<code>Iterator</code>接口，所以它们可以使用<code>for...of</code>来进行遍历。</p>
+</li>
+</ol>
+<h2 id="6-class"><a href="#6-class" class="headerlink" title="6. class"></a>6. <code>class</code></h2><p><code>ES6</code>中支持<code>class</code>语法，不过，<code>ES6</code>的<code>class</code>不是新的对象继承模型，它只是原型链的语法糖表现形式。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>{</span><br><span class="line">  <span class="keyword">constructor</span>() {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'i am andy'</span>);</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  run() {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'run'</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> Person(); <span class="comment">// i am andy</span></span><br><span class="line">person.run(); <span class="comment">// run</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>有几点值得注意：</p>
+<ul>
+<li>类的声明不会提升，如果要使用某个<code>class</code>，必须在使用之前定义它，否则会报错</li>
+<li>在类中定义函数不需要使用<code>function</code>关键字</li>
+<li>类可以通过<code>extends</code>继承一个父类，但是子类的<code>constructor</code>中需要执行<code>super()</code>函数</li>
+</ul>
+<h2 id="7-module"><a href="#7-module" class="headerlink" title="7. module"></a>7. <code>module</code></h2><p>导入模块是通过<code>import...from...结构完成的</code>：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> name = <span class="string">'andy'</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="Map和Set"><a href="#Map和Set" class="headerlink" title="Map和Set"></a><code>Map</code>和<code>Set</code></h2><h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a><code>Proxy</code></h2><h2 id="Reflect"><a href="#Reflect" class="headerlink" title="Reflect"></a><code>Reflect</code></h2><a id="more"></a>
+
+</body></html>
     </div>
 </article>
         </main>
