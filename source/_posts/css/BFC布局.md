@@ -64,7 +64,7 @@ margin塌陷问题：在标准文档流中，块级标签之间竖直方向的ma
 
 效果如下，两个容器外边距都是100px，但是实际上两个容器之间的边距总共只有100px
 
-![bfc-1](/images/bfc-1.png)
+![bfc-1](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/bfc-1.png)
 
 2. 将每一个 block 放入一个 BFC 容器中，（其实将一个 block 元素放入 BFC 容器中也行）
 
@@ -91,7 +91,7 @@ margin塌陷问题：在标准文档流中，块级标签之间竖直方向的ma
 
 给 container 添加了 overflow: hidden; 属性之后，该元素就变成了 BFC 容器，其内部的元素将不会影响到外部元素。
 
-![bfc-2](/images/bfc-2.png)
+![bfc-2](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/bfc-2.png)
 
 ## 2. 清除浮动
 
@@ -118,7 +118,7 @@ margin塌陷问题：在标准文档流中，块级标签之间竖直方向的ma
 
 如下，我们给了父元素边框 1px 的宽度，由此可以看到，内部元素添加浮动属性之后，父元素的高度只剩下了上下两个边框的高度。
 
-![bfc-3](/images/bfc-3.png)
+![bfc-3](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/bfc-3.png)
 
 2. 添加属性使得父元素变为 BFC 容器，解决浮动引起的问题
 
@@ -144,7 +144,7 @@ margin塌陷问题：在标准文档流中，块级标签之间竖直方向的ma
 
 结果如下：
 
-![bfc-4](/images/bfc-4.png)
+![bfc-4](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/bfc-4.png)
 
 ## 3. 防止元素被浮动元素覆盖
 
@@ -170,7 +170,7 @@ margin塌陷问题：在标准文档流中，块级标签之间竖直方向的ma
 
 效果如下：
 
-![bfc-5](/images/bfc-5.png)
+![bfc-5](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/bfc-5.png)
 
 2. 变为 BFC 容器
 
@@ -197,7 +197,7 @@ margin塌陷问题：在标准文档流中，块级标签之间竖直方向的ma
 
 效果如下：
 
-![bfc-6](/images/bfc-6.png)
+![bfc-6](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/bfc-6.png)
 
 该方法可用于自适应两栏布局。
 

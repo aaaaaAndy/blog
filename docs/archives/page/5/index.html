@@ -139,6 +139,200 @@
     
         <article class="post">
             <h1 class="post-title">
+                <a href="/blog/2019/04/28/technology/URL%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">
+                    URL文件格式
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    April 28, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>1. 全部配置
+.url文件是一个指向URL（web文档）的文件，双击后可直接在浏览器打开
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+
+[DEFAULT]
+BASEURL=
+
+[InternetShortcut]
+URL=
+WorkingDirectory=
+ShowCommand=
+IconIndex=
+IconFile=
+Modified=
+HotKey=
+
+
+ShowCommand规定Internet Explorer启动后窗口的初始状态：7表示最小化，3表示最大化；如果没有ShowCommand这一项的话则表示正常大小。
+
+IconFile和IconIndex用来为Inter</body></html>
+                <a href="/blog/2019/04/28/technology/URL%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/blog/2019/04/14/technology/%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93/">
+                    网页渲染
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    April 14, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+                <div class="post-cover">
+                    <img src="/blog//images/web-render/css-render.png">
+                </div>
+            
+            <div class="post-content ">
+                <html><head></head><body>渲染引擎：能够将HTML/CSS/JavaScript文本及相应的资源文件转换成图像结果。渲染引擎的主要作用是将资源文件转化为用户可见的结果。在浏览器的发展过程中，不同的厂商开发了不同的渲染引擎，如Tridend(IE)、Gecko(FF)、WebKit(Safari,Chrome,Andriod浏览器)等。WebKit是由苹果2005年发起的一个开源项目，引起了众多公司的重视，几年间被很多公司所采用，在移动端更占据了垄断地位。更有甚者，开发出了基于WebKit的支持HTML5的web操作系统(如：Chrome OS、Web OS)。
+
+1. 网页渲染流程
+;
+
+首先是网页内容，输入到HTML</body></html>
+                <a href="/blog/2019/04/14/technology/%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/blog/2019/03/12/JavaScript/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAEventEmitter/">
+                    简单实现一个EventEmitter
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    March 12, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>EventEmitter 是 NodeJS 的核心模块 events 中的类，用于对 NodeJS 中的事件进行统一管理，用 events 特定的 API 对事件进行添加、触发和移除等等，核心方法的模式类似于发布订阅
+
+1. Node 中的 EventEmitter
+EventEmitter本质上是一个观察者模式的实现。
+
+观察者模式：它定义了对象间的一种一对多的关系，让多个观察者对象同时监听某一个主题对象，当一个对象发生改变时，所有依赖于它的对象都将得到通知。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+// Node 中的 EventEmitter 简单用法
+let events = req</body></html>
+                <a href="/blog/2019/03/12/JavaScript/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAEventEmitter/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/blog/2019/03/12/git/git-log/">
+                    Git-log
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    March 12, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                <html><head></head><body>Git-log
+1. 基础命令
+ * 查看所有提交记录
+
+1
+
+
+git log
+
+
+ * 查看最近n次提交
+
+1
+
+
+git log -3      # 查看最近3次提交
+
+
+ * 查看指定文件名的提交记录
+
+1
+
+
+git log readme.txt
+
+
+ * 查看指定目录下所有文件的提交记录
+
+1
+
+
+git log dir/      # 查看dir目录下所有文件的提交鸡柳
+
+
+ * 查看指定分支下的提交记录
+
+1
+
+
+git log dev     # 查看dev分支下所有提交记录
+
+
+ * 查看指定tag下的提交记录
+
+1
+
+
+git log v2.0      # 查看v2.0</body></html>
+                <a href="/blog/2019/03/12/git/git-log/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
                 <a href="/blog/2019/02/28/JavaScript/%E5%81%8F%E5%87%BD%E6%95%B0%E4%B8%8E%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/">
                     偏函数与函数柯里化
                 </a>
@@ -425,166 +619,6 @@ let reg = new RegExp</body></html>
             </div>
         </article>
     
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/28/css/css%E6%BB%A4%E9%95%9C/">
-                    css滤镜
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 28, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-                <div class="post-cover">
-                    <img src="/blog//images/css-filter.png">
-                </div>
-            
-            <div class="post-content ">
-                <html><head></head><body>css滤镜（filter）定义了元素的可视效果，如：模糊和饱和度。
-
-npm滤镜库
-
-1. 基本用法
-修改所有的图片为黑白（灰度100%）
-
-css语法
-
-1
-2
-3
-4
-
-
-img {
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-}
-
-
-JavaScript语法
-
-1
-
-
-document.getElementById('grayImg').style.WebkitFilter = "grayscale(100%)";
-
-
-2. 常用参数
-Filter描述none默认值，没有效果blur(%)高斯模糊。”radi</body></html>
-                <a href="/blog/2018/08/28/css/css%E6%BB%A4%E9%95%9C/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/23/books/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">
-                    编写可维护的JavaScript-事件处理
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 23, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                <html><head></head><body>在所有JavaScript应用中事件处理都是非常重要的。所有的JavaScript均通过事件绑定到UI上。
-
-很多开发者都很了解，当事件触发时，事件对象（event对象）会作为回调参数传入事件处理程序中。event对象包含所有和事件相关的信息，包括事件的宿主以及其他和事件类型相关的数据。鼠标事件会将其位置信息暴露的event对象上，键盘事件会将按键信息暴露在event对象上，触屏事件会将触摸位置和持续事件暴露在event对象上，只有提供了所有这些信息，UI才会正确地执行交互。
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-// 不好的写法
-function handleClick(event) {</body></html>
-                <a href="/blog/2018/08/23/books/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/22/css/CSS%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94%E6%B5%81%E5%8A%A8-%E6%B5%AE%E5%8A%A8-%E5%B1%82%E6%A8%A1%E5%9E%8B/">
-                    CSS布局模型——流动/浮动/层模型
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 22, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                <html><head></head><body>CSS布局模型——流动/浮动/层模型
-在网页中，元素有三种布局模型：流动模型，浮动模型和层模型；
-
-1. 流动模型
-default，默认文档流，就是块级元素都从左往右，自上而下的分布。
-
-流动模型有两个特征：
-
- * 块状元素都会在所处的包含元素内自上而下按顺序垂直延伸分布，其默认宽度是100%
- * 内联元素都会在所处的包含元素内从左到右水平分布显示
-
-2. 浮动模型
-可实现两个块状元素在同一行显示，任何元素在默认情况下是不能浮动的，但可以用 CSS 定义为浮动，如 div、p、table、img 等元素都可以被定义为浮动。
-
-3. 层模型
-层模型有三种形式：
-
- * 1、绝对定位(posi</body></html>
-                <a href="/blog/2018/08/22/css/CSS%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94%E6%B5%81%E5%8A%A8-%E6%B5%AE%E5%8A%A8-%E5%B1%82%E6%A8%A1%E5%9E%8B/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/20/books/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E4%BA%8B%E4%BB%B6/">
-                    JavaScript高级程序设计-事件
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 20, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                <html><head></head><body>JavaScript与HTML之间的交互是通过事件实现的。事件最早是在 IE3 和 Netscape Navigator 2 中出现的，当时是作为分担服务器运算负载的一种手段，在 IE4 和 Navigator 4 发布时，这两种浏览器都提供了相似但不相同的API，这些API并存经过了好几个主要版本。
-
-DOM2 级规范开始尝试一种符合逻辑的方式来标准化 DOM 事件。目前 IE9， Firefox， Opera， Safari， Chrome 全都已经实现了 DOM2 级事件模块的核心部分。
-
-1. 事件流
-试想，在页面上点击一个元素，那么不能简单的认为，仅仅点击了这个元素。在点击这个元素的</body></html>
-                <a href="/blog/2018/08/20/books/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E4%BA%8B%E4%BB%B6/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
         
 <div id="paginator" class="paginator">
     <a class="extend prev" rel="prev" href="/blog/archives/page/4/">&lt;</a><a class="page-number" href="/blog/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/archives/page/3/">3</a><a class="page-number" href="/blog/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/archives/page/6/">6</a><a class="page-number" href="/blog/archives/page/7/">7</a><a class="extend next" rel="next" href="/blog/archives/page/6/">&gt;</a>
@@ -599,7 +633,7 @@ DOM2 级规范开始尝试一种符合逻辑的方式来标准化 DOM 事件。�
 <!--        
     <h1>Categories</h1>
 
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ES/">ES</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ES/">ES</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
 
 -->
 <!--    </section>-->
@@ -607,7 +641,7 @@ DOM2 级规范开始尝试一种符合逻辑的方式来标准化 DOM 事件。�
         
     <h1>Tags</h1>
 
-    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Children/" rel="tag">Children</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Component/" rel="tag">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM%E6%A0%91/" rel="tag">DOM树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES/" rel="tag">ES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/EventEmitter/" rel="tag">EventEmitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/IntersectionObserver/" rel="tag">IntersectionObserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">33</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Object/" rel="tag">Object</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PureComponent/" rel="tag">PureComponent</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/add/" rel="tag">add</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/api/" rel="tag">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apply/" rel="tag">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bind/" rel="tag">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call/" rel="tag">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/click/" rel="tag">click</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitizen/" rel="tag">commitizen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitlint/" rel="tag">commitlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fetch/" rel="tag">fetch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/flex/" rel="tag">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/for-of/" rel="tag">for-of</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/log/" rel="tag">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/" rel="tag">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/require/" rel="tag">require</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scroll/" rel="tag">scroll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/setTimeout/" rel="tag">setTimeout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/stach/" rel="tag">stach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tag/" rel="tag">tag</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window/" rel="tag">window</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="tag">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/" rel="tag">便函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" rel="tag">全局变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" rel="tag">函数节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/" rel="tag">函数防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B1%85%E4%B8%AD/" rel="tag">居中</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/" rel="tag">布局模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%AD%A3%E5%88%99/" rel="tag">正则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8/" rel="tag">滚动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/" rel="tag">滚动加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%A4%E9%95%9C/" rel="tag">滤镜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" rel="tag">盒模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BD%91%E9%A1%B5/" rel="tag">网页</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%AB%98%E7%A8%8B3/" rel="tag">高程3</a><span class="tag-list-count">1</span></li></ul>
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Children/" rel="tag">Children</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Component/" rel="tag">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM%E6%A0%91/" rel="tag">DOM树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES/" rel="tag">ES</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES10/" rel="tag">ES10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES7/" rel="tag">ES7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES8/" rel="tag">ES8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES9/" rel="tag">ES9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/EventEmitter/" rel="tag">EventEmitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/IntersectionObserver/" rel="tag">IntersectionObserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">37</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Object/" rel="tag">Object</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PureComponent/" rel="tag">PureComponent</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/add/" rel="tag">add</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/api/" rel="tag">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apply/" rel="tag">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bind/" rel="tag">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call/" rel="tag">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/click/" rel="tag">click</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitizen/" rel="tag">commitizen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitlint/" rel="tag">commitlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fetch/" rel="tag">fetch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/flex/" rel="tag">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/for-of/" rel="tag">for-of</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/log/" rel="tag">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/" rel="tag">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/require/" rel="tag">require</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scroll/" rel="tag">scroll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/setTimeout/" rel="tag">setTimeout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/stach/" rel="tag">stach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tag/" rel="tag">tag</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window/" rel="tag">window</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="tag">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/" rel="tag">便函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" rel="tag">全局变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" rel="tag">函数节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/" rel="tag">函数防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B1%85%E4%B8%AD/" rel="tag">居中</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/" rel="tag">布局模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%AD%A3%E5%88%99/" rel="tag">正则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8/" rel="tag">滚动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/" rel="tag">滚动加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%A4%E9%95%9C/" rel="tag">滤镜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" rel="tag">盒模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BD%91%E9%A1%B5/" rel="tag">网页</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%AB%98%E7%A8%8B3/" rel="tag">高程3</a><span class="tag-list-count">1</span></li></ul>
 
 
     </section>
