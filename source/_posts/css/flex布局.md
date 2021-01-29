@@ -11,7 +11,7 @@ Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种�
 
 采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
 
-![flex](/images/flex.png)
+![flex](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115037.png)
 
 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
 
@@ -51,16 +51,19 @@ flex-direction属性决定主轴的方向，默认为 row （水平）
 ```
 
  * row （水平）
-![flex-1](/images/flex-1.png) 
+
+  ![flex-1](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115100.png)
 
  * row-reverse （水平反向）
- ![flex-2](/images/flex-2-6062084.png)
+ ![flex-2-6062084](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115125.png)
 
  * colume （竖直）
-![flex-3](/images/flex-3.png)
+
+  ![flex-3](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115141.png)
 
  * column-reverse （竖直反向）
- ![flex-4](/images/flex-4.png)
+
+ ![flex-4](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115158.png)
 
 ## 2. flex-wrap
 
@@ -73,13 +76,16 @@ flex-direction属性决定主轴的方向，默认为 row （水平）
 ```
 
 * nowrap （不换行） 
-![flex-5](/images/flex-5.png)
-
+  
+![flex-5](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115232.png)
+  
 * wrap （正常换行） 
-![flex-6](/images/flex-6.png)
+
+  ![flex-6](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115248.png)
 
 * wrap-reverse （反向换行） 
-![flex-7](/images/flex-7.png)
+
+  ![flex-7](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115305.png)
 
 ## 3. flex-flow
 
@@ -102,19 +108,21 @@ justify-content属性定义了项目在主轴上的对齐方式。
 ```
 
 * flex-start （主轴头部开始排列，左对齐） 
-![flex-8](/images/flex-8.png) 
+
+  ![flex-8](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115447.png)
 
 * flex-end （主轴尾部开始排列，右对齐） 
-![flex-9](/images/flex-9.png)
+
+  ![flex-9](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115459.png)
 
 * center （主轴居中，如果元素之间没有margin则元素不会有间隔，会紧贴，以下是因为元素之间margin为5px） 
-![flex-10](/images/flex-10.png)
+![flex-10](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115510.png)
 
 * space-between （两端对齐，项目之间的间隔都相等） 
- ![flex-11](/images/flex-11.png)
+ ![flex-11](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115520.png)
 
 * space-around （每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍） 
-![flex-12](/images/flex-12.png)
+![flex-12](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115527.png)
 
 ## 5. align-items
 
@@ -127,19 +135,19 @@ align-items属性定义项目在交叉轴上如何对齐。
 ```
 
 * flex-start (交叉轴起点对齐)
-![flex-13](/images/flex-13.png)
+![flex-13](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115538.png)
 
 * flex-end （交叉轴终点对齐）
-![flex-14](/images/flex-14.png)
+![flex-14](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115548.png)
 
 * center （交叉轴居中） 
-![flex-15](/images/flex-15.png)
+![flex-15](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115557.png)
 
 * baseline （项目的第一行文字的基线对齐） 
-![flex-16](/images/flex-16.png) 
+![flex-16](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115605.png)
 
 * stretch （默认值，如果项目未设置高度或设为auto，将占满整个容器的高度） 
-![flex-17](/images/flex-17.png) 
+![flex-17](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115623.png)
 
 ## 6. align-content
 
@@ -154,22 +162,22 @@ align-content属性定义了多根轴线的对齐方式。如果项目只有一�
 ```
 
 * flex-start （交叉轴起点对齐） 
-![flex-18](/images/flex-18.png) 
+![flex-18](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115633.png)
 
 * flex-end （交叉轴终点对齐） 
-![flex-19](/images/flex-19.png)
+![flex-19](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115643.png)
 
 * center （交叉轴居中） 
-![flex-20](/images/flex-20.png)
+![flex-20](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115654.png)
 
 * space-between （与交叉轴两端对齐，轴线之间的间隔平均分布） 
-![flex-20](/images/flex-21.png)
+![flex-21](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115703.png)
 
 * space-around （每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍） 
-![flex-22](/images/flex-22.png)
+![flex-22](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115711.png)
 
 * stretch （默认值，轴线占满整个交叉轴） 
-![flex-23](/images/flex-23.png)
+![flex-23](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115719.png)
 
 # 4. 元素属性
 
@@ -186,7 +194,7 @@ order属性定义项目的排列顺序。数值越小，排列越靠前，默认
 ```
 
 * 按order顺序排列
-![flex-24](/images/flex-24.png)
+![flex-24](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115728.png)
 
 ## 2. flex-grow
 
@@ -199,10 +207,10 @@ flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余�
 ```
 
 * 都为1 （等分剩余空间） 
-![flex-25](/images/flex-25.png) 
+![flex-25](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115737.png)
 
 * 中间为2，其他两个为1 （中间占据的剩余空间将比其他项多一倍。） 
-![flex-26](/images/flex-26.png)
+![flex-26](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115749.png)
 
 ## 3. flex-shrink
 
@@ -215,10 +223,10 @@ flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间�
 ```
 
 * 都为1 （默认值，均等缩小） 
-![flex-27](/images/flex-27.png)
+![flex-27](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115758.png)
 
 * 前三个为0，其余为默认值1 （前三个保持宽度大小不变） 
-![flex-28](/images/flex-28.png)
+![flex-28](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115806.png)
 
 ## 4. flex-basis
 
@@ -255,7 +263,7 @@ align-self属性允许单个项目有与其他项目不一样的对齐方式，�
 ```
 
 * 第二个以尾部开始，其他两个以头部开始
-![flex-29](/images/flex-29.png) 
+![flex-29](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115818.png)
 
 # 5. 应用
 
@@ -286,7 +294,7 @@ align-self属性允许单个项目有与其他项目不一样的对齐方式，�
 }
 ```
 
-![flex-30](/images/flex-30.png)
+![flex-30](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115826.png)
 
 <!-- more -->
 

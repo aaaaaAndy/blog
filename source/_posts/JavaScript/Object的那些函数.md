@@ -9,7 +9,7 @@ date: 2018-12-23 20:02:06
 
 # 1. 原型方法
 
-![object-prototype](../../images/object-prototype.png)
+![object-prototype](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120547.png)
 
 其中，constructor, toString, toLocalString, valueOf方法是Object原型的原始方法，鉴于万物皆对象的原则，所以在JavaScript中的其他类型都会存在着几种属性。
 

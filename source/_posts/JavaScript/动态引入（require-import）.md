@@ -89,7 +89,7 @@ require.context('../images', true, /\.png$/);
  * keys 也是一个函数，它返回一个数组，由所有可能被此 context module 处理的请求（译者注：参考下面第二段代码中的 key）组成。
  * id 是 context module 里面所包含的模块 id. 它可能在你使用 module.hot.accept 时会用到。
 
-![require-context](/images/require-context.png)
+![require-context](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120606.png)
 
 ### 2. 图片预加载
 

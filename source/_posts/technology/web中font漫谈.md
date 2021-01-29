@@ -11,7 +11,7 @@ date: 2018-08-17 21:08:11
 1. web-safe字体
 不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：
 
-![sys-font](/images/sys-font.png)
+![sys-font](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120026.png)
 
 web安全字体有20种左右，网上到处都是这类总结，点击此处查看web安全字体。
 
@@ -42,7 +42,7 @@ font-family: 'Helvetica Neue', 'Helvetica', 'Microsoft Yahei', sans-serif;
 
 这段 CSS 代码中的字体的 Fallback 可以看下图。
 
-![font-comp](/images/font-comp.png)
+![font-comp](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120036.png)
 
 这个 fallback 的规则可以总结为：
 
@@ -72,7 +72,7 @@ Font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft
 
 语法：
 
-![font-import](/images/font-import.png)
+![font-import](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120048.png)
 
 font-face
 由于各个浏览器对'@font-face'规则支持的字体格式不同，所以需要考虑其兼容性。各个浏览器支持的字体格式如下：

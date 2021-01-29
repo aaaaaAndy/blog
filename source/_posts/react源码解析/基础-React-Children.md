@@ -29,7 +29,7 @@ const Children = {
 
 ## map流程图
 
-![react-children-map](../../images/react-children-map.png)
+![react-children-map](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120457.png)
 
 
 

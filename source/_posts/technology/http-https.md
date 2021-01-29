@@ -17,7 +17,7 @@ date: 2019-05-25 11:27:28
 
 常见的**TCP/IP**网络模型为5层模型：
 
-![https-five-level-network](/images/https-five-level-network.png)
+<img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120136.png" alt="https-five-level-network"  />
 
 也可以分为四层，即把***数据链路层***和***物理层***统一表示为***网络接口层***。
 
@@ -27,7 +27,7 @@ date: 2019-05-25 11:27:28
 
 由以上可知，https是披了一层SSL的http。如下所示，它是在***应用层*** 与***传输层*** 之间添加了一层SSL（安全套接字层）。
 
-![http-diff-https-osi](/images/http-diff-https-osi.png)
+![http-diff-https-osi](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120218.png)
 
 对比
 
@@ -95,7 +95,7 @@ TCP与UDP都工作在计算机网络模型中的传输层，他们负责传输�
 
 - ACK：`Acknowledge character`, 确认字符，表示发来的数据已确认接收无误。最后，客户端将 ACK 发送给服务器。序列号被设置为所接收的确认值即 Y + 1。
 
-![tcp-three-shake-hands](/images/tcp-three-shake-hands-7358963.png)
+![tcp-three-shake-hands-7358963](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120240.png)
 
 
 
@@ -113,7 +113,7 @@ TCP与UDP都工作在计算机网络模型中的传输层，他们负责传输�
 
 - 当客户端收到从服务端发送的 FIN 消息时，客户端就会由 FIN_WAIT_2 状态变为 `TIME_WAIT` 状态。处于 TIME_WAIT 状态的客户端允许重新发送 ACK 到服务器为了防止信息丢失。客户端在 TIME_WAIT 状态下花费的时间取决于它的实现，在等待一段时间后，连接关闭，客户端上所有的资源（包括端口号和缓冲区数据）都被释放。
 
-![tcp-four-shake-hands](/images/tcp-four-shake-hands.png)
+![tcp-four-shake-hands](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120249.png)
 
 ## HTTP1.0 / 1.1 /1.2
 
@@ -243,7 +243,7 @@ URI是以一种抽象的，高层次概念定义统一资源标识，而URL和UR
 
 #### URI结构：
 
-![uri-constructor](/images/uri-constructor.png)
+![uri-constructor](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120312.png)
 
 **scheme** 表示协议名，比如`http`, `https`, `file`等等。后面必须和`://`连在一起。
 

@@ -7,7 +7,7 @@ date: 2018-02-18 09:32:54
 
 前端问题多如牛毛，兼容问题更是十占其九，今天我们简单说说Chrome浏览器不支持小于12像素的问题。
 
-![font-12](/images/font-12.png)
+![font-12](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115955.png)
 
 以上图片从左到右分别是chrome，safari和firefox浏览器，当然，没有IE，因为mac上没有IE啊，啊哈哈哈哈哈哈。可以看出来只有在chrome上字体小于12px的没有生效，这是因为chrome认为当字体小于12px就会增加识别难度，所以设置了浏览器最小字体为12px。但是在实际的开发工作中，难免会遇到一些需求是需要实现小于12px的字体的，那么怎么解决这些问题呢？
 

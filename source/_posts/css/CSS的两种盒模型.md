@@ -16,13 +16,13 @@ date: 2018-09-12 22:02:06
 
 ## 1. W3C的标准盒模型
 
-![box-1](/images/box-1.jpeg)
+![box-1](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129114533.jpeg)
 
 ***在标准的盒子模型中，`widh`指content部分的宽度***
 
 ## 2. IE的盒模型
 
-![box-2](/images/box-2.jpeg)
+![box-2](https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129114707.jpeg)
 
 ***在IE盒子模型中，width表示content+padding+border这三个部分的宽度***
 
