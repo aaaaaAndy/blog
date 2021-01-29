@@ -154,8 +154,8 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><p>渲染引擎：能够将HTML/CSS/JavaScript文本及相应的资源文件转换成图像结果。渲染引擎的主要作用是将资源文件转化为用户可见的结果。在浏览器的发展过程中，不同的厂商开发了不同的渲染引擎，如Tridend(IE)、Gecko(FF)、WebKit(Safari,Chrome,Andriod浏览器)等。WebKit是由苹果2005年发起的一个开源项目，引起了众多公司的重视，几年间被很多公司所采用，在移动端更占据了垄断地位。更有甚者，开发出了基于WebKit的支持HTML5的web操作系统(如：Chrome OS、Web OS)。</p>
-<h1 id="1-网页渲染流程"><a href="#1-网页渲染流程" class="headerlink" title="1. 网页渲染流程"></a>1. 网页渲染流程</h1><p><img src="/blog//images/web-render/css-render.png" alt>;</p>
+        <p>渲染引擎：能够将HTML/CSS/JavaScript文本及相应的资源文件转换成图像结果。渲染引擎的主要作用是将资源文件转化为用户可见的结果。在浏览器的发展过程中，不同的厂商开发了不同的渲染引擎，如Tridend(IE)、Gecko(FF)、WebKit(Safari,Chrome,Andriod浏览器)等。WebKit是由苹果2005年发起的一个开源项目，引起了众多公司的重视，几年间被很多公司所采用，在移动端更占据了垄断地位。更有甚者，开发出了基于WebKit的支持HTML5的web操作系统(如：Chrome OS、Web OS)。</p>
+<h1 id="1-网页渲染流程"><a href="#1-网页渲染流程" class="headerlink" title="1. 网页渲染流程"></a>1. 网页渲染流程</h1><p><img src="/images/web-render/css-render.png" alt="">;</p>
 <p>首先是网页内容，输入到HTML解析器，HTML解析器解析，然后构建DOM树，在这期间如果遇到JavaScript代码则交给JavaScript引擎处理；如果来自CSS解析器的样式信息，构建一个内部绘图模型。该模型由布局模块计算模型内部各个元素的位置和大小信息，最后由绘图模块完成从该模型到图像的绘制。在网页渲染的过程中，大致可分为下面3个阶段。</p>
 <h2 id="1-从输入URL到生成DOM树"><a href="#1-从输入URL到生成DOM树" class="headerlink" title="1. 从输入URL到生成DOM树"></a>1. 从输入URL到生成DOM树</h2><ul>
 <li>地址栏输入URL，WebKit调用资源加载器加载相应资源；</li>
@@ -178,7 +178,7 @@
 <li>绘图实现类将2D图形库或者3D图形库绘制结果保存，交给浏览器界面进行展示.</li>
 </ul>
 <a id="more"></a>
-</body></html>
+
     </div>
 </article>
         </main>

@@ -154,7 +154,7 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><h1 id="Git-fetch-pull"><a href="#Git-fetch-pull" class="headerlink" title="Git-fetch-pull"></a>Git-fetch-pull</h1><p>与<code>git fetch</code>经常做对比的就是<code>git pull</code>了.</p>
+        <h1 id="Git-fetch-pull"><a href="#Git-fetch-pull" class="headerlink" title="Git-fetch-pull"></a>Git-fetch-pull</h1><p>与<code>git fetch</code>经常做对比的就是<code>git pull</code>了.</p>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
 <p><code>git fetch</code>：Download objects and refs from another repository<br> <code>git pull</code> ：Fetch from and integrate with another repository or a local branch</p>
 </blockquote>
@@ -166,15 +166,15 @@
 </ol>
 <p>所以我们常说<code>git pull</code> = <code>git fetch</code> + <code>git merge</code></p>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h3><p>只有<code>git fetch</code>真正读区远程的分支,然后再本地创建远程分支的一个拷贝.这个拷贝的名字叫<code>origin/xxx</code></p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 获取远程所有的更新到本地</span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line">// 获取特定分支</span><br><span class="line">git fetch origin master</span><br><span class="line"></span><br><span class="line">// 获取特定分支并在本地创建一个新分支</span><br><span class="line">git fetch origin master:temp</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 获取远程所有的更新到本地</span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line">// 获取特定分支</span><br><span class="line">git fetch origin master</span><br><span class="line"></span><br><span class="line">// 获取特定分支并在本地创建一个新分支</span><br><span class="line">git fetch origin master:temp</span><br></pre></td></tr></table></figure>
 
-<h3 id="对比远程分支的拷贝"><a href="#对比远程分支的拷贝" class="headerlink" title="对比远程分支的拷贝"></a>对比远程分支的拷贝</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff origin/xxx</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="对比远程分支的拷贝"><a href="#对比远程分支的拷贝" class="headerlink" title="对比远程分支的拷贝"></a>对比远程分支的拷贝</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff origin/xxx</span><br></pre></td></tr></table></figure>
 
-<h3 id="合并远程分支的拷贝"><a href="#合并远程分支的拷贝" class="headerlink" title="合并远程分支的拷贝"></a>合并远程分支的拷贝</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge origin/xxx</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="合并远程分支的拷贝"><a href="#合并远程分支的拷贝" class="headerlink" title="合并远程分支的拷贝"></a>合并远程分支的拷贝</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge origin/xxx</span><br></pre></td></tr></table></figure>
 
 
 
-<a id="more"></a></body></html>
+<a id="more"></a>
     </div>
 </article>
         </main>

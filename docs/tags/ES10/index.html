@@ -155,14 +155,14 @@
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配
+                1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配
 以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。
 
 2.更加友好的 JSON.stringify
 如果输入 Unicode 格式但是超出范围的字符，在原先JSON.stringify返回格式错误的Unicode字符串。现在实现了一个改变JSON.stringify的第3阶段提案，因此它为其输出转义序列，使其成为有效Unicode（并以UTF-8表示）
 
 3.新增了Array的flat()方法和flatMap()方法
-flat()和flatMap()</body></html>
+flat()和flatMap()
                 <a href="/blog/2020/12/24/es/es10/" class="more-link">Continue reading</a>
             </div>
         </article>

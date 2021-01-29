@@ -154,31 +154,31 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><h1 id="JavaScript各种宽高属性"><a href="#JavaScript各种宽高属性" class="headerlink" title="JavaScript各种宽高属性"></a>JavaScript各种宽高属性</h1><p>在<code>JavaScript</code>中存在各种宽高属性，如<code>height</code>, <code>clientHeight</code>, <code>innerHeight</code>,<code>outerHeight</code>等等，那么它们究竟有什么区别呢？</p>
+        <h1 id="JavaScript各种宽高属性"><a href="#JavaScript各种宽高属性" class="headerlink" title="JavaScript各种宽高属性"></a>JavaScript各种宽高属性</h1><p>在<code>JavaScript</code>中存在各种宽高属性，如<code>height</code>, <code>clientHeight</code>, <code>innerHeight</code>,<code>outerHeight</code>等等，那么它们究竟有什么区别呢？</p>
 <p>在了解这些属性的区别之前，我们需要先来了解<code>window</code>和<code>document</code>的区别：</p>
 <h2 id="1-window和document"><a href="#1-window和document" class="headerlink" title="1. window和document"></a>1. <code>window</code>和<code>document</code></h2><ul>
 <li><code>Window</code>对象表示浏览器打开的窗口，调用<code>window</code>对象上的方法可以省略<code>window</code>，如<code>console.log()</code>, <code>alert</code>等；</li>
 <li><code>Document</code>对象是<code>Window</code>对象的一部分，浏览器的<code>HTML</code>文档成为<code>Document</code>对象。</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location === <span class="built_in">document</span>.location;  <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location === <span class="built_in">document</span>.location;  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-window上的宽高"><a href="#2-window上的宽高" class="headerlink" title="2. window上的宽高"></a>2. <code>window</code>上的宽高</h2><h2 id="3-window-screen上的宽高"><a href="#3-window-screen上的宽高" class="headerlink" title="3. window.screen上的宽高"></a>3. <code>window.screen</code>上的宽高</h2><h2 id="4-document上的宽高"><a href="#4-document上的宽高" class="headerlink" title="4. document上的宽高"></a>4. <code>document</code>上的宽高</h2><h3 id="4-1-document-client"><a href="#4-1-document-client" class="headerlink" title="4.1 document.client"></a>4.1 <code>document.client</code></h3><h3 id="4-2-document-offset"><a href="#4-2-document-offset" class="headerlink" title="4.2 document.offset"></a>4.2 <code>document.offset</code></h3><h3 id="4-3-document-scroll"><a href="#4-3-document-scroll" class="headerlink" title="4.3. document.scroll"></a>4.3. <code>document.scroll</code></h3><h2 id="5-常用方法"><a href="#5-常用方法" class="headerlink" title="5. 常用方法"></a>5. 常用方法</h2><p>有三种方法获得浏览器尺寸</p>
 <ul>
 <li>对于IE, chrome, firefox, opera, safari浏览器</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">window</span>.innerHeight;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">window</span>.innerWidth;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">window</span>.innerHeight;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">window</span>.innerWidth;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>对于IE8, 7, 6, 5浏览器</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">document</span>.documentElement.clientWidth;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">document</span>.documentElement.clientHeight</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">document</span>.documentElement.clientWidth;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">document</span>.documentElement.clientHeight</span><br></pre></td></tr></table></figure>
 <ul>
 <li>或者</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wid = <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"><span class="keyword">var</span> hei = <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></table></figure>
 
 <p>在程序中，可以用或连接符把不同情况的处理方式连接起来。</p>
-<a id="more"></a></body></html>
+<a id="more"></a>
     </div>
 </article>
         </main>

@@ -154,27 +154,27 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><h2 id="1-async-await"><a href="#1-async-await" class="headerlink" title="1. async/await"></a>1. <code>async/await</code></h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">array</span>) </span>{</span><br><span class="line">  <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> i <span class="keyword">of</span> array) {</span><br><span class="line">    doSomething(i);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+        <h2 id="1-async-await"><a href="#1-async-await" class="headerlink" title="1. async/await"></a>1. <code>async/await</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> i <span class="keyword">of</span> array) &#123;</span><br><span class="line">    doSomething(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-Object-values"><a href="#2-Object-values" class="headerlink" title="2. Object.values"></a>2. <code>Object.values</code></h2><p><code>Object.values()</code>与<code>Object.keys()</code>方法类似，但返回的是<code>Object</code>对象自身所有的值，不包括继承的值。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = {</span><br><span class="line">  name: <span class="string">'age'</span>,</span><br><span class="line">  age: <span class="number">12</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(person)); <span class="comment">// ['name', 'age']</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'age'</span>,</span><br><span class="line">  age: <span class="number">12</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(person)); <span class="comment">// ['name', 'age']</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-Object-entries"><a href="#3-Object-entries" class="headerlink" title="3. Object.entries"></a>3. <code>Object.entries</code></h2><p><code>Object.entries</code>返回一个给定对象自身可枚举属性的键值对的数组。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = {</span><br><span class="line">  name: <span class="string">'andy'</span>,</span><br><span class="line">  age: <span class="number">12</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(person)); <span class="comment">// [['name', 'andy'], ['age', 12]]</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'andy'</span>,</span><br><span class="line">  age: <span class="number">12</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(person)); <span class="comment">// [['name', 'andy'], ['age', 12]]</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="4-String-padding"><a href="#4-String-padding" class="headerlink" title="4. String padding"></a>4. <code>String padding</code></h2><p>在<code>ES8</code>中，<code>String</code>新增了两个实例函数：</p>
 <ol>
 <li><p><code>String.prototype.padStart</code>：将字符串添加到原始字符串开头；</p>
 </li>
 <li><p><code>String.prototype.padEnd</code>：将字符串添加到原始字符串结尾；</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'0.0'</span>.padEnd(<span class="number">4</span>,<span class="string">'0'</span>)) <span class="comment">//0.00    </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'0.0'</span>.padEnd(<span class="number">10</span>,<span class="string">'0'</span>))<span class="comment">//0.00000000</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'0.0'</span>.padEnd(<span class="number">4</span>,<span class="string">'0'</span>)) <span class="comment">//0.00    </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'0.0'</span>.padEnd(<span class="number">10</span>,<span class="string">'0'</span>))<span class="comment">//0.00000000</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h2 id="5-函数参数列表结尾允许逗号"><a href="#5-函数参数列表结尾允许逗号" class="headerlink" title="5. 函数参数列表结尾允许逗号"></a>5. 函数参数列表结尾允许逗号</h2><p>主要作用是方便使用git进行多人协作开发时修改同一个函数减少不必要的行变更。</p>
 <h2 id="6-Object-getOwnPropertyDescriptors"><a href="#6-Object-getOwnPropertyDescriptors" class="headerlink" title="6. Object.getOwnPropertyDescriptors"></a>6. <code>Object.getOwnPropertyDescriptors</code></h2><p><code>Object.getOwnPropertyDescriptors()</code>函数用来获取一个对象的所有自身属性的描述符,如果没有任何自身属性，则返回空对象。</p>
 <h2 id="7-SharedArrayBuffer对象"><a href="#7-SharedArrayBuffer对象" class="headerlink" title="7. SharedArrayBuffer对象"></a>7. <code>SharedArrayBuffer</code>对象</h2><p><code>SharedArrayBuffer</code> 对象用来表示一个通用的，固定长度的原始二进制数据缓冲区，类似于 <code>ArrayBuffer</code> 对象，它们都可以用来在共享内存（shared memory）上创建视图。与 <code>ArrayBuffer</code> 不同的是，<code>SharedArrayBuffer</code> 不能被分离。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SharedArrayBuffer(lenght);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SharedArrayBuffer(lenght);</span><br></pre></td></tr></table></figure>
 
 <h2 id="8-Atomics对象"><a href="#8-Atomics对象" class="headerlink" title="8. Atomics对象"></a>8. <code>Atomics</code>对象</h2><p>Atomics 对象提供了一组静态方法用来对 SharedArrayBuffer 对象进行原子操作。</p>
 <p>这些原子操作属于 Atomics 模块。与一般的全局对象不同，Atomics 不是构造函数，因此不能使用 new 操作符调用，也不能将其当作函数直接调用。Atomics 的所有属性和方法都是静态的（与 Math 对象一样）。</p>
@@ -250,11 +250,11 @@
 <li>Atomics.isLockFree(size)</li>
 </ul>
 <blockquote>
-<p>  可以用来检测当前系统是否支持硬件级的原子操作。对于指定大小的数组，如果当前系统支持硬件级的原子操作，则返回 true；否则就意味着对于该数组，Atomics 对象中的各原子操作都只能用锁来实现。此函数面向的是技术专家。–></p>
+<p>  可以用来检测当前系统是否支持硬件级的原子操作。对于指定大小的数组，如果当前系统支持硬件级的原子操作，则返回 true；否则就意味着对于该数组，Atomics 对象中的各原子操作都只能用锁来实现。此函数面向的是技术专家。–&gt;</p>
 </blockquote>
 <a id="more"></a>
 
-</body></html>
+
     </div>
 </article>
         </main>

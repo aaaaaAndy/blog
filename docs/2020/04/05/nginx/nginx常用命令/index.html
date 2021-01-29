@@ -154,18 +154,18 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h4 id="1-windows系统"><a href="#1-windows系统" class="headerlink" title="1. windows系统"></a>1. windows系统</h4><p>去到<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">nginx官网下载页</a>下载对应版本即可</p>
-<h4 id="2-MaxOS系统"><a href="#2-MaxOS系统" class="headerlink" title="2. MaxOS系统"></a>2. MaxOS系统</h4><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install nginx</span></span><br></pre></td></tr></tbody></table></figure>
+        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h4 id="1-windows系统"><a href="#1-windows系统" class="headerlink" title="1. windows系统"></a>1. windows系统</h4><p>去到<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">nginx官网下载页</a>下载对应版本即可</p>
+<h4 id="2-MaxOS系统"><a href="#2-MaxOS系统" class="headerlink" title="2. MaxOS系统"></a>2. MaxOS系统</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install nginx</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="3-Linux系统"><a href="#3-Linux系统" class="headerlink" title="3. Linux系统"></a>3. Linux系统</h4><ul>
 <li>通过rpm镜像源安装</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y nginx</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y nginx</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>手动解压安装</li>
 </ul>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ yum install pcre pcre-devel  </span><br><span class="line">$ yum install zlib zlib-devel</span><br><span class="line">$ yum install gcc-c++</span><br><span class="line">$ yum install openssl openssl-devel</span><br><span class="line">$ wget -c https://nginx.org/download/nginx-1.16.0.tar.gz</span><br><span class="line">$ tar -zxvf nginx-1.16.0.tar.gz</span><br><span class="line">$ cd nginx-1.16.0</span><br><span class="line">$ ./configure  # 默认安装在/usr/local/nginx </span><br><span class="line">$ make && make install</span><br><span class="line">$ ln -s /usr/local/nginx/sbin/nginx /usr/local/sbin/nginx</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ yum install pcre pcre-devel  </span><br><span class="line">$ yum install zlib zlib-devel</span><br><span class="line">$ yum install gcc-c++</span><br><span class="line">$ yum install openssl openssl-devel</span><br><span class="line">$ wget -c https:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.16.0.tar.gz</span><br><span class="line">$ tar -zxvf nginx-1.16.0.tar.gz</span><br><span class="line">$ cd nginx-1.16.0</span><br><span class="line">$ .&#x2F;configure  # 默认安装在&#x2F;usr&#x2F;local&#x2F;nginx </span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line">$ ln -s &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;local&#x2F;sbin&#x2F;nginx</span><br></pre></td></tr></table></figure>
 
 
 
@@ -173,59 +173,59 @@
 <ul>
 <li>yun方式安装的nginx</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum remove nginx</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum remove nginx</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>手动卸载</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rm -rf /etc/nginx/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rm -rf /usr/sbin/nginx</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rm /usr/share/man/man1/nginx.1.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt-get remove nginx*</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rm -rf /etc/nginx/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rm -rf /usr/sbin/nginx</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rm /usr/share/man/man1/nginx.1.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt-get remove nginx*</span></span><br></pre></td></tr></table></figure>
 
 
 
 <h2 id="3-命令"><a href="#3-命令" class="headerlink" title="3. 命令"></a>3. 命令</h2><h4 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1. 常用命令"></a>1. 常用命令</h4><ul>
 <li>nginx启动</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./nginx</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nginx -c /etc/nginx/nginx.conf			<span class="comment"># 指定配置文件的启动</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./nginx</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nginx -c /etc/nginx/nginx.conf			<span class="comment"># 指定配置文件的启动</span></span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>nginx关机</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -s stop			<span class="comment"># 快读关闭nginx，不保存相关信息，立即结束web服务</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nginx -s quit			<span class="comment"># 平滑关闭nginx，保存相关信息，有安排地结束web服务，即处理完所有请求后再关闭</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -s stop			<span class="comment"># 快读关闭nginx，不保存相关信息，立即结束web服务</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nginx -s quit			<span class="comment"># 平滑关闭nginx，保存相关信息，有安排地结束web服务，即处理完所有请求后再关闭</span></span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>重启nginx服务</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -s reopen</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -s reopen</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>平滑启动（即不关机重新加载配置文件）</li>
 </ul>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nginx -s reload  // 全局任何一个位置都可以使用</span><br><span class="line">$ ./nginx -s reload  // 需要在nginx/sbin目录下使用</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nginx -s reload  &#x2F;&#x2F; 全局任何一个位置都可以使用</span><br><span class="line">$ .&#x2F;nginx -s reload  &#x2F;&#x2F; 需要在nginx&#x2F;sbin目录下使用</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>查看进程号</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ps -ef | grep nginx</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ps -ef | grep nginx</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>杀死进程</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">kill</span> -QUIT xxxid</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">kill</span> -QUIT xxxid</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>校验配置文件是否正确</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -t /etc/nginx/nginx.conf</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -t /etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>查看nginx版本信息</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -v			<span class="comment"># 显示版本信息并退出</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nginx -V			<span class="comment"># 显示版本信息和配置信息并退出</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -v			<span class="comment"># 显示版本信息并退出</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nginx -V			<span class="comment"># 显示版本信息和配置信息并退出</span></span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>查看帮助信息</li>
 </ul>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -h,-?</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nginx -h,-?</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -258,7 +258,7 @@
 </tr>
 <tr>
 <td>-s</td>
-<td>给一个 nginx 主进程发送信号：stop（强制停止）, quit（优雅退出）<br>, reopen（重启）, reload（重新加载配置文件）</td>
+<td>给一个 nginx 主进程发送信号：stop（强制停止）, quit（优雅退出）<br />, reopen（重启）, reload（重新加载配置文件）</td>
 </tr>
 <tr>
 <td>-p</td>
@@ -274,7 +274,7 @@
 </tr>
 </tbody></table>
 <a id="more"></a>
-</body></html>
+
     </div>
 </article>
         </main>

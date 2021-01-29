@@ -154,14 +154,14 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><h2 id="HTTP-HTTPS"><a href="#HTTP-HTTPS" class="headerlink" title="HTTP HTTPS"></a>HTTP HTTPS</h2><h4 id="http-amp-https释义"><a href="#http-amp-https释义" class="headerlink" title="http&https释义"></a>http&https释义</h4><p><strong>HTTP（Hyper Text Transfer Protocol）</strong>超文本传输协议，是一种建立在TCP上的无状态连接。用来在计算机世界里传输文字，图片，音频，视频等超文本数据的约定和规范。</p>
+        <h2 id="HTTP-HTTPS"><a href="#HTTP-HTTPS" class="headerlink" title="HTTP HTTPS"></a>HTTP HTTPS</h2><h4 id="http-amp-https释义"><a href="#http-amp-https释义" class="headerlink" title="http&amp;https释义"></a>http&amp;https释义</h4><p><strong>HTTP（Hyper Text Transfer Protocol）</strong>超文本传输协议，是一种建立在TCP上的无状态连接。用来在计算机世界里传输文字，图片，音频，视频等超文本数据的约定和规范。</p>
 <p><strong>HTTPS（Hyper Text Transfer Protocol Secure）</strong>安全的超文本传输协议，它是基于HTTP+TLS/SSL实现的，可以说是披上了一层TLS/SSL的HTTP协议。</p>
 <h4 id="TCP-IP网络模型"><a href="#TCP-IP网络模型" class="headerlink" title="TCP/IP网络模型"></a>TCP/IP网络模型</h4><p>常见的<strong>TCP/IP</strong>网络模型为5层模型：</p>
-<p><img src="/blog//images/https-five-level-network.png" alt="https-five-level-network"></p>
+<p><img src="/images/https-five-level-network.png" alt="https-five-level-network"></p>
 <p>也可以分为四层，即把<strong><em>数据链路层</em></strong>和<strong><em>物理层</em></strong>统一表示为<strong><em>网络接口层</em></strong>。</p>
 <p>还有一种是OSI七层网络模型，它在五层基础上，在应用层之下，运输层之上添加了：<strong><em>表示层</em></strong>和<strong><em>会话层</em></strong>。</p>
 <h4 id="http与https区别"><a href="#http与https区别" class="headerlink" title="http与https区别"></a>http与https区别</h4><p>由以上可知，https是披了一层SSL的http。如下所示，它是在<strong><em>应用层</em></strong> 与<strong><em>传输层</em></strong> 之间添加了一层SSL（安全套接字层）。</p>
-<p><img src="/blog//images/http-diff-https-osi.png" alt="http-diff-https-osi"></p>
+<p><img src="/images/http-diff-https-osi.png" alt="http-diff-https-osi"></p>
 <p>对比</p>
 <table>
 <thead>
@@ -275,7 +275,7 @@
 <li><p>ACK：<code>Acknowledge character</code>, 确认字符，表示发来的数据已确认接收无误。最后，客户端将 ACK 发送给服务器。序列号被设置为所接收的确认值即 Y + 1。</p>
 </li>
 </ul>
-<p><img src="/blog//images/tcp-three-shake-hands-7358963.png" alt="tcp-three-shake-hands"></p>
+<p><img src="/images/tcp-three-shake-hands-7358963.png" alt="tcp-three-shake-hands"></p>
 <h4 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h4><ul>
 <li><p>首先，客户端应用程序决定要终止连接(这里服务端也可以选择断开连接)。这会使客户端将 FIN 发送到服务器，并进入 <code>FIN_WAIT_1</code> 状态。当客户端处于 FIN_WAIT_1 状态时，它会等待来自服务器的 ACK 响应。</p>
 </li>
@@ -288,7 +288,7 @@
 <li><p>当客户端收到从服务端发送的 FIN 消息时，客户端就会由 FIN_WAIT_2 状态变为 <code>TIME_WAIT</code> 状态。处于 TIME_WAIT 状态的客户端允许重新发送 ACK 到服务器为了防止信息丢失。客户端在 TIME_WAIT 状态下花费的时间取决于它的实现，在等待一段时间后，连接关闭，客户端上所有的资源（包括端口号和缓冲区数据）都被释放。</p>
 </li>
 </ul>
-<p><img src="/blog//images/tcp-four-shake-hands.png" alt="tcp-four-shake-hands"></p>
+<p><img src="/images/tcp-four-shake-hands.png" alt="tcp-four-shake-hands"></p>
 <h2 id="HTTP1-0-1-1-1-2"><a href="#HTTP1-0-1-1-1-2" class="headerlink" title="HTTP1.0 / 1.1 /1.2"></a>HTTP1.0 / 1.1 /1.2</h2><h4 id="HTTP的基本优化"><a href="#HTTP的基本优化" class="headerlink" title="HTTP的基本优化"></a>HTTP的基本优化</h4><p>影响一个HTTP网络请求的因素主要有两个：<strong><em>带宽</em></strong> 和 <strong><em>延迟</em></strong>。</p>
 <ul>
 <li><p><strong>带宽：</strong>如果说我们还停留在拨号上网的阶段，带宽可能会成为一个比较严重影响请求的问题，但是现在网络基础建设已经使得带宽得到极大的提升，我们不再会担心由带宽而影响网速，那么就只剩下延迟了。</p>
@@ -303,7 +303,7 @@
 </li>
 </ul>
 <p>针对DNS查询的优化，可以采用prefetch方案，如下。浏览器空闲时先将这些域名经过DNS查询转换为对应的IP地址，真正请求资源时就避免DNS查询所浪费的时间。</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">'x-dns-prefetch-control'</span> <span class="attr">content</span>=<span class="string">'on'</span>></span></span><br><span class="line"><span class="tag"><<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'dns-prefetch'</span> <span class="attr">href</span>=<span class="string">'http://g-ecx.images-amazon.com'</span>></span></span><br><span class="line"><span class="tag"><<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'dns-prefetch'</span> <span class="attr">href</span>=<span class="string">'http://fls-na.amazon.com'</span>></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">'x-dns-prefetch-control'</span> <span class="attr">content</span>=<span class="string">'on'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'dns-prefetch'</span> <span class="attr">href</span>=<span class="string">'http://g-ecx.images-amazon.com'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">'dns-prefetch'</span> <span class="attr">href</span>=<span class="string">'http://fls-na.amazon.com'</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -347,7 +347,7 @@
 </ol>
 <p>注：</p>
 <ol>
-<li>DNS域名解析采用的是<strong><em>递归查询</em></strong>的方式，顺序是，浏览器缓存->系统缓存->Host文件->配置的DNS服务器->根域名服务器->根域名又会去找下一级，这样进行递归查找</li>
+<li>DNS域名解析采用的是<strong><em>递归查询</em></strong>的方式，顺序是，浏览器缓存-&gt;系统缓存-&gt;Host文件-&gt;配置的DNS服务器-&gt;根域名服务器-&gt;根域名又会去找下一级，这样进行递归查找</li>
 <li>如何对页面进行渲染的<ol>
 <li>解析html文件构成 DOM树</li>
 <li>解析CSS文件构成渲染树</li>
@@ -362,12 +362,12 @@
 <li>URL是uniform resource locator，统一资源定位器，它是一种具体的URI，即URL可以用来标识一个资源，而且还指明了如何locate这个资源。</li>
 <li>URN，uniform resource name，统一资源命名，是通过名字来标识资源，比如mailto:<a href="mailto:java-net@java.sun.com">java-net@java.sun.com</a></li>
 </ul>
-<h4 id="URI结构："><a href="#URI结构：" class="headerlink" title="URI结构："></a>URI结构：</h4><p><img src="/blog//images/uri-constructor.png" alt="uri-constructor"></p>
+<h4 id="URI结构："><a href="#URI结构：" class="headerlink" title="URI结构："></a>URI结构：</h4><p><img src="/images/uri-constructor.png" alt="uri-constructor"></p>
 <p><strong>scheme</strong> 表示协议名，比如<code>http</code>, <code>https</code>, <code>file</code>等等。后面必须和<code>://</code>连在一起。</p>
 <p><strong>user:passwd</strong>@ 表示登录主机时的用户信息，不过很不安全，不推荐使用，也不常用。</p>
 <p><strong>host:port</strong>表示主机名和端口。</p>
 <p><strong>path</strong>表示请求路径，标记资源所在位置。</p>
-<p><strong>query</strong>表示查询参数，为<code>key=val</code>这种形式，多个键值对之间用<code>&</code>隔开。</p>
+<p><strong>query</strong>表示查询参数，为<code>key=val</code>这种形式，多个键值对之间用<code>&amp;</code>隔开。</p>
 <p><strong>fragment</strong>表示 URI 所定位的资源内的一个<strong>锚点</strong>，浏览器可以根据这个锚点跳转到对应的位置。</p>
 <h4 id="URI编码"><a href="#URI编码" class="headerlink" title="URI编码"></a>URI编码</h4><p>URI 只能使用<code>ASCII</code>, ASCII 之外的字符是不支持显示的，而且还有一部分符号是界定符，如果不加以处理就会导致解析出错。</p>
 <h2 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h2><ul>
@@ -400,7 +400,7 @@
 </li>
 </ul>
 <a id="more"></a>
-</body></html>
+
     </div>
 </article>
         </main>

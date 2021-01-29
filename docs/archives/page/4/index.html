@@ -154,7 +154,7 @@
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>JavaScript执行上下文
+                JavaScript执行上下文
 1. 执行上下文
 对于每个执行上下文，都会有三个重要属性：变量对象、作用域链、this。
 
@@ -178,7 +178,7 @@ executionContextObj = {
 
 
 2. 执行上下文的类型
- * 全局执行上下文：这是默认的基础的上</body></html>
+ * 全局执行上下文：这是默认的基础的上
                 <a href="/blog/2019/09/23/JavaScript/JavaScript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -200,11 +200,11 @@ executionContextObj = {
             </ul>
             
                 <div class="post-cover">
-                    <img src="/blog/images/jsbridge.jpeg">
+                    <img src="../../images/jsbridge.jpeg">
                 </div>
             
             <div class="post-content ">
-                <html><head></head><body>Jsbridge
+                Jsbridge
 1. 什么是JSBridge
 主要是给JavaScript调用native功能的接口，让H5可以实现调用系统原生功能，如相机，位置，话筒等。但是JSBridge的功能不单单是调用native这么简单，实际上，JSBridge就是JavaScript与native的桥梁，它的核心是构建native与非native之间消息通信的渠道，而且这个渠道是双向的。
 
@@ -213,7 +213,7 @@ H5与native交互如下图：
 
 
 2. JSBridge实现原理
-JavaScript是运行在一个单独的JavaScript Context中，由于这些环境与原生环境天生相隔，我们可以将这种情况与 RPC（Remote </body></html>
+JavaScript是运行在一个单独的JavaScript Context中，由于这些环境与原生环境天生相隔，我们可以将这种情况与 RPC（Remote 
                 <a href="/blog/2019/09/23/JavaScript/Jsbridge/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -235,14 +235,14 @@ JavaScript是运行在一个单独的JavaScript Context中，由于这些环境�
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>Git-stash
+                Git-stash
 我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,git stash就是帮我们做这样事情的一个命令 
 
 1. 功能
 备份当前工作区的内容到git栈中，并从最近的一次提交中读取相关内容，让工作区保证和上次commit的内容一致
 
 2. 用途
-主要用户临时保存当前工作进度，会把暂存区和工作区的改动保存起来。执行完这个命令后，在运行git status命令，就</body></html>
+主要用户临时保存当前工作进度，会把暂存区和工作区的改动保存起来。执行完这个命令后，在运行git status命令，就
                 <a href="/blog/2019/09/11/git/git-stash/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -264,7 +264,7 @@ JavaScript是运行在一个单独的JavaScript Context中，由于这些环境�
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>此两种函数在平常的开发中不一定会遇到，但确实面试时经常遇到的问题，所以作为一名前端工程师还是需要掌握的。
+                此两种函数在平常的开发中不一定会遇到，但确实面试时经常遇到的问题，所以作为一名前端工程师还是需要掌握的。
 
 1. 函数防抖
 在用户注册时验证用户名是否被占用，很多网站为了提升用户体验，不再等待用户点击提交按钮才去校验输入内容，而是输入框有输入内容时就校验。但是这样实现会增加浏览器请求服务器的压力，所以此时函数防抖就派上用场了。函数防抖：顾名思义，就是等一系列输入操作都完成之后，一段时间内没有输入动作，再去请求服务器进行校验。具体实现如下：
@@ -283,7 +283,7 @@ JavaScript是运行在一个单独的JavaScript Context中，由于这些环境�
 12
 
 
-var timer = null;   // 此处一定要是全局变量，至少不能在每次调用debou</body></html>
+var timer = null;   // 此处一定要是全局变量，至少不能在每次调用debou
                 <a href="/blog/2019/09/02/JavaScript/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -305,13 +305,13 @@ var timer = null;   // 此处一定要是全局变量，至少不能在每次调
             </ul>
             
                 <div class="post-cover">
-                    <img src="/blog//images/require-context.png">
+                    <img src="/images/require-context.png">
                 </div>
             
             <div class="post-content ">
-                <html><head></head><body>本篇基于图片加载的基础来简单介绍require, require.context和import的区别！
+                本篇基于图片加载的基础来简单介绍require, require.context和import的区别！
 
-现如今的前端项目用webpack打包已经成为了行业趋势，然而在此模式的前提下，图片的引入是我们不可避免的问题。正常的图片引入是用img标签或者元素背景图的方式，采用这种方式的图片，webpack都能正常打包并显示。但是如果直接在js文件中定义图片路径，并赋给图片元素的话不能正常显示的，这是因为webpack打包后，会将静态资源文件放在dist/static/img下，我们的网站实际上以dist目录作为根目录，并由此加载该目录下的index.html所需的css、js、img等。而当我们在j</body></html>
+现如今的前端项目用webpack打包已经成为了行业趋势，然而在此模式的前提下，图片的引入是我们不可避免的问题。正常的图片引入是用img标签或者元素背景图的方式，采用这种方式的图片，webpack都能正常打包并显示。但是如果直接在js文件中定义图片路径，并赋给图片元素的话不能正常显示的，这是因为webpack打包后，会将静态资源文件放在dist/static/img下，我们的网站实际上以dist目录作为根目录，并由此加载该目录下的index.html所需的css、js、img等。而当我们在j
                 <a href="/blog/2019/08/20/JavaScript/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5%EF%BC%88require-import%EF%BC%89/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -333,7 +333,7 @@ var timer = null;   // 此处一定要是全局变量，至少不能在每次调
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>1. 定义
+                1. 定义
 JavaScript是一个单线程的语言，就像一条流水线，但也仅仅是一条流水线，不能同时进行多个任务和流程。它之所以是单线程，与它的用途有关，作为浏览器的脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM，这决定了它只能是单线程的，否则会带来很复杂的同步问题。
 
 所谓同步和异步做事情的时候都是只有一条流水线，同步和异步的差别就在于这条流水线上各个流程的执行顺序不同。
@@ -341,7 +341,7 @@ JavaScript是一个单线程的语言，就像一条流水线，但也仅仅是�
 所有任务可以分成两种，同步和异步：
 
  * 同步任务（synchronous）：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。
- * 异步任务（asynchronous）：不进</body></html>
+ * 异步任务（asynchronous）：不进
                 <a href="/blog/2019/07/11/JavaScript/JavaScript%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -363,7 +363,7 @@ JavaScript是一个单线程的语言，就像一条流水线，但也仅仅是�
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>1. nginx 默认配置文件
+                1. nginx 默认配置文件
 1
 2
 3
@@ -407,7 +407,7 @@ http      #http块
         ...       #server全局块
         location [PATTERN]   #location块
         {
-</body></html>
+
                 <a href="/blog/2019/05/29/nginx/nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -429,7 +429,7 @@ http      #http块
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>1. sql 脚本注入
+                1. sql 脚本注入
 所谓SQL注入式攻击，就是攻击者把SQL命令插入到Web表单的输入域或页面请求的查询字符串，欺骗服务器执行恶意的SQL命令。攻击者通过在应用程序预先定义好的SQL语句结尾加上额外的SQL语句元素，欺骗数据库服务器执行非授权的查询,篡改命令。
 
 1. URL地址防注入
@@ -447,7 +447,7 @@ http      #http块
 //过滤URL非法SQL字符
 var sUrl=location.search.toLowerCase();
 var sQuery=sUrl.substring(sUrl.indexOf("=")+1);
-re=/select|update|delete|trunca</body></html>
+re=/select|update|delete|trunca
                 <a href="/blog/2019/05/26/technology/%E5%89%8D%E7%AB%AF%E4%B8%AD%E7%9A%84%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -469,11 +469,11 @@ re=/select|update|delete|trunca</body></html>
             </ul>
             
                 <div class="post-cover">
-                    <img src="/blog//images/https-five-level-network.png">
+                    <img src="/images/https-five-level-network.png">
                 </div>
             
             <div class="post-content ">
-                <html><head></head><body>HTTP HTTPS
+                HTTP HTTPS
 http&https释义
 HTTP（Hyper Text Transfer Protocol）超文本传输协议，是一种建立在TCP上的无状态连接。用来在计算机世界里传输文字，图片，音频，视频等超文本数据的约定和规范。
 
@@ -486,7 +486,7 @@ TCP/IP网络模型
 
 也可以分为四层，即把数据链路层和物理层统一表示为网络接口层。
 
-还有一种是OSI七层网络模型，</body></html>
+还有一种是OSI七层网络模型，
                 <a href="/blog/2019/05/25/technology/http-https/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -508,7 +508,7 @@ TCP/IP网络模型
             </ul>
             
             <div class="post-content ">
-                <html><head></head><body>1. 错误示例
+                1. 错误示例
 1
 2
 3
@@ -535,7 +535,7 @@ function print() {
    2
    3
    4
-   5</body></html>
+   5
                 <a href="/blog/2019/05/20/JavaScript/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84setTimeout/" class="more-link">Continue reading</a>
             </div>
         </article>

@@ -154,20 +154,20 @@
         </li>
     </ul>
     <div class="post-content">
-        <html><head></head><body><h1 id="Git-add"><a href="#Git-add" class="headerlink" title="Git-add"></a>Git-add</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="添加一个文件"><a href="#添加一个文件" class="headerlink" title="添加一个文件"></a>添加一个文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br></pre></td></tr></tbody></table></figure>
+        <h1 id="Git-add"><a href="#Git-add" class="headerlink" title="Git-add"></a>Git-add</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="添加一个文件"><a href="#添加一个文件" class="headerlink" title="添加一个文件"></a>添加一个文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="添加多个文件"><a href="#添加多个文件" class="headerlink" title="添加多个文件"></a>添加多个文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt one.js</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加多个文件"><a href="#添加多个文件" class="headerlink" title="添加多个文件"></a>添加多个文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt one.js</span><br></pre></td></tr></table></figure>
 
-<h3 id="通配符进行匹配文件"><a href="#通配符进行匹配文件" class="headerlink" title="通配符进行匹配文件"></a>通配符进行匹配文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add *.html    <span class="comment"># 添加后缀名为html的文件</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="通配符进行匹配文件"><a href="#通配符进行匹配文件" class="headerlink" title="通配符进行匹配文件"></a>通配符进行匹配文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add *.html    <span class="comment"># 添加后缀名为html的文件</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="添加一个目录"><a href="#添加一个目录" class="headerlink" title="添加一个目录"></a>添加一个目录</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add dir     <span class="comment"># 添加目录dir下的所有文件</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加一个目录"><a href="#添加一个目录" class="headerlink" title="添加一个目录"></a>添加一个目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add dir     <span class="comment"># 添加目录dir下的所有文件</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="添加目录下的指定文件"><a href="#添加目录下的指定文件" class="headerlink" title="添加目录下的指定文件"></a>添加目录下的指定文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add dir/one.js</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加目录下的指定文件"><a href="#添加目录下的指定文件" class="headerlink" title="添加目录下的指定文件"></a>添加目录下的指定文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add dir/one.js</span><br></pre></td></tr></table></figure>
 
-<h3 id="添加所有文件"><a href="#添加所有文件" class="headerlink" title="添加所有文件"></a>添加所有文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .         <span class="comment"># 提交新增，修改文件，不包括删除文件</span></span><br><span class="line">git add -u        <span class="comment"># 提交修改和删除文件，不会提交新文件</span></span><br><span class="line">git add -A        <span class="comment"># 提交新增，修改和删除文件</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="添加所有文件"><a href="#添加所有文件" class="headerlink" title="添加所有文件"></a>添加所有文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .         <span class="comment"># 提交新增，修改文件，不包括删除文件</span></span><br><span class="line">git add -u        <span class="comment"># 提交修改和删除文件，不会提交新文件</span></span><br><span class="line">git add -A        <span class="comment"># 提交新增，修改和删除文件</span></span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
-</body></html>
+
     </div>
 </article>
         </main>
