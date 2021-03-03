@@ -1,5 +1,5 @@
 /.idea/
 /node_modules/
 /public/
-/themes/
+/themes
 db.json

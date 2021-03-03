@@ -77,34 +77,22 @@
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 
-<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+<body>
     <div class="container">
         <header class="header">
-    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <h3 class="invisibile">
-            <a href="/blog/" class="logo">
-                aaaaaAndy
-            </a>
-        </h3>
-        <button class="menu">menu</button>
-    </nav>
-
-    <button class="ipad-menu menu">menu</button>
-
     <h1 class="title" id="main-title">
         <a href="/blog/" class="logo">
             aaaaaAndy
         </a>
     </h1>
-    <h2 class="desc">
-        
-    </h2>
+
+    
 
     <div class="links">
         <ul id="menu-inner" class="menu-inner">
             
             <li class="menu-inner-item">
-                <a href="/blog/">
+                <a href="/blog">
                     Home
                 </a>
             </li>
@@ -131,17 +119,14 @@
     </div>
 </header>
 
+<script type="text/javascript">
+    function isCurrentPage(url, key) {
+      console.log(123)
+    }
+</script>
+
         <main class="main">
-            <article class="post">
-    
-    
-    <h4 class="post-cat">
-        <a href="/blog/categories/JavaScript/">
-            JavaScript
-        </a>
-    </h4>
-    
-    
+            <article class="post post-article">
     <h2 class="post-title">
         URL文件格式
     </h2>
@@ -150,22 +135,32 @@
             2019-04-28
         </li>
         <li>
+            
+                
+                    <a class="post-category" href="/blog/categories/JavaScript/">
+                        JavaScript
+                    </a>
+                
+            
+        </li>
+        <li>
             aaaaaAndy
         </li>
     </ul>
     <div class="post-content">
         <h1 id="1-全部配置"><a href="#1-全部配置" class="headerlink" title="1. 全部配置"></a>1. 全部配置</h1><p>.url文件是一个指向URL（web文档）的文件，双击后可直接在浏览器打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[DEFAULT]</span><br><span class="line">BASEURL&#x3D;</span><br><span class="line"></span><br><span class="line">[InternetShortcut]</span><br><span class="line">URL&#x3D;</span><br><span class="line">WorkingDirectory&#x3D;</span><br><span class="line">ShowCommand&#x3D;</span><br><span class="line">IconIndex&#x3D;</span><br><span class="line">IconFile&#x3D;</span><br><span class="line">Modified&#x3D;</span><br><span class="line">HotKey&#x3D;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[DEFAULT]</span></span><br><span class="line"><span class="attr">BASEURL</span>=</span><br><span class="line"></span><br><span class="line"><span class="section">[InternetShortcut]</span></span><br><span class="line"><span class="attr">URL</span>=</span><br><span class="line"><span class="attr">WorkingDirectory</span>=</span><br><span class="line"><span class="attr">ShowCommand</span>=</span><br><span class="line"><span class="attr">IconIndex</span>=</span><br><span class="line"><span class="attr">IconFile</span>=</span><br><span class="line"><span class="attr">Modified</span>=</span><br><span class="line"><span class="attr">HotKey</span>=</span><br></pre></td></tr></table></figure>
 
 <p>ShowCommand规定Internet Explorer启动后窗口的初始状态：7表示最小化，3表示最大化；如果没有ShowCommand这一项的话则表示正常大小。</p>
 <p>IconFile和IconIndex用来为Internet快捷方式指定图标。</p>
 <h1 id="2-基础配置"><a href="#2-基础配置" class="headerlink" title="2. 基础配置"></a>2. 基础配置</h1><p>一个简单的Internet快捷方式只需要在[InternetShortcut]节中包含URL项就可以了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[InternetShortcut]</span><br><span class="line">URL&#x3D;http:&#x2F;&#x2F;www.baidu.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[InternetShortcut]</span></span><br><span class="line"><span class="attr">URL</span>=http://www.baidu.com</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
     </div>
 </article>
+
         </main>
     </div>
 </body>

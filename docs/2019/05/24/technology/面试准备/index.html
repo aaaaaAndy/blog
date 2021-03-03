@@ -77,34 +77,22 @@
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 
-<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+<body>
     <div class="container">
         <header class="header">
-    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <h3 class="invisibile">
-            <a href="/blog/" class="logo">
-                aaaaaAndy
-            </a>
-        </h3>
-        <button class="menu">menu</button>
-    </nav>
-
-    <button class="ipad-menu menu">menu</button>
-
     <h1 class="title" id="main-title">
         <a href="/blog/" class="logo">
             aaaaaAndy
         </a>
     </h1>
-    <h2 class="desc">
-        
-    </h2>
+
+    
 
     <div class="links">
         <ul id="menu-inner" class="menu-inner">
             
             <li class="menu-inner-item">
-                <a href="/blog/">
+                <a href="/blog">
                     Home
                 </a>
             </li>
@@ -131,23 +119,29 @@
     </div>
 </header>
 
+<script type="text/javascript">
+    function isCurrentPage(url, key) {
+      console.log(123)
+    }
+</script>
+
         <main class="main">
-            <article class="post">
-    
-    
-    <h4 class="post-cat">
-        <a href="/blog/categories/JavaScript/">
-            JavaScript
-        </a>
-    </h4>
-    
-    
+            <article class="post post-article">
     <h2 class="post-title">
         面试准备
     </h2>
     <ul class="post-date">
         <li>
             2019-05-24
+        </li>
+        <li>
+            
+                
+                    <a class="post-category" href="/blog/categories/JavaScript/">
+                        JavaScript
+                    </a>
+                
+            
         </li>
         <li>
             aaaaaAndy
@@ -290,10 +284,10 @@
 </ol>
 <h1 id="3-JavaScript"><a href="#3-JavaScript" class="headerlink" title="3. JavaScript"></a>3. JavaScript</h1><h2 id="1-详细讲述一次完整的-http-请求"><a href="#1-详细讲述一次完整的-http-请求" class="headerlink" title="1. 详细讲述一次完整的 http 请求"></a>1. 详细讲述一次完整的 http 请求</h2><p>域名解析 –&gt; 发起TCP的3次握手 –&gt; 建立TCP连接后发起http请求 –&gt; 服务器响应http请求，浏览器得到html代码 –&gt; 浏览器解析html代码，并请求html代码中的资源（如js、css、图片等） –&gt; 浏览器对页面进行渲染呈现给用户</p>
 <h2 id="2-完整的请求头和回应头"><a href="#2-完整的请求头和回应头" class="headerlink" title="2. 完整的请求头和回应头"></a>2. 完整的请求头和回应头</h2><p>请求头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST 　&#x2F;index.php　HTTP&#x2F;1.1 　　 请求行</span><br><span class="line">Host: localhost</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 5.1; rv:10.0.2) Gecko&#x2F;20100101 Firefox&#x2F;10.0.2　　请求头</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,&#x2F;;q&#x3D;0.8</span><br><span class="line">Accept-Language: zh-cn,zh;q&#x3D;0.5</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http:&#x2F;&#x2F;localhost&#x2F;</span><br><span class="line">Content-Length：25</span><br><span class="line">Content-Type：application&#x2F;x-www-form-urlencoded空行</span><br><span class="line">username&#x3D;aa&amp;password&#x3D;1234　　请求数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST 　/index.php　HTTP/<span class="number">1.1</span> 　　 请求行</span><br><span class="line">Host: localhost</span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">5.1</span>; rv:<span class="number">10.0</span><span class="number">.2</span>) Gecko/<span class="number">20100101</span> Firefox/<span class="number">10.0</span><span class="number">.2</span>　　请求头</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,/;q=<span class="number">0.8</span></span><br><span class="line">Accept-Language: zh-cn,zh;q=<span class="number">0.5</span></span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http:<span class="comment">//localhost/</span></span><br><span class="line">Content-Length：<span class="number">25</span></span><br><span class="line">Content-Type：application/x-www-form-urlencoded空行</span><br><span class="line">username=aa&amp;password=<span class="number">1234</span>　　请求数据</span><br></pre></td></tr></table></figure>
 
 <p>回应头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK　　状态行</span><br><span class="line">Date: Sun, 17 Mar 2013 08:12:54 GMT　　响应头部</span><br><span class="line">Server: Apache&#x2F;2.2.8 (Win32) PHP&#x2F;5.2.5</span><br><span class="line">X-Powered-By: PHP&#x2F;5.2.5</span><br><span class="line">Set-Cookie: PHPSESSID&#x3D;c0huq7pdkmm5gg6osoe3mgjmm3; path&#x3D;&#x2F;</span><br><span class="line">Expires: Thu, 19 Nov 1981 08:52:00 GMT</span><br><span class="line">Cache-Control: no-store, no-cache, must-revalidate, post-check&#x3D;0, pre-check&#x3D;0</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Content-Length: 4393</span><br><span class="line">Keep-Alive: timeout&#x3D;5, max&#x3D;100</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Type: text&#x2F;html; charset&#x3D;utf-8</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">HTTP/1.1</span> <span class="number">200</span> <span class="string">OK</span>　　<span class="string">状态行</span></span><br><span class="line"><span class="attr">Date:</span> <span class="string">Sun,</span> <span class="number">17</span> <span class="string">Mar</span> <span class="number">2013</span> <span class="number">08</span><span class="string">:12:54</span> <span class="string">GMT</span>　　<span class="string">响应头部</span></span><br><span class="line"><span class="attr">Server:</span> <span class="string">Apache/2.2.8</span> <span class="string">(Win32)</span> <span class="string">PHP/5.2.5</span></span><br><span class="line"><span class="attr">X-Powered-By:</span> <span class="string">PHP/5.2.5</span></span><br><span class="line"><span class="attr">Set-Cookie:</span> <span class="string">PHPSESSID=c0huq7pdkmm5gg6osoe3mgjmm3;</span> <span class="string">path=/</span></span><br><span class="line"><span class="attr">Expires:</span> <span class="string">Thu,</span> <span class="number">19</span> <span class="string">Nov</span> <span class="number">1981</span> <span class="number">08</span><span class="string">:52:00</span> <span class="string">GMT</span></span><br><span class="line"><span class="attr">Cache-Control:</span> <span class="literal">no</span><span class="string">-store,</span> <span class="literal">no</span><span class="string">-cache,</span> <span class="string">must-revalidate,</span> <span class="string">post-check=0,</span> <span class="string">pre-check=0</span></span><br><span class="line"><span class="attr">Pragma:</span> <span class="literal">no</span><span class="string">-cache</span></span><br><span class="line"><span class="attr">Content-Length:</span> <span class="number">4393</span></span><br><span class="line"><span class="attr">Keep-Alive:</span> <span class="string">timeout=5,</span> <span class="string">max=100</span></span><br><span class="line"><span class="attr">Connection:</span> <span class="string">Keep-Alive</span></span><br><span class="line"><span class="attr">Content-Type:</span> <span class="string">text/html;</span> <span class="string">charset=utf-8</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-状态码"><a href="#3-状态码" class="headerlink" title="3. 状态码"></a>3. 状态码</h2><ul>
 <li>1**：信息性状态码</li>
@@ -410,6 +404,7 @@ image/png：png图片格式</code></pre><p>application/xhtml+xml ：XHTML格式<
 <!-- flag of hidden posts -->
     </div>
 </article>
+
         </main>
     </div>
 </body>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="keywords" content="hexo, andy" />
+    <title>
+        aaaaaAndy
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="img/favicon.ico" />
+     
+<link rel="stylesheet" href="/blog/css/style.css">
+
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
+
+    <script>
+        // infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+    <div class="container">
+        <header class="header">
+    <h1 class="title" id="main-title">
+        <a href="/blog/" class="logo">
+            aaaaaAndy
+        </a>
+    </h1>
+
+    
+
+    <div class="links">
+        <ul id="menu-inner" class="menu-inner">
+            
+            <li class="menu-inner-item">
+                <a href="/blog">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/blog/category">
+                    Category
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/blog/tag">
+                    Tag
+                </a>
+            </li>
+            
+            <li class="menu-inner-item">
+                <a href="/blog/about">
+                    About
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+
+<script type="text/javascript">
+    function isCurrentPage(url, key) {
+      console.log(123)
+    }
+</script>
+
+        <main class="main">
+            <article class="post post-article">
+    <h2 class="post-title">
+        charles远程代理
+    </h2>
+    <ul class="post-date">
+        <li>
+            2021-02-01
+        </li>
+        <li>
+            
+                
+                    <a class="post-category" href="/blog/categories/Charles/">
+                        Charles
+                    </a>
+                
+            
+        </li>
+        <li>
+            aaaaaAndy
+        </li>
+    </ul>
+    <div class="post-content">
+        <h3 id="1-打开代理"><a href="#1-打开代理" class="headerlink" title="1. 打开代理"></a>1. 打开代理</h3><p>首先需要确保设置好<code>charlse</code>的抓包配置，保证能正常抓取到app的请求。</p>
+<h3 id="2-配置Map-remote"><a href="#2-配置Map-remote" class="headerlink" title="2. 配置Map remote"></a>2. 配置<code>Map remote</code></h3><ol>
+<li>打开<code>map remote</code>:</li>
+</ol>
+<img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210201105713.jpg" alt="map-remote" style="zoom:50%;" />
+
+<ol start="2">
+<li>以<strong>少数派</strong>中一个页面为例，配置一个页面到测试环境的代理，接口不进行代理</li>
+</ol>
+<img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210201105855.jpg" alt="map-remote-add" style="zoom:50%;" />
+
+<img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210201105908.jpg" alt="sspai-map-remote" style="zoom:50%;" />
+
+<h3 id="3-抓包查看结果"><a href="#3-抓包查看结果" class="headerlink" title="3. 抓包查看结果"></a>3. 抓包查看结果</h3><p>由下图可以看到，配置了<code>map remote</code>之后，<strong>少数派</strong>中页面请求到了<code>test-ios.sspai.com</code>的域名，接口<code>api</code>还是请求的线上域名<code>ios.sspai.com</code>。</p>
+<p>这种配置很适合开发，我在以下两种情况下经常使用<code>map remote</code>：</p>
+<ol>
+<li>开发时借用测试环境接口进行联调，因为开发环境总是不稳定的，相对比而言我更愿意使用开发环境的页面访问测试环境的接口；</li>
+<li>解<code>bug</code>，<code>H5</code>的开发不像<code>web</code>可以随时看到各种情况，所以每当解<code>BUG</code>时我经常把页面发到开发环境，同时调用测试环境接口验证<code>BUG</code>。</li>
+</ol>
+<img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210201110000.jpg" alt="map-result" style="zoom:50%;" />
+
+<a id="more"></a>
+
+
+    </div>
+</article>
+
+        </main>
+    </div>
+</body>
+
+</html>
