@@ -53,9 +53,11 @@ a {
   padding-left: 60px;
 }
 .header .title .logo {
+  font-size: 36px;
   color: #1c1a28;
   font-weight: bold;
   font-style: italic;
+  font-family: "JetBrains Mono", Lato-Bold, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 }
 .header .links {
   height: 100%;
@@ -209,6 +211,19 @@ a {
 .post-category {
   color: #282828;
   margin-right: 20px;
+}
+.post-list .post-title {
+  text-align: left;
+}
+.post-list .post-title:after {
+  display: none;
+  border: none;
+}
+.post-list .post-date {
+  margin: 0;
+}
+.post-list .post-content .more-link {
+  display: none !important;
 }
 .paginator {
   width: 100%;
