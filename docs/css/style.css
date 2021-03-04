@@ -476,7 +476,7 @@ article.post {
 .post-article {
   padding: 36px 60px;
   box-sizing: border-box;
-  background-color: rgba(249,250,251,0.5);
+  background-color: rgba(249,250,251,0.9);
   box-shadow: 0 1px 10px rgba(200,200,200,0.3);
   font-family: "JetBrains Mono", Lato-Bold, 'Helvetica Neue', Arial, 'Noto Sans';
 }
@@ -878,6 +878,7 @@ blockquote {
   border: none;
   border-left: 2px solid var(--main-6);
   color: var(--mid-7);
+  background-color: var(--main-1);
   font-size: 1em;
   font-style: normal;
   padding: 24px 16px 12px;

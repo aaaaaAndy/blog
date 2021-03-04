@@ -1,32 +1,37 @@
 ---
-title: JavaScript中的apply,call和bind
+title: JS的apply,call和bind
 tags: [JavaScript, apply, call, bind]
 categories: JavaScript
 date: 2020-04-10 20:02:06
 ---
 
-# `JavaScript`中的`apply`,`call`和`bind`
+# `JS`中的`apply`,`call`和`bind`
 
-在 javascript 中，call，apply 和 bind 都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部 this 的指向。JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。
+如果你对`JavaScript`对象有研究的话你应该知道，在`JavaScript`中，函数也是一种对象。那么既然函数也是对象的话，它就存在属于它的方法：`call`，`apply`, `bind`等。这些方法都是为了改变函数运行时的上下文`（context）`而存在的，换句话说，就是为了改变函数体内部 `this` 的指向。`JavaScript` 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。
 
-# 1. 区别
+## 1. 区别
 
-## 1. bind 的特殊
+### 1. `bind` 方法
 
-call和apply改变了函数的this,并且执行了该函数，bind只改变了函数的this，并返回一个函数，但不执行该函数。
+`call`和`apply`改变了函数的`this`,并且执行了该函数。`bind`只是改变了函数的`this`，并返回一个函数，但不执行该函数。
 
-## 2. apply，call 的区别
+```JavaScript
+var fn = func.bind(window);
+fn();
+```
 
-对于 apply、call 二者而言，作用完全一样，只是接受参数的方式不太一样。
+### 2. `apply`，`call` 的区别
+
+对于 `apply`、`call` 二者而言，作用完全一样，只是接受参数的方式不太一样。`apply`接受一个数组作为被调用函数的参数，`call`接受不定量的参数作为被调用函数的参数。
 
 ```javascript
 func.call(this, arg1, arg2);
 func.apply(this, [arg1, arg2])
 ```
 
-# 2. JS 原生实现
+## 2. JS 原生实现
 
-## 1. apply
+### 1. apply
 
 ```javascript
 Function.prototype.apply = function(context, arr) {
@@ -50,7 +55,7 @@ Function.prototype.apply = function(context, arr) {
 ```
 
 
-## 2. call
+### 2. call
 
 ```javascript
 Function.prototype.call = function(context) {
@@ -69,7 +74,9 @@ Function.prototype.call = function(context) {
 }
 ```
 
-## 3. bind
+### 3. bind
+
+#### 1. 在不考虑构造函数的情况下
 
 ```javascript
 Function.prototype.bind = function() {
@@ -83,32 +90,40 @@ Function.prototype.bind = function() {
 }
 ```
 
->注意：绑定函数(bind函数返回的新函数)不可以再通过apply和call改变其this指向，即当绑定函数调用apply和call改变其this指向时，并不能达到预期效果。
+#### 2. 在考虑构造函数的情况下
 
 ```javascript
-// 构造函数效果的模拟实现
-Function.prototype.myBind = function(context) {
-  var self = this;
-  var args = Array.prototype.slice.call(arguments, 1);
+Function.prototype.bind = function(oThis) {
+    if (typeof this !== "function") {
+      // closest thing possible to the ECMAScript 5
+      // internal IsCallable function
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
 
-  var fNOP = function() {};
+    var aArgs = Array.prototype.slice.call(arguments, 1), 
+        fToBind = this, // 此处的 this 指向目标函数
+        fNOP = function() {},
+        fBound = function() {
+          return fToBind.apply(this instanceof fNOP
+            ? this // 此处 this 为 调用 new obj() 时所生成的 obj 本身
+            : oThis || this, // 若 oThis 无效则将 fBound 绑定到 this
+            // 将通过 bind 传递的参数和调用时传递的参数进行合并, 并作为最终的参数传递
+            aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
 
-  var fbound = function() {
-    var bindArgs = Array.prototype.slice.call(arguments);
-    self.myApply(this instanceof self ? this : context, args.concat(bindArgs));
-  }
+    // 将目标函数的原型对象拷贝到新函数中，因为目标函数有可能被当作构造函数使用
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
 
-  fNOP.prototype = this.prototype;
-  fbound.prototype = new FNOP();
-  return fbound;
-}
+    return fBound;
+  };
 ```
 
+>注意：绑定函数(bind函数返回的新函数)不可以再通过apply和call改变其this指向，即当绑定函数调用apply和call改变其this指向时，并不能达到预期效果。
 
+## 3. 应用实例
 
-# 3. 应用实例
-
-## 1. 数组之间追加
+### 1. 数组之间追加
 
 将数组 array2 拼接到 array1 后边。
 
@@ -116,7 +131,7 @@ Function.prototype.myBind = function(context) {
 Array.prototype.push.apply(array1, array2); 
 ```
 
-## 2. 获取数组中的最大值和最小值
+### 2. 获取数组中的最大值和最小值
 
 ```javascript
 var  numbers = [5, 458 , 120 , -215 ]; 
@@ -126,7 +141,7 @@ var maxInNumbers = Math.max.apply(Math, numbers),               // 458
 
 number 本身没有 max 方法，但是 Math 有，我们就可以借助 call 或者 apply 使用其方法。
 
-## 3. 验证是否是数组
+### 3. 验证是否是数组
 
 ```javascript
 functionisArray(obj){ 
@@ -134,7 +149,7 @@ functionisArray(obj){
 }
 ```
 
-## 4. 类（伪）数组使用数组方法
+### 4. 类（伪）数组使用数组方法
 
 ```javascript
 var domNodes = Array.prototype.slice.call(document.getElementsByTagName("*"));
@@ -144,7 +159,7 @@ Javascript中存在一种名为伪数组的对象结构。比较特别的是 arg
 
 但是我们能通过 Array.prototype.slice.call 转换为真正的数组的带有 length 属性的对象，这样 domNodes 就可以应用 Array 下的所有方法了。
 
-## 5. 偏函数
+### 5. 偏函数
 
 所谓偏函数，就是固定一个函数的一个或者多个参数，返回一个新的函数，这个函数用于接受剩余的参数，
 
@@ -181,7 +196,7 @@ parAdd(6);
 
 另一种使用偏函数情况是，当我们有一个很通用的函数，为了方便提供一个较常用的变体。举例来说，假设我们有一个函数send(from, to, text)，那么使用偏函数可以创建一个从当前用户发送的变体：sendTo(to, text)
 
-## 6. 实现继承
+### 6. 实现继承
 
 通过call调用父类构造函数实现继承.
 

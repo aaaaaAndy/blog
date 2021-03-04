@@ -134,7 +134,7 @@
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2020/04/10/JavaScript/JavaScript%E4%B8%AD%E7%9A%84apply-call%E5%92%8Cbind/">
-                    JavaScript中的apply,call和bind
+                    JS的apply,call和bind
                 </a>
             </h1>
 
@@ -148,22 +148,17 @@
             </ul>
             
             <div class="post-content ">
-                JavaScript中的apply,call和bind
+                JS中的apply,call和bind
 
-在 javascript 中，call，apply 和 bind 都是为了改变某个函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部 this 的指向。JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。
+如果你对JavaScript对象有研究的话你应该知道，在JavaScript中，函数也是一种对象。那么既然函数也是对象的话，它就存在属于它的方法：call，apply, bind等。这些方法都是为了改变函数运行时的上下文（context）而存在的，换句话说，就是为了改变函数体内部 this 的指向。JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。
 
 
 1. 区别
 
 
-1. bind 的特殊
+1. bind 方法
 
-call和apply改变了函数的this,并且执行了该函数，bind只改变了函数的this，并返回一个函数，但不执行该函数。
-
-
-2. apply，call 的区别
-
-对于 apply、call 二
+call和apply改变了函数的this,并且执行了该函数。bind只是改变了函数的this，并
                 <a href="/blog/2020/04/10/JavaScript/JavaScript%E4%B8%AD%E7%9A%84apply-call%E5%92%8Cbind/" class="more-link">Continue reading</a>
             </div>
         </article>
