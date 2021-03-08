@@ -349,10 +349,16 @@ var person = {
                 </li>
             </ul>
             
+                <div class="post-cover">
+                    <img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210305134211.jpg">
+                </div>
+            
             <div class="post-content ">
                 IntersectionObserver-无限滚动
 
-日常需求中, 经常会遇到列表需要上拉加载下一页数据, 也就是一个无限滚动的效果, 过去我们的实现方案无外乎监听scroll的变化, 通过scrollTop, scrollHeight和 clientHeight来判断滚动的高度, 从而决定是否加载下一页的数据. 今天我们有了一个更好的方案: IntersectionObserver,这是一个
+日常需求中, 经常会遇到列表需要上拉加载下一页数据, 也就是一个无限滚动的效果, 过去我们的实现方案无外乎监听scroll的变化, 通过scrollTop, scrollHeight和 clientHeight来判断滚动的高度, 从而决定是否加载下一页的数据，但这一方案额外增加了JavaScript的计算量，造成了性能问题，实不能称为一个完美的解决方案。但是今天我们有了一个完美的方案: IntersectionObserver：
+
+> IntersectionObserver接口 (从属于Intersection Observer API)
                 <a href="/blog/2020/08/22/JavaScript/IntersectionObserver-%E6%97%A0%E9%99%90%E6%BB%9A%E5%8A%A8/" class="more-link">Continue reading</a>
             </div>
         </article>

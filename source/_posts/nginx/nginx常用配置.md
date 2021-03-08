@@ -28,9 +28,9 @@ server {
 
 ```nginx
 location /app-h5 {
-		try_files $uri $uri/ /app-h5/index.html;
-    alias /usr/share/nginx/html/h5/mobile/app-h5;
-  	index index.html index.htm;
+  try_files $uri $uri/ /app-h5/index.html;
+  alias /usr/share/nginx/html/h5/mobile/app-h5;
+  index index.html index.htm;
 }
 ```
 
