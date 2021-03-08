@@ -864,6 +864,13 @@ ul,
 ol {
   padding-left: 30px;
 }
+ul li,
+ol li {
+  margin-left: 30px;
+}
+li::marker {
+  padding-left: 30px;
+}
 ul:first-child,
 ol:first-child {
   margin-top: 0;
@@ -1004,7 +1011,7 @@ tt {
 .cm-s-inner .cm-string {
   color: #22a2c9;
 }
-p {
+.post-content > p {
   text-indent: 2em;
 }
 p code {
