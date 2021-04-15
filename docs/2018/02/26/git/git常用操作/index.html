@@ -9,7 +9,7 @@
     <meta name="description" content="1. 历史版本控制系统   1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。   2. 本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。   3. 集中化的版本控制系统。这类系统，诸如CVS、Subversion以及Per">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用操作">
-<meta property="og:url" content="https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:url" content="https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="aaaaaAndy">
 <meta property="og:description" content="1. 历史版本控制系统   1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。   2. 本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。   3. 集中化的版本控制系统。这类系统，诸如CVS、Subversion以及Per">
 <meta property="og:locale" content="zh">
@@ -87,16 +87,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&text=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&is_video=false&description=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git常用操作&body=Check out this article: https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&name=Git常用操作&description=1. 历史版本控制系统
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&text=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&is_video=false&description=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git常用操作&body=Check out this article: https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&name=Git常用操作&description=1. 历史版本控制系统
 
  1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。
 
@@ -288,16 +288,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&text=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&is_video=false&description=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git常用操作&body=Check out this article: https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&name=Git常用操作&description=1. 历史版本控制系统
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&text=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&is_video=false&description=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git常用操作&body=Check out this article: https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&name=Git常用操作&description=1. 历史版本控制系统
 
  1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。
 

@@ -9,7 +9,7 @@
     <meta name="description" content="CSS的两种盒模型  在最近的工作中，经常遇到给元素设置了 padding 之后元素就超出了原来设定的宽高，就不得不加一个 box-sizing: border-box; 使得元素的内边距在其内部展示，但是对于为什么要使用该属性还是不太熟悉，故学习了一下并简单记录。  在前端的 CSS 工作模式中，每个元素都可以看做是一个盒子，这就是我们所说的盒模型、之所以会初上上述的问题是因为现存有两种盒模型：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS的两种盒模型">
-<meta property="og:url" content="https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:url" content="https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="aaaaaAndy">
 <meta property="og:description" content="CSS的两种盒模型  在最近的工作中，经常遇到给元素设置了 padding 之后元素就超出了原来设定的宽高，就不得不加一个 box-sizing: border-box; 使得元素的内边距在其内部展示，但是对于为什么要使用该属性还是不太熟悉，故学习了一下并简单记录。  在前端的 CSS 工作模式中，每个元素都可以看做是一个盒子，这就是我们所说的盒模型、之所以会初上上述的问题是因为现存有两种盒模型：">
 <meta property="og:locale" content="zh">
@@ -91,16 +91,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&text=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&is_video=false&description=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CSS的两种盒模型&body=Check out this article: https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&name=CSS的两种盒模型&description=CSS的两种盒模型
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&text=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&is_video=false&description=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS的两种盒模型&body=Check out this article: https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&name=CSS的两种盒模型&description=CSS的两种盒模型
 
 在最近的工作中，经常遇到给元素设置了 padding 之后元素就超出了原来设定的宽高，就不得不加一个 box-sizing: border-box; 使得元素的内边距在其内部展示，但是对于为什么要使用该属性还是不太熟悉，故学习了一下并简单记录。
 
@@ -211,16 +211,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&text=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&is_video=false&description=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CSS的两种盒模型&body=Check out this article: https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&name=CSS的两种盒模型&description=CSS的两种盒模型
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&text=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&is_video=false&description=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS的两种盒模型&body=Check out this article: https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&title=CSS的两种盒模型" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/&name=CSS的两种盒模型&description=CSS的两种盒模型
 
 在最近的工作中，经常遇到给元素设置了 padding 之后元素就超出了原来设定的宽高，就不得不加一个 box-sizing: border-box; 使得元素的内边距在其内部展示，但是对于为什么要使用该属性还是不太熟悉，故学习了一下并简单记录。
 
