@@ -1,0 +1,18 @@
+.post-list .post .post-date {
+  padding-left: 0;
+}
+.post-list .post .post-date li {
+  display: inline-block;
+  margin-right: 1.2rem;
+  padding-left: -0.5rem;
+}
+.post-list .post .post-date li:nth-child(1)::before {
+  content: "🕰";
+  position: relative;
+  left: 4px;
+}
+.post-list .post .post-date li:nth-child(2)::before {
+  content: "👨‍💻‍";
+  position: relative;
+  left: 4px;
+}

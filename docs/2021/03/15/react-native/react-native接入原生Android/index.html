@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="React-native接入原生Android   1. 背景  随着前端跨平台技术的发展，各端统一已是一个必然的趋势，在跨平台方案中，最津津乐道的莫过于React-Native（后续已RN代替React-native）。这个由Facebook工程师设计的跨平台方案与前端三大框架之一的React有着同宗同源的关系。他们的代码编写风格相差无几，工程师们针对不同的平台调用了不同平台的API，进行了针对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native接入原生Android">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="React-native接入原生Android   1. 背景  随着前端跨平台技术的发展，各端统一已是一个必然的趋势，在跨平台方案中，最津津乐道的莫过于React-Native（后续已RN代替React-native）。这个由Facebook工程师设计的跨平台方案与前端三大框架之一的React有着同宗同源的关系。他们的代码编写风格相差无几，工程师们针对不同的平台调用了不同平台的API，进行了针对">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315132135.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315135903.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315143141.png">
+<meta property="article:published_time" content="2021-03-15T02:30:05.000Z">
+<meta property="article:modified_time" content="2021-03-15T06:47:47.908Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="react">
+<meta property="article:tag" content="react-native">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315132135.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>react-native接入原生Android</title><meta name="robots" content="noindex">
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&text=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&is_video=false&description=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=react-native接入原生Android&body=Check out this article: https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&name=react-native接入原生Android&description=React-native接入原生Android
+
+
+1. 背景
+
+随着前端跨平台技术的发展，各端统一已是一个必然的趋势，在跨平台方案中，最津津乐道的莫过于React-Native（后续已RN代替React-native）。这个由Facebook工程师设计的跨平台方案与前端三大框架之一的React有着同宗同源的关系。他们的代码编写风格相差无几，工程师们针对不同的平台调用了不同平台的API，进行了针对各个平台的编译和优化，对熟悉React的同学来说，上手RN来说毫无难度。
+
+在本次技术调研中，我负责调研如果将RN接入到我们公司原生的Android应用中。官方技术文档在此：https://react"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-native接入原生Android"><span class="toc-number">1.</span> <span class="toc-text">React-native接入原生Android</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背景"><span class="toc-number">1.1.</span> <span class="toc-text">1. 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接入步骤"><span class="toc-number">1.2.</span> <span class="toc-text">2. 接入步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建Android项目"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 创建Android项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-结构剖析"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 结构剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-创建RN项目"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 创建RN项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-RN接入Android"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 RN接入Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-运行项目"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 运行项目</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        react-native接入原生Android
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-03-15T02:30:05.000Z" itemprop="datePublished">2021-03-15</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/react/" rel="tag">react</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="React-native接入原生Android"><a href="#React-native接入原生Android" class="headerlink" title="React-native接入原生Android"></a><code>React-native</code>接入原生<code>Android</code></h1><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h2><p>随着前端跨平台技术的发展，各端统一已是一个必然的趋势，在跨平台方案中，最津津乐道的莫过于<code>React-Native</code>（后续已<code>RN</code>代替<code>React-native</code>）。这个由<code>Facebook</code>工程师设计的跨平台方案与前端三大框架之一的<code>React</code>有着同宗同源的关系。他们的代码编写风格相差无几，工程师们针对不同的平台调用了不同平台的API，进行了针对各个平台的编译和优化，对熟悉<code>React</code>的同学来说，上手<code>RN</code>来说毫无难度。</p>
+<p>在本次技术调研中，我负责调研如果将<code>RN</code>接入到我们公司原生的<code>Android</code>应用中。官方技术文档在此：<a href="https://reactnative.dev/docs/integration-with-existing-apps" target="_blank" rel="noopener">https://reactnative.dev/docs/integration-with-existing-apps</a></p>
+<h2 id="2-接入步骤"><a href="#2-接入步骤" class="headerlink" title="2. 接入步骤"></a>2. 接入步骤</h2><p><code>RN</code>与<code>Android</code>融合是有两种方案的，一种是通过<code>RN</code>脚手架生成一个完整的项目目录，该目录中有<code>Android</code>和<code>ios</code>两个目录，此方案是以<code>RN</code>项目为主项目，<code>Android</code>和<code>ios</code>项目作为第三方包引入<code>RN</code>；另一种是以<code>Android</code>项目为主项目，<code>RN</code>打包成一个<code>Android</code>模块来接入。对我们来说，当前后者更适合我们这次技术调研。</p>
+<h3 id="2-1-创建Android项目"><a href="#2-1-创建Android项目" class="headerlink" title="2.1 创建Android项目"></a>2.1 创建<code>Android</code>项目</h3><p>这一步是模拟一个现存的<code>Android</code>原生项目。简单点就是先安装一个<code>Android Studio</code>，然后通过<code>Android Studio</code>来创建一个空的<code>Android</code>项目。最后运行这个<code>Android</code>项目，保证能正常打开。</p>
+<h3 id="2-2-结构剖析"><a href="#2-2-结构剖析" class="headerlink" title="2.2 结构剖析"></a>2.2 结构剖析</h3><p>新建的<code>Android</code>项目结构如下图所示：<code>/src/main/java/com.example.second/MainActivity</code>为<code>Android</code>的入口文件，这里主要处理<code>Android</code>启动时的各种业务逻辑，类比于前端的<code>javascript</code>文件。<code>/src/res/layout/activity_main.xml</code>为<code>Android</code>启动时第一个页面的布局文件，类比于前端的<code>HTML</code>与<code>CSS</code>的结合体。由<code>MainActivity</code>文件第16行可以看出来，在<code>java</code>文件里需要设置与当前<code>java</code>文件绑定的<code>xml</code>视图文件，这样，我们才能在当前<code>java</code>文件中操作<code>xml</code>视图文件中的按钮，输入框等各种操作。</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315132135.png" alt="image-20210315131943276"></p>
+<p>在了解了<code>Android</code>的基础知识之后，我们就可以新建一个新的<code>java</code>文件来承载我们的<code>RN</code>项目，根据<code>java</code>文件和<code>xml</code>文件之间的关系，可以猜测下，只要把<code>java</code>文件绑定对应的<code>RN</code>视图，就能实现<code>RN</code>的接入，实际实现也是如此。</p>
+<p>首先在<code>layout/activity_main.xml</code>中添加一个按钮，然后在<code>MainActivity</code>中添加一个路由跳转动作，实现点击按钮跳转一个新页面，然后在这个新页面上绑定<code>RN</code>项目。</p>
+<h3 id="2-3-创建RN项目"><a href="#2-3-创建RN项目" class="headerlink" title="2.3 创建RN项目"></a>2.3 创建<code>RN</code>项目</h3><p>此处不能再通过<code>RN</code>脚手架来生成项目目录，只能自己新建。</p>
+<ol>
+<li><p>新建一个目录，并用<code>npm init</code>初始化；</p>
+</li>
+<li><p>在<code>package.json</code>中添加如下内容，如果有重复内容适当合并：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"MyReactNativeApp"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"yarn react-native start"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加<code>react-native</code>依赖，执行如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-native</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行第3步命令时将会打印与<code>react-native</code>版本对应的<code>react</code>版本，这里需要强制要求按照提供的版本安装<code>react</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react@xx.xx.xx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加<code>.gitignore</code>文件，保证不影响<code>git</code>版本管理；</p>
+</li>
+<li><p>在根目录下新建一个<code>index.js</code>文件，并编写<code>RN</code>代码如下，当然你可以自己定义<code>RN</code>中的内容：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Text,</span><br><span class="line">  View</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Text style=&#123;styles.hello&#125;&gt;Hello, World&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  hello: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">    margin: <span class="number">10</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(</span><br><span class="line">  <span class="string">'MyReactNativeApp'</span>,</span><br><span class="line">  () =&gt; HelloWorld</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完工。</p>
+</li>
+</ol>
+<p>以上就是新建一个<code>RN</code>项目的步骤，接下来我们要做的就是怎么把<code>RN</code>项目引入<code>Android</code>中。</p>
+<h3 id="2-4-RN接入Android"><a href="#2-4-RN接入Android" class="headerlink" title="2.4 RN接入Android"></a>2.4 <code>RN</code>接入<code>Android</code></h3><p>根据官网的提示：</p>
+<ol>
+<li><p>在<code>RN</code>项目下新建一个名为<code>android</code>的目录，并将之前新建的<code>Android</code>项目根目录下的内容全部拷贝到新建的<code>android</code>目录里，此时的目录结构如下所示：</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315135903.png" alt="image-20210315135903761"></p>
+<p>这里我是将<code>index.js</code>里的代码拆分成了两份，与<code>HelloWorld class</code>有关的代码放在<code>App.js</code>里，<code>RN</code>的启动代码放在<code>index.js</code>中。</p>
+</li>
+<li><p>在<code>android/app/build.gradle</code>文件中添加依赖如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// From node_modules 此处可以指定react-native的具体版本</span></span><br><span class="line">    implementation <span class="string">"com.facebook.react:react-native:x.xx.x"</span></span><br><span class="line">    implementation <span class="string">"org.webkit:android-jsc:+"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>android/build.gradle</code>中添加代码如下：</p>
+<p>从这里看出，当初将<code>Android</code>项目拷贝到<code>android</code>目录其实只是为了从路径寻找依赖时能输入尽量短的路径，这里就理解了即使不在当前目录下新建<code>android</code>目录也是可以的。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        maven &#123;</span><br><span class="line">            <span class="comment">// All of React Native (JS, Android binaries) is installed from npm</span></span><br><span class="line">            url <span class="string">"$rootDir/../node_modules/react-native/android"</span></span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            <span class="comment">// Android JSC is installed from npm</span></span><br><span class="line">            url(<span class="string">"$rootDir/../node_modules/jsc-android/dist"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>android/setting.gradle</code>文件中新增代码如下，来开启原生模块的自动链接:</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="keyword">from</span>: <span class="keyword">file</span>(<span class="string">"../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"</span>); applyNativeModulesSettingsGradle(settings)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>android/app/build.gradle</code>文件最后新增代码如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="keyword">from</span>: <span class="keyword">file</span>(<span class="string">"../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"</span>); applyNativeModulesAppBuildGradle(<span class="keyword">project</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启<code>Android</code>对应的权限，在<code>android/app/src/AndroidManifest.xml</code>文件中添加权限代码，如：</p>
+<ul>
+<li>网络权限</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>debug</code>调试面板</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">"com.facebook.react.devsupport.DevSettingsActivity"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在新页面<code>.java</code>文件中添加代码，引入<code>RN</code> 的视图：</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210315143141.png" alt="image-20210315135242209"></p>
+<p>从以上代码尤其是第55, 57行可以看出来，所谓引入<code>RN</code>，其实是实例化了一个<code>ReactRootView</code>，用这个<code>mReactRootView</code>来找到并启动<code>RN</code>的项目，从而可以替代<code>Android</code>原生的<code>xml</code>视图文件。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReactActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">DefaultHardwareBackBtnHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ReactRootView mReactRootView;</span><br><span class="line">    <span class="keyword">private</span> ReactInstanceManager mReactInstanceManager;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        SoLoader.init(<span class="keyword">this</span>, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        mReactRootView = <span class="keyword">new</span> ReactRootView(<span class="keyword">this</span>);</span><br><span class="line">        List&lt;ReactPackage&gt; packages = <span class="keyword">new</span> PackageList(getApplication()).getPackages();</span><br><span class="line">        <span class="comment">// Packages that cannot be autolinked yet can be added manually here, for example:</span></span><br><span class="line">        <span class="comment">// packages.add(new MyReactNativePackage());</span></span><br><span class="line">        <span class="comment">// Remember to include them in `settings.gradle` and `app/build.gradle` too.</span></span><br><span class="line"></span><br><span class="line">        mReactInstanceManager = ReactInstanceManager.builder()</span><br><span class="line">                .setApplication(getApplication())</span><br><span class="line">                .setCurrentActivity(<span class="keyword">this</span>)</span><br><span class="line">                .setBundleAssetName(<span class="string">"index.android.bundle"</span>)</span><br><span class="line">                .setJSMainModulePath(<span class="string">"index"</span>)</span><br><span class="line">                .addPackages(packages)</span><br><span class="line">                .setUseDeveloperSupport(BuildConfig.DEBUG)</span><br><span class="line">                .setInitialLifecycleState(LifecycleState.RESUMED)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="comment">// The string here (e.g. "MyReactNativeApp") has to match</span></span><br><span class="line">        <span class="comment">// the string in AppRegistry.registerComponent() in index.js</span></span><br><span class="line">        mReactRootView.startReactApplication(mReactInstanceManager, <span class="string">"MyReactNativeApp"</span>, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">        setContentView(mReactRootView);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invokeDefaultOnBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onBackPressed();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>在新开的<code>.java</code>文件中继续添加辅助代码：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onPause();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mReactInstanceManager != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mReactInstanceManager.onHostPause(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mReactInstanceManager != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mReactInstanceManager.onHostResume(<span class="keyword">this</span>, <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mReactInstanceManager != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mReactInstanceManager.onHostDestroy(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (mReactRootView != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mReactRootView.unmountReactApplication();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mReactInstanceManager != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mReactInstanceManager.onBackPressed();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onBackPressed();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKeyUp</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_MENU &amp;&amp; mReactInstanceManager != <span class="keyword">null</span>) &#123;</span><br><span class="line">        mReactInstanceManager.showDevOptionsDialog();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onKeyUp(keyCode, event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-运行项目"><a href="#2-5-运行项目" class="headerlink" title="2.5 运行项目"></a>2.5 运行项目</h3><p>在<code>RN</code>的根目录下运行<code>yarn start</code>来启动<code>RN</code>的<code>Metro</code>服务，该服务类似于一个本地开发服务器，然后使用<code>Android Studio</code>启动 <code>Android</code>模拟器，点击首页的按钮即可跳转到我们新开的<code>RnWrapper</code>页面，同时加载<code>RN</code>里的代码，完成视图构建，逻辑处理等。</p>
+<p>如果点击按钮跳转后并不能出现<code>RN</code>项目的内容，则可以尝试使用命令<code>npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</code>进行打包，先将<code>RN</code>项目打包到<code>android/app/src/main/assets/</code>下，然后再启动<code>Android</code>项目，所以从这里就更可以理解，<code>Android</code>加载<code>RN</code>是加载<code>RN</code>打包后的一个<code>bundle</code>文件。</p>
+<p>在后续的开发中可是使用<code>RN</code>的调试工具连接到<code>RN</code>的<code>Metro</code>服务进行热更新，效率大大提升。</p>
+<a id="more"></a>
+
+<!-- flag of hidden posts -->
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-native接入原生Android"><span class="toc-number">1.</span> <span class="toc-text">React-native接入原生Android</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背景"><span class="toc-number">1.1.</span> <span class="toc-text">1. 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接入步骤"><span class="toc-number">1.2.</span> <span class="toc-text">2. 接入步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建Android项目"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 创建Android项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-结构剖析"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 结构剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-创建RN项目"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 创建RN项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-RN接入Android"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 RN接入Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-运行项目"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 运行项目</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&text=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&is_video=false&description=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=react-native接入原生Android&body=Check out this article: https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&title=react-native接入原生Android" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2021/03/15/react-native/react-native%E6%8E%A5%E5%85%A5%E5%8E%9F%E7%94%9FAndroid/&name=react-native接入原生Android&description=React-native接入原生Android
+
+
+1. 背景
+
+随着前端跨平台技术的发展，各端统一已是一个必然的趋势，在跨平台方案中，最津津乐道的莫过于React-Native（后续已RN代替React-native）。这个由Facebook工程师设计的跨平台方案与前端三大框架之一的React有着同宗同源的关系。他们的代码编写风格相差无几，工程师们针对不同的平台调用了不同平台的API，进行了针对各个平台的编译和优化，对熟悉React的同学来说，上手RN来说毫无难度。
+
+在本次技术调研中，我负责调研如果将RN接入到我们公司原生的Android应用中。官方技术文档在此：https://react"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

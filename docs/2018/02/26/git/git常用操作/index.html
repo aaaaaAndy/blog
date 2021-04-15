@@ -1,154 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1. 历史版本控制系统   1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。   2. 本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。   3. 集中化的版本控制系统。这类系统，诸如CVS、Subversion以及Per">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用操作">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="1. 历史版本控制系统   1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。   2. 本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。   3. 集中化的版本控制系统。这类系统，诸如CVS、Subversion以及Per">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2018-02-26T11:02:06.000Z">
+<meta property="article:modified_time" content="2020-08-10T14:24:33.650Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Git常用操作</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2018/03/23/JavaScript/%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E7%9A%84click/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2018/02/18/technology/%E8%A7%A3%E5%86%B3chrome%E4%B8%8B%E5%AD%97%E4%BD%93%E4%B8%8D%E8%83%BD%E5%B0%8F%E4%BA%8E12px%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&text=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&is_video=false&description=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git常用操作&body=Check out this article: https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&name=Git常用操作&description=1. 历史版本控制系统
+
+ 1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。
+
+ 2. 本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。
+
+ 3. 集中化的版本控制系统。这类系统，诸如CVS、Subversion以及Perforce等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，协同工作的人们都通过客户端连接到这台服务器，去除最新的文件或者提交更新。这种方式显而易见的缺点就是中央服务器的单点故障，如果宕机"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-历史版本控制系统"><span class="toc-number">1.</span> <span class="toc-text">1. 历史版本控制系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git基础原理"><span class="toc-number">2.</span> <span class="toc-text">2. Git基础原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Git中文件有三种状态："><span class="toc-number">2.1.</span> <span class="toc-text">1. Git中文件有三种状态：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基本的-Git-工作流程："><span class="toc-number">2.2.</span> <span class="toc-text">2. 基本的 Git 工作流程：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Git配置"><span class="toc-number">3.</span> <span class="toc-text">3. Git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-gitignore文件的格式规范"><span class="toc-number">4.</span> <span class="toc-text">4. .gitignore文件的格式规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-git常用操作"><span class="toc-number">5.</span> <span class="toc-text">5. git常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-建立本地仓库与远程仓库链接"><span class="toc-number">5.1.</span> <span class="toc-text">1. 建立本地仓库与远程仓库链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-提交代码"><span class="toc-number">5.2.</span> <span class="toc-text">2. 提交代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-新建与切换分支"><span class="toc-number">5.3.</span> <span class="toc-text">3. 新建与切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-合并代码"><span class="toc-number">5.4.</span> <span class="toc-text">4. 合并代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-删除本地或远程分支"><span class="toc-number">5.5.</span> <span class="toc-text">5. 删除本地或远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-撤销操作（Push到远程仓库之前）"><span class="toc-number">5.6.</span> <span class="toc-text">6. 撤销操作（Push到远程仓库之前）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset的参数问题"><span class="toc-number">5.7.</span> <span class="toc-text">git reset的参数问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-回滚操作（已经push到远程仓库）"><span class="toc-number">5.8.</span> <span class="toc-text">7. 回滚操作（已经push到远程仓库）</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
 
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            <article class="post post-article">
-    <h2 class="post-title">
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         Git常用操作
-    </h2>
-    <ul class="post-date">
-        <li>
-            2018-02-26
-        </li>
-        <li>
-            
-                
-                    <a class="post-category" href="/blog/categories/git/">
-                        git
-                    </a>
-                
-            
-        </li>
-        <li>
-            aaaaaAndy
-        </li>
-    </ul>
-    <div class="post-content">
-        <h2 id="1-历史版本控制系统"><a href="#1-历史版本控制系统" class="headerlink" title="1. 历史版本控制系统"></a>1. 历史版本控制系统</h2><ol>
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-02-26T11:02:06.000Z" itemprop="datePublished">2018-02-26</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/git/" rel="tag">git</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="1-历史版本控制系统"><a href="#1-历史版本控制系统" class="headerlink" title="1. 历史版本控制系统"></a>1. 历史版本控制系统</h2><ol>
 <li><p>复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。</p>
 </li>
 <li><p>本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。</p>
@@ -260,11 +258,114 @@
 
 <a id="more"></a>
 
-    </div>
+  </div>
 </article>
 
-        </main>
-    </div>
-</body>
 
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-历史版本控制系统"><span class="toc-number">1.</span> <span class="toc-text">1. 历史版本控制系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git基础原理"><span class="toc-number">2.</span> <span class="toc-text">2. Git基础原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Git中文件有三种状态："><span class="toc-number">2.1.</span> <span class="toc-text">1. Git中文件有三种状态：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基本的-Git-工作流程："><span class="toc-number">2.2.</span> <span class="toc-text">2. 基本的 Git 工作流程：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Git配置"><span class="toc-number">3.</span> <span class="toc-text">3. Git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-gitignore文件的格式规范"><span class="toc-number">4.</span> <span class="toc-text">4. .gitignore文件的格式规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-git常用操作"><span class="toc-number">5.</span> <span class="toc-text">5. git常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-建立本地仓库与远程仓库链接"><span class="toc-number">5.1.</span> <span class="toc-text">1. 建立本地仓库与远程仓库链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-提交代码"><span class="toc-number">5.2.</span> <span class="toc-text">2. 提交代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-新建与切换分支"><span class="toc-number">5.3.</span> <span class="toc-text">3. 新建与切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-合并代码"><span class="toc-number">5.4.</span> <span class="toc-text">4. 合并代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-删除本地或远程分支"><span class="toc-number">5.5.</span> <span class="toc-text">5. 删除本地或远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-撤销操作（Push到远程仓库之前）"><span class="toc-number">5.6.</span> <span class="toc-text">6. 撤销操作（Push到远程仓库之前）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset的参数问题"><span class="toc-number">5.7.</span> <span class="toc-text">git reset的参数问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-回滚操作（已经push到远程仓库）"><span class="toc-number">5.8.</span> <span class="toc-text">7. 回滚操作（已经push到远程仓库）</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&text=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&is_video=false&description=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git常用操作&body=Check out this article: https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&title=Git常用操作" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/02/26/git/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/&name=Git常用操作&description=1. 历史版本控制系统
+
+ 1. 复制整个项目目录。这样做唯一的好处是简单，但是特别容易出错，在科技发达的今天，是在是一种淘汰落后的方案。
+
+ 2. 本地版本控制。其中最流行的一种叫RCS，它的工作原理是在硬盘上保存布丁集（补丁是指文件修订前后的变化）；通过应用所有的布丁，可以重新计算出各个版本的文件内容。
+
+ 3. 集中化的版本控制系统。这类系统，诸如CVS、Subversion以及Perforce等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，协同工作的人们都通过客户端连接到这台服务器，去除最新的文件或者提交更新。这种方式显而易见的缺点就是中央服务器的单点故障，如果宕机"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

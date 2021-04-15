@@ -1,154 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配  以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。   2.更加友好的 JSON.stringify  如果输入 Unicode 格式但是超出范围的字符，在原先JSON.stringify返回格式错误的Unicode字符串。现在实现了一个改变JSON.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es10">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2020/12/24/es/es10/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配  以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。   2.更加友好的 JSON.stringify  如果输入 Unicode 格式但是超出范围的字符，在原先JSON.stringify返回格式错误的Unicode字符串。现在实现了一个改变JSON.">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-12-24T02:16:11.000Z">
+<meta property="article:modified_time" content="2021-01-20T02:18:21.432Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ES">
+<meta property="article:tag" content="ES10">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>es10</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2020/12/24/es/es%E5%9F%BA%E7%A1%80/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2020/12/24/es/es9/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&text=es10" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&is_video=false&description=es10" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=es10&body=Check out this article: https://aaaaaandy.github.io/blog/2020/12/24/es/es10/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&name=es10&description=1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配
+
+以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。
+
+
+2.更加友好的 JSON.stringify
+
+如果输入 Unicode 格式但是超出范围的字符，在原先JSON.stringify返回格式错误的Unicode字符串。现在实现了一个改变JSON.stringify的第3阶段提案，因此它为其输出转义序列，使其成为有效Unicode（并以UTF-8表示）
+
+
+3.新增了Array的flat()方法和flatMap()方法
+
+flat()和flat"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-行分隔符（U-2028）和段分隔符（U-2029）符号现在允许在字符串文字中，与JSON匹配"><span class="toc-number">1.</span> <span class="toc-text">1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-更加友好的-JSON-stringify"><span class="toc-number">2.</span> <span class="toc-text">2.更加友好的 JSON.stringify</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新增了Array的flat-方法和flatMap-方法"><span class="toc-number">3.</span> <span class="toc-text">3.新增了Array的flat()方法和flatMap()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-新增了String的trimStart-方法和trimEnd-方法"><span class="toc-number">4.</span> <span class="toc-text">4.新增了String的trimStart()方法和trimEnd()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Object-fromEntries"><span class="toc-number">5.</span> <span class="toc-text">5.Object.fromEntries()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Symbol-prototype-description"><span class="toc-number">6.</span> <span class="toc-text">6.Symbol.prototype.description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-String-prototype-matchAll"><span class="toc-number">7.</span> <span class="toc-text">7.String.prototype.matchAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Function-prototype-toString-现在返回精确字符，包括空格和注释"><span class="toc-number">8.</span> <span class="toc-text">8.Function.prototype.toString()现在返回精确字符，包括空格和注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-修改-catch-绑定"><span class="toc-number">9.</span> <span class="toc-text">9.修改 catch 绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-新的基本数据类型BigInt"><span class="toc-number">10.</span> <span class="toc-text">10.新的基本数据类型BigInt</span></a></li></ol>
+    </div>
+  </span>
+</div>
 
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            <article class="post post-article">
-    <h2 class="post-title">
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         es10
-    </h2>
-    <ul class="post-date">
-        <li>
-            2020-12-24
-        </li>
-        <li>
-            
-                
-                    <a class="post-category" href="/blog/categories/ES/">
-                        ES
-                    </a>
-                
-            
-        </li>
-        <li>
-            aaaaaAndy
-        </li>
-    </ul>
-    <div class="post-content">
-        <h2 id="1-行分隔符（U-2028）和段分隔符（U-2029）符号现在允许在字符串文字中，与JSON匹配"><a href="#1-行分隔符（U-2028）和段分隔符（U-2029）符号现在允许在字符串文字中，与JSON匹配" class="headerlink" title="1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配"></a>1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配</h2><p>以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。</p>
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-12-24T02:16:11.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/ES/" rel="tag">ES</a>, <a class="tag-link" href="/blog/tags/ES10/" rel="tag">ES10</a>, <a class="tag-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="1-行分隔符（U-2028）和段分隔符（U-2029）符号现在允许在字符串文字中，与JSON匹配"><a href="#1-行分隔符（U-2028）和段分隔符（U-2029）符号现在允许在字符串文字中，与JSON匹配" class="headerlink" title="1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配"></a>1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配</h2><p>以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。</p>
 <h2 id="2-更加友好的-JSON-stringify"><a href="#2-更加友好的-JSON-stringify" class="headerlink" title="2.更加友好的 JSON.stringify"></a>2.更加友好的 JSON.stringify</h2><p>如果输入 Unicode 格式但是超出范围的字符，在原先JSON.stringify返回格式错误的Unicode字符串。现在实现了一个改变JSON.stringify的<a href="https://github.com/tc39/proposal-well-formed-stringify" target="_blank" rel="noopener">第3阶段提案</a>，因此它为其输出转义序列，使其成为有效Unicode（并以UTF-8表示）</p>
 <h2 id="3-新增了Array的flat-方法和flatMap-方法"><a href="#3-新增了Array的flat-方法和flatMap-方法" class="headerlink" title="3.新增了Array的flat()方法和flatMap()方法"></a>3.新增了Array的<code>flat()</code>方法和<code>flatMap()</code>方法</h2><p><code>flat()</code>和<code>flatMap()</code>本质上就是是归纳（reduce） 与 合并（concat）的操作。</p>
 <h2 id="4-新增了String的trimStart-方法和trimEnd-方法"><a href="#4-新增了String的trimStart-方法和trimEnd-方法" class="headerlink" title="4.新增了String的trimStart()方法和trimEnd()方法"></a>4.新增了String的<code>trimStart()</code>方法和<code>trimEnd()</code>方法</h2><p>新增的这两个方法很好理解，分别去除字符串首尾空白字符，这里就不用例子说声明了。</p>
@@ -168,11 +174,120 @@
 <a id="more"></a>
 
 
-    </div>
+  </div>
 </article>
 
-        </main>
-    </div>
-</body>
 
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-行分隔符（U-2028）和段分隔符（U-2029）符号现在允许在字符串文字中，与JSON匹配"><span class="toc-number">1.</span> <span class="toc-text">1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-更加友好的-JSON-stringify"><span class="toc-number">2.</span> <span class="toc-text">2.更加友好的 JSON.stringify</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新增了Array的flat-方法和flatMap-方法"><span class="toc-number">3.</span> <span class="toc-text">3.新增了Array的flat()方法和flatMap()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-新增了String的trimStart-方法和trimEnd-方法"><span class="toc-number">4.</span> <span class="toc-text">4.新增了String的trimStart()方法和trimEnd()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Object-fromEntries"><span class="toc-number">5.</span> <span class="toc-text">5.Object.fromEntries()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Symbol-prototype-description"><span class="toc-number">6.</span> <span class="toc-text">6.Symbol.prototype.description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-String-prototype-matchAll"><span class="toc-number">7.</span> <span class="toc-text">7.String.prototype.matchAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Function-prototype-toString-现在返回精确字符，包括空格和注释"><span class="toc-number">8.</span> <span class="toc-text">8.Function.prototype.toString()现在返回精确字符，包括空格和注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-修改-catch-绑定"><span class="toc-number">9.</span> <span class="toc-text">9.修改 catch 绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-新的基本数据类型BigInt"><span class="toc-number">10.</span> <span class="toc-text">10.新的基本数据类型BigInt</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&text=es10" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&is_video=false&description=es10" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=es10&body=Check out this article: https://aaaaaandy.github.io/blog/2020/12/24/es/es10/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&title=es10" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2020/12/24/es/es10/&name=es10&description=1.行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配
+
+以前，这些符号在字符串文字中被视为行终止符，因此使用它们会导致SyntaxError异常。
+
+
+2.更加友好的 JSON.stringify
+
+如果输入 Unicode 格式但是超出范围的字符，在原先JSON.stringify返回格式错误的Unicode字符串。现在实现了一个改变JSON.stringify的第3阶段提案，因此它为其输出转义序列，使其成为有效Unicode（并以UTF-8表示）
+
+
+3.新增了Array的flat()方法和flatMap()方法
+
+flat()和flat"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

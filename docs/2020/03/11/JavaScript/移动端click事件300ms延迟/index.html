@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="移动端click事件300ms延迟   1. 追根溯源  移动端为什么会出现click事件的300ms延迟？  这应该属于科技进步过程中的不完美。在2007年，苹果公司在发布首款iphone前夕，遇到一个问题：当时的网站大都为大屏幕的设备所设计，于是苹果的工程师在解决小屏幕手机浏览大屏幕网站的问题上做了一些约定，其中一个就是有名的双击缩放。  双击缩放：顾名思义就是连续两次点击屏幕，苹果自带的sa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端click事件300ms延迟">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="移动端click事件300ms延迟   1. 追根溯源  移动端为什么会出现click事件的300ms延迟？  这应该属于科技进步过程中的不完美。在2007年，苹果公司在发布首款iphone前夕，遇到一个问题：当时的网站大都为大屏幕的设备所设计，于是苹果的工程师在解决小屏幕手机浏览大屏幕网站的问题上做了一些约定，其中一个就是有名的双击缩放。  双击缩放：顾名思义就是连续两次点击屏幕，苹果自带的sa">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-03-11T03:16:50.000Z">
+<meta property="article:modified_time" content="2021-03-10T03:24:22.097Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="click">
+<meta property="article:tag" content="延迟">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>移动端click事件300ms延迟</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2020/03/29/%E8%84%9A%E6%89%8B%E6%9E%B6CLI/webpack%E5%9F%BA%E7%A1%80/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2020/02/11/vim/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&text=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&is_video=false&description=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=移动端click事件300ms延迟&body=Check out this article: https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&name=移动端click事件300ms延迟&description=移动端click事件300ms延迟
+
+
+1. 追根溯源
+
+移动端为什么会出现click事件的300ms延迟？
+
+这应该属于科技进步过程中的不完美。在2007年，苹果公司在发布首款iphone前夕，遇到一个问题：当时的网站大都为大屏幕的设备所设计，于是苹果的工程师在解决小屏幕手机浏览大屏幕网站的问题上做了一些约定，其中一个就是有名的双击缩放。
+
+双击缩放：顾名思义就是连续两次点击屏幕，苹果自带的safari浏览器就会将网页缩放到它的原始比例，那么怎么实现这种双击缩放呢？很简单，就是在第一次点击之后先不触发click事件，而是等待300ms，如果在这300ms之内还有第二次点击，那么就对网页进行缩"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端click事件300ms延迟"><span class="toc-number">1.</span> <span class="toc-text">移动端click事件300ms延迟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-追根溯源"><span class="toc-number">1.1.</span> <span class="toc-text">1. 追根溯源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-解决方案"><span class="toc-number">1.2.</span> <span class="toc-text">2. 解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-禁用缩放"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 禁用缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-不禁用缩放"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 不禁用缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-CSS-touch-action"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 CSS touch-action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-FashClick"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 FashClick</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Webview问题"><span class="toc-number">1.3.</span> <span class="toc-text">3. Webview问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Android-Webview"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 Android Webview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-IOS-Webview"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2. IOS Webview</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        移动端click事件300ms延迟
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-03-11T03:16:50.000Z" itemprop="datePublished">2020-03-11</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-link" href="/blog/tags/click/" rel="tag">click</a>, <a class="tag-link" href="/blog/tags/%E5%BB%B6%E8%BF%9F/" rel="tag">延迟</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="移动端click事件300ms延迟"><a href="#移动端click事件300ms延迟" class="headerlink" title="移动端click事件300ms延迟"></a>移动端<code>click</code>事件300ms延迟</h1><h2 id="1-追根溯源"><a href="#1-追根溯源" class="headerlink" title="1. 追根溯源"></a>1. 追根溯源</h2><p>移动端为什么会出现<code>click</code>事件的<code>300ms</code>延迟？</p>
+<p>这应该属于科技进步过程中的不完美。在2007年，苹果公司在发布首款<code>iphone</code>前夕，遇到一个问题：当时的网站大都为大屏幕的设备所设计，于是苹果的工程师在解决小屏幕手机浏览大屏幕网站的问题上做了一些约定，其中一个就是有名的双击缩放。</p>
+<p>双击缩放：顾名思义就是连续两次点击屏幕，苹果自带的<code>safari</code>浏览器就会将网页缩放到它的原始比例，那么怎么实现这种双击缩放呢？很简单，就是在第一次点击之后先不触发<code>click</code>事件，而是等待<code>300ms</code>，如果在这<code>300ms</code>之内还有第二次点击，那么就对网页进行缩放；如果没有第二次点击，则再<code>300ms</code>结束后再触发<code>click</code>事件。鉴于<code>iphone</code>当时的成功，很多移动浏览器都赋值了这一功能。在当时，人们刚刚接触移动浏览器，不会在乎这<code>300ms</code>的延迟，但是随着科技的发展，用户对体验的要求也更高，这<code>300ms</code>的问题就尤为突出。</p>
+<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><p>那么如何解决这<code>300ms</code>的延迟呢？有以下几种方案：</p>
+<h3 id="2-1-禁用缩放"><a href="#2-1-禁用缩放" class="headerlink" title="2.1 禁用缩放"></a>2.1 禁用缩放</h3><p>使用了此方式，表明当前页面是不可缩放的，那么双击缩放的功能就没有意义了，此时浏览器可以禁用默认的双击缩放行为并且去掉<code>300ms</code>的点击延迟。</p>
+<p>缺点：我们希望的是禁用掉<code>300ms</code>的延迟，并不是完全禁用页面的缩放，此方法会完全禁止缩放效果。但是通常情况下，我们还是希望能够通过双指来进行缩放操作，比如放大一张图片，放大一段很小的文字。</p>
+<ul>
+<li><p><code>Chrome on Android(all versions)</code></p>
+</li>
+<li><p><code>IOS 9.3</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"user-scalable=no"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1,maximum-scale=1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">touch-action</span>: manipulation;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>IE on Windows Phone</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  touch-action: manipulation; // IE11+</span><br><span class="line">  -ms-touch-action: manipulation; // IE10</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-2-不禁用缩放"><a href="#2-2-不禁用缩放" class="headerlink" title="2.2 不禁用缩放"></a>2.2 不禁用缩放</h3><p>此方法是通过改变默认的视口宽度来达到去除<code>300ms</code>延迟的效果。</p>
+<p>在追根溯源里已经解释了，双击缩放的原因就是因为早些时候大部分网站都是针对大屏幕的桌面浏览器开发，工程师们为了在移动端能看到大屏幕网站才引入了双击方所。但是现在很多网站都已经支持了响应式的设计，那么移动端浏览器就可以自动禁止默认的双击缩放行为并且去掉<code>300ms</code>的点击延迟。如果设置了以下的<code>meta</code>标签，那浏览器就可以认为该网站已经对移动端进行了适配，就无需双击缩放的操作了。</p>
+<p>这个方案的好处在于，它没有完全禁用缩放，而只是禁用了浏览器默认的双击缩放行为，但用户仍然可以通过双指缩放来缩放页面。</p>
+<ul>
+<li><p><code>Chrome 32+ on Android</code></p>
+</li>
+<li><p><code>IOS 9.3</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果不添加<code>width=device-width</code>不管是<code>Android</code>还是<code>IOS</code>中已修复的版本中仍然会出现延时的问题。</p>
+</li>
+</ul>
+<h3 id="2-3-CSS-touch-action"><a href="#2-3-CSS-touch-action" class="headerlink" title="2.3 CSS touch-action"></a>2.3 <code>CSS touch-action</code></h3><p><code>touch-action</code>这个CSS属性。这个属性指定了相应元素上能够触发的用户代理（也就是浏览器）的默认行为。如果将该属性值设置为<code>touch-action: none</code>，那么表示在该元素上的操作不会触发用户代理的任何默认行为，就无需进行300ms的延迟判断。</p>
+<h3 id="2-4-FashClick"><a href="#2-4-FashClick" class="headerlink" title="2.4 FashClick"></a>2.4 <code>FashClick</code></h3><p>移动端，当用户点击屏幕时，会依次触发<code>touchstart</code>，<code>touchmove</code>,<code>touchend</code>，在<code>touchend</code>调用结束后，<code>fastclick</code>会通过<code>DOM</code>自定义事件立即触发一个模拟的<code>click</code>事件，同时禁用掉<code>300ms</code>之后的系统默认<code>click</code>，这样就解决了<code>300ms</code>的延迟问题。</p>
+<h2 id="3-Webview问题"><a href="#3-Webview问题" class="headerlink" title="3. Webview问题"></a>3. <code>Webview</code>问题</h2><h3 id="3-1-Android-Webview"><a href="#3-1-Android-Webview" class="headerlink" title="3.1 Android Webview"></a>3.1 <code>Android Webview</code></h3><p>Android WebView 中 300ms 的延迟问题和移动端浏览器解决思路一致。</p>
+<h3 id="3-2-IOS-Webview"><a href="#3-2-IOS-Webview" class="headerlink" title="3.2. IOS Webview"></a>3.2. <code>IOS Webview</code></h3><p><code>IOS Webview</code>的问题有点头大，因为在<code>IOS8</code>之前一直都是<code>UIWebview</code>，<code>IOS8</code>出了个<code>WKWebview</code>。其实直到现在，<code>UIWebview</code>的<code>300ms</code>延迟问题一直存在，哪怕是新版的<code>IOS</code>版本，但是<code>WkWebview</code>在<code>IOS9.3</code>的时候将这个问题修复了。</p>
+<a id="more"></a>
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端click事件300ms延迟"><span class="toc-number">1.</span> <span class="toc-text">移动端click事件300ms延迟</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-追根溯源"><span class="toc-number">1.1.</span> <span class="toc-text">1. 追根溯源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-解决方案"><span class="toc-number">1.2.</span> <span class="toc-text">2. 解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-禁用缩放"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 禁用缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-不禁用缩放"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 不禁用缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-CSS-touch-action"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 CSS touch-action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-FashClick"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 FashClick</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Webview问题"><span class="toc-number">1.3.</span> <span class="toc-text">3. Webview问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Android-Webview"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 Android Webview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-IOS-Webview"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2. IOS Webview</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&text=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&is_video=false&description=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=移动端click事件300ms延迟&body=Check out this article: https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&title=移动端click事件300ms延迟" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2020/03/11/JavaScript/%E7%A7%BB%E5%8A%A8%E7%AB%AFclick%E4%BA%8B%E4%BB%B6300ms%E5%BB%B6%E8%BF%9F/&name=移动端click事件300ms延迟&description=移动端click事件300ms延迟
+
+
+1. 追根溯源
+
+移动端为什么会出现click事件的300ms延迟？
+
+这应该属于科技进步过程中的不完美。在2007年，苹果公司在发布首款iphone前夕，遇到一个问题：当时的网站大都为大屏幕的设备所设计，于是苹果的工程师在解决小屏幕手机浏览大屏幕网站的问题上做了一些约定，其中一个就是有名的双击缩放。
+
+双击缩放：顾名思义就是连续两次点击屏幕，苹果自带的safari浏览器就会将网页缩放到它的原始比例，那么怎么实现这种双击缩放呢？很简单，就是在第一次点击之后先不触发click事件，而是等待300ms，如果在这300ms之内还有第二次点击，那么就对网页进行缩"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

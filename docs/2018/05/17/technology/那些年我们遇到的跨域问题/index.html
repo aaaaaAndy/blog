@@ -1,154 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="关于跨域问题的三三两两。   1. 同源策略  跨域的根本原因是浏览器的同源策略，那么什么是同源策略呢？  同源策略，它是由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指协议，域名，端口相同，相反，只要协议，域名，端口有任何一个的不同，就被当作是跨域。  浏览器采用同源策略，禁止页面加载或执行与自身来源不同的域的任何脚本。比如一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="那些年我们遇到的跨域问题">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="关于跨域问题的三三两两。   1. 同源策略  跨域的根本原因是浏览器的同源策略，那么什么是同源策略呢？  同源策略，它是由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指协议，域名，端口相同，相反，只要协议，域名，端口有任何一个的不同，就被当作是跨域。  浏览器采用同源策略，禁止页面加载或执行与自身来源不同的域的任何脚本。比如一">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2018-05-17T01:59:02.000Z">
+<meta property="article:modified_time" content="2020-07-25T02:53:21.726Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="跨域">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>那些年我们遇到的跨域问题</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2018/06/11/books/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript-%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2018/04/16/books/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript-%E6%B3%A8%E9%87%8A/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&text=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&is_video=false&description=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=那些年我们遇到的跨域问题&body=Check out this article: https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&name=那些年我们遇到的跨域问题&description=关于跨域问题的三三两两。
+
+
+1. 同源策略
+
+跨域的根本原因是浏览器的同源策略，那么什么是同源策略呢？
+
+同源策略，它是由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指协议，域名，端口相同，相反，只要协议，域名，端口有任何一个的不同，就被当作是跨域。
+
+浏览器采用同源策略，禁止页面加载或执行与自身来源不同的域的任何脚本。比如一个恶意网站的页面通过iframe嵌入了银行的登录页面（二者不同源），如果没有同源限制，恶意网页上的javascript脚本就可以在用户登录银行的时候获取用户名和密码。
+
+
+2. 解决跨域
+
+跨域影响："><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-同源策略"><span class="toc-number">1.</span> <span class="toc-text">1. 同源策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-解决跨域"><span class="toc-number">2.</span> <span class="toc-text">2. 解决跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CORS"><span class="toc-number">2.1.</span> <span class="toc-text">1. CORS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简单请求"><span class="toc-number">2.1.1.</span> <span class="toc-text">1. 简单请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-非简单请求"><span class="toc-number">2.1.2.</span> <span class="toc-text">2. 非简单请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CORS-简单实现"><span class="toc-number">2.1.3.</span> <span class="toc-text">3. CORS 简单实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-JSONP"><span class="toc-number">2.2.</span> <span class="toc-text">2. JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-nginx-代理"><span class="toc-number">2.3.</span> <span class="toc-text">3. nginx 代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-websocket"><span class="toc-number">2.4.</span> <span class="toc-text">4. websocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-postMessage"><span class="toc-number">2.5.</span> <span class="toc-text">5. postMessage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-window-name"><span class="toc-number">2.6.</span> <span class="toc-text">6. window.name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-document-domain"><span class="toc-number">2.7.</span> <span class="toc-text">7. document.domain</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
 
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            <article class="post post-article">
-    <h2 class="post-title">
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         那些年我们遇到的跨域问题
-    </h2>
-    <ul class="post-date">
-        <li>
-            2018-05-17
-        </li>
-        <li>
-            
-                
-                    <a class="post-category" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                        浏览器
-                    </a>
-                
-            
-        </li>
-        <li>
-            aaaaaAndy
-        </li>
-    </ul>
-    <div class="post-content">
-        <p>关于跨域问题的三三两两。</p>
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-05-17T01:59:02.000Z" itemprop="datePublished">2018-05-17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>, <a class="tag-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>关于跨域问题的三三两两。</p>
 <h1 id="1-同源策略"><a href="#1-同源策略" class="headerlink" title="1. 同源策略"></a>1. 同源策略</h1><p>跨域的根本原因是浏览器的<strong><em>同源策略</em></strong>，那么什么是同源策略呢？</p>
 <p>同源策略，它是由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指协议，域名，端口相同，相反，只要协议，域名，端口有任何一个的不同，就被当作是跨域。</p>
 <p>浏览器采用同源策略，禁止页面加载或执行与自身来源不同的域的任何脚本。比如一个恶意网站的页面通过iframe嵌入了银行的登录页面（二者不同源），如果没有同源限制，恶意网页上的javascript脚本就可以在用户登录银行的时候获取用户名和密码。</p>
@@ -224,11 +231,122 @@
 <h2 id="7-document-domain"><a href="#7-document-domain" class="headerlink" title="7. document.domain"></a>7. document.domain</h2><p>这种方式只适合主域名相同，但子域名不同的iframe跨域。比如主域名是<a href="http://crossdomain.com:9099，子域名是http://child.crossdomain.com:9099，这种情况下给两个页面指定一下document.domain即document.domain">http://crossdomain.com:9099，子域名是http://child.crossdomain.com:9099，这种情况下给两个页面指定一下document.domain即document.domain</a> = crossdomain.com就可以访问各自的window对象了。</p>
 <a id="more"></a>
 
-    </div>
+  </div>
 </article>
 
-        </main>
-    </div>
-</body>
 
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-同源策略"><span class="toc-number">1.</span> <span class="toc-text">1. 同源策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-解决跨域"><span class="toc-number">2.</span> <span class="toc-text">2. 解决跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CORS"><span class="toc-number">2.1.</span> <span class="toc-text">1. CORS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简单请求"><span class="toc-number">2.1.1.</span> <span class="toc-text">1. 简单请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-非简单请求"><span class="toc-number">2.1.2.</span> <span class="toc-text">2. 非简单请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CORS-简单实现"><span class="toc-number">2.1.3.</span> <span class="toc-text">3. CORS 简单实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-JSONP"><span class="toc-number">2.2.</span> <span class="toc-text">2. JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-nginx-代理"><span class="toc-number">2.3.</span> <span class="toc-text">3. nginx 代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-websocket"><span class="toc-number">2.4.</span> <span class="toc-text">4. websocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-postMessage"><span class="toc-number">2.5.</span> <span class="toc-text">5. postMessage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-window-name"><span class="toc-number">2.6.</span> <span class="toc-text">6. window.name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-document-domain"><span class="toc-number">2.7.</span> <span class="toc-text">7. document.domain</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&text=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&is_video=false&description=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=那些年我们遇到的跨域问题&body=Check out this article: https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&title=那些年我们遇到的跨域问题" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/05/17/technology/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/&name=那些年我们遇到的跨域问题&description=关于跨域问题的三三两两。
+
+
+1. 同源策略
+
+跨域的根本原因是浏览器的同源策略，那么什么是同源策略呢？
+
+同源策略，它是由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。所谓同源是指协议，域名，端口相同，相反，只要协议，域名，端口有任何一个的不同，就被当作是跨域。
+
+浏览器采用同源策略，禁止页面加载或执行与自身来源不同的域的任何脚本。比如一个恶意网站的页面通过iframe嵌入了银行的登录页面（二者不同源），如果没有同源限制，恶意网页上的javascript脚本就可以在用户登录银行的时候获取用户名和密码。
+
+
+2. 解决跨域
+
+跨域影响："><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

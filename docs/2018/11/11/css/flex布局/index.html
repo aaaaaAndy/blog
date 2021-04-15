@@ -1,154 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种新的方案，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。   1. Flex 基础逻辑  采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。    容器默认存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex布局">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种新的方案，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。   1. Flex 基础逻辑  采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。    容器默认存">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115037.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115100.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115125.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115141.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115158.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115232.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115248.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115305.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115447.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115459.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115510.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115520.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115527.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115538.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115548.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115557.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115605.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115623.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115633.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115643.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115654.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115703.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115711.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115719.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115728.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115737.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115749.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115758.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115806.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115818.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115826.png">
+<meta property="article:published_time" content="2018-11-11T11:48:47.000Z">
+<meta property="article:modified_time" content="2021-01-29T03:59:03.847Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="flex">
+<meta property="article:tag" content="布局">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115037.png">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Flex布局</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2018/11/13/technology/%E6%AD%A3%E5%88%99%E5%B7%B4%E5%95%A6%E5%95%A6/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2018/09/12/css/CSS%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%9B%92%E6%A8%A1%E5%9E%8B/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&text=Flex布局" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&is_video=false&description=Flex布局" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Flex布局&body=Check out this article: https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&name=Flex布局&description=Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种新的方案，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。
+
+
+1. Flex 基础逻辑
+
+采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
+
+
+
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Flex-基础逻辑"><span class="toc-number">1.</span> <span class="toc-text">1. Flex 基础逻辑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-生成一个-Flex-布局"><span class="toc-number">2.</span> <span class="toc-text">2. 生成一个 Flex 布局</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-容器属性"><span class="toc-number">3.</span> <span class="toc-text">3. 容器属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">1. flex-direction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-flex-wrap"><span class="toc-number">3.2.</span> <span class="toc-text">2. flex-wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-flex-flow"><span class="toc-number">3.3.</span> <span class="toc-text">3. flex-flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-justify-content"><span class="toc-number">3.4.</span> <span class="toc-text">4. justify-content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-align-items"><span class="toc-number">3.5.</span> <span class="toc-text">5. align-items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-align-content"><span class="toc-number">3.6.</span> <span class="toc-text">6. align-content</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-元素属性"><span class="toc-number">4.</span> <span class="toc-text">4. 元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-order"><span class="toc-number">4.1.</span> <span class="toc-text">1. order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-flex-grow"><span class="toc-number">4.2.</span> <span class="toc-text">2. flex-grow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-flex-shrink"><span class="toc-number">4.3.</span> <span class="toc-text">3. flex-shrink</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-flex-basis"><span class="toc-number">4.4.</span> <span class="toc-text">4. flex-basis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-flex"><span class="toc-number">4.5.</span> <span class="toc-text">5. flex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-align-self"><span class="toc-number">4.6.</span> <span class="toc-text">6. align-self</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-应用"><span class="toc-number">5.</span> <span class="toc-text">5. 应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-阿语布局"><span class="toc-number">5.1.</span> <span class="toc-text">1. 阿语布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-圣杯布局（双飞翼）"><span class="toc-number">5.2.</span> <span class="toc-text">2. 圣杯布局（双飞翼）</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
 
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            <article class="post post-article">
-    <h2 class="post-title">
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         Flex布局
-    </h2>
-    <ul class="post-date">
-        <li>
-            2018-11-11
-        </li>
-        <li>
-            
-                
-                    <a class="post-category" href="/blog/categories/css/">
-                        css
-                    </a>
-                
-            
-        </li>
-        <li>
-            aaaaaAndy
-        </li>
-    </ul>
-    <div class="post-content">
-        <p>Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种新的方案，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。</p>
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-11-11T11:48:47.000Z" itemprop="datePublished">2018-11-11</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/css/" rel="tag">css</a>, <a class="tag-link" href="/blog/tags/flex/" rel="tag">flex</a>, <a class="tag-link" href="/blog/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种新的方案，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。</p>
 <h1 id="1-Flex-基础逻辑"><a href="#1-Flex-基础逻辑" class="headerlink" title="1. Flex 基础逻辑"></a>1. Flex 基础逻辑</h1><p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
 <p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129115037.png" alt="flex"></p>
 <p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。</p>
@@ -287,11 +322,117 @@
 <a id="more"></a>
 
 
-    </div>
+  </div>
 </article>
 
-        </main>
-    </div>
-</body>
 
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Flex-基础逻辑"><span class="toc-number">1.</span> <span class="toc-text">1. Flex 基础逻辑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-生成一个-Flex-布局"><span class="toc-number">2.</span> <span class="toc-text">2. 生成一个 Flex 布局</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-容器属性"><span class="toc-number">3.</span> <span class="toc-text">3. 容器属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">1. flex-direction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-flex-wrap"><span class="toc-number">3.2.</span> <span class="toc-text">2. flex-wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-flex-flow"><span class="toc-number">3.3.</span> <span class="toc-text">3. flex-flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-justify-content"><span class="toc-number">3.4.</span> <span class="toc-text">4. justify-content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-align-items"><span class="toc-number">3.5.</span> <span class="toc-text">5. align-items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-align-content"><span class="toc-number">3.6.</span> <span class="toc-text">6. align-content</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-元素属性"><span class="toc-number">4.</span> <span class="toc-text">4. 元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-order"><span class="toc-number">4.1.</span> <span class="toc-text">1. order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-flex-grow"><span class="toc-number">4.2.</span> <span class="toc-text">2. flex-grow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-flex-shrink"><span class="toc-number">4.3.</span> <span class="toc-text">3. flex-shrink</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-flex-basis"><span class="toc-number">4.4.</span> <span class="toc-text">4. flex-basis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-flex"><span class="toc-number">4.5.</span> <span class="toc-text">5. flex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-align-self"><span class="toc-number">4.6.</span> <span class="toc-text">6. align-self</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-应用"><span class="toc-number">5.</span> <span class="toc-text">5. 应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-阿语布局"><span class="toc-number">5.1.</span> <span class="toc-text">1. 阿语布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-圣杯布局（双飞翼）"><span class="toc-number">5.2.</span> <span class="toc-text">2. 圣杯布局（双飞翼）</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&text=Flex布局" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&is_video=false&description=Flex布局" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Flex布局&body=Check out this article: https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&title=Flex布局" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/11/11/css/flex%E5%B8%83%E5%B1%80/&name=Flex布局&description=Flex（Flexible Box：弹性布局）布局，是 W3C 在2009年提出了一种新的方案，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。
+
+
+1. Flex 基础逻辑
+
+采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
+
+
+
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

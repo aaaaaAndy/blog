@@ -1,710 +1,468 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="aaaaaAndy">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/page/5/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:locale" content="zh">
+<meta property="article:author" content="aaaaaAndy">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
-<link rel="stylesheet" href="/blog/css/style.css">
-
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
-<meta name="generator" content="Hexo 4.2.1"></head>
-
-
-<body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
-    </div>
-
-    
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            
-
-<!-- 文章列表 -->
-<section class="posts post-list">
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/05/25/technology/http-https/">
-                    http-https
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    May 25, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-                <div class="post-cover">
-                    <img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120136.png">
-                </div>
-            
-            <div class="post-content ">
-                HTTP HTTPS
-
-http&https释义
-
-HTTP（Hyper Text Transfer Protocol）超文本传输协议，是一种建立在TCP上的无状态连接。用来在计算机世界里传输文字，图片，音频，视频等超文本数据的约定和规范。
-
-HTTPS（Hyper Text Transfer Protocol Secure）安全的超文本传输协议，它是基于HTTP+TLS/SSL实现的，可以说是披上了一层TLS/SSL的HTTP协议。
-
-TCP/IP网络模型
-
-常见的TCP/IP网络模型为5层模型：
-
-也可以分为四层，即把数据链路层和物理层统一表示为网络接口层。
-
-还有一种是OSI七层网络模型
-                <a href="/blog/2019/05/25/technology/http-https/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/05/20/JavaScript/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84setTimeout/">
-                    for循环中的setTimeout
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    May 20, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                1. 错误示例
-
-1
-2
-3
-4
-5
-6
-7
-
-
-function print() {
-  for (var i = 0; i < 10; i++) {
-      setTimeout(() => {
-          console.log(i);
-      }, 1000);
-  } 
-}
-
-
-上面的代码，我们期望每隔一秒，输出一个数，而且这个数是每次循环i的值。但是期望也只是期望，实际情况是一秒钟之后直接输出了10个10。那么问题就来了，我们怎么实现我们的期望值呢？
-
-由此我们先来尝试几种解决方案，并作一一对比：
-
- * 每隔一秒输出一个10
-   
-   1
-   2
-   3
-
-                <a href="/blog/2019/05/20/JavaScript/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84setTimeout/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/04/28/technology/URL%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">
-                    URL文件格式
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    April 28, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                1. 全部配置
-
-.url文件是一个指向URL（web文档）的文件，双击后可直接在浏览器打开
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-
-
-[DEFAULT]
-BASEURL=
-
-[InternetShortcut]
-URL=
-WorkingDirectory=
-ShowCommand=
-IconIndex=
-IconFile=
-Modified=
-HotKey=
-
-
-ShowCommand规定Internet Explorer启动后窗口的初始状态：7表示最小化，3表示最大化；如果没有ShowCommand这一项的话则表示正常大小。
-
-IconFile和IconIndex用来为Inte
-                <a href="/blog/2019/04/28/technology/URL%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/04/14/technology/%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93/">
-                    网页渲染
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    April 14, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-                <div class="post-cover">
-                    <img src="/images/web-render/css-render.png">
-                </div>
-            
-            <div class="post-content ">
-                渲染引擎：能够将HTML/CSS/JavaScript文本及相应的资源文件转换成图像结果。渲染引擎的主要作用是将资源文件转化为用户可见的结果。在浏览器的发展过程中，不同的厂商开发了不同的渲染引擎，如Tridend(IE)、Gecko(FF)、WebKit(Safari,Chrome,Andriod浏览器)等。WebKit是由苹果2005年发起的一个开源项目，引起了众多公司的重视，几年间被很多公司所采用，在移动端更占据了垄断地位。更有甚者，开发出了基于WebKit的支持HTML5的web操作系统(如：Chrome OS、Web OS)。
-
-
-1. 网页渲染流程
-
-;
-
-首先是网页内容，输入到HT
-                <a href="/blog/2019/04/14/technology/%E7%BD%91%E9%A1%B5%E6%B8%B2%E6%9F%93/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/03/12/JavaScript/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAEventEmitter/">
-                    简单实现一个EventEmitter
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    March 12, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                EventEmitter 是 NodeJS 的核心模块 events 中的类，用于对 NodeJS 中的事件进行统一管理，用 events 特定的 API 对事件进行添加、触发和移除等等，核心方法的模式类似于发布订阅
-
-
-1. Node 中的 EventEmitter
-
-EventEmitter本质上是一个观察者模式的实现。
-
-观察者模式：它定义了对象间的一种一对多的关系，让多个观察者对象同时监听某一个主题对象，当一个对象发生改变时，所有依赖于它的对象都将得到通知。
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-// Node 中的 EventEmitter 简单用法
-let events = r
-                <a href="/blog/2019/03/12/JavaScript/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAEventEmitter/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/03/12/git/git-log/">
-                    Git-log
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    March 12, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                Git-log
-
-
-1. 基础命令
-
- * 查看所有提交记录
-
-1
-
-
-git log
-
-
- * 查看最近n次提交
-
-1
-
-
-git log -3      # 查看最近3次提交
-
-
- * 查看指定文件名的提交记录
-
-1
-
-
-git log readme.txt
-
-
- * 查看指定目录下所有文件的提交记录
-
-1
-
-
-git log dir/      # 查看dir目录下所有文件的提交鸡柳
-
-
- * 查看指定分支下的提交记录
-
-1
-
-
-git log dev     # 查看dev分支下所有提交记录
-
-
- * 查看指定tag下的提交记录
-
-1
-
-
-git log v2.0      # 查看v
-                <a href="/blog/2019/03/12/git/git-log/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/02/28/JavaScript/%E5%81%8F%E5%87%BD%E6%95%B0%E4%B8%8E%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/">
-                    偏函数与函数柯里化
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    February 28, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                偏函数与函数柯里化
-
-
-1. 偏函数
-
-所谓偏函数，就是固定一个函数的一个或者多个参数，返回一个新的函数，这个函数用于接受剩余的参数。
-
-
-1. 工厂方法
-
-首先来看一个简单的例子：
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-function add (a, b) {
-    return a + b;
-}
-
-add(1, 2);
-add(1, 3);
-add(1, 4);
-add(1, 5);
-add(1, 6);
-
-
-我们发现，调用 add 方法时，第一个参数相同，但是我们写了5遍，鉴于此种情况，我们可以将 add 方法封装成偏函数的形式来实现更加简洁的代码。
-
-1
-2
-3
-4
-5
-6
-7
-                <a href="/blog/2019/02/28/JavaScript/%E5%81%8F%E5%87%BD%E6%95%B0%E4%B8%8E%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2019/02/20/git/git-add/">
-                    Git-add
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    February 20, 2019
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                Git-add
-
-
-基本用法
-
-
-添加一个文件
-
-1
-
-
-git add readme.txt
-
-
-
-添加多个文件
-
-1
-
-
-git add readme.txt one.js
-
-
-
-通配符进行匹配文件
-
-1
-
-
-git add *.html    # 添加后缀名为html的文件
-
-
-
-添加一个目录
-
-1
-
-
-git add dir     # 添加目录dir下的所有文件
-
-
-
-添加目录下的指定文件
-
-1
-
-
-git add dir/one.js
-
-
-
-添加所有文件
-
-1
-2
-3
-
-
-git add .         # 提交新增，修改文件，不包括删除文件
-git add -u       
-                <a href="/blog/2019/02/20/git/git-add/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/12/23/JavaScript/Object%E7%9A%84%E9%82%A3%E4%BA%9B%E5%87%BD%E6%95%B0/">
-                    Object的那些函数
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    December 23, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-                <div class="post-cover">
-                    <img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120547.png">
-                </div>
-            
-            <div class="post-content ">
-                在JavaScript中，万物皆对象!
-
-
-1. 原型方法
-
-
-
-其中，constructor, toString, toLocalString, valueOf方法是Object原型的原始方法，鉴于万物皆对象的原则，所以在JavaScript中的其他类型都会存在着几种属性。
-
-
-1. constructor
-
-原型对象有一个constructor属性，指向该原型对象对应的构造函数。
-
-1
-
-
-Object.prototype.constructor === Object;    // true
-
-
-
-1. toString()
-
-toString() 用来返回对象的字符串表示，如果此方法在自
-                <a href="/blog/2018/12/23/JavaScript/Object%E7%9A%84%E9%82%A3%E4%BA%9B%E5%87%BD%E6%95%B0/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/11/13/technology/%E6%AD%A3%E5%88%99%E5%B7%B4%E5%95%A6%E5%95%A6/">
-                    正则巴啦啦
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    November 13, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                正则表达式描述了一中字符串匹配模式，可以用来检查一个串是否含有某种子串，将匹配的子串替换或者从某个串中取出某个条件的子串等。
-
-
-1. 创建一个正则表达式
-
-
-1. 使用一个正则字面量，其由包含在斜杠之间的模式组成：
-
-1
-2
-
-
-let reg = /ab+c/;
-let reg = /^[a-zA-Z]+[0-9]*\W?_$/gi;
-
-
-
-2. 使用RegExp对象的构造函数：
-
-1
-2
-3
-
-
-let reg = new RegExp("ab+c");
-let reg = new RegExp(/^[a-zA-Z]+[0-9]*\W?_$/ ,"gi");
-let reg = new 
-                <a href="/blog/2018/11/13/technology/%E6%AD%A3%E5%88%99%E5%B7%B4%E5%95%A6%E5%95%A6/" class="more-link">Continue reading</a>
-            </div>
-        </article>
     
         
-<div id="paginator" class="paginator">
-    <a class="extend prev" rel="prev" href="/blog/page/4/">&lt;</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/">6</a><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/6/">&gt;</a>
-</div>
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>aaaaaAndy</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
 
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
 
+<body>
+    
+    <div class="content index width mx-auto px2 my4">
+        
+          <header id="header">
+  <a href="/blog/">
+  
+    
+      <div id="logo" style="background-image: url(/blog/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>aaaaaAndy</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/blog/blog">Home</a></li>
+       
+        <li><a href="/blog/blog/category">Category</a></li>
+       
+        <li><a href="/blog/blog/tag">Tag</a></li>
+       
+        <li><a href="/blog/blog/about">About</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <section id="about">
+  
+  <p style="display: inline">
+    
+  </p>
 </section>
 
-<!--<aside class="aside">-->
-<!--    <div class="close"></div>-->
-<!--&lt;!&ndash;    <section class="aside-section">&ndash;&gt;-->
-<!--&lt;!&ndash;        
-    <h1>Categories</h1>
-
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Charles/">Charles</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ES/">ES</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
-
-&ndash;&gt;-->
-<!--&lt;!&ndash;    </section>&ndash;&gt;-->
-<!--    <section class="aside-section tag">-->
-<!--        
-    <h1>Tags</h1>
-
-    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Children/" rel="tag">Children</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Component/" rel="tag">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM%E6%A0%91/" rel="tag">DOM树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES/" rel="tag">ES</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES10/" rel="tag">ES10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES7/" rel="tag">ES7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES8/" rel="tag">ES8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES9/" rel="tag">ES9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/EventEmitter/" rel="tag">EventEmitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/IntersectionObserver/" rel="tag">IntersectionObserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">37</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Object/" rel="tag">Object</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PureComponent/" rel="tag">PureComponent</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/add/" rel="tag">add</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/api/" rel="tag">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apply/" rel="tag">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bind/" rel="tag">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call/" rel="tag">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/click/" rel="tag">click</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitizen/" rel="tag">commitizen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitlint/" rel="tag">commitlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fetch/" rel="tag">fetch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/flex/" rel="tag">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/for-of/" rel="tag">for-of</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/log/" rel="tag">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/" rel="tag">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/remote-proxy/" rel="tag">remote proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/require/" rel="tag">require</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scroll/" rel="tag">scroll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/setTimeout/" rel="tag">setTimeout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/stach/" rel="tag">stach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tag/" rel="tag">tag</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window/" rel="tag">window</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="tag">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/" rel="tag">便函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" rel="tag">全局变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" rel="tag">函数节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/" rel="tag">函数防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B1%85%E4%B8%AD/" rel="tag">居中</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/" rel="tag">布局模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%AD%A3%E5%88%99/" rel="tag">正则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8/" rel="tag">滚动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/" rel="tag">滚动加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%A4%E9%95%9C/" rel="tag">滤镜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" rel="tag">盒模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%B3%BB%E7%BB%9F%E8%AF%81%E4%B9%A6/" rel="tag">系统证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BD%91%E9%A1%B5/" rel="tag">网页</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%AB%98%E7%A8%8B3/" rel="tag">高程3</a><span class="tag-list-count">1</span></li></ul>
-
--->
-<!--    </section>-->
-<!--    <section class="aside-section">-->
-<!--        
-    <h1>Archives</h1>
-
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-02</a></li></ul>
-
--->
-<!--    </section>-->
-<!--</aside>-->
-
-
-        </main>
+<section id="writing">
+  <span class="h1"><a href="/blog/posts">Writing</a></span>
+  <ul class="post-list">
+    
+      
+    
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2021-02-01T02:36:04.000Z" itemprop="datePublished">2021-02-01</time>
     </div>
-</body>
 
+
+        <span>
+    
+        <a class="" href="/blog/2021/02/01/charles/charles%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%90%86/">charles远程代理</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2021-02-01T02:24:45.000Z" itemprop="datePublished">2021-02-01</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2021/02/01/charles/charles%E7%B3%BB%E7%BB%9F%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85/">charles系统证书安装</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-25T05:24:05.000Z" itemprop="datePublished">2020-12-25</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/25/JavaScript/Object%E5%AF%B9%E8%B1%A1%E9%81%8D%E5%8E%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">Object对象遍历的几种方法</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-24T02:17:12.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/24/es/es%E5%9F%BA%E7%A1%80/">基础</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-24T02:16:11.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/24/es/es10/">es10</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-24T02:16:07.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/24/es/es9/">es9</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-24T02:16:04.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/24/es/es8/">es8</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-24T02:15:32.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/24/es/es7/">es7</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-24T02:15:24.000Z" itemprop="datePublished">2020-12-24</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/24/es/es6/">es6</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-21T08:12:44.000Z" itemprop="datePublished">2020-12-21</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/12/21/git/%E8%A7%84%E8%8C%83git%E6%8F%90%E4%BA%A4message/">规范git提交message</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-09-17T05:35:30.000Z" itemprop="datePublished">2020-09-17</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/09/17/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/%E5%9F%BA%E7%A1%80-React-Children/">基础-React.Children</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-09-17T04:05:39.000Z" itemprop="datePublished">2020-09-17</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/09/17/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/%E5%9F%BA%E7%A1%80-Component-PureComponent/">react源码解析/基础-Component-PureComponent</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-09-17T03:23:44.000Z" itemprop="datePublished">2020-09-17</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/09/17/react%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/%E5%9F%BA%E7%A1%80-ReactAPI/">基础-ReactAPI</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-09-14T02:17:20.000Z" itemprop="datePublished">2020-09-14</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/09/14/JavaScript/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">面向对象的程序设计</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-08-22T05:42:31.000Z" itemprop="datePublished">2020-08-22</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/08/22/JavaScript/IntersectionObserver-%E6%97%A0%E9%99%90%E6%BB%9A%E5%8A%A8/">IntersectionObserver-无限滚动</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-08-08T05:17:27.000Z" itemprop="datePublished">2020-08-08</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/08/08/git/git-fetch-pull/">git-fetch-pull</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-08-08T03:08:44.000Z" itemprop="datePublished">2020-08-08</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/08/08/git/git-tag/">git-tag</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-08-08T03:08:36.000Z" itemprop="datePublished">2020-08-08</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/08/08/git/git%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/">git奇技淫巧</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-07-23T04:16:50.000Z" itemprop="datePublished">2020-07-23</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/07/23/JavaScript/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/">原型继承</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-07-21T08:42:20.000Z" itemprop="datePublished">2020-07-21</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/blog/2020/07/21/lodash/Math%E6%96%B9%E6%B3%95/">Math方法</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
+
+    </div>
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

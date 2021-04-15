@@ -1,154 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！   1. 系统默认字体如何使用   1. web-safe字体     不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：    web安全字体有20种左右，网上到处都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web中font漫谈">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！   1. 系统默认字体如何使用   1. web-safe字体     不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：    web安全字体有20种左右，网上到处都">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120026.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120036.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120048.png">
+<meta property="article:published_time" content="2018-08-17T13:08:11.000Z">
+<meta property="article:modified_time" content="2021-01-29T04:01:08.390Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="浏览器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120026.png">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>web中font漫谈</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2018/08/18/books/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2018/08/17/technology/Google%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&text=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&is_video=false&description=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=web中font漫谈&body=Check out this article: https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&name=web中font漫谈&description=日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！
+
+
+1. 系统默认字体如何使用
+
+ 1. web-safe字体
+    不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：
+
+
+
+web安全字体有20种左右，网上到处都是这类总结，点击此处查看web安全字体。
+
+ 2. 前端字体兼容写法
+    原文链接：http://caibaojian.com/css-font.html
+
+字体的分类有很多种，可以参考这个 Wi"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-系统默认字体如何使用"><span class="toc-number">1.</span> <span class="toc-text">1. 系统默认字体如何使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-第三方字体如何引入"><span class="toc-number">2.</span> <span class="toc-text">2. 第三方字体如何引入</span></a></li></ol>
+    </div>
+  </span>
+</div>
 
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            <article class="post post-article">
-    <h2 class="post-title">
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         web中font漫谈
-    </h2>
-    <ul class="post-date">
-        <li>
-            2018-08-17
-        </li>
-        <li>
-            
-                
-                    <a class="post-category" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                        浏览器
-                    </a>
-                
-            
-        </li>
-        <li>
-            aaaaaAndy
-        </li>
-    </ul>
-    <div class="post-content">
-        <p>日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！</p>
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-08-17T13:08:11.000Z" itemprop="datePublished">2018-08-17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！</p>
 <h1 id="1-系统默认字体如何使用"><a href="#1-系统默认字体如何使用" class="headerlink" title="1. 系统默认字体如何使用"></a>1. 系统默认字体如何使用</h1><ol>
 <li>web-safe字体<br>不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：</li>
 </ol>
@@ -220,11 +231,123 @@
 
 
 
-    </div>
+  </div>
 </article>
 
-        </main>
-    </div>
-</body>
 
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-系统默认字体如何使用"><span class="toc-number">1.</span> <span class="toc-text">1. 系统默认字体如何使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-第三方字体如何引入"><span class="toc-number">2.</span> <span class="toc-text">2. 第三方字体如何引入</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&text=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&is_video=false&description=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=web中font漫谈&body=Check out this article: https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&title=web中font漫谈" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2018/08/17/technology/web%E4%B8%ADfont%E6%BC%AB%E8%B0%88/&name=web中font漫谈&description=日常前端开发中，少不了与字体打交道。一般小网站的开发中只需要使用系统默认字体即可，但需要制作特殊效果的网站避免不了第三方字体的引入！
+
+
+1. 系统默认字体如何使用
+
+ 1. web-safe字体
+    不同设备的系统默认字体是不相同的，不同系统之间的字体更是不同，比如Mac、windows，他们各自的系统字体不相同，但是有几种字体是他们共同支持的：
+
+
+
+web安全字体有20种左右，网上到处都是这类总结，点击此处查看web安全字体。
+
+ 2. 前端字体兼容写法
+    原文链接：http://caibaojian.com/css-font.html
+
+字体的分类有很多种，可以参考这个 Wi"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

@@ -1,154 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title><meta name="robots" content="noindex">
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1. html   1. 对 DOM 的基本操作   1. 增加  parent.appendChild(child)：在parent所有子节点最后添加child子节点 parent.append(childs | DOMStirng)：在parent所有子节点最后添加 N 个子节点或者字符串 parent.insertBefore(newnode,existingnode)：在指定的node节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试准备">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="1. html   1. 对 DOM 的基本操作   1. 增加  parent.appendChild(child)：在parent所有子节点最后添加child子节点 parent.append(childs | DOMStirng)：在parent所有子节点最后添加 N 个子节点或者字符串 parent.insertBefore(newnode,existingnode)：在指定的node节点">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2019-05-24T08:12:49.000Z">
+<meta property="article:modified_time" content="2020-12-22T01:28:00.633Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="hide">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>面试准备</title><meta name="robots" content="noindex">
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&text=面试准备" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&is_video=false&description=面试准备" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=面试准备&body=Check out this article: https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&name=面试准备&description=1. html
+
+
+1. 对 DOM 的基本操作
+
+ 1. 增加
+
+parent.appendChild(child)：在parent所有子节点最后添加child子节点
+parent.append(childs | DOMStirng)：在parent所有子节点最后添加 N 个子节点或者字符串
+parent.insertBefore(newnode,existingnode)：在指定的node节点之前插入新节点
+
+ 2. 删除
+
+parent.removeChild(node)：删除指定节点
+
+ 3. 移动
+
+parent.insertBefore(newnode,existingnode)："><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-html"><span class="toc-number">1.</span> <span class="toc-text">1. html</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对-DOM-的基本操作"><span class="toc-number">1.1.</span> <span class="toc-text">1. 对 DOM 的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-IE-和-标准-DOM-事件模型之间存在的差别"><span class="toc-number">1.2.</span> <span class="toc-text">2. IE 和 标准 DOM 事件模型之间存在的差别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-严格模式与混杂模式"><span class="toc-number">1.3.</span> <span class="toc-text">3. 严格模式与混杂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-行内元素与块级元素"><span class="toc-number">1.4.</span> <span class="toc-text">4. 行内元素与块级元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-浮动元素"><span class="toc-number">1.5.</span> <span class="toc-text">5. 浮动元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-XHTML-与-HTML-之间的差异"><span class="toc-number">1.6.</span> <span class="toc-text">6. XHTML 与 HTML 之间的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-HTML5-的离线存储"><span class="toc-number">1.7.</span> <span class="toc-text">7. HTML5 的离线存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-iframe"><span class="toc-number">1.8.</span> <span class="toc-text">8. iframe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-css"><span class="toc-number">2.</span> <span class="toc-text">2. css</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-伪元素与伪类"><span class="toc-number">2.1.</span> <span class="toc-text">1. 伪元素与伪类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-JavaScript"><span class="toc-number">3.</span> <span class="toc-text">3. JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-详细讲述一次完整的-http-请求"><span class="toc-number">3.1.</span> <span class="toc-text">1. 详细讲述一次完整的 http 请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-完整的请求头和回应头"><span class="toc-number">3.2.</span> <span class="toc-text">2. 完整的请求头和回应头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-状态码"><span class="toc-number">3.3.</span> <span class="toc-text">3. 状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-this-作用域"><span class="toc-number">3.4.</span> <span class="toc-text">4. this 作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-数组对象中原生的方法"><span class="toc-number">3.5.</span> <span class="toc-text">5. 数组对象中原生的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-es6箭头函数与es5的function区别"><span class="toc-number">3.6.</span> <span class="toc-text">6. es6箭头函数与es5的function区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-函数防抖与节流"><span class="toc-number">3.7.</span> <span class="toc-text">7. 函数防抖与节流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-闭包"><span class="toc-number">3.8.</span> <span class="toc-text">8. 闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-单例模式"><span class="toc-number">3.9.</span> <span class="toc-text">9. 单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-数组和链表的区别"><span class="toc-number">3.10.</span> <span class="toc-text">10. 数组和链表的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-map-与-Object-的区别"><span class="toc-number">3.11.</span> <span class="toc-text">11. map 与 Object 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-深拷贝"><span class="toc-number">3.12.</span> <span class="toc-text">12. 深拷贝</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Vue-js"><span class="toc-number">4.</span> <span class="toc-text">4. Vue.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-算法"><span class="toc-number">5.</span> <span class="toc-text">5. 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-从二维数组中查找某个值"><span class="toc-number">5.1.</span> <span class="toc-text">1. 从二维数组中查找某个值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">5.2.</span> <span class="toc-text">2.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-面试常用问题"><span class="toc-number">6.</span> <span class="toc-text">6. 面试常用问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-自我介绍"><span class="toc-number">6.1.</span> <span class="toc-text">1. 自我介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-工作中遇到的难题"><span class="toc-number">6.2.</span> <span class="toc-text">2. 工作中遇到的难题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-gToken问题"><span class="toc-number">6.2.1.</span> <span class="toc-text">1. gToken问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-面试遇到问题"><span class="toc-number">7.</span> <span class="toc-text">7. 面试遇到问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-content-type都有哪些类型，有什么含义"><span class="toc-number">7.1.</span> <span class="toc-text">1. content-type都有哪些类型，有什么含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-表单提交的数据放在哪里传输"><span class="toc-number">7.2.</span> <span class="toc-text">2. 表单提交的数据放在哪里传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据异步传输的编码格式"><span class="toc-number">7.3.</span> <span class="toc-text">3. 数据异步传输的编码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-移动端-300ms-延迟问题"><span class="toc-number">7.4.</span> <span class="toc-text">4. 移动端 300ms 延迟问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-禁用缩放"><span class="toc-number">7.4.1.</span> <span class="toc-text">1. 禁用缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-更改默认的视口宽度"><span class="toc-number">7.4.2.</span> <span class="toc-text">2. 更改默认的视口宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CSS-touch-action"><span class="toc-number">7.4.3.</span> <span class="toc-text">3. CSS touch-action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-FastClick"><span class="toc-number">7.4.4.</span> <span class="toc-text">4. FastClick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-解决"><span class="toc-number">7.4.5.</span> <span class="toc-text">1. 解决</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-span-a元素加宽高"><span class="toc-number">7.5.</span> <span class="toc-text">5. span, a元素加宽高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-服务商劫持怎么处理"><span class="toc-number">7.6.</span> <span class="toc-text">6. 服务商劫持怎么处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-过滤-标签，进行白名单过滤"><span class="toc-number">7.6.1.</span> <span class="toc-text">1. 过滤  标签，进行白名单过滤&lt;&#x2F;h3&gt;&lt;ol&gt;
+&lt;li&gt;主要使用html5的一个特性MutationObserver来观察dom变动，注意兼容性，如果你不打算兼容ie浏览器，MutationObserver是最好的选择。&lt;&#x2F;li&gt;
+&lt;li&gt;经过上面的步骤，我们得到了网页中所有的 script 标签，之后筛选得到运营商注入的脚本信息&lt;&#x2F;li&gt;
+&lt;li&gt;我们在上一步得到的运营商注入的非法脚本，需要进行拦截和处理，最后发给运营商或举报到工信部&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h3 id&#x3D;&quot;3-JS-文件放-CDN&quot;&gt;&lt;a href&#x3D;&quot;#3-JS-文件放-CDN&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. JS 文件放 CDN&quot;&gt;&lt;&#x2F;a&gt;3. JS 文件放 CDN&lt;&#x2F;h3&gt;&lt;p&gt;可以把JS文件放在第三方的CDN上，然后页面采用https去引用JS文件，或者自己服务器安装SSL证书以支持https协议&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;1-DNS劫持&quot;&gt;&lt;a href&#x3D;&quot;#1-DNS劫持&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;1. DNS劫持&quot;&gt;&lt;&#x2F;a&gt;1. DNS劫持&lt;&#x2F;h3&gt;&lt;h3 id&#x3D;&quot;2-Http劫持&quot;&gt;&lt;a href&#x3D;&quot;#2-Http劫持&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;2. Http劫持&quot;&gt;&lt;&#x2F;a&gt;2. Http劫持&lt;&#x2F;h3&gt;&lt;p&gt;白名单&lt;br&gt;资源过滤&lt;br&gt;window.top.location &#x3D;&#x3D;&#x3D; window.location&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;3-webpack优化打包时间&quot;&gt;&lt;a href&#x3D;&quot;#3-webpack优化打包时间&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. webpack优化打包时间&quot;&gt;&lt;&#x2F;a&gt;3. webpack优化打包时间&lt;&#x2F;h3&gt;&lt;h2 id&#x3D;&quot;1-减小文件搜索范围&quot;&gt;&lt;a href&#x3D;&quot;#1-减小文件搜索范围&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;1. 减小文件搜索范围&quot;&gt;&lt;&#x2F;a&gt;1. 减小文件搜索范围&lt;&#x2F;h2&gt;&lt;p&gt;resolve.modules&lt;&#x2F;p&gt;
+&lt;p&gt;test include exclude&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;2-增强代码压缩工具&quot;&gt;&lt;a href&#x3D;&quot;#2-增强代码压缩工具&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;2. 增强代码压缩工具&quot;&gt;&lt;&#x2F;a&gt;2. 增强代码压缩工具&lt;&#x2F;h2&gt;&lt;p&gt;UgligyJS替换为webpack-parallel-uglify-plugin插件，该插件能并行运行UglifyJS插件&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;3-HappyPack加速代码构建&quot;&gt;&lt;a href&#x3D;&quot;#3-HappyPack加速代码构建&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. HappyPack加速代码构建&quot;&gt;&lt;&#x2F;a&gt;3. HappyPack加速代码构建&lt;&#x2F;h2&gt;&lt;h2 id&#x3D;&quot;4-设置babel的cacheDirectory为true&quot;&gt;&lt;a href&#x3D;&quot;#4-设置babel的cacheDirectory为true&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;4. 设置babel的cacheDirectory为true&quot;&gt;&lt;&#x2F;a&gt;4. 设置babel的cacheDirectory为true&lt;&#x2F;h2&gt;&lt;p&gt;使用缓存&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;5-DLL链接静态文件&quot;&gt;&lt;a href&#x3D;&quot;#5-DLL链接静态文件&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;5. DLL链接静态文件&quot;&gt;&lt;&#x2F;a&gt;5. DLL链接静态文件&lt;&#x2F;h2&gt;&lt;h2 id&#x3D;&quot;6-Tree-shaking删除四代吗&quot;&gt;&lt;a href&#x3D;&quot;#6-Tree-shaking删除四代吗&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;6. Tree-shaking删除四代吗&quot;&gt;&lt;&#x2F;a&gt;6. Tree-shaking删除四代吗&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;4-优化webpack打包体积&quot;&gt;&lt;a href&#x3D;&quot;#4-优化webpack打包体积&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;4. 优化webpack打包体积&quot;&gt;&lt;&#x2F;a&gt;4. 优化webpack打包体积&lt;&#x2F;h3&gt;&lt;h2 id&#x3D;&quot;1-图标优化&quot;&gt;&lt;a href&#x3D;&quot;#1-图标优化&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;1. 图标优化&quot;&gt;&lt;&#x2F;a&gt;1. 图标优化&lt;&#x2F;h2&gt;&lt;p&gt;不管后台还是移动端避免不了icon的使用，使用字体图标，还需引入字体文件，如果字体丢失 会影响到icon显示效果，推荐转换base64 后引用。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;2-外部引入模块（cdn）&quot;&gt;&lt;a href&#x3D;&quot;#2-外部引入模块（cdn）&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;2. 外部引入模块（cdn）&quot;&gt;&lt;&#x2F;a&gt;2. 外部引入模块（cdn）&lt;&#x2F;h2&gt;&lt;h2 id&#x3D;&quot;3-统一模块&quot;&gt;&lt;a href&#x3D;&quot;#3-统一模块&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. 统一模块&quot;&gt;&lt;&#x2F;a&gt;3. 统一模块&lt;&#x2F;h2&gt;&lt;p&gt;moment我们可能在多个页面使用  没必要每个页面进行import引入，可以在入口文件（index.js 或main.js）全局配置&lt;&#x2F;p&gt;
+&lt;p&gt;import Vue from &#39;vue&#39;;&lt;br&gt;Vue.prototype.$moment &#x3D; moment&lt;&#x2F;p&gt;
+&lt;p&gt;以后在每个页面都可以直接使用 this.$moment ,  不在需要每个页面import &#39;moment&#39; 。moment 有各种语言包，总大小200k+，如使用webpack打包 建议过滤掉其他语言&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;4-提取第三方代码&quot;&gt;&lt;a href&#x3D;&quot;#4-提取第三方代码&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;4. 提取第三方代码&quot;&gt;&lt;&#x2F;a&gt;4. 提取第三方代码&lt;&#x2F;h2&gt;&lt;p&gt;CommonsChunkPlugin&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;5-Externals&quot;&gt;&lt;a href&#x3D;&quot;#5-Externals&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;5. Externals&quot;&gt;&lt;&#x2F;a&gt;5. Externals&lt;&#x2F;h2&gt;&lt;p&gt;你可以告诉webpack无需打包哪些库文件，然后从外部用 CDN 引入。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;6-gzip压缩&quot;&gt;&lt;a href&#x3D;&quot;#6-gzip压缩&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;6. gzip压缩&quot;&gt;&lt;&#x2F;a&gt;6. gzip压缩&lt;&#x2F;h2&gt;&lt;a id&#x3D;&quot;more&quot;&gt;&lt;&#x2F;a&gt;
+&lt;!-- flag of hidden posts --&gt;</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
 
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</header>
-
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            <article class="post post-article">
-    <h2 class="post-title">
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         面试准备
-    </h2>
-    <ul class="post-date">
-        <li>
-            2019-05-24
-        </li>
-        <li>
-            
-                
-                    <a class="post-category" href="/blog/categories/JavaScript/">
-                        JavaScript
-                    </a>
-                
-            
-        </li>
-        <li>
-            aaaaaAndy
-        </li>
-    </ul>
-    <div class="post-content">
-        <h1 id="1-html"><a href="#1-html" class="headerlink" title="1. html"></a>1. html</h1><h2 id="1-对-DOM-的基本操作"><a href="#1-对-DOM-的基本操作" class="headerlink" title="1. 对 DOM 的基本操作"></a>1. 对 DOM 的基本操作</h2><ol>
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-05-24T08:12:49.000Z" itemprop="datePublished">2019-05-24</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="1-html"><a href="#1-html" class="headerlink" title="1. html"></a>1. html</h1><h2 id="1-对-DOM-的基本操作"><a href="#1-对-DOM-的基本操作" class="headerlink" title="1. 对 DOM 的基本操作"></a>1. 对 DOM 的基本操作</h2><ol>
 <li>增加</li>
 </ol>
 <p>parent.appendChild(child)：在parent所有子节点最后添加child子节点<br>parent.append(childs | DOMStirng)：在parent所有子节点最后添加 N 个子节点或者字符串<br>parent.insertBefore(newnode,existingnode)：在指定的node节点之前插入新节点</p>
@@ -402,11 +425,143 @@ image/png：png图片格式</code></pre><p>application/xhtml+xml ：XHTML格式<
 <h2 id="5-Externals"><a href="#5-Externals" class="headerlink" title="5. Externals"></a>5. Externals</h2><p>你可以告诉webpack无需打包哪些库文件，然后从外部用 CDN 引入。</p>
 <h2 id="6-gzip压缩"><a href="#6-gzip压缩" class="headerlink" title="6. gzip压缩"></a>6. gzip压缩</h2><a id="more"></a>
 <!-- flag of hidden posts -->
-    </div>
+  </div>
 </article>
 
-        </main>
-    </div>
-</body>
 
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-html"><span class="toc-number">1.</span> <span class="toc-text">1. html</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对-DOM-的基本操作"><span class="toc-number">1.1.</span> <span class="toc-text">1. 对 DOM 的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-IE-和-标准-DOM-事件模型之间存在的差别"><span class="toc-number">1.2.</span> <span class="toc-text">2. IE 和 标准 DOM 事件模型之间存在的差别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-严格模式与混杂模式"><span class="toc-number">1.3.</span> <span class="toc-text">3. 严格模式与混杂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-行内元素与块级元素"><span class="toc-number">1.4.</span> <span class="toc-text">4. 行内元素与块级元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-浮动元素"><span class="toc-number">1.5.</span> <span class="toc-text">5. 浮动元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-XHTML-与-HTML-之间的差异"><span class="toc-number">1.6.</span> <span class="toc-text">6. XHTML 与 HTML 之间的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-HTML5-的离线存储"><span class="toc-number">1.7.</span> <span class="toc-text">7. HTML5 的离线存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-iframe"><span class="toc-number">1.8.</span> <span class="toc-text">8. iframe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-css"><span class="toc-number">2.</span> <span class="toc-text">2. css</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-伪元素与伪类"><span class="toc-number">2.1.</span> <span class="toc-text">1. 伪元素与伪类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-JavaScript"><span class="toc-number">3.</span> <span class="toc-text">3. JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-详细讲述一次完整的-http-请求"><span class="toc-number">3.1.</span> <span class="toc-text">1. 详细讲述一次完整的 http 请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-完整的请求头和回应头"><span class="toc-number">3.2.</span> <span class="toc-text">2. 完整的请求头和回应头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-状态码"><span class="toc-number">3.3.</span> <span class="toc-text">3. 状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-this-作用域"><span class="toc-number">3.4.</span> <span class="toc-text">4. this 作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-数组对象中原生的方法"><span class="toc-number">3.5.</span> <span class="toc-text">5. 数组对象中原生的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-es6箭头函数与es5的function区别"><span class="toc-number">3.6.</span> <span class="toc-text">6. es6箭头函数与es5的function区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-函数防抖与节流"><span class="toc-number">3.7.</span> <span class="toc-text">7. 函数防抖与节流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-闭包"><span class="toc-number">3.8.</span> <span class="toc-text">8. 闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-单例模式"><span class="toc-number">3.9.</span> <span class="toc-text">9. 单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-数组和链表的区别"><span class="toc-number">3.10.</span> <span class="toc-text">10. 数组和链表的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-map-与-Object-的区别"><span class="toc-number">3.11.</span> <span class="toc-text">11. map 与 Object 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-深拷贝"><span class="toc-number">3.12.</span> <span class="toc-text">12. 深拷贝</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Vue-js"><span class="toc-number">4.</span> <span class="toc-text">4. Vue.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-算法"><span class="toc-number">5.</span> <span class="toc-text">5. 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-从二维数组中查找某个值"><span class="toc-number">5.1.</span> <span class="toc-text">1. 从二维数组中查找某个值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">5.2.</span> <span class="toc-text">2.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-面试常用问题"><span class="toc-number">6.</span> <span class="toc-text">6. 面试常用问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-自我介绍"><span class="toc-number">6.1.</span> <span class="toc-text">1. 自我介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-工作中遇到的难题"><span class="toc-number">6.2.</span> <span class="toc-text">2. 工作中遇到的难题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-gToken问题"><span class="toc-number">6.2.1.</span> <span class="toc-text">1. gToken问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-面试遇到问题"><span class="toc-number">7.</span> <span class="toc-text">7. 面试遇到问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-content-type都有哪些类型，有什么含义"><span class="toc-number">7.1.</span> <span class="toc-text">1. content-type都有哪些类型，有什么含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-表单提交的数据放在哪里传输"><span class="toc-number">7.2.</span> <span class="toc-text">2. 表单提交的数据放在哪里传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据异步传输的编码格式"><span class="toc-number">7.3.</span> <span class="toc-text">3. 数据异步传输的编码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-移动端-300ms-延迟问题"><span class="toc-number">7.4.</span> <span class="toc-text">4. 移动端 300ms 延迟问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-禁用缩放"><span class="toc-number">7.4.1.</span> <span class="toc-text">1. 禁用缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-更改默认的视口宽度"><span class="toc-number">7.4.2.</span> <span class="toc-text">2. 更改默认的视口宽度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CSS-touch-action"><span class="toc-number">7.4.3.</span> <span class="toc-text">3. CSS touch-action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-FastClick"><span class="toc-number">7.4.4.</span> <span class="toc-text">4. FastClick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-解决"><span class="toc-number">7.4.5.</span> <span class="toc-text">1. 解决</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-span-a元素加宽高"><span class="toc-number">7.5.</span> <span class="toc-text">5. span, a元素加宽高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-服务商劫持怎么处理"><span class="toc-number">7.6.</span> <span class="toc-text">6. 服务商劫持怎么处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-过滤-标签，进行白名单过滤"><span class="toc-number">7.6.1.</span> <span class="toc-text">1. 过滤  标签，进行白名单过滤&lt;&#x2F;h3&gt;&lt;ol&gt;
+&lt;li&gt;主要使用html5的一个特性MutationObserver来观察dom变动，注意兼容性，如果你不打算兼容ie浏览器，MutationObserver是最好的选择。&lt;&#x2F;li&gt;
+&lt;li&gt;经过上面的步骤，我们得到了网页中所有的 script 标签，之后筛选得到运营商注入的脚本信息&lt;&#x2F;li&gt;
+&lt;li&gt;我们在上一步得到的运营商注入的非法脚本，需要进行拦截和处理，最后发给运营商或举报到工信部&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h3 id&#x3D;&quot;3-JS-文件放-CDN&quot;&gt;&lt;a href&#x3D;&quot;#3-JS-文件放-CDN&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. JS 文件放 CDN&quot;&gt;&lt;&#x2F;a&gt;3. JS 文件放 CDN&lt;&#x2F;h3&gt;&lt;p&gt;可以把JS文件放在第三方的CDN上，然后页面采用https去引用JS文件，或者自己服务器安装SSL证书以支持https协议&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;1-DNS劫持&quot;&gt;&lt;a href&#x3D;&quot;#1-DNS劫持&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;1. DNS劫持&quot;&gt;&lt;&#x2F;a&gt;1. DNS劫持&lt;&#x2F;h3&gt;&lt;h3 id&#x3D;&quot;2-Http劫持&quot;&gt;&lt;a href&#x3D;&quot;#2-Http劫持&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;2. Http劫持&quot;&gt;&lt;&#x2F;a&gt;2. Http劫持&lt;&#x2F;h3&gt;&lt;p&gt;白名单&lt;br&gt;资源过滤&lt;br&gt;window.top.location &#x3D;&#x3D;&#x3D; window.location&lt;&#x2F;p&gt;
+&lt;h3 id&#x3D;&quot;3-webpack优化打包时间&quot;&gt;&lt;a href&#x3D;&quot;#3-webpack优化打包时间&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. webpack优化打包时间&quot;&gt;&lt;&#x2F;a&gt;3. webpack优化打包时间&lt;&#x2F;h3&gt;&lt;h2 id&#x3D;&quot;1-减小文件搜索范围&quot;&gt;&lt;a href&#x3D;&quot;#1-减小文件搜索范围&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;1. 减小文件搜索范围&quot;&gt;&lt;&#x2F;a&gt;1. 减小文件搜索范围&lt;&#x2F;h2&gt;&lt;p&gt;resolve.modules&lt;&#x2F;p&gt;
+&lt;p&gt;test include exclude&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;2-增强代码压缩工具&quot;&gt;&lt;a href&#x3D;&quot;#2-增强代码压缩工具&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;2. 增强代码压缩工具&quot;&gt;&lt;&#x2F;a&gt;2. 增强代码压缩工具&lt;&#x2F;h2&gt;&lt;p&gt;UgligyJS替换为webpack-parallel-uglify-plugin插件，该插件能并行运行UglifyJS插件&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;3-HappyPack加速代码构建&quot;&gt;&lt;a href&#x3D;&quot;#3-HappyPack加速代码构建&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. HappyPack加速代码构建&quot;&gt;&lt;&#x2F;a&gt;3. HappyPack加速代码构建&lt;&#x2F;h2&gt;&lt;h2 id&#x3D;&quot;4-设置babel的cacheDirectory为true&quot;&gt;&lt;a href&#x3D;&quot;#4-设置babel的cacheDirectory为true&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;4. 设置babel的cacheDirectory为true&quot;&gt;&lt;&#x2F;a&gt;4. 设置babel的cacheDirectory为true&lt;&#x2F;h2&gt;&lt;p&gt;使用缓存&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;5-DLL链接静态文件&quot;&gt;&lt;a href&#x3D;&quot;#5-DLL链接静态文件&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;5. DLL链接静态文件&quot;&gt;&lt;&#x2F;a&gt;5. DLL链接静态文件&lt;&#x2F;h2&gt;&lt;h2 id&#x3D;&quot;6-Tree-shaking删除四代吗&quot;&gt;&lt;a href&#x3D;&quot;#6-Tree-shaking删除四代吗&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;6. Tree-shaking删除四代吗&quot;&gt;&lt;&#x2F;a&gt;6. Tree-shaking删除四代吗&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;4-优化webpack打包体积&quot;&gt;&lt;a href&#x3D;&quot;#4-优化webpack打包体积&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;4. 优化webpack打包体积&quot;&gt;&lt;&#x2F;a&gt;4. 优化webpack打包体积&lt;&#x2F;h3&gt;&lt;h2 id&#x3D;&quot;1-图标优化&quot;&gt;&lt;a href&#x3D;&quot;#1-图标优化&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;1. 图标优化&quot;&gt;&lt;&#x2F;a&gt;1. 图标优化&lt;&#x2F;h2&gt;&lt;p&gt;不管后台还是移动端避免不了icon的使用，使用字体图标，还需引入字体文件，如果字体丢失 会影响到icon显示效果，推荐转换base64 后引用。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;2-外部引入模块（cdn）&quot;&gt;&lt;a href&#x3D;&quot;#2-外部引入模块（cdn）&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;2. 外部引入模块（cdn）&quot;&gt;&lt;&#x2F;a&gt;2. 外部引入模块（cdn）&lt;&#x2F;h2&gt;&lt;h2 id&#x3D;&quot;3-统一模块&quot;&gt;&lt;a href&#x3D;&quot;#3-统一模块&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;3. 统一模块&quot;&gt;&lt;&#x2F;a&gt;3. 统一模块&lt;&#x2F;h2&gt;&lt;p&gt;moment我们可能在多个页面使用  没必要每个页面进行import引入，可以在入口文件（index.js 或main.js）全局配置&lt;&#x2F;p&gt;
+&lt;p&gt;import Vue from &#39;vue&#39;;&lt;br&gt;Vue.prototype.$moment &#x3D; moment&lt;&#x2F;p&gt;
+&lt;p&gt;以后在每个页面都可以直接使用 this.$moment ,  不在需要每个页面import &#39;moment&#39; 。moment 有各种语言包，总大小200k+，如使用webpack打包 建议过滤掉其他语言&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;4-提取第三方代码&quot;&gt;&lt;a href&#x3D;&quot;#4-提取第三方代码&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;4. 提取第三方代码&quot;&gt;&lt;&#x2F;a&gt;4. 提取第三方代码&lt;&#x2F;h2&gt;&lt;p&gt;CommonsChunkPlugin&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;5-Externals&quot;&gt;&lt;a href&#x3D;&quot;#5-Externals&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;5. Externals&quot;&gt;&lt;&#x2F;a&gt;5. Externals&lt;&#x2F;h2&gt;&lt;p&gt;你可以告诉webpack无需打包哪些库文件，然后从外部用 CDN 引入。&lt;&#x2F;p&gt;
+&lt;h2 id&#x3D;&quot;6-gzip压缩&quot;&gt;&lt;a href&#x3D;&quot;#6-gzip压缩&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;6. gzip压缩&quot;&gt;&lt;&#x2F;a&gt;6. gzip压缩&lt;&#x2F;h2&gt;&lt;a id&#x3D;&quot;more&quot;&gt;&lt;&#x2F;a&gt;
+&lt;!-- flag of hidden posts --&gt;</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&text=面试准备" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&is_video=false&description=面试准备" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=面试准备&body=Check out this article: https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&title=面试准备" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/blog/2019/05/24/technology/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/&name=面试准备&description=1. html
+
+
+1. 对 DOM 的基本操作
+
+ 1. 增加
+
+parent.appendChild(child)：在parent所有子节点最后添加child子节点
+parent.append(childs | DOMStirng)：在parent所有子节点最后添加 N 个子节点或者字符串
+parent.insertBefore(newnode,existingnode)：在指定的node节点之前插入新节点
+
+ 2. 删除
+
+parent.removeChild(node)：删除指定节点
+
+ 3. 移动
+
+parent.insertBefore(newnode,existingnode)："><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

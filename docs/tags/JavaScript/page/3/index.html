@@ -1,136 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="aaaaaAndy">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/tags/JavaScript/page/3/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:locale" content="zh">
+<meta property="article:author" content="aaaaaAndy">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>aaaaaAndy</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
-    </div>
-
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
+    <div class="content index width mx-auto px2 my4">
+        
+          <header id="header">
+  <a href="/blog/">
+  
+    
+      <div id="logo" style="background-image: url(/blog/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>aaaaaAndy</h1>
     </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/blog/blog">Home</a></li>
+       
+        <li><a href="/blog/blog/category">Category</a></li>
+       
+        <li><a href="/blog/blog/tag">Tag</a></li>
+       
+        <li><a href="/blog/blog/about">About</a></li>
+      
+    </ul>
+  </div>
 </header>
 
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            
+        
+        
     
 
 <!-- 文章列表 -->
 <section class="posts post-list">
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/blog/2019/09/02/JavaScript/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/">
+                    函数防抖与函数节流
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    September 2, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                此两种函数在平常的开发中不一定会遇到，但确实面试时经常遇到的问题，所以作为一名前端工程师还是需要掌握的。
+
+
+1. 函数防抖
+
+在用户注册时验证用户名是否被占用，很多网站为了提升用户体验，不再等待用户点击提交按钮才去校验输入内容，而是输入框有输入内容时就校验。但是这样实现会增加浏览器请求服务器的压力，所以此时函数防抖就派上用场了。函数防抖：顾名思义，就是等一系列输入操作都完成之后，一段时间内没有输入动作，再去请求服务器进行校验。具体实现如下：
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+
+
+var timer = null;   // 此处一定要是全局变量，至少不能在每次调用deb
+                <a href="/blog/2019/09/02/JavaScript/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/blog/2019/08/20/JavaScript/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5%EF%BC%88require-import%EF%BC%89/">
+                    动态引入require,import
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    August 20, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                动态引入require,import
+
+本篇基于图片加载的基础来简单介绍require, require.context和import的区别！
+
+现如今的前端项目用webpack打包已经成为了行业趋势，然而在此模式的前提下，图片的引入是我们不可避免的问题。正常的图片引入是用img标签或者元素背景图的方式，采用这种方式的图片，webpack都能正常打包并显示。但是如果直接在js文件中定义图片路径，并赋给图片元素的话不能正常显示的，这是因为webpack打包后，会将静态资源文件放在dist/static/img下，我们的网站实际上以dist目录作为根目录，并由此加载该目录下的index.html所
+                <a href="/blog/2019/08/20/JavaScript/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5%EF%BC%88require-import%EF%BC%89/" class="more-link">Continue reading</a>
+            </div>
+        </article>
     
         <article class="post">
             <h1 class="post-title">
@@ -221,10 +240,6 @@ re=/select|update|delete|tru
                     aaaaaAndy
                 </li>
             </ul>
-            
-                <div class="post-cover">
-                    <img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120136.png">
-                </div>
             
             <div class="post-content ">
                 HTTP HTTPS
@@ -420,10 +435,6 @@ add(1, 6);
                 </li>
             </ul>
             
-                <div class="post-cover">
-                    <img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210129120547.png">
-                </div>
-            
             <div class="post-content ">
                 在JavaScript中，万物皆对象!
 
@@ -501,73 +512,6 @@ let reg = new
             </div>
         </article>
     
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/23/books/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">
-                    编写可维护的JavaScript-事件处理
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 23, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                在所有JavaScript应用中事件处理都是非常重要的。所有的JavaScript均通过事件绑定到UI上。
-
-很多开发者都很了解，当事件触发时，事件对象（event对象）会作为回调参数传入事件处理程序中。event对象包含所有和事件相关的信息，包括事件的宿主以及其他和事件类型相关的数据。鼠标事件会将其位置信息暴露的event对象上，键盘事件会将按键信息暴露在event对象上，触屏事件会将触摸位置和持续事件暴露在event对象上，只有提供了所有这些信息，UI才会正确地执行交互。
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-// 不好的写法
-function handleClick(event) {
-                <a href="/blog/2018/08/23/books/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
-                <a href="/blog/2018/08/20/books/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E4%BA%8B%E4%BB%B6/">
-                    JavaScript高级程序设计-事件
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 20, 2018
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                JavaScript与HTML之间的交互是通过事件实现的。事件最早是在 IE3 和 Netscape Navigator 2 中出现的，当时是作为分担服务器运算负载的一种手段，在 IE4 和 Navigator 4 发布时，这两种浏览器都提供了相似但不相同的API，这些API并存经过了好几个主要版本。
-
-DOM2 级规范开始尝试一种符合逻辑的方式来标准化 DOM 事件。目前 IE9， Firefox， Opera， Safari， Chrome 全都已经实现了 DOM2 级事件模块的核心部分。
-
-
-1. 事件流
-
-试想，在页面上点击一个元素，那么不能简单的认为，仅仅点击了这个元素。在点击这个元
-                <a href="/blog/2018/08/20/books/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E4%BA%8B%E4%BB%B6/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
         
 <div id="paginator" class="paginator">
     <a class="extend prev" rel="prev" href="/blog/tags/JavaScript/page/2/">&lt;</a><a class="page-number" href="/blog/tags/JavaScript/">1</a><a class="page-number" href="/blog/tags/JavaScript/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/tags/JavaScript/page/4/">4</a><a class="extend next" rel="next" href="/blog/tags/JavaScript/page/4/">&gt;</a>
@@ -576,40 +520,57 @@ DOM2 级规范开始尝试一种符合逻辑的方式来标准化 DOM 事件。�
 
 </section>
 
-<!--<aside class="aside">-->
-<!--    <div class="close"></div>-->
-<!--&lt;!&ndash;    <section class="aside-section">&ndash;&gt;-->
-<!--&lt;!&ndash;        
-    <h1>Categories</h1>
-
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Charles/">Charles</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/ES/">ES</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Google/">Google</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">JavaScript高级程序设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/css/">css</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/git/">git</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/nginx/">nginx</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/react/">react</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/vim/">vim</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/webpack/">webpack</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%AD%A3%E5%88%99/">正则</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84JavaScript/">编写可维护的JavaScript</a><span class="category-list-count">6</span></li></ul>
-
-&ndash;&gt;-->
-<!--&lt;!&ndash;    </section>&ndash;&gt;-->
-<!--    <section class="aside-section tag">-->
-<!--        
-    <h1>Tags</h1>
-
-    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Charles/" rel="tag">Charles</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Children/" rel="tag">Children</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Component/" rel="tag">Component</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DOM%E6%A0%91/" rel="tag">DOM树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES/" rel="tag">ES</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES10/" rel="tag">ES10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES7/" rel="tag">ES7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES8/" rel="tag">ES8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES9/" rel="tag">ES9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/EventEmitter/" rel="tag">EventEmitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/IntersectionObserver/" rel="tag">IntersectionObserver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">37</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Object/" rel="tag">Object</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PureComponent/" rel="tag">PureComponent</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/URL/" rel="tag">URL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/add/" rel="tag">add</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/api/" rel="tag">api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/apply/" rel="tag">apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bind/" rel="tag">bind</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call/" rel="tag">call</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/click/" rel="tag">click</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitizen/" rel="tag">commitizen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/commitlint/" rel="tag">commitlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css/" rel="tag">css</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/fetch/" rel="tag">fetch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/flex/" rel="tag">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/for-of/" rel="tag">for-of</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/https/" rel="tag">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/log/" rel="tag">log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/math/" rel="tag">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/" rel="tag">react</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/remote-proxy/" rel="tag">remote proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/require/" rel="tag">require</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scroll/" rel="tag">scroll</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/setTimeout/" rel="tag">setTimeout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/stach/" rel="tag">stach</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tag/" rel="tag">tag</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim/" rel="tag">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window/" rel="tag">window</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="tag">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BA%8B%E4%BB%B6/" rel="tag">事件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/" rel="tag">便函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/" rel="tag">全局变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" rel="tag">函数节流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/" rel="tag">函数防抖</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B1%85%E4%B8%AD/" rel="tag">居中</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/" rel="tag">布局模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%AD%A3%E5%88%99/" rel="tag">正则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8/" rel="tag">滚动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/" rel="tag">滚动加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BB%A4%E9%95%9C/" rel="tag">滤镜</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" rel="tag">盒模型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%B3%BB%E7%BB%9F%E8%AF%81%E4%B9%A6/" rel="tag">系统证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%A7%E6%89%BF/" rel="tag">继承</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BD%91%E9%A1%B5/" rel="tag">网页</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AF%81%E4%B9%A6/" rel="tag">证书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%AB%98%E7%A8%8B3/" rel="tag">高程3</a><span class="tag-list-count">1</span></li></ul>
-
--->
-<!--    </section>-->
-<!--    <section class="aside-section">-->
-<!--        
-    <h1>Archives</h1>
-
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/">2021-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/">2020-01</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-10</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-07</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019-02</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-12</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-11</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-09</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-08</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-06</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-05</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-04</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-03</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018-02</a></li></ul>
-
--->
-<!--    </section>-->
-<!--</aside>-->
 
 
 
 
-
-        </main>
     </div>
-</body>
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
 
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

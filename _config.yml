@@ -110,8 +110,8 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: next
-theme: anull
+#theme: anull
+theme: cactus-white
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

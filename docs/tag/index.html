@@ -1,706 +1,679 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="keywords" content="hexo, andy" />
-    <title>
-        aaaaaAndy
-    </title>
-    <!-- favicon -->
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Tag">
+<meta property="og:url" content="https://aaaaaandy.github.io/blog/tag/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-07-23T01:42:31.000Z">
+<meta property="article:modified_time" content="2020-07-23T01:42:50.591Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta name="twitter:card" content="summary">
     
-    <link rel="icon" href="img/favicon.ico" />
-     
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Tag</title>
+    <!-- styles -->
+    
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css" />
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-<!--    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>-->
-
-    <script>
-        // infiniteScroll()
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const [
-                mainTitle,
-                mobileMenu,
-                mobileMainTitle,
-                mobileMenuBtn,
-                ipadMenuBtn,
-                aside,
-                closeBtn,
-            ] = getEle(
-                '#main-title',
-                '.mobile-menu',
-                '.mobile-menu h3',
-                '.mobile-menu button',
-                '.ipad-menu',
-                'aside',
-                'aside .close',
-            )
-            const io = new IntersectionObserver(entries => {
-                if (entries[0].intersectionRatio <= 0) {
-                    mobileMainTitle.classList.remove('invisibile')
-                } else {
-                    mobileMainTitle.classList.add('invisibile')
-                }
-            })
-            io.observe(mainTitle)
-
-            clickToggleAside(mobileMenuBtn)
-            clickToggleAside(ipadMenuBtn)
-            clickToggleAside(closeBtn, false)
-
-            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
-            if (isMenuVisible) document.body.style.background = 'none'
-
-            function getEle(...args) {
-                return args.map(arg => document.querySelector(arg))
-            }
-
-            function clickToggleAside(btn, show = true) {
-                btn.addEventListener('click', function () {
-                    if (show) {
-                        aside.style.display = 'block'
-                    } else {
-                        aside.style.display = 'none'
-                    }
-                })
-            }
-        })
-    </script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-
 <body>
-    <div class="container">
-        <header class="header">
-    <div class="title" id="main-title">
-        <a href="/blog/" class="logo">
-            aaaaaAndy
-        </a>
-    </div>
-
     
-
-    <div class="links">
-        <ul id="menu-inner" class="menu-inner">
-            
-            <li class="menu-inner-item">
-                <a href="/blog">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/category">
-                    Category
-                </a>
-            </li>
-            
-            <li class="menu-inner-item menu-inner-item-clicked">
-                <a href="/blog/tag">
-                    Tag
-                </a>
-            </li>
-            
-            <li class="menu-inner-item">
-                <a href="/blog/about">
-                    About
-                </a>
-            </li>
-            
-        </ul>
+    <div class="content index width mx-auto px2 my4">
+        
+          <header id="header">
+  <a href="/blog/">
+  
+    
+      <div id="logo" style="background-image: url(/blog/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>aaaaaAndy</h1>
     </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/blog/blog">Home</a></li>
+       
+        <li><a href="/blog/blog/category">Category</a></li>
+       
+        <li><a href="/blog/blog/tag">Tag</a></li>
+       
+        <li><a href="/blog/blog/about">About</a></li>
+      
+    </ul>
+  </div>
 </header>
 
-<script type="text/javascript">
-    function isCurrentPage(url, key) {
-      console.log(123)
-    }
-</script>
-
-        <main class="main">
-            
+        
+        
 <div id="tag" class="tag-container">
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/IntersectionObserver/">
-            IntersectionObserver
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E6%BB%9A%E5%8A%A8/">
-            滚动
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/scroll/">
-            scroll
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/JavaScript/">
             JavaScript
         </a>
-        <small class="tag-content-length">-37</small>
+        <small class="tag-content-length">[39]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%86%92%E6%B3%A1/">
+            冒泡
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E6%8D%95%E8%8E%B7/">
+            捕获
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/apply/">
             apply
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/call/">
             call
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/bind/">
             bind
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/IntersectionObserver/">
+            IntersectionObserver
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E6%BB%9A%E5%8A%A8/">
+            滚动
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/scroll/">
+            scroll
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/window/">
             window
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/Vue/">
             Vue
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/">
-            上下文
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E9%97%AD%E5%8C%85/">
             闭包
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/">
+            上下文
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/Object/">
             Object
         </a>
-        <small class="tag-content-length">-2</small>
+        <small class="tag-content-length">[2]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/for-of/">
             for-of
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/Promise/">
-            Promise
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/click/">
-            click
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/setTimeout/">
             setTimeout
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/Promise/">
+            Promise
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E4%BE%BF%E5%87%BD%E6%95%B0/">
             便函数
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/">
             柯里化
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/">
-            函数防抖
+        <a class="tag-content-name" href="/blog/tags/click/">
+            click
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/">
-            函数节流
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[2]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/require/">
             require
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/import/">
             import
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/">
+            函数防抖
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/">
+            函数节流
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E7%BB%A7%E6%89%BF/">
             继承
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD/">
             滚动加载
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/EventEmitter/">
             EventEmitter
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%BB%B6%E8%BF%9F/">
+            延迟
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
             面向对象
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/Charles/">
             Charles
         </a>
-        <small class="tag-content-length">-2</small>
+        <small class="tag-content-length">[2]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E8%AF%81%E4%B9%A6/">
             证书
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E7%B3%BB%E7%BB%9F%E8%AF%81%E4%B9%A6/">
             系统证书
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/remote-proxy/">
             remote proxy
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/css/">
             css
         </a>
-        <small class="tag-content-length">-6</small>
+        <small class="tag-content-length">[6]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/BFC/">
             BFC
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/">
-            布局模型
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/">
             盒模型
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/flex/">
-            flex
+        <a class="tag-content-name" href="/blog/tags/%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B/">
+            布局模型
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%B8%83%E5%B1%80/">
-            布局
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%B1%85%E4%B8%AD/">
-            居中
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E6%BB%A4%E9%95%9C/">
             滤镜
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%B1%85%E4%B8%AD/">
+            居中
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/ES/">
             ES
         </a>
-        <small class="tag-content-length">-6</small>
+        <small class="tag-content-length">[6]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/ES10/">
             ES10
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/flex/">
+            flex
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%B8%83%E5%B1%80/">
+            布局
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/ES6/">
             ES6
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/ES8/">
-            ES8
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/ES7/">
             ES7
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/ES9/">
             ES9
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/ES8/">
+            ES8
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/git/">
             git
         </a>
-        <small class="tag-content-length">-8</small>
+        <small class="tag-content-length">[8]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/add/">
             add
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/fetch/">
             fetch
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/log/">
             log
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/stach/">
             stach
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/tag/">
             tag
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/commitizen/">
             commitizen
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/commitlint/">
             commitlint
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/math/">
             math
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/nginx/">
             nginx
         </a>
-        <small class="tag-content-length">-3</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
-            浏览器
-        </a>
-        <small class="tag-content-length">-3</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%B7%A5%E5%85%B7/">
-            工具
-        </a>
-        <small class="tag-content-length">-2</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/URL/">
-            URL
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E7%BD%91%E9%A1%B5/">
-            网页
-        </a>
-        <small class="tag-content-length">-2</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/http/">
-            http
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/https/">
-            https
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%AE%89%E5%85%A8/">
-            安全
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E6%AD%A3%E5%88%99/">
-            正则
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E6%B8%B2%E6%9F%93/">
-            渲染
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/DOM%E6%A0%91/">
-            DOM树
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%89%8D%E7%AB%AF/">
-            前端
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E8%B7%A8%E5%9F%9F/">
-            跨域
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/vim/">
-            vim
-        </a>
-        <small class="tag-content-length">-2</small>
+        <small class="tag-content-length">[3]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/react/">
             react
         </a>
-        <small class="tag-content-length">-3</small>
+        <small class="tag-content-length">[3]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/Component/">
             Component
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/PureComponent/">
             PureComponent
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/Children/">
             Children
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/api/">
             api
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/webpack/">
-            webpack
+        <a class="tag-content-name" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+            浏览器
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[3]</small>
     </div>
     
     <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E6%89%93%E5%8C%85/">
-            打包
+        <a class="tag-content-name" href="/blog/tags/%E5%B7%A5%E5%85%B7/">
+            工具
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[2]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/URL/">
+            URL
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E7%BD%91%E9%A1%B5/">
+            网页
+        </a>
+        <small class="tag-content-length">[2]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/http/">
+            http
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/https/">
+            https
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%AE%89%E5%85%A8/">
+            安全
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E6%B8%B2%E6%9F%93/">
+            渲染
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/DOM%E6%A0%91/">
+            DOM树
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E6%AD%A3%E5%88%99/">
+            正则
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%89%8D%E7%AB%AF/">
+            前端
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E8%B7%A8%E5%9F%9F/">
+            跨域
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/vim/">
+            vim
+        </a>
+        <small class="tag-content-length">[2]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/npm/">
             npm
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/webpack/">
+            webpack
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E6%89%93%E5%8C%85/">
+            打包
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E9%AB%98%E7%A8%8B3/">
             高程3
         </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/">
-            全局变量
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%8F%98%E9%87%8F/">
-            变量
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E5%87%BD%E6%95%B0/">
-            函数
-        </a>
-        <small class="tag-content-length">-1</small>
-    </div>
-    
-    <div class="tag-content">
-        <a class="tag-content-name" href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/">
-            运算符
-        </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/%E4%BA%8B%E4%BB%B6/">
             事件
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
     </div>
     
     <div class="tag-content">
         <a class="tag-content-name" href="/blog/tags/DOM/">
             DOM
         </a>
-        <small class="tag-content-length">-1</small>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%8F%98%E9%87%8F/">
+            变量
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%87%BD%E6%95%B0/">
+            函数
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/">
+            运算符
+        </a>
+        <small class="tag-content-length">[1]</small>
+    </div>
+    
+    <div class="tag-content">
+        <a class="tag-content-name" href="/blog/tags/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/">
+            全局变量
+        </a>
+        <small class="tag-content-length">[1]</small>
     </div>
     
 </div>
@@ -708,8 +681,53 @@
 
 
 
-        </main>
     </div>
-</body>
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/blog">Home</a></li>
+         
+          <li><a href="/blog/blog/category">Category</a></li>
+         
+          <li><a href="/blog/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
 
+</body>
 </html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+

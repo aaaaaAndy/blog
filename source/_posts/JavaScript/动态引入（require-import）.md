@@ -5,6 +5,8 @@ categories: JavaScript
 date: 2019-08-20 20:02:06
 ---
 
+# 动态引入`require`,`import`
+
 本篇基于图片加载的基础来简单介绍require, require.context和import的区别！
 
 现如今的前端项目用webpack打包已经成为了行业趋势，然而在此模式的前提下，图片的引入是我们不可避免的问题。正常的图片引入是用img标签或者元素背景图的方式，采用这种方式的图片，webpack都能正常打包并显示。但是如果直接在js文件中定义图片路径，并赋给图片元素的话不能正常显示的，这是因为webpack打包后，会将静态资源文件放在dist/static/img下，我们的网站实际上以dist目录作为根目录，并由此加载该目录下的index.html所需的css、js、img等。而当我们在js文件中动态引入图片时url-loader是无法探测到图片路径的。我们build后发现，图片根本不会打包输出到dist目录（webpack是按需打包的）。
