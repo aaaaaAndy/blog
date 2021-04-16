@@ -484,6 +484,9 @@
   padding-left: 1.6rem;
   width: 100%;
 }
+.post-list .post .post-title::before {
+  content: "✏️";
+}
 .post-list .post .post-date {
   padding-left: 0;
 }
@@ -501,6 +504,15 @@
   content: "👨‍💻‍";
   position: relative;
   left: 4px;
+}
+.post-list .post .more-link {
+  color: #2bbc8a;
+  background-image: none;
+  border-bottom: 1px solid #2bbc8a;
+}
+.post-list .pagination {
+  padding-left: 0;
+  text-align: center;
 }
 *,
 *:before,
@@ -847,16 +859,18 @@ body {
 }
 #header-post #toc {
   clear: both;
-  text-align: right;
+  text-align: left;
   margin-top: 1rem;
-  padding-right: 2rem;
-  max-width: 20em;
+  padding-right: 1rem;
   float: right;
   overflow: auto;
   max-height: calc(95vh - 7rem);
 }
 #header-post #toc a:hover {
   color: #d480aa;
+}
+#header-post #toc .toc {
+  padding-left: 0;
 }
 #header-post #toc .toc-level-1 > .toc-link {
   display: none;
@@ -1168,9 +1182,11 @@ article .content .video-container embed {
   margin-top: 0;
 }
 article .content blockquote {
+  position: relative;
   background: inherit;
-  color: #ccffb6;
+  color: #1f291b;
   border-left: 0px solid #ccc;
+  background-color: #d3d3d3;
   margin: 1rem 10px;
   padding: 0.5em 10px;
   quotes: "\201C" "\201D" "\2018" "\2019";
@@ -1179,12 +1195,22 @@ article .content blockquote p {
   margin: 0;
 }
 article .content blockquote:before {
-  color: #ccffb6;
+  color: #2bbc8a;
   content: "\201C";
   font-size: 2em;
   line-height: 0.1em;
   margin-right: 0.25em;
   vertical-align: -0.4em;
+}
+article .content blockquote:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #2bbc8a;
 }
 article .content blockquote footer {
   color: #666;
@@ -1325,8 +1351,8 @@ article .content .caption {
 }
 .pagination {
   display: inline-block;
-  margin-top: 2rem;
-  text-align: center;
+  margin-top: 1rem;
+  padding-left: 1rem;
   width: 100%;
 }
 .pagination .page-number {
