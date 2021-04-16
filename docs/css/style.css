@@ -1164,6 +1164,9 @@ article .content video {
   max-width: 100%;
   height: auto;
   margin: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 article .content .video-container {
   position: relative;
