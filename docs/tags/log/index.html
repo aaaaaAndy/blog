@@ -85,7 +85,7 @@
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2019/03/12/git/git-log/">
-                    Git-log
+                    git log
                 </a>
             </h1>
 
@@ -99,57 +99,27 @@
             </ul>
             
             <div class="post-content ">
-                Git-log
+                1. 文档
+
+基础命令：git log
+
+官方文档地址：https://git-scm.com/docs/git-log
+
+功能：主要用来查看提交历史。
 
 
-1. 基础命令
-
- * 查看所有提交记录
-
-1
+2. 基础命令
 
 
-git log
+2.1 git log [xxx]
 
+不加任何参数的默认情况下，git log会按时间先后顺序列出所有的提交，最近的提交排在最上面。
 
- * 查看最近n次提交
-
-1
-
-
-git log -3      # 查看最近3次提交
-
-
- * 查看指定文件名的提交记录
-
-1
-
-
-git log readme.txt
-
-
- * 查看指定目录下所有文件的提交记录
-
-1
-
-
-git log dir/      # 查看dir目录下所有文件的提交鸡柳
-
-
- * 查看指定分支下的提交记录
-
-1
-
-
-git log dev     # 查看dev分支下所有提交记录
-
-
- * 查看指定tag下的提交记录
-
-1
-
-
-git log v2.0      # 查看v
+ * git log：默认真是所有的提交历史；
+ * git log file1：查看指定文件file1的提交历史；
+ * git log dir1/：查看指定dir1目录下所有文件的提交历史；
+ * git log dev：查看dev分支所有的提交历史；
+ * git log v2.
                 <a href="/blog/2019/03/12/git/git-log/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -211,4 +181,12 @@ git log v2.0      # 查看v
 
 
 
+
+
+<script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'base'});
+  }
+</script>
 

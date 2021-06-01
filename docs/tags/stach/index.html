@@ -85,7 +85,7 @@
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2019/09/11/git/git-stash/">
-                    Git-stash
+                    git stash
                 </a>
             </h1>
 
@@ -99,19 +99,24 @@
             </ul>
             
             <div class="post-content ">
-                Git-stash
+                我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,git stash就是帮我们做这样事情的一个命令
 
-我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,git stash就是帮我们做这样事情的一个命令
 
+1. 文档
+
+基础命令：git stash
+
+官方文档地址：https://git-scm.com/docs/git-stash
+
+功能：保存工作目录的更改到本地缓存中，同时将工作目录恢复到git最新状态。
+
+
+2. 基础命令
+
+
+2.1 git stash
 
 1. 功能
-
-备份当前工作区的内容到git栈中，并从最近的一次提交中读取相关内容，让工作区保证和上次commit的内容一致
-
-
-2. 用途
-
-主要用户临时保存当前工作进度，会把暂存区和工作区的改动保存起来。执行完这个命令后，在运行git status
                 <a href="/blog/2019/09/11/git/git-stash/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -173,4 +178,12 @@
 
 
 
+
+
+<script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'base'});
+  }
+</script>
 

@@ -85,7 +85,7 @@
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2019/02/20/git/git-add/">
-                    Git-add
+                    git add
                 </a>
             </h1>
 
@@ -99,66 +99,25 @@
             </ul>
             
             <div class="post-content ">
-                Git-add
+                1. 文档
+
+基础命令：git add
+
+官方文档地址：https://git-scm.com/docs/git-add
+
+功能：将当前工作目录的新建/修改/删除的文件内容添加到暂存区，当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。
 
 
-基本用法
+2. 基础命令
 
 
-添加一个文件
+2.1 git add xxx
 
-1
+此为不加参数的git add用法，默认将修改操作的文件和未跟踪新添加的文件添加到git暂存区，不包括删除的文件。
 
-
-git add readme.txt
-
-
-
-添加多个文件
-
-1
-
-
-git add readme.txt one.js
-
-
-
-通配符进行匹配文件
-
-1
-
-
-git add *.html    # 添加后缀名为html的文件
-
-
-
-添加一个目录
-
-1
-
-
-git add dir     # 添加目录dir下的所有文件
-
-
-
-添加目录下的指定文件
-
-1
-
-
-git add dir/one.js
-
-
-
-添加所有文件
-
-1
-2
-3
-
-
-git add .         # 提交新增，修改文件，不包括删除文件
-git add -u       
+ * git add file1：只添加file1一个文件：
+ * git add file1 file2：添加file1和file2两个文件；
+ * git 
                 <a href="/blog/2019/02/20/git/git-add/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -220,4 +179,12 @@ git add -u
 
 
 
+
+
+<script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'base'});
+  }
+</script>
 

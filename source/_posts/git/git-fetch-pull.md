@@ -1,11 +1,11 @@
 ---
-title: git-fetch-pull
+title: git pull & git fetch
 date: 2020-08-08 13:17:27
 tags: [git, fetch]
 categories: git
 ---
 
-# Git-fetch-pull
+# git pull & git fetch
 
 与`git fetch`经常做对比的就是`git pull`了.
 

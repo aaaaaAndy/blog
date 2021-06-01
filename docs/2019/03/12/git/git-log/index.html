@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Git-log   1. 基础命令   * 查看所有提交记录  1   git log    * 查看最近n次提交  1   git log -3      # 查看最近3次提交    * 查看指定文件名的提交记录  1   git log readme.txt    * 查看指定目录下所有文件的提交记录  1   git log dir&#x2F;      # 查看dir目录下所有文件的提交鸡柳">
+    <meta name="description" content="1. 文档  基础命令：git log  官方文档地址：https:&#x2F;&#x2F;git-scm.com&#x2F;docs&#x2F;git-log  功能：主要用来查看提交历史。   2. 基础命令   2.1 git log [xxx]  不加任何参数的默认情况下，git log会按时间先后顺序列出所有的提交，最近的提交排在最上面。   * git log：默认真是所有的提交历史；  * git log file1：查看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-log">
+<meta property="og:title" content="git log">
 <meta property="og:url" content="https://aaaaaandy.github.io/2019/03/12/git/git-log/index.html">
 <meta property="og:site_name" content="aaaaaAndy">
-<meta property="og:description" content="Git-log   1. 基础命令   * 查看所有提交记录  1   git log    * 查看最近n次提交  1   git log -3      # 查看最近3次提交    * 查看指定文件名的提交记录  1   git log readme.txt    * 查看指定目录下所有文件的提交记录  1   git log dir&#x2F;      # 查看dir目录下所有文件的提交鸡柳">
+<meta property="og:description" content="1. 文档  基础命令：git log  官方文档地址：https:&#x2F;&#x2F;git-scm.com&#x2F;docs&#x2F;git-log  功能：主要用来查看提交历史。   2. 基础命令   2.1 git log [xxx]  不加任何参数的默认情况下，git log会按时间先后顺序列出所有的提交，最近的提交排在最上面。   * git log：默认真是所有的提交历史；  * git log file1：查看">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2019-03-12T08:02:06.000Z">
-<meta property="article:modified_time" content="2020-08-08T05:32:43.017Z">
+<meta property="article:modified_time" content="2021-06-01T06:53:39.203Z">
 <meta property="article:author" content="aaaaaAndy">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="log">
@@ -38,7 +38,7 @@
         
     
     <!-- title -->
-    <title>Git-log</title>
+    <title>git log</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/blog/css/style.css">
@@ -89,70 +89,40 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2019/03/12/git/git-log/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&text=Git-log" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&is_video=false&description=Git-log" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git-log&body=Check out this article: https://aaaaaandy.github.io/2019/03/12/git/git-log/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&name=Git-log&description=Git-log
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&text=git log" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&is_video=false&description=git log" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=git log&body=Check out this article: https://aaaaaandy.github.io/2019/03/12/git/git-log/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&name=git log&description=1. 文档
+
+基础命令：git log
+
+官方文档地址：https://git-scm.com/docs/git-log
+
+功能：主要用来查看提交历史。
 
 
-1. 基础命令
-
- * 查看所有提交记录
-
-1
+2. 基础命令
 
 
-git log
+2.1 git log [xxx]
 
+不加任何参数的默认情况下，git log会按时间先后顺序列出所有的提交，最近的提交排在最上面。
 
- * 查看最近n次提交
-
-1
-
-
-git log -3      # 查看最近3次提交
-
-
- * 查看指定文件名的提交记录
-
-1
-
-
-git log readme.txt
-
-
- * 查看指定目录下所有文件的提交记录
-
-1
-
-
-git log dir/      # 查看dir目录下所有文件的提交鸡柳
-
-
- * 查看指定分支下的提交记录
-
-1
-
-
-git log dev     # 查看dev分支下所有提交记录
-
-
- * 查看指定tag下的提交记录
-
-1
-
-
-git log v2.0      # 查看v"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+ * git log：默认真是所有的提交历史；
+ * git log file1：查看指定文件file1的提交历史；
+ * git log dir1/：查看指定dir1目录下所有文件的提交历史；
+ * git log dev：查看dev分支所有的提交历史；
+ * git log v2."><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-log"><span class="toc-number">1.</span> <span class="toc-text">Git-log</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础命令"><span class="toc-number">1.1.</span> <span class="toc-text">1. 基础命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-–pretty-参数"><span class="toc-number">1.2.</span> <span class="toc-text">2. –pretty 参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-–after-参数"><span class="toc-number">1.2.1.</span> <span class="toc-text">3. –after 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-–before-参数"><span class="toc-number">1.2.2.</span> <span class="toc-text">4. –before 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-–author-参数"><span class="toc-number">1.2.3.</span> <span class="toc-text">5. –author 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-–grep-匹配提交信息"><span class="toc-number">1.2.4.</span> <span class="toc-text">6. –grep 匹配提交信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-S-参数"><span class="toc-number">1.2.5.</span> <span class="toc-text">7. -S 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-其他参数"><span class="toc-number">1.2.6.</span> <span class="toc-text">8. 其他参数</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文档"><span class="toc-number">1.</span> <span class="toc-text">1. 文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基础命令"><span class="toc-number">2.</span> <span class="toc-text">2. 基础命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-git-log-xxx"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 git log [xxx]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-git-log-2"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 git log -2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-git-log-p"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 git log -p</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-git-log-stat"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 git log --stat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-git-log-shortstat"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 git log --shortstat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-git-log-merges"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 git log --merges</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-git-log-no-merges"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 git log --no-merges</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-git-log-name-status"><span class="toc-number">2.8.</span> <span class="toc-text">2.8 git log --name-status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-git-log-name-only"><span class="toc-number">2.9.</span> <span class="toc-text">2.9 git log --name-only</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-git-log-graph"><span class="toc-number">2.10.</span> <span class="toc-text">2.10 git log --graph</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-git-log-abbrev-commit"><span class="toc-number">2.11.</span> <span class="toc-text">2.11 git log --abbrev-commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-git-log-relative-date"><span class="toc-number">2.12.</span> <span class="toc-text">2.12 git log --relative-date</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-13-git-log-author"><span class="toc-number">2.13.</span> <span class="toc-text">2.13 git log --author</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-14-git-log-S"><span class="toc-number">2.14.</span> <span class="toc-text">2.14 git log -S</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-15-git-log-G"><span class="toc-number">2.15.</span> <span class="toc-text">2.15 git log -G</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-16-git-log-before"><span class="toc-number">2.16.</span> <span class="toc-text">2.16 git log --before</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-17-git-log-after"><span class="toc-number">2.17.</span> <span class="toc-text">2.17 git log --after</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-18-git-log-date"><span class="toc-number">2.18.</span> <span class="toc-text">2.18 git log --date</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-1-date-relative"><span class="toc-number">2.18.1.</span> <span class="toc-text">2.18.1 --date&#x3D;relative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-2-date-local"><span class="toc-number">2.18.2.</span> <span class="toc-text">2.18.2 --date&#x3D;local</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-3-date-iso"><span class="toc-number">2.18.3.</span> <span class="toc-text">2.18.3 --date&#x3D;iso</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-4-date-rfc"><span class="toc-number">2.18.4.</span> <span class="toc-text">2.18.4 --date&#x3D;rfc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-5-date-short"><span class="toc-number">2.18.5.</span> <span class="toc-text">2.18.5 --date&#x3D;short</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-6-date-raw"><span class="toc-number">2.18.6.</span> <span class="toc-text">2.18.6 --date&#x3D;raw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-7-date-default"><span class="toc-number">2.18.7.</span> <span class="toc-text">2.18.7 --date&#x3D;default</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-8-date-format"><span class="toc-number">2.18.8.</span> <span class="toc-text">2.18.8 --date&#x3D;format</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-19-git-log-pretty"><span class="toc-number">2.19.</span> <span class="toc-text">2.19 git log --pretty</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-1-pretty-oneline"><span class="toc-number">2.19.1.</span> <span class="toc-text">2.19.1 --pretty&#x3D;oneline</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-2-pretty-short"><span class="toc-number">2.19.2.</span> <span class="toc-text">2.19.2 --pretty&#x3D;short</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-3-pretty-medium"><span class="toc-number">2.19.3.</span> <span class="toc-text">2.19.3 --pretty&#x3D;medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-4-pretty-full"><span class="toc-number">2.19.4.</span> <span class="toc-text">2.19.4 --pretty&#x3D;full</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-5-pretty-fuller"><span class="toc-number">2.19.5.</span> <span class="toc-text">2.19.5 --pretty&#x3D;fuller</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-6-pretty-email"><span class="toc-number">2.19.6.</span> <span class="toc-text">2.19.6 --pretty&#x3D;email</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-7-pretty-raw"><span class="toc-number">2.19.7.</span> <span class="toc-text">2.19.7 --pretty&#x3D;raw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-8-pretty-format"><span class="toc-number">2.19.8.</span> <span class="toc-text">2.19.8 --pretty&#x3D;format</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -164,7 +134,7 @@ git log v2.0      # 查看v"><i class="fa fa-tumblr " aria-hidden="true"></i></a
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Git-log
+        git log
     </h1>
 
 
@@ -191,77 +161,292 @@ git log v2.0      # 查看v"><i class="fa fa-tumblr " aria-hidden="true"></i></a
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="Git-log"><a href="#Git-log" class="headerlink" title="Git-log"></a>Git-log</h1><h2 id="1-基础命令"><a href="#1-基础命令" class="headerlink" title="1. 基础命令"></a>1. 基础命令</h2><ul>
-<li>查看所有提交记录</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
+    <h2 id="1-文档"><a href="#1-文档" class="headerlink" title="1. 文档"></a>1. 文档</h2><p>基础命令：<code>git log</code></p>
+<p>官方文档地址：<a href="https://git-scm.com/docs/git-log" target="_blank" rel="noopener">https://git-scm.com/docs/git-log</a></p>
+<p>功能：主要用来查看提交历史。</p>
+<h2 id="2-基础命令"><a href="#2-基础命令" class="headerlink" title="2. 基础命令"></a>2. 基础命令</h2><h3 id="2-1-git-log-xxx"><a href="#2-1-git-log-xxx" class="headerlink" title="2.1 git log [xxx]"></a>2.1 <code>git log [xxx]</code></h3><p>不加任何参数的默认情况下，<code>git log</code>会按时间先后顺序列出所有的提交，最近的提交排在最上面。</p>
 <ul>
-<li>查看最近n次提交</li>
+<li><code>git log</code>：默认真是所有的提交历史；</li>
+<li><code>git log file1</code>：查看指定文件<code>file1</code>的提交历史；</li>
+<li><code>git log dir1/</code>：查看指定<code>dir1</code>目录下所有文件的提交历史；</li>
+<li><code>git log dev</code>：查看<code>dev</code>分支所有的提交历史；</li>
+<li><code>git log v2.0</code>：查看<code>v2.0</code>对应的<code>tag</code>下的提交历史；</li>
+<li><code>git log eb1aab29a</code>：查看某次<code>commit</code>之前的提交历史，包括这次<code>commit</code>；</li>
+<li><code>git log eb1aab29a 335a360</code>：查看某两次<code>commit</code>之间的提交历史，包括这两次<code>commit</code>；</li>
+<li><code>git log eb1aab29a..335a360</code>：查看某两次<code>commit</code>之间的提交历史，不包括这两次<code>commit</code>；</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -3      <span class="comment"># 查看最近3次提交</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="2-2-git-log-2"><a href="#2-2-git-log-2" class="headerlink" title="2.2 git log -2"></a>2.2 <code>git log -2</code></h3><p>查看最近的两个提交记录，可以与其他命名模式或参数组合使用。</p>
 <ul>
-<li>查看指定文件名的提交记录</li>
+<li><code>git log -n</code>：查看最近的<code>n</code>个提交记录。</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> readme.txt</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-git-log-p"><a href="#2-3-git-log-p" class="headerlink" title="2.3 git log -p"></a>2.3 <code>git log -p</code></h3><p>以上命令等同于<code>git log --patch</code>。</p>
+<p>它会显示每次提交所引入的差异（按补丁的格式输出）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log -p</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">diff --git a/a.txt b/a.txt</span><br><span class="line">index 72943a1..6857d14 100644</span><br><span class="line">--- a/a.txt</span><br><span class="line">+++ b/a.txt</span><br><span class="line">@@ -1 +1 @@</span><br><span class="line">-aaa</span><br><span class="line">+aaandy</span><br></pre></td></tr></table></figure>
 
+<h3 id="2-4-git-log-stat"><a href="#2-4-git-log-stat" class="headerlink" title="2.4 git log --stat"></a>2.4 <code>git log --stat</code></h3><p>显示每次提交的简略统计信息：包括修改过的文件，以及其中添加和移除的行数，并在最后列出所有增减行数的统计。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --stat</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line"> a.txt | 2 +-</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-git-log-shortstat"><a href="#2-5-git-log-shortstat" class="headerlink" title="2.5 git log --shortstat"></a>2.5 <code>git log --shortstat</code></h3><p>只显示<code>--stat</code>中最后的行数添加修改删除统计</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --shortstat</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-git-log-merges"><a href="#2-6-git-log-merges" class="headerlink" title="2.6 git log --merges"></a>2.6 <code>git log --merges</code></h3><p>查看所有合并过的提交历史记录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --merges</span><br><span class="line">commit eedc4316a67fee2177dcb9e971a5583252cdf902 (HEAD -&gt; dev_20210203_17539, origin/dev_20210203_17539)</span><br><span class="line">Merge: 83f41a9 b12154b</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Tue Mar 23 17:53:34 2021 +0800</span><br><span class="line"></span><br><span class="line">    Merge branch 'master' into dev_20210203_17539</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-7-git-log-no-merges"><a href="#2-7-git-log-no-merges" class="headerlink" title="2.7 git log --no-merges"></a>2.7 <code>git log --no-merges</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --no-merges</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-8-git-log-name-status"><a href="#2-8-git-log-name-status" class="headerlink" title="2.8 git log --name-status"></a>2.8 <code>git log --name-status</code></h3><p>显示新增、修改和删除的文件清单。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --name-status</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">M       a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">A       c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br><span class="line"></span><br><span class="line">A       a.txt</span><br><span class="line">A       b.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-9-git-log-name-only"><a href="#2-9-git-log-name-only" class="headerlink" title="2.9 git log --name-only"></a>2.9 <code>git log --name-only</code></h3><p>只在已修改的提交信息后显示文件清单。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --name-only</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">a.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-10-git-log-graph"><a href="#2-10-git-log-graph" class="headerlink" title="2.10 git log --graph"></a>2.10 <code>git log --graph</code></h3><p>显示<code>ASCII</code>图形表示的分支合并历史</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --graph</span><br><span class="line">* commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">| Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">| Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line">|</span><br><span class="line">|     update a.txt</span><br><span class="line">|</span><br><span class="line">* commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">| Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">| Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line">|</span><br><span class="line">|     add c.txt</span><br><span class="line">|</span><br><span class="line">* commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">  Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">  Date:   Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">      init</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-11-git-log-abbrev-commit"><a href="#2-11-git-log-abbrev-commit" class="headerlink" title="2.11 git log --abbrev-commit"></a>2.11 <code>git log --abbrev-commit</code></h3><p>仅显示<code>SHA-1</code>的前几个字符，而非所有的40个字符。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --abbrev-commit</span><br><span class="line">commit f9651a1 (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-12-git-log-relative-date"><a href="#2-12-git-log-relative-date" class="headerlink" title="2.12 git log --relative-date"></a>2.12 <code>git log --relative-date</code></h3><p>使用相对时间表示历史</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --relative-date</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   12 days ago</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-13-git-log-author"><a href="#2-13-git-log-author" class="headerlink" title="2.13 git log --author"></a>2.13 <code>git log --author</code></h3><p>根据<code>author</code>进行匹配，这里不需要精确匹配，只需要包含就可以。</p>
 <ul>
-<li>查看指定目录下所有文件的提交记录</li>
+<li><code>git log --author=&#39;AndyWang&#39;</code>：获取所有作者是<code>AndyWang</code>的<code>commit</code>；</li>
+<li><code>git log --author=&#39;andy \| qiqi&#39;</code>：获取作者是<code>andy</code>或<code>qiqi</code>的提交；</li>
+<li><code>git log --author=&#39;xxx@outlook.com’</code>：<code>author</code>也可以用来查询<code>email</code>。</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> dir/      <span class="comment"># 查看dir目录下所有文件的提交鸡柳</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-14-git-log-S"><a href="#2-14-git-log-S" class="headerlink" title="2.14 git log -S"></a>2.14 <code>git log -S</code></h3><p>根据内容查询，如下，用来查询内容<code>aaa</code>什么时候被加入到文件中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log -S 'aaa'</span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看指定分支下的提交记录</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> dev     <span class="comment"># 查看dev分支下所有提交记录</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-15-git-log-G"><a href="#2-15-git-log-G" class="headerlink" title="2.15 git log -G"></a>2.15 <code>git log -G</code></h3><p>与<code>git log -S</code>类似，只是<code>-G</code>是用正则匹配来查询。</p>
+<h3 id="2-16-git-log-before"><a href="#2-16-git-log-before" class="headerlink" title="2.16 git log --before"></a>2.16 <code>git log --before</code></h3><p>查看在某个时间点之前的<code>commit</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --before='Thu May 20 15:06:55'</span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看指定tag下的提交记录</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> v2.0      <span class="comment"># 查看v2.0tag下所有提交历史记录</span></span><br></pre></td></tr></table></figure>
+<p>也可以使用相对时间表示，如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log --before='yesterday'</span><br><span class="line">git log --before='1 week ago'</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看某次提交之前的历史提交记录（包括commit自身）</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> eb1aab29a     <span class="comment"># 查看commit id为eb1aab29a之前的历史提交记录</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-17-git-log-after"><a href="#2-17-git-log-after" class="headerlink" title="2.17 git log --after"></a>2.17 <code>git log --after</code></h3><p>查看在某个时间点之后的<code>commit</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --after='Thu May 20 15:06:55'</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看某两次提交之间的历史记录（包括两者）</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> eb1aab29a 335a360       <span class="comment"># 查看两次提交之间的历史记录</span></span><br></pre></td></tr></table></figure>
+<p><code>--before</code>与<code>--after</code>可以结合使用，表示在两个时间区间之内的提交。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --before='Thu May 20 16:09:06 2021 +0800' --after='Thu May 20 15:06:55 2021 +0800'</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看某两次提交之间的历史记录（不包括第一个commit）</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eit <span class="built_in">log</span> eb1aab29a..335a360       <span class="comment"># 查看两次提交之间的历史记录(不包括eb1aab29a提交)</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-–pretty-参数"><a href="#2-–pretty-参数" class="headerlink" title="2. –pretty 参数"></a>2. –pretty 参数</h2><p>通过不同的参数以不同的格式显示提交历史记录</p>
-<p>（1）.oneline<br>（2）.short<br>（3）.medium（默认值）<br>（4）.full<br>（5）.fuller<br>（6）.email<br>（7）.raw<br>（8）.format（此参数比较复杂后面会单独介绍）</p>
-<ul>
-<li>oneline 在日志显示在一行</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>format 格式化显示</li>
-</ul>
-<p>（1）.%H：提交对象（commit）的完整哈希字串<br>（2）.%h：提交对象的简短哈希字串<br>（3）.%T：树对象（tree）的完整哈希字串<br>（4）.%t：树对象的简短哈希字串<br>（5）.%P：父对象（parent）的完整哈希字串<br>（6）.%p：父对象的简短哈希字串<br>（7）.%an：作者（author）的名字<br>（8）.%ae：作者的电子邮件地址<br>（9）.%ad：作者修订日期（可以用 -date= 选项定制格式）<br>（10）.%ar：作者修订日期，按多久以前的方式显示<br>（11）.%cn：提交者(committer)的名字<br>（12）.%ce：提交者的电子邮件地址<br>（13）.%cd：提交日期<br>（14）.%cr：提交日期，按多久以前的方式显示<br>（15）.%s：提交说明</p>
-<p>只显示历史记录的作者名字和电子邮件地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">"%an %ae"</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-18-git-log-date"><a href="#2-18-git-log-date" class="headerlink" title="2.18 git log --date"></a>2.18 <code>git log --date</code></h3><p>定制输出日期格式。</p>
+<h4 id="2-18-1-date-relative"><a href="#2-18-1-date-relative" class="headerlink" title="2.18.1 --date=relative"></a>2.18.1 <code>--date=relative</code></h4><p>以相对时间格式显示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=relative</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   12 days ago</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-–after-参数"><a href="#3-–after-参数" class="headerlink" title="3. –after 参数"></a>3. –after 参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --after=<span class="string">'2020-2-2'</span>      <span class="comment"># 查询2020年2月2号之后的提交记录</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-18-2-date-local"><a href="#2-18-2-date-local" class="headerlink" title="2.18.2 --date=local"></a>2.18.2 <code>--date=local</code></h4><p>以<code>Thu May 20 16:09:06 2021</code>格式显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=local</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-–before-参数"><a href="#4-–before-参数" class="headerlink" title="4. –before 参数"></a>4. –before 参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --before=<span class="string">'2020-2-2'</span>     <span class="comment"># 查看2020年2月2号之前的提交记录</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-18-3-date-iso"><a href="#2-18-3-date-iso" class="headerlink" title="2.18.3 --date=iso"></a>2.18.3 <code>--date=iso</code></h4><p>以<code>2021-05-20 16:09:06 +0800</code>格式显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=iso</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   2021-05-20 16:09:06 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-–author-参数"><a href="#5-–author-参数" class="headerlink" title="5. –author 参数"></a>5. –author 参数</h3><p>author参数不仅可以搜索作者，还可以搜索邮箱</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --author=<span class="string">'andy'</span>       <span class="comment"># 查询坐着为andy的提交记录</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-18-4-date-rfc"><a href="#2-18-4-date-rfc" class="headerlink" title="2.18.4 --date=rfc"></a>2.18.4 <code>--date=rfc</code></h4><p>以<code>Thu, 20 May 2021 16:09:06 +0800</code>格式显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=rfc</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu, 20 May 2021 16:09:06 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-–grep-匹配提交信息"><a href="#6-–grep-匹配提交信息" class="headerlink" title="6. –grep 匹配提交信息"></a>6. –grep 匹配提交信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --grep <span class="string">'add'</span>      <span class="comment"># 查询提交message中包含add字符串的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> --grep=<span class="string">'add'</span>      <span class="comment"># 查询提交message中包含add字符串的提交记录</span></span><br><span class="line">git <span class="built_in">log</span> --grep=<span class="string">'add'</span> -i     <span class="comment"># 忽略大小写，（默认是区分大小写的）</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline --grep=<span class="string">'add'</span>       <span class="comment"># 只在一行展示</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-18-5-date-short"><a href="#2-18-5-date-short" class="headerlink" title="2.18.5 --date=short"></a>2.18.5 <code>--date=short</code></h4><p>以<code>2021-05-20</code>格式显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=short</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   2021-05-20</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="7-S-参数"><a href="#7-S-参数" class="headerlink" title="7. -S 参数"></a>7. -S 参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -S <span class="string">'add'</span>      <span class="comment"># 查询筛选内容中包含add文件的提交记录</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-18-6-date-raw"><a href="#2-18-6-date-raw" class="headerlink" title="2.18.6 --date=raw"></a>2.18.6 <code>--date=raw</code></h4><p>以<code>1621498146 +0800</code>格式显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=raw</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   1621498146 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
 
-<h3 id="8-其他参数"><a href="#8-其他参数" class="headerlink" title="8. 其他参数"></a>8. 其他参数</h3><p>（1）.-p ：查看提交时的补丁信息<br>（2）.–stat ：列出文件的修改行数<br>（3）.–sortstat：只显示–stat中最后行数修改添加移除的统计<br>（4）.–graph：以简单的图形方式列出提交记录<br>（5）.–abbrev-commit：仅显示 SHA-1 的前几个字符，而非所有的 40 个字符<br>（6）.–relative-date：使用较短的相对时间显示（”1 weeks ago”）<br>（7）.–name-only：仅在提交信息后显示已修改的文件清单<br>（8）.–name-status：显示新增、修改、删除的文件清单</p>
+<h4 id="2-18-7-date-default"><a href="#2-18-7-date-default" class="headerlink" title="2.18.7 --date=default"></a>2.18.7 <code>--date=default</code></h4><p>以默认格式显示</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=default</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-18-8-date-format"><a href="#2-18-8-date-format" class="headerlink" title="2.18.8 --date=format"></a>2.18.8 <code>--date=format</code></h4><p>自定义格式显示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --date=format:'%Y-%m-%d %H:%M:%S'</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   2021-05-20 16:09:06</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br></pre></td></tr></table></figure>
+
+<p>格式占位符如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">占位符</th>
+<th>占位符代表含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%a</td>
+<td><code>Abbreviated weekday name</code></td>
+</tr>
+<tr>
+<td align="center">%A</td>
+<td><code>Full weekday name</code></td>
+</tr>
+<tr>
+<td align="center">%b</td>
+<td><code>Abbreviated month name</code></td>
+</tr>
+<tr>
+<td align="center">%B</td>
+<td><code>Full month name</code></td>
+</tr>
+<tr>
+<td align="center">%c</td>
+<td><code>Date and time representation appropriate for locale</code></td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td><code>Day of month as decimal number (01 – 31)</code></td>
+</tr>
+<tr>
+<td align="center">%H</td>
+<td><code>Hour in 24-hour format (00 – 23)</code></td>
+</tr>
+<tr>
+<td align="center">%I</td>
+<td><code>Hour in 12-hour format (01 – 12)</code></td>
+</tr>
+<tr>
+<td align="center">%j</td>
+<td><code>Day of year as decimal number (001 – 366)</code></td>
+</tr>
+<tr>
+<td align="center">%m</td>
+<td><code>Month as decimal number (01 – 12)</code></td>
+</tr>
+<tr>
+<td align="center">%M</td>
+<td><code>Minute as decimal number (00 – 59)</code></td>
+</tr>
+<tr>
+<td align="center">%p</td>
+<td><code>Current locale&#39;s A.M./P.M. indicator for 12-hour clock</code></td>
+</tr>
+<tr>
+<td align="center">%S</td>
+<td><code>Second as decimal number (00 – 59)</code></td>
+</tr>
+<tr>
+<td align="center">%U</td>
+<td><code>Week of year as decimal number, with Sunday as first day of week (00 – 53)</code></td>
+</tr>
+<tr>
+<td align="center">%w</td>
+<td><code>Weekday as decimal number (0 – 6; Sunday is 0)</code></td>
+</tr>
+<tr>
+<td align="center">%W</td>
+<td><code>Week of year as decimal number, with Monday as first day of week (00 – 53)</code></td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td><code>Date representation for current locale</code></td>
+</tr>
+<tr>
+<td align="center">%X</td>
+<td><code>Time representation for current locale</code></td>
+</tr>
+<tr>
+<td align="center">%y</td>
+<td><code>Year without century, as decimal number (00 – 99)</code></td>
+</tr>
+<tr>
+<td align="center">%Y</td>
+<td><code>Year with century, as decimal number</code></td>
+</tr>
+<tr>
+<td align="center">%z, %Z</td>
+<td><code>Either the time-zone name or time zone abbreviation, depending on registry settings; no characters if time zone is unknown</code></td>
+</tr>
+<tr>
+<td align="center">%%</td>
+<td>Percent sign</td>
+</tr>
+</tbody></table>
+<h3 id="2-19-git-log-pretty"><a href="#2-19-git-log-pretty" class="headerlink" title="2.19 git log --pretty"></a>2.19 <code>git log --pretty</code></h3><p>使用不同的默认格式展示提交历史。</p>
+<h4 id="2-19-1-pretty-oneline"><a href="#2-19-1-pretty-oneline" class="headerlink" title="2.19.1 --pretty=oneline"></a>2.19.1 <code>--pretty=oneline</code></h4><p>在一行展示提交历史的简要信息；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --pretty=oneline</span><br><span class="line">f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master) update a.txt</span><br><span class="line">64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05 add c.txt</span><br><span class="line">1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-2-pretty-short"><a href="#2-19-2-pretty-short" class="headerlink" title="2.19.2 --pretty=short"></a>2.19.2 <code>--pretty=short</code></h4><p>展示提交历史的简短信息，一般只展示<code>Author</code>和提交信息；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --pretty=short</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-3-pretty-medium"><a href="#2-19-3-pretty-medium" class="headerlink" title="2.19.3 --pretty=medium"></a>2.19.3 <code>--pretty=medium</code></h4><p>与<code>git log</code>效果相同，展示<code>Author</code>、<code>Date</code>和提交信息；</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git <span class="built_in">log</span> --pretty=medium</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date:   Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-4-pretty-full"><a href="#2-19-4-pretty-full" class="headerlink" title="2.19.4 --pretty=full"></a>2.19.4 <code>--pretty=full</code></h4><p>只展示<code>Author</code>、<code>Commit</code>和提交信息；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --pretty=full</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Commit: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Commit: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Commit: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-5-pretty-fuller"><a href="#2-19-5-pretty-fuller" class="headerlink" title="2.19.5 --pretty=fuller"></a>2.19.5 <code>--pretty=fuller</code></h4><p>展示比较全面的信息，包括<code>Author</code>、<code>AuthorDate</code>、<code>Commit</code>、<code>CommitDate</code>和提交信息；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --pretty=fuller</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd (HEAD -&gt; dev, master)</span><br><span class="line">Author:     AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">AuthorDate: Thu May 20 16:09:06 2021 +0800</span><br><span class="line">Commit:     AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">CommitDate: Thu May 20 16:09:06 2021 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">Author:     AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">AuthorDate: Thu May 20 15:06:55 2021 +0800</span><br><span class="line">Commit:     AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">CommitDate: Thu May 20 15:06:55 2021 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">Author:     AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">AuthorDate: Thu May 20 13:45:26 2021 +0800</span><br><span class="line">Commit:     AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">CommitDate: Thu May 20 13:45:26 2021 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-6-pretty-email"><a href="#2-19-6-pretty-email" class="headerlink" title="2.19.6 --pretty=email"></a>2.19.6 <code>--pretty=email</code></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --pretty=email</span><br><span class="line">From f9651a1b2b64ea26b960983845a3b7443e81cdcd Mon Sep 17 00:00:00 2001</span><br><span class="line">From: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date: Thu, 20 May 2021 16:09:06 +0800</span><br><span class="line">Subject: [PATCH] update a.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">From 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05 Mon Sep 17 00:00:00 2001</span><br><span class="line">From: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date: Thu, 20 May 2021 15:06:55 +0800</span><br><span class="line">Subject: [PATCH] add c.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">From 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f Mon Sep 17 00:00:00 2001</span><br><span class="line">From: AndyWang &lt;wangyuanwenqi@outlook.com&gt;</span><br><span class="line">Date: Thu, 20 May 2021 13:45:26 +0800</span><br><span class="line">Subject: [PATCH] init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-7-pretty-raw"><a href="#2-19-7-pretty-raw" class="headerlink" title="2.19.7 --pretty=raw"></a>2.19.7 <code>--pretty=raw</code></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/github/git-study(dev ✔) git log --pretty=raw</span><br><span class="line">commit f9651a1b2b64ea26b960983845a3b7443e81cdcd</span><br><span class="line">tree 96a8112ff305a9d8c94985eba8c25bb4c296d43e</span><br><span class="line">parent 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">author AndyWang &lt;wangyuanwenqi@outlook.com&gt; 1621498146 +0800</span><br><span class="line">committer AndyWang &lt;wangyuanwenqi@outlook.com&gt; 1621498146 +0800</span><br><span class="line"></span><br><span class="line">    update a.txt</span><br><span class="line"></span><br><span class="line">commit 64bf692c4b951d90a9eaa2f29d9a8776fe9f6d05</span><br><span class="line">tree 15b6c2b4cbb04ddb97da706346ed34086664309d</span><br><span class="line">parent 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">author AndyWang &lt;wangyuanwenqi@outlook.com&gt; 1621494415 +0800</span><br><span class="line">committer AndyWang &lt;wangyuanwenqi@outlook.com&gt; 1621494415 +0800</span><br><span class="line"></span><br><span class="line">    add c.txt</span><br><span class="line"></span><br><span class="line">commit 1c68353f1c7f17b91032e02f605d3b6e1cdb4f2f</span><br><span class="line">tree 65b70c81bbedd324eb1d79c90a72ea2bddae82b4</span><br><span class="line">author AndyWang &lt;wangyuanwenqi@outlook.com&gt; 1621489526 +0800</span><br><span class="line">committer AndyWang &lt;wangyuanwenqi@outlook.com&gt; 1621489526 +0800</span><br><span class="line"></span><br><span class="line">    init</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-8-pretty-format"><a href="#2-19-8-pretty-format" class="headerlink" title="2.19.8 --pretty=format"></a>2.19.8 <code>--pretty=format</code></h4><p>使用其他格式显示历史提交信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=format:"%h" </span><br><span class="line">git log --pretty=format:'%s %C(bold blue)(%an)%Creset'</span><br><span class="line">git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'</span><br></pre></td></tr></table></figure>
+
+<p>其他占位符的含义：</p>
+<table>
+<thead>
+<tr>
+<th align="center">占位符</th>
+<th align="left">占位符含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%H</td>
+<td align="left">提交对象（commit）的完整哈希字串</td>
+</tr>
+<tr>
+<td align="center">%h</td>
+<td align="left">提交对象的简短哈希字串</td>
+</tr>
+<tr>
+<td align="center">%T</td>
+<td align="left">树对象（tree）的完整哈希字串</td>
+</tr>
+<tr>
+<td align="center">%t</td>
+<td align="left">树对象的简短哈希字串</td>
+</tr>
+<tr>
+<td align="center">%P</td>
+<td align="left">父对象（parent）的完整哈希字串</td>
+</tr>
+<tr>
+<td align="center">%p</td>
+<td align="left">父对象的简短哈希字串</td>
+</tr>
+<tr>
+<td align="center">%an</td>
+<td align="left">作者（author）的名字</td>
+</tr>
+<tr>
+<td align="center">%ae</td>
+<td align="left">作者的电子邮件地址</td>
+</tr>
+<tr>
+<td align="center">%ad</td>
+<td align="left">作者修订日期（可以用 -date= 选项定制格式）</td>
+</tr>
+<tr>
+<td align="center">%ar</td>
+<td align="left">作者修订日期，按多久以前的方式显示</td>
+</tr>
+<tr>
+<td align="center">%cn</td>
+<td align="left">提交者(committer)的名字</td>
+</tr>
+<tr>
+<td align="center">%ce</td>
+<td align="left">提交者的电子邮件地址</td>
+</tr>
+<tr>
+<td align="center">%cd</td>
+<td align="left">提交日期（可以用 -date= 选项定制格式）</td>
+</tr>
+<tr>
+<td align="center">%cr</td>
+<td align="left">提交日期，按多久以前的方式显示</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="left">提交说明</td>
+</tr>
+</tbody></table>
 <a id="more"></a>
 
   </div>
@@ -289,71 +474,41 @@ git log v2.0      # 查看v"><i class="fa fa-tumblr " aria-hidden="true"></i></a
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-log"><span class="toc-number">1.</span> <span class="toc-text">Git-log</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础命令"><span class="toc-number">1.1.</span> <span class="toc-text">1. 基础命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-–pretty-参数"><span class="toc-number">1.2.</span> <span class="toc-text">2. –pretty 参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-–after-参数"><span class="toc-number">1.2.1.</span> <span class="toc-text">3. –after 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-–before-参数"><span class="toc-number">1.2.2.</span> <span class="toc-text">4. –before 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-–author-参数"><span class="toc-number">1.2.3.</span> <span class="toc-text">5. –author 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-–grep-匹配提交信息"><span class="toc-number">1.2.4.</span> <span class="toc-text">6. –grep 匹配提交信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-S-参数"><span class="toc-number">1.2.5.</span> <span class="toc-text">7. -S 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-其他参数"><span class="toc-number">1.2.6.</span> <span class="toc-text">8. 其他参数</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文档"><span class="toc-number">1.</span> <span class="toc-text">1. 文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基础命令"><span class="toc-number">2.</span> <span class="toc-text">2. 基础命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-git-log-xxx"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 git log [xxx]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-git-log-2"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 git log -2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-git-log-p"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 git log -p</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-git-log-stat"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 git log --stat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-git-log-shortstat"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 git log --shortstat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-git-log-merges"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 git log --merges</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-git-log-no-merges"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 git log --no-merges</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-git-log-name-status"><span class="toc-number">2.8.</span> <span class="toc-text">2.8 git log --name-status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-git-log-name-only"><span class="toc-number">2.9.</span> <span class="toc-text">2.9 git log --name-only</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-git-log-graph"><span class="toc-number">2.10.</span> <span class="toc-text">2.10 git log --graph</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-git-log-abbrev-commit"><span class="toc-number">2.11.</span> <span class="toc-text">2.11 git log --abbrev-commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-git-log-relative-date"><span class="toc-number">2.12.</span> <span class="toc-text">2.12 git log --relative-date</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-13-git-log-author"><span class="toc-number">2.13.</span> <span class="toc-text">2.13 git log --author</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-14-git-log-S"><span class="toc-number">2.14.</span> <span class="toc-text">2.14 git log -S</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-15-git-log-G"><span class="toc-number">2.15.</span> <span class="toc-text">2.15 git log -G</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-16-git-log-before"><span class="toc-number">2.16.</span> <span class="toc-text">2.16 git log --before</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-17-git-log-after"><span class="toc-number">2.17.</span> <span class="toc-text">2.17 git log --after</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-18-git-log-date"><span class="toc-number">2.18.</span> <span class="toc-text">2.18 git log --date</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-1-date-relative"><span class="toc-number">2.18.1.</span> <span class="toc-text">2.18.1 --date&#x3D;relative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-2-date-local"><span class="toc-number">2.18.2.</span> <span class="toc-text">2.18.2 --date&#x3D;local</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-3-date-iso"><span class="toc-number">2.18.3.</span> <span class="toc-text">2.18.3 --date&#x3D;iso</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-4-date-rfc"><span class="toc-number">2.18.4.</span> <span class="toc-text">2.18.4 --date&#x3D;rfc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-5-date-short"><span class="toc-number">2.18.5.</span> <span class="toc-text">2.18.5 --date&#x3D;short</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-6-date-raw"><span class="toc-number">2.18.6.</span> <span class="toc-text">2.18.6 --date&#x3D;raw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-7-date-default"><span class="toc-number">2.18.7.</span> <span class="toc-text">2.18.7 --date&#x3D;default</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-18-8-date-format"><span class="toc-number">2.18.8.</span> <span class="toc-text">2.18.8 --date&#x3D;format</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-19-git-log-pretty"><span class="toc-number">2.19.</span> <span class="toc-text">2.19 git log --pretty</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-1-pretty-oneline"><span class="toc-number">2.19.1.</span> <span class="toc-text">2.19.1 --pretty&#x3D;oneline</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-2-pretty-short"><span class="toc-number">2.19.2.</span> <span class="toc-text">2.19.2 --pretty&#x3D;short</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-3-pretty-medium"><span class="toc-number">2.19.3.</span> <span class="toc-text">2.19.3 --pretty&#x3D;medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-4-pretty-full"><span class="toc-number">2.19.4.</span> <span class="toc-text">2.19.4 --pretty&#x3D;full</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-5-pretty-fuller"><span class="toc-number">2.19.5.</span> <span class="toc-text">2.19.5 --pretty&#x3D;fuller</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-6-pretty-email"><span class="toc-number">2.19.6.</span> <span class="toc-text">2.19.6 --pretty&#x3D;email</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-7-pretty-raw"><span class="toc-number">2.19.7.</span> <span class="toc-text">2.19.7 --pretty&#x3D;raw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-19-8-pretty-format"><span class="toc-number">2.19.8.</span> <span class="toc-text">2.19.8 --pretty&#x3D;format</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2019/03/12/git/git-log/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&text=Git-log" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&is_video=false&description=Git-log" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git-log&body=Check out this article: https://aaaaaandy.github.io/2019/03/12/git/git-log/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=Git-log" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&name=Git-log&description=Git-log
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&text=git log" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&is_video=false&description=git log" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=git log&body=Check out this article: https://aaaaaandy.github.io/2019/03/12/git/git-log/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&title=git log" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2019/03/12/git/git-log/&name=git log&description=1. 文档
+
+基础命令：git log
+
+官方文档地址：https://git-scm.com/docs/git-log
+
+功能：主要用来查看提交历史。
 
 
-1. 基础命令
-
- * 查看所有提交记录
-
-1
+2. 基础命令
 
 
-git log
+2.1 git log [xxx]
 
+不加任何参数的默认情况下，git log会按时间先后顺序列出所有的提交，最近的提交排在最上面。
 
- * 查看最近n次提交
-
-1
-
-
-git log -3      # 查看最近3次提交
-
-
- * 查看指定文件名的提交记录
-
-1
-
-
-git log readme.txt
-
-
- * 查看指定目录下所有文件的提交记录
-
-1
-
-
-git log dir/      # 查看dir目录下所有文件的提交鸡柳
-
-
- * 查看指定分支下的提交记录
-
-1
-
-
-git log dev     # 查看dev分支下所有提交记录
-
-
- * 查看指定tag下的提交记录
-
-1
-
-
-git log v2.0      # 查看v"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+ * git log：默认真是所有的提交历史；
+ * git log file1：查看指定文件file1的提交历史；
+ * git log dir1/：查看指定dir1目录下所有文件的提交历史；
+ * git log dev：查看dev分支所有的提交历史；
+ * git log v2."><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -418,4 +573,12 @@ git log v2.0      # 查看v"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></
 
 
 
+
+
+<script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'base'});
+  }
+</script>
 

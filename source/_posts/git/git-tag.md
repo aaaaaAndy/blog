@@ -1,11 +1,11 @@
 ---
-title: git-tag
+title: git tag
 date: 2020-08-08 11:08:44
 tags: [git, tag]
 categories: git
 ---
 
-# git-tag
+# git tag
 
 > 像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ `v1.0` 、 `v2.0` 等等）。
 

@@ -1,5 +1,5 @@
 ---
-title: 规范git提交message
+title: Commitizen引入
 date: 2020-12-21 16:12:44
 tags: [git, commitizen, commitlint]
 categories: git

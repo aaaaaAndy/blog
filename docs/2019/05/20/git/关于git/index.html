@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1. 基础  Git是Linux之父Linus Torvalds继Linux内核之后奉献给全世界程序员的第二个礼物。  Git是目前使用最广泛的分布式版本管理工具，它改变了全世界程序员的代码版本管理和生产协作模式，极大地促进了开源软件运动的发展。   * git下载地址：https:&#x2F;&#x2F;git-scm.com&#x2F;downloads   * git安装文档：https:&#x2F;&#x2F;git-scm.com&#x2F;bo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于git">
+<meta property="og:url" content="https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/index.html">
+<meta property="og:site_name" content="aaaaaAndy">
+<meta property="og:description" content="1. 基础  Git是Linux之父Linus Torvalds继Linux内核之后奉献给全世界程序员的第二个礼物。  Git是目前使用最广泛的分布式版本管理工具，它改变了全世界程序员的代码版本管理和生产协作模式，极大地促进了开源软件运动的发展。   * git下载地址：https:&#x2F;&#x2F;git-scm.com&#x2F;downloads   * git安装文档：https:&#x2F;&#x2F;git-scm.com&#x2F;bo">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210520104419.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210519174408.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210519174359.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210519175437.png">
+<meta property="article:published_time" content="2019-05-20T01:46:20.000Z">
+<meta property="article:modified_time" content="2021-06-01T06:56:15.317Z">
+<meta property="article:author" content="aaaaaAndy">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210520104419.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>关于git</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" class="active" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" class="active" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/category">Category</a></li>
+         
+          <li><a href="/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/blog/2019/05/20/JavaScript/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84setTimeout/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/blog/2019/04/28/technology/URL%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/" target="_blank" rel="noopener"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&text=关于git" target="_blank" rel="noopener"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&is_video=false&description=关于git" target="_blank" rel="noopener"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于git&body=Check out this article: https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&name=关于git&description=1. 基础
+
+Git是Linux之父Linus Torvalds继Linux内核之后奉献给全世界程序员的第二个礼物。
+
+Git是目前使用最广泛的分布式版本管理工具，它改变了全世界程序员的代码版本管理和生产协作模式，极大地促进了开源软件运动的发展。
+
+ * git下载地址：https://git-scm.com/downloads
+
+ * git安装文档：https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+ * git官方文档地址：https://git-scm.com/docs
+
+
+2. 什么是Git
+
+首先明确一点的是"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础"><span class="toc-number">1.</span> <span class="toc-text">1.  基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-什么是Git"><span class="toc-number">2.</span> <span class="toc-text">2. 什么是Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Snapshots快照"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Snapshots快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-本地化操作"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 本地化操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-数据完整"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 数据完整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-只增不删"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 只增不删</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-工作区"><span class="toc-number">3.</span> <span class="toc-text">3. 工作区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分布式"><span class="toc-number">4.</span> <span class="toc-text">4. 分布式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-svn"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 svn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-git"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-github"><span class="toc-number">4.3.</span> <span class="toc-text">4.3  github</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        关于git
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">aaaaaAndy</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-05-20T01:46:20.000Z" itemprop="datePublished">2019-05-20</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/git/" rel="tag">git</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1.  基础"></a>1.  基础</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>是<code>Linux</code>之父<a href="https://github.com/torvalds" target="_blank" rel="noopener">Linus Torvalds</a>继<code>Linux</code>内核之后奉献给全世界程序员的第二个礼物。</p>
+<p><code>Git</code>是目前使用最广泛的<strong>分布式版本管理工具</strong>，它改变了全世界程序员的代码版本管理和生产协作模式，极大地促进了开源软件运动的发展。</p>
+<ul>
+<li><p><code>git</code>下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+</li>
+<li><p><code>git</code>安装文档：<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></p>
+</li>
+<li><p><code>git</code>官方文档地址：<a href="https://git-scm.com/docs" target="_blank" rel="noopener">https://git-scm.com/docs</a></p>
+</li>
+</ul>
+<h2 id="2-什么是Git"><a href="#2-什么是Git" class="headerlink" title="2. 什么是Git"></a>2. 什么是<code>Git</code></h2><p>首先明确一点的是，<code>Git</code>是一个完全不同于其他<code>VCS</code>版本管理工具（如<code>CVS</code>、<code>Subversion</code>等）的存在，虽然他们的客户端看起来很相似。所以在学习<code>Git</code>之前应该先忘掉之前你脑海中关于其他版本管理工具的概念，因为<code>Git</code>是从一个完全不同的角度去考虑，处理，存储数据。</p>
+<h3 id="2-1-Snapshots快照"><a href="#2-1-Snapshots快照" class="headerlink" title="2.1 Snapshots快照"></a>2.1 <code>Snapshots</code>快照</h3><p>首先来说，<code>git</code>与其他的<code>VCS</code>工具最大的不同在于数据的处理上。</p>
+<p>传统的<code>VCS</code>工具都是以文件系统来存储数据，它们存储的是一组文件和每个文件随时间逐步积累的差异。这样做的好处是节省磁盘空间，缺点是效率低，尤其在每次切换版本时，都需要在基本文件的基础上，计算每个文件的差异，从而生成目标版本对应的文件。</p>
+<p><code>git</code>是以文件快照的形式保存数据，类似于备份。为了效率，如果文件没有修改，<code>git</code>不再重新存储该文件，而是只保留一个链接指向之前存储的文件。<code>git</code>快照的缺点是占用磁盘空间较大，优点是切换版本，对比差异时非常快，因为每个版本都是完整的文件快照。<code>git</code>的思想就是以空间换时间。</p>
+<h3 id="2-2-本地化操作"><a href="#2-2-本地化操作" class="headerlink" title="2.2 本地化操作"></a>2.2 本地化操作</h3><p><code>git</code>几乎所有的操作都可以在本地执行，而不需要联网，这得益于<code>git</code>的<strong>分布式</strong>思想，每个节点都有自己的仓库，远程仓库只做同步使用。</p>
+<p>传统的<code>VCS</code>工具都要求中心版本库高可用，对网络依赖较高，一旦网络本盘，则无法提交代码，无法查看历史记录。</p>
+<h3 id="2-3-数据完整"><a href="#2-3-数据完整" class="headerlink" title="2.3 数据完整"></a>2.3 数据完整</h3><p><code>git</code>采用40位的<code>SHA-1</code>哈希编码对文件内容进行计算并存储，这极大的保证了数据的完整性，只要对比前后<code>hash</code>编码是否一致就可以知道是否发生了改动。</p>
+<h3 id="2-4-只增不删"><a href="#2-4-只增不删" class="headerlink" title="2.4 只增不删"></a>2.4 只增不删</h3><p><code>git</code>的工作模式是只增不删，对<code>git</code>数据库来说，只有增加操作，没有删除操作。即使是现在工作目录中删了文件再提交到<code>git</code>，<code>git</code>也会认为这是新增了一个删除记录，在<code>git</code>的版本中，还是可以找到之前的删除文件。</p>
+<h2 id="3-工作区"><a href="#3-工作区" class="headerlink" title="3. 工作区"></a>3. 工作区</h2><p><code>git</code>有三个工作区：工作目录、索引(index)，<code>git</code>仓库。这三个工作区都存在与本地磁盘上，而类似于<code>github</code>的代码管理平台只是提供了一个远程仓库，只作为代码同步之用。</p>
+<p>这里以最常用的四个命令来讲解：</p>
+<ul>
+<li><code>git add .</code>：将工作目录的所有文件添加到暂存区；</li>
+<li><code>git commit -m &#39;commit msg’</code>：将暂存区的改动文件提交到本地仓库；</li>
+<li><code>git pull</code>&amp;<code>git push</code>：本地仓库与远程仓库的代码同步；</li>
+</ul>
+<p>也正是因为每个人本地都有一个代码仓库，所以<code>git</code>才可以离线操作。</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210520104419.png" alt="areas"></p>
+<h2 id="4-分布式"><a href="#4-分布式" class="headerlink" title="4. 分布式"></a>4. 分布式</h2><p><code>Git</code>与其他版本管理工具最大的不同是，<code>git</code>是一个<strong>分布式版本管理工具</strong>，那么究竟什么是分布式呢？</p>
+<h3 id="4-1-svn"><a href="#4-1-svn" class="headerlink" title="4.1 svn"></a>4.1 <code>svn</code></h3><p>这里以<code>subversion</code>版本管理工具为例，下图代表了程序员进行代码生产以及程序员间围绕代码仓库进行协作的模式：</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210519174408.png" alt="img{512x368}"></p>
+<p><code>subversion</code>是基于<strong>中心版本仓库</strong>进行版本管理协作的工具。所有的开发人员开始生产代码之前必须先从中心仓库<code>checkout</code>一份代码拷贝到自己本地的工作目录。这里就要求中心仓库始终高可用，如果中心仓库挂掉了，那么整个版本管理过程也将停止，程序员就无法工作。</p>
+<h3 id="4-2-git"><a href="#4-2-git" class="headerlink" title="4.2 git"></a>4.2 <code>git</code></h3><p>如果我们使用<code>Git</code>，那么过程就如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210519174359.png" alt="img{512x368}"></p>
+<p>如上图所示，<code>Git</code>的工作模式就是分布式，也是一种去中心化的模式，每个程序员本地都有一个本地<code>git</code>仓库，而不仅仅是一份代码拷贝，这个仓库就是一个独立的版本管理节点，它拥有程序员进行代码生产、版本管理、与其他程序员协作的全部信息。即便在一台没有网络连接的机器上，程序员也能利用该仓库完成代码生产和管理工作。在网络<code>ok</code>的情况下，任意两个<code>git</code>仓库之间可以进行点对点的协作，这种协作无需中心仓库的参与。</p>
+<h3 id="4-3-github"><a href="#4-3-github" class="headerlink" title="4.3  github"></a>4.3  <code>github</code></h3><p><code>git</code>实现的是分布式版本管理系统，但是如何将多个程序员的代码进行同步管理，这就需要一个类似于<code>控制平面</code>的工具，<code>github</code>就扮演这样一个角色，它实现了代码的托管、发现、控制等等。</p>
+<p><code>github</code>类似于一个<strong>中心仓库</strong>，但是它又和<code>subversion</code>的中心仓库有着本质上的不同，这个仓库只是一个<code>upstream</code>库，是一个权威库，不同协作节点的程序员可以将各自的本地仓库变化同步到<code>github</code>这个中心仓库上，以供其他程序员再同步到本地。但是所有程序员节点的代码生产和版本管理操作完全可以脱离该所谓<strong>中心仓库</strong>而独立实施。</p>
+<p><img src="https://raw.githubusercontent.com/aaaaaAndy/picture/main/images/20210519175437.png" alt="img{512x368}"></p>
+<a id="more"></a>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/category">Category</a></li>
+         
+          <li><a href="/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础"><span class="toc-number">1.</span> <span class="toc-text">1.  基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-什么是Git"><span class="toc-number">2.</span> <span class="toc-text">2. 什么是Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Snapshots快照"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Snapshots快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-本地化操作"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 本地化操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-数据完整"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 数据完整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-只增不删"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 只增不删</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-工作区"><span class="toc-number">3.</span> <span class="toc-text">3. 工作区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分布式"><span class="toc-number">4.</span> <span class="toc-text">4. 分布式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-svn"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 svn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-git"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-github"><span class="toc-number">4.3.</span> <span class="toc-text">4.3  github</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/" target="_blank" rel="noopener"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&text=关于git" target="_blank" rel="noopener"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&is_video=false&description=关于git" target="_blank" rel="noopener"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于git&body=Check out this article: https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&title=关于git" target="_blank" rel="noopener"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://aaaaaandy.github.io/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/&name=关于git&description=1. 基础
+
+Git是Linux之父Linus Torvalds继Linux内核之后奉献给全世界程序员的第二个礼物。
+
+Git是目前使用最广泛的分布式版本管理工具，它改变了全世界程序员的代码版本管理和生产协作模式，极大地促进了开源软件运动的发展。
+
+ * git下载地址：https://git-scm.com/downloads
+
+ * git安装文档：https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+ * git官方文档地址：https://git-scm.com/docs
+
+
+2. 什么是Git
+
+首先明确一点的是"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 aaaaaAndy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/category">Category</a></li>
+         
+          <li><a href="/blog/tag">Tag</a></li>
+         
+          <li><a href="/blog/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/blog/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/blog/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/blog/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'base'});
+  }
+</script>
+

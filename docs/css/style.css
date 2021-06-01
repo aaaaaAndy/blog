@@ -539,6 +539,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+.mermaid {
+  text-align: center;
+}
 .content {
   flex: 1;
 }

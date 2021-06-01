@@ -84,8 +84,70 @@
     
         <article class="post">
             <h1 class="post-title">
-                <a href="/blog/2020/12/21/git/%E8%A7%84%E8%8C%83git%E6%8F%90%E4%BA%A4message/">
-                    规范git提交message
+                <a href="/blog/2021/05/19/git/git%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/">
+                    git基础原理
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    May 19, 2021
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                1. git仓库
+
+git init可以初始化一个本地git仓库，执行完命令后在当前目录会存在一个.git文件夹，git所有的内容、信息都保存在此处，可以用tree命令查看.git目录下的目录结构：
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+
+
+~/workspace/github/git-study(master ✗) tree .git
+.git
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg
+                <a href="/blog/2021/05/19/git/git%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
+                <a href="/blog/2020/12/21/git/Commitizen%E5%BC%95%E5%85%A5/">
+                    Commitizen引入
                 </a>
             </h1>
 
@@ -130,14 +192,14 @@ yarn add commitizen cz-customizable -D
 "config": {
 	"commitizen": {
 		"path": "node_mo
-                <a href="/blog/2020/12/21/git/%E8%A7%84%E8%8C%83git%E6%8F%90%E4%BA%A4message/" class="more-link">Continue reading</a>
+                <a href="/blog/2020/12/21/git/Commitizen%E5%BC%95%E5%85%A5/" class="more-link">Continue reading</a>
             </div>
         </article>
     
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2020/08/08/git/git-fetch-pull/">
-                    git-fetch-pull
+                    git pull &amp; git fetch
                 </a>
             </h1>
 
@@ -151,7 +213,7 @@ yarn add commitizen cz-customizable -D
             </ul>
             
             <div class="post-content ">
-                Git-fetch-pull
+                git pull & git fetch
 
 与git fetch经常做对比的就是git pull了.
 
@@ -165,7 +227,7 @@ git fetch从远程分支获取最新版本到本地,并不会自动merge.
 
 git pull从远程分支获取最新版本到本地,并且merge,所以实际上git pull执行了两个步骤:
 
- 1. git fetch将
+ 1. git 
                 <a href="/blog/2020/08/08/git/git-fetch-pull/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -173,7 +235,7 @@ git pull从远程分支获取最新版本到本地,并且merge,所以实际上gi
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2020/08/08/git/git-tag/">
-                    git-tag
+                    git tag
                 </a>
             </h1>
 
@@ -187,7 +249,7 @@ git pull从远程分支获取最新版本到本地,并且merge,所以实际上gi
             </ul>
             
             <div class="post-content ">
-                git-tag
+                git tag
 
 > 像其他版本控制系统（VCS）一样，Git 可以给仓库历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（ v1.0 、 v2.0 等等）。
 
@@ -219,101 +281,8 @@ git tag xxx
     
         <article class="post">
             <h1 class="post-title">
-                <a href="/blog/2020/08/08/git/git%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/">
-                    git奇技淫巧
-                </a>
-            </h1>
-
-            <ul class="post-date">
-                <li>
-                    August 8, 2020
-                </li>
-                <li>
-                    aaaaaAndy
-                </li>
-            </ul>
-            
-            <div class="post-content ">
-                git奇技淫巧
-
-
-查看远程仓库地址
-
-1
-
-
-git remote –v
-
-
-
-删除远程仓库
-
-1
-
-
-git remote -d origin
-
-
-
-查看当前状态
-
-1
-
-
-git status
-
-
-
-撤销文件修改
-
-1
-
-
-git checkout test.txt
-
-
-
-取消暂存文件
-
-1
-
-
-git reset test.txt
-
-
-
-查看分支
-
-1
-
-
-git branch			//带*的为当前分支
-
-
-
-新建一个分支
-
-1
-
-
-git branch dev 			//从当前分支新建分支
-
-
-
-fetch
-
-1
-
-
-git fetch     			//拉取所有分支的更新，但不执行
-                <a href="/blog/2020/08/08/git/git%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="more-link">Continue reading</a>
-            </div>
-        </article>
-    
-        <article class="post">
-            <h1 class="post-title">
                 <a href="/blog/2019/09/11/git/git-stash/">
-                    Git-stash
+                    git stash
                 </a>
             </h1>
 
@@ -327,27 +296,69 @@ git fetch     			//拉取所有分支的更新，但不执行
             </ul>
             
             <div class="post-content ">
-                Git-stash
+                我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,git stash就是帮我们做这样事情的一个命令
 
-我们经常会遇到这样一种情况, 当我们做到需求做到一半,有人反馈了一个bug,这时我们不得不切换到另一个分支上去解决这个bug,而我们这一期的需求还没有做完,又不想提交,于是我们就设想有这样一个功能, 可以把我们的工作进度临时保存在本地,等我们解决完bug回来再取出这期需求,git stash就是帮我们做这样事情的一个命令
 
+1. 文档
+
+基础命令：git stash
+
+官方文档地址：https://git-scm.com/docs/git-stash
+
+功能：保存工作目录的更改到本地缓存中，同时将工作目录恢复到git最新状态。
+
+
+2. 基础命令
+
+
+2.1 git stash
 
 1. 功能
-
-备份当前工作区的内容到git栈中，并从最近的一次提交中读取相关内容，让工作区保证和上次commit的内容一致
-
-
-2. 用途
-
-主要用户临时保存当前工作进度，会把暂存区和工作区的改动保存起来。执行完这个命令后，在运行git status
                 <a href="/blog/2019/09/11/git/git-stash/" class="more-link">Continue reading</a>
             </div>
         </article>
     
         <article class="post">
             <h1 class="post-title">
+                <a href="/blog/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/">
+                    关于git
+                </a>
+            </h1>
+
+            <ul class="post-date">
+                <li>
+                    May 20, 2019
+                </li>
+                <li>
+                    aaaaaAndy
+                </li>
+            </ul>
+            
+            <div class="post-content ">
+                1. 基础
+
+Git是Linux之父Linus Torvalds继Linux内核之后奉献给全世界程序员的第二个礼物。
+
+Git是目前使用最广泛的分布式版本管理工具，它改变了全世界程序员的代码版本管理和生产协作模式，极大地促进了开源软件运动的发展。
+
+ * git下载地址：https://git-scm.com/downloads
+
+ * git安装文档：https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+ * git官方文档地址：https://git-scm.com/docs
+
+
+2. 什么是Git
+
+首先明确一点的是
+                <a href="/blog/2019/05/20/git/%E5%85%B3%E4%BA%8Egit/" class="more-link">Continue reading</a>
+            </div>
+        </article>
+    
+        <article class="post">
+            <h1 class="post-title">
                 <a href="/blog/2019/03/12/git/git-log/">
-                    Git-log
+                    git log
                 </a>
             </h1>
 
@@ -361,57 +372,27 @@ git fetch     			//拉取所有分支的更新，但不执行
             </ul>
             
             <div class="post-content ">
-                Git-log
+                1. 文档
+
+基础命令：git log
+
+官方文档地址：https://git-scm.com/docs/git-log
+
+功能：主要用来查看提交历史。
 
 
-1. 基础命令
-
- * 查看所有提交记录
-
-1
+2. 基础命令
 
 
-git log
+2.1 git log [xxx]
 
+不加任何参数的默认情况下，git log会按时间先后顺序列出所有的提交，最近的提交排在最上面。
 
- * 查看最近n次提交
-
-1
-
-
-git log -3      # 查看最近3次提交
-
-
- * 查看指定文件名的提交记录
-
-1
-
-
-git log readme.txt
-
-
- * 查看指定目录下所有文件的提交记录
-
-1
-
-
-git log dir/      # 查看dir目录下所有文件的提交鸡柳
-
-
- * 查看指定分支下的提交记录
-
-1
-
-
-git log dev     # 查看dev分支下所有提交记录
-
-
- * 查看指定tag下的提交记录
-
-1
-
-
-git log v2.0      # 查看v
+ * git log：默认真是所有的提交历史；
+ * git log file1：查看指定文件file1的提交历史；
+ * git log dir1/：查看指定dir1目录下所有文件的提交历史；
+ * git log dev：查看dev分支所有的提交历史；
+ * git log v2.
                 <a href="/blog/2019/03/12/git/git-log/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -419,7 +400,7 @@ git log v2.0      # 查看v
         <article class="post">
             <h1 class="post-title">
                 <a href="/blog/2019/02/20/git/git-add/">
-                    Git-add
+                    git add
                 </a>
             </h1>
 
@@ -433,66 +414,25 @@ git log v2.0      # 查看v
             </ul>
             
             <div class="post-content ">
-                Git-add
+                1. 文档
+
+基础命令：git add
+
+官方文档地址：https://git-scm.com/docs/git-add
+
+功能：将当前工作目录的新建/修改/删除的文件内容添加到暂存区，当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。
 
 
-基本用法
+2. 基础命令
 
 
-添加一个文件
+2.1 git add xxx
 
-1
+此为不加参数的git add用法，默认将修改操作的文件和未跟踪新添加的文件添加到git暂存区，不包括删除的文件。
 
-
-git add readme.txt
-
-
-
-添加多个文件
-
-1
-
-
-git add readme.txt one.js
-
-
-
-通配符进行匹配文件
-
-1
-
-
-git add *.html    # 添加后缀名为html的文件
-
-
-
-添加一个目录
-
-1
-
-
-git add dir     # 添加目录dir下的所有文件
-
-
-
-添加目录下的指定文件
-
-1
-
-
-git add dir/one.js
-
-
-
-添加所有文件
-
-1
-2
-3
-
-
-git add .         # 提交新增，修改文件，不包括删除文件
-git add -u       
+ * git add file1：只添加file1一个文件：
+ * git add file1 file2：添加file1和file2两个文件；
+ * git 
                 <a href="/blog/2019/02/20/git/git-add/" class="more-link">Continue reading</a>
             </div>
         </article>
@@ -582,4 +522,12 @@ git add -u
 
 
 
+
+
+<script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'base'});
+  }
+</script>
 
