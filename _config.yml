@@ -112,6 +112,8 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
 ## Themes: https://hexo.io/themes/
 #theme: anull
 theme: cactus-white
+#theme: Hacker
+#theme: cactus-light
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
